@@ -1,0 +1,69 @@
+
+
+import sys
+import heapq as hq
+
+sys.path.append('..')
+from data.read_data import get_graph_data, get_vehicle_data
+
+
+edges = get_graph_data(0)
+
+
+hq.heapify(edges)
+
+# get vehicle data
+vehicle = get_vehicle_data(6)
+
+# print(vehicle)
+
+# todo - for now just assigning edges according to priority
+# todo - limited by [sum of edge demand for any day i] < [vehicle capacity]
+
+
+# todo - limited by [sum of routing cost for any day i] < [vehicle distance_limit]
+# * need to do a bit more for this
+
+
+day_assignment = [[] for _ in range(vehicle['planning_duration'])]
+capacity_used = [0] * vehicle['planning_duration']
+
+next_day_streets = []
+
+# todo - replace 7 with vehicle['planning_duration']
+for day in range(vehicle['planning_duration']):
+
+    if day in vehicle['days_no_service']:
+        # skip day if vehicle not available for today
+        continue
+
+    edges = list(hq.merge(edges, next_day_streets))
+
+    next_day_streets = []
+
+    while capacity_used[day] < vehicle['capacity'] and len(edges) > 0:
+        
+        # get edge with nearest deadline
+        edge = hq.heappop(edges)
+
+        if capacity_used[day] + edge.demand > vehicle['capacity']:
+            # if edge has higher demand than the vehicle can handle for the day then skip it for today
+            hq.heappush(next_day_streets, edge)
+            continue
+
+        capacity_used[day] += edge.demand
+        day_assignment[day].append(edge)
+        edge.set_cleaning_day(day)
+
+
+        if (edge.last_cleaning_day + edge.freq) < vehicle['planning_duration']:
+            hq.heappush(next_day_streets, edge)
+
+
+print(f"Max vehicle capacity: {vehicle['capacity']}")
+for i in range(vehicle['planning_duration']):
+    if len(day_assignment[i]) > 0:
+        print(f"Edges Assigned for day {i}:")
+        for e in day_assignment[i]:
+            print(e.number, end=', ')
+        print(f"\nCapacity used for day {i}:{str(capacity_used[i])}")
