@@ -75,6 +75,32 @@ def get_graph_data(i):
     
     return None
 
+def get_graph_metadata(i):
+    try:
+        file = os.listdir(graph_data_directory)[i]
+    except IndexError:
+        print('Index out of range for file!')
+        return None
+    except:
+        print("Some other error while reading file")
+        return None
+
+    with open(os.path.join(graph_data_directory, file), 'r') as f:
+        graph_data = f.read()
+
+        lines = graph_data.splitlines()
+    
+        # * number of nodes/vertices
+        num_nodes = int(re.sub(r'.*:\s*', '', lines[1]))
+        
+        # * number of edges
+        num_edges = int(re.sub(r'.*:\s*', '', lines[2]))
+
+        # * in the first few files it's 0, but not in all of them
+        depot_node = int(re.sub(r'.*:\s*', '', lines[3]))
+
+        return {'num_nodes' : num_nodes, 'num_edges' : num_edges, 'depot_node' : depot_node}
+
 
 # get data
 def get_vehicle_data(i):
