@@ -4,16 +4,22 @@ import sys
 import heapq as hq
 
 sys.path.append('..')
-from data.read_data import get_graph_data, get_vehicle_data
+from data.read_data import get_graph_demanded_edges, get_vehicle_data, get_graph_al, PriorityType
+from util.routing_heuristic import calculate_cost
 
+# todo - set values for below with cmd args if given
+GRAPH_ID = 0
+VEHICLE_ID = 6
 
-edges = get_graph_data(0)
+edges = get_graph_demanded_edges(GRAPH_ID)
 
+# below used for calculating routing cost
+adjacency_list = get_graph_al(GRAPH_ID, PriorityType.Distance)
 
 hq.heapify(edges)
 
 # get vehicle data
-vehicle = get_vehicle_data(6)
+vehicle = get_vehicle_data(GRAPH_ID)
 
 # print(vehicle)
 
@@ -59,6 +65,7 @@ for day in range(vehicle['planning_duration']):
         if (edge.last_cleaning_day + edge.freq) < vehicle['planning_duration']:
             hq.heappush(next_day_streets, edge)
 
+# todo - should I calculate routing cost when I assign every new single edge?
 
 print(f"Max vehicle capacity: {vehicle['capacity']}")
 for i in range(vehicle['planning_duration']):
@@ -67,3 +74,7 @@ for i in range(vehicle['planning_duration']):
         for e in day_assignment[i]:
             print(e.number, end=', ')
         print(f"\nCapacity used for day {i}:{str(capacity_used[i])}")
+        routing_cost = calculate_cost(adjacency_list, day_assignment[i], vehicle)
+        # since the same graph is used - distances should be calculated only once
+        vehicle['distance_limit'] = 100     # ! for debugging purposes
+        print(f"Routing cost info for day {i}:\n{routing_cost}\n")
