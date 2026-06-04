@@ -8,7 +8,7 @@ from data.read_data import get_graph_demanded_edges, get_vehicle_data, get_graph
 from util.routing_heuristic import calculate_cost
 
 # todo - set values for below with cmd args if given
-GRAPH_ID = 0
+GRAPH_ID = 8
 VEHICLE_ID = 6
 
 edges = get_graph_demanded_edges(GRAPH_ID)
@@ -76,5 +76,8 @@ for i in range(vehicle['planning_duration']):
         print(f"\nCapacity used for day {i}:{str(capacity_used[i])}")
         routing_cost = calculate_cost(adjacency_list, day_assignment[i], vehicle)
         # since the same graph is used - distances should be calculated only once
-        vehicle['distance_limit'] = 100     # ! for debugging purposes
-        print(f"Routing cost info for day {i}:\n{routing_cost}\n")
+        vehicle['distance_limit'] = 160     # ! for debugging purposes
+        print(f"Routing cost info for day {i}:{routing_cost['total_distance']}\nNumber of routes: {routing_cost['num_routes']}\n\nRoutes")
+        for route in routing_cost['routes']:
+            print(route.targets)
+        print('\n-----------------------------\n')

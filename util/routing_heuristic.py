@@ -11,6 +11,8 @@ memo_distances = None
 def calculate_distances(adjacency_list):
     global memo_distances
 
+    max_distance = 0
+
     memo_distances = dict()
     for i in range(len(adjacency_list)):
         memo_distances[i] = dict()
@@ -22,8 +24,14 @@ def calculate_distances(adjacency_list):
             min_edge = hq.heappop(current)
             if min_edge.end_node not in memo_distances[i] or min_edge.distance < memo_distances[i][min_edge.end_node]:
                 memo_distances[i][min_edge.end_node] = min_edge.distance
+                
+                # ? for debugging purposes - seeing the graph's max distance
+                if min_edge.distance > max_distance:
+                    max_distance = min_edge.distance
+
                 for edge in adjacency_list[min_edge.end_node]:
                     hq.heappush(current, edge)
+    print(f"Max distance in the graph: {max_distance}")
 
 # get the minimum distance from a node to an edge
 def min_distance_ne(node, edge):
@@ -52,42 +60,64 @@ class Saving:
     def same_route(self):
         return self.target_1.route == self.target_2.route
     
-    def internal_targets(self, routes):
+    def internal_targets(self):
         # check if both targets are either beginning or ending points of the route
         route = self.target_1.route
-        pos_in_route = route.index(self.target_1)
-        if pos_in_route > 0 and pos_in_route < len(route) - 1:
+        pos_in_route = route.targets.index(self.target_1)
+        if pos_in_route > 0 and pos_in_route < len(route.targets) - 1:
             return True
         
         # same for target 2
         route = self.target_2.route
-        pos_in_route = route.index(self.target_2)
-        if pos_in_route > 0 and pos_in_route < len(route) - 1:
+        pos_in_route = route.targets.index(self.target_2)
+        if pos_in_route > 0 and pos_in_route < len(route.targets) - 1:
             return True
         
-    def add_merged_route(self, routes):
-        # check if both targets are either beginning or ending points of the route
-        route_1 = self.target_1.route
-        pos_in_route = route_1.index(self.target_1)
-        if pos_in_route == 0:
-            route_1.reverse()
-        
-        # same for target 2
-        route_2 = self.target_2.route
-        pos_in_route = route_2.index(self.target_2)
-        if pos_in_route == 0:
-            new_route = route_1 + route_2
+   
+
+
+class Route:
+    def __init__(self, targets, length=-1, demand=-1):
+        self.targets = targets
+
+        if length == -1:
+            self.length = min_distance_ne(0, targets[0]) + min_distance_ne(0, targets[-1])
+            for i in range(len(targets) - 1):
+                self.length += min_distance_ee(targets[i], targets[i+1])
         else:
-            new_route = route_2 + route_1
-        routes.remove(route_1)
-        routes.remove(route_2)
+            self.length = length
+
+        if demand == -1:
+            self.demand = 0
+            for target in targets:
+                self.demand += target.demand
+        else:
+            self.demand = demand
+
+    def merge(self, other, saving):
+        # todo - merge two routes and calculate the new length
         
-        routes.append(new_route)
-        new_route_id = routes.index(new_route)
-        for edge in new_route:
-            edge.route = new_route
+        t1 = saving.target_1
+        if t1 not in self.targets:
+            t1 = saving.target_2
+            t2 = saving.target_1
+        else:
+            t2 = saving.target_2
 
+        if self.targets.index(t1) == 0:
+            self.targets.reverse()
 
+        if other.targets.index(t2) == 0:
+            new_targets = self.targets + other.targets
+        else:
+            new_targets = other.targets + self.targets
+        
+        length = self.length + other.length - saving.saving
+        return Route(new_targets, length, self.demand + other.demand)
+
+    def set_target_routes(self):
+        for target in self.targets:
+            target.route = self
 
 # * using memoization so distances in a graph are calculated once and then re-using
 # * using additional argument in case I'm switching between graphs
@@ -103,16 +133,12 @@ def calculate_cost(adjacency_list, targets, vehicle, recalculate_distances = Fal
     # todo - routing heuristic, using the given points
     savings = []
     routes = []
-    route_distance = []
-    route_demand = []
 
     # ! ASSUMING NODE 0 IS THE DEPOT
     # initial routing depot-target-depot
     for i in range(len(targets)):
-        routes.append([targets[i]])
+        routes.append(Route([targets[i]]))
         distance = 2 * min_distance_ne(0, targets[i])
-        route_distance.append(distance)
-        route_demand.append(targets[i].demand)
         targets[i].route = routes[i]
         
 
@@ -136,58 +162,42 @@ def calculate_cost(adjacency_list, targets, vehicle, recalculate_distances = Fal
         
         top_saving = hq.heappop(savings)
         
+        if top_saving.saving <= 0:
+            break      # if the top saving has a negative value stop and return the routes made so far
+        
         if top_saving.same_route():
             continue    # if this link is in the same route
 
-        if top_saving.internal_targets(routes):
+        if top_saving.internal_targets():
             continue    # if one of the targets is a mid-point in a route (not beginning or ending point)
 
-        if top_saving.saving <= 0:
-            break   # if the top saving has a negative value stop and return the routes made so far
 
         # check if vehicle can handle the distance and capacity of the merged route
         route_1 = top_saving.target_1.route
         route_2 = top_saving.target_2.route
-        
-        # distane between depot and first target + depot and last target
-        r1_distance = min_distance_ne(0, route_1[0]) + min_distance_ne(0, route_1[-1])
-        r2_distance = min_distance_ne(0, route_2[0]) + min_distance_ne(0, route_2[-1])
-        
-        # distance between mid-points
-        for i in range(len(route_1) - 1):
-            r1_distance += min_distance_ee(route_1[i], route_1[i+1])
 
-        for i in range(len(route_2) - 1):
-            r1_distance += min_distance_ee(route_2[i], route_2[i+1])
-        
-        new_route_distance = r1_distance + r2_distance - top_saving.saving
+        new_route = route_1.merge(route_2, top_saving)
 
-        if new_route_distance > vehicle['distance_limit']:
+        if new_route.length > vehicle['distance_limit']:
             continue
-
-        new_route_demand = 0
-        for target in route_1:
-            new_route_demand += target.demand
-        for target in route_2:
-            new_route_demand += target.demand
-
-        if new_route_demand > vehicle['capacity']:
+        if new_route.demand > vehicle['capacity']:
             continue
-        
 
         # else it's fine and merge the routes
-        top_saving.add_merged_route(routes)
+        routes.remove(route_1)
+        routes.remove(route_2)
+
+        routes.append(new_route)
+        new_route.set_target_routes()
+
 
     # organize the output
-    res = {'distance' : 0, 'num_routes' : len(routes), 'routes' : routes}
+    res = {'total_distance' : 0, 'num_routes' : len(routes), 'routes' : routes}
     # ! having num_routes since 1 vehicle could in theory take multiple routes given enough capacity and distance
     # todo - consider above - another optimization problem - which routes which vehicle takes
 
     # calculate distance covered
     for route in routes:
-        # distances from depot to first node and last node to depot
-        res['distance'] += min_distance_ne(0, route[0]) + min_distance_ne(0, route[-1])
-        for i in range(len(route) - 1):
-            res['distance'] += min_distance_ee(route[i], route[i+1])
+        res['total_distance'] += route.length
 
     return res
