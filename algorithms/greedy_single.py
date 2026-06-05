@@ -34,7 +34,8 @@ vehicle = get_vehicle_data(GRAPH_ID)
 day_assignment = [[] for _ in range(vehicle['planning_duration'])]
 capacity_used = [0] * vehicle['planning_duration']
 
-next_day_streets = []
+next_day_streets = [[] for _ in range(vehicle['planning_duration'] + 1)]
+
 
 # todo - replace 7 with vehicle['planning_duration']
 for day in range(vehicle['planning_duration']):
@@ -43,9 +44,12 @@ for day in range(vehicle['planning_duration']):
         # skip day if vehicle not available for today
         continue
 
-    edges = list(hq.merge(edges, next_day_streets))
+    edges = list(hq.merge(edges, next_day_streets[0]))
 
-    next_day_streets = []
+
+    for i in range(vehicle['planning_duration'] - day - 1):
+        next_day_streets[i] = next_day_streets[i+1]
+        
 
     while capacity_used[day] < vehicle['capacity'] and len(edges) > 0:
         
@@ -54,7 +58,7 @@ for day in range(vehicle['planning_duration']):
 
         if capacity_used[day] + edge.demand > vehicle['capacity']:
             # if edge has higher demand than the vehicle can handle for the day then skip it for today
-            hq.heappush(next_day_streets, edge)
+            hq.heappush(next_day_streets[0], edge)
             continue
 
         capacity_used[day] += edge.demand
@@ -63,9 +67,13 @@ for day in range(vehicle['planning_duration']):
 
 
         if (edge.last_cleaning_day + edge.freq) < vehicle['planning_duration']:
-            hq.heappush(next_day_streets, edge)
+            # push it to the future for at least freq/2 days
+            # so some edgees that have higher frequency aren't clean
+            hq.heappush(next_day_streets[int(edge.freq // 2)], edge)
 
 # todo - should I calculate routing cost when I assign every new single edge?
+
+vehicle['distance_limit'] = 160     # ! for debugging purposes
 
 print(f"Max vehicle capacity: {vehicle['capacity']}")
 for i in range(vehicle['planning_duration']):
@@ -76,7 +84,6 @@ for i in range(vehicle['planning_duration']):
         print(f"\nCapacity used for day {i}:{str(capacity_used[i])}")
         routing_cost = calculate_cost(adjacency_list, day_assignment[i], vehicle)
         # since the same graph is used - distances should be calculated only once
-        vehicle['distance_limit'] = 160     # ! for debugging purposes
         print(f"Routing cost info for day {i}:{routing_cost['total_distance']}\nNumber of routes: {routing_cost['num_routes']}\n\nRoutes")
         for route in routing_cost['routes']:
             print(route.targets)

@@ -58,6 +58,11 @@ class Edge:
     def __repr__(self):
         return f"Edge: {self.start_node} --> {self.end_node}"
 
+    # below to avoid assigning a duplicate edge in the same day
+    def __eq__(self, value):
+        if not isinstance(value, Edge):
+            return False
+        return (self.start_node == value.start_node and self.end_node == value.end_node) or (self.start_node == value.end_node and self.end_node == value.start_node)
 
 # get data for graph i
 # list of all edges for graph i

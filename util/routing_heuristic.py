@@ -11,6 +11,7 @@ memo_distances = None
 def calculate_distances(adjacency_list):
     global memo_distances
 
+    # ? for debugging purposes - seeing the graph's max distance
     max_distance = 0
 
     memo_distances = dict()
@@ -25,13 +26,13 @@ def calculate_distances(adjacency_list):
             if min_edge.end_node not in memo_distances[i] or min_edge.distance < memo_distances[i][min_edge.end_node]:
                 memo_distances[i][min_edge.end_node] = min_edge.distance
                 
-                # ? for debugging purposes - seeing the graph's max distance
                 if min_edge.distance > max_distance:
                     max_distance = min_edge.distance
 
                 for edge in adjacency_list[min_edge.end_node]:
                     hq.heappush(current, edge)
-    print(f"Max distance in the graph: {max_distance}")
+
+    # print(f"Max distance in the graph: {max_distance}")
 
 # get the minimum distance from a node to an edge
 def min_distance_ne(node, edge):
