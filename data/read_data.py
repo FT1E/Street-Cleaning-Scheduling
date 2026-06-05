@@ -104,7 +104,27 @@ def get_graph_edge_list(i):
         # * converting data to numeric
         edge_data = edge_data.apply(pd.to_numeric)
 
-        return [Edge(e.EdgeNumber, e.StartNodeNumber, e.EndNodeNumber, -1, e.Cost, -1) for e in edge_data.itertuples(False)]
+        # * - assign frequency to each edge
+        edge_frequencies = [None] * num_edges
+
+        for tuple in edge_data.itertuples(False):
+            edge_frequencies[tuple.EdgeNumber] = [intervals[i] for i in range(num_of_intervals) if getattr(tuple, f'Demand_{i}') != 0]
+
+        non_zero_edges = pd.DataFrame([ [i , edge_frequencies[i], min(edge_frequencies[i]), max(edge_frequencies[i])] for i in range(len(edge_frequencies)) if len(edge_frequencies[i]) > 0], columns = ['EdgeNumber', 'Frequencies', 'MinFrequency', 'MaxFrequency'])
+
+        
+
+        edge_data = pd.merge(edge_data, non_zero_edges, how='left', on='EdgeNumber')
+
+        edge_data = edge_data.fillna(-1)
+
+        res = []
+        for e in edge_data.itertuples(False):
+            if e.MinFrequency != -1:
+                res.append(Edge(e.EdgeNumber, e.StartNodeNumber, e.EndNodeNumber, getattr(e, edge_header[5 + 2*intervals.index(e.MinFrequency)]), e.Cost, e.MinFrequency))
+            else:
+                res.append(Edge(e.EdgeNumber, e.StartNodeNumber, e.EndNodeNumber, -1, e.Cost, -1))
+        return res
 
 
 # list of edges with non-zero demand
