@@ -7,7 +7,7 @@ sys.path.append('..')
 from data.read_data import get_graph_al, get_graph_demanded_edges, get_vehicle_data, get_graph_metadata
 from util.routing_heuristic import calculate_cost
 
-GRAPH_ID = 0
+GRAPH_ID = 8
 VEHICLE_ID = 6
 CLUSTER_LIMIT = 5   # TODO - play with numbers, also consider case of infinite - like selecting 1 edge, then building assignment for day from it / around it
 
@@ -44,7 +44,7 @@ cluster_vertices = []
 cluster_edges = []
 cluster_origin = None
 
-vehicle['planning_duration'] = 7     # ! for debugging purposes
+# vehicle['planning_duration'] = 7     # // ! for debugging purposes
     
 for day in range(vehicle['planning_duration']):
 
@@ -81,13 +81,14 @@ for day in range(vehicle['planning_duration']):
 
             # if edge is already assigned to this day
             if edge in day_assignment[day]:
-                print(f"Edge {edge} is already assigned to day {day}")
+                # print(f"Edge {edge} is already assigned to day {day}")
                 continue
 
             # if edge doesn't require cleaning
             if edge.demand <= 0:
                 if len(cluster_heap) == 0 and current_cluster_size == 1:
-                    print(f"Top edge was surrounded by edges with zero demand")
+                    # print(f"Top edge was surrounded by edges with zero demand")
+                    pass
                 continue
 
             if capacity_used[day] + edge.demand > vehicle['capacity']:
@@ -121,13 +122,15 @@ for day in range(vehicle['planning_duration']):
                         hq.heappush(cluster_heap, adjacent_edge)
         
         if current_cluster_size > 0:
-            print(f"Cluster size: {current_cluster_size}, cluster origin: {cluster_origin}, cluster edges: {cluster_edges}")
+            # print(f"Cluster size: {current_cluster_size}, cluster origin: {cluster_origin}, cluster edges: {cluster_edges}")
+            pass
         hq.heapify(edges)
 
 
-vehicle['distance_limit'] = 160     # ! for debugging purposes
+vehicle['distance_limit'] = 500     # ! for debugging purposes
 
 print(f"Max vehicle capacity: {vehicle['capacity']}")
+total_distance = 0
 for i in range(vehicle['planning_duration']):
     if len(day_assignment[i]) > 0:
         print(f"Edges Assigned for day {i}:")
@@ -136,9 +139,14 @@ for i in range(vehicle['planning_duration']):
         print(f"\nCapacity used for day {i}:{str(capacity_used[i])}")
         
         
-        # routing_cost = calculate_cost(adjacency_lists, day_assignment[i], vehicle)
+        routing_cost = calculate_cost(adjacency_lists, day_assignment[i], vehicle)
 
-        # print(f"Routing cost info for day {i}:{routing_cost['total_distance']}\nNumber of routes: {routing_cost['num_routes']}\n\nRoutes")
-        # for route in routing_cost['routes']:
-        #     print(route.targets)
-        # print('\n-----------------------------\n')
+        print(f"Total routing distance for day {i}:{routing_cost['total_distance']}\nNumber of routes: {routing_cost['num_routes']}\n\nRoutes")
+        for route in routing_cost['routes']:
+            print(f'Route length: {route.length}')
+            print(route.targets)
+        print('\n-----------------------------\n')
+
+        total_distance += routing_cost['total_distance']
+
+print(f"\nTotal distance for all days: {total_distance}")

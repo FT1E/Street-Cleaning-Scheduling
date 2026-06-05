@@ -19,7 +19,7 @@ adjacency_list = get_graph_al(GRAPH_ID, PriorityType.Distance)
 hq.heapify(edges)
 
 # get vehicle data
-vehicle = get_vehicle_data(GRAPH_ID)
+vehicle = get_vehicle_data(VEHICLE_ID)
 
 # print(vehicle)
 
@@ -37,7 +37,6 @@ capacity_used = [0] * vehicle['planning_duration']
 next_day_streets = [[] for _ in range(vehicle['planning_duration'] + 1)]
 
 
-# todo - replace 7 with vehicle['planning_duration']
 for day in range(vehicle['planning_duration']):
 
     if day in vehicle['days_no_service']:
@@ -73,9 +72,12 @@ for day in range(vehicle['planning_duration']):
 
 # todo - should I calculate routing cost when I assign every new single edge?
 
-vehicle['distance_limit'] = 160     # ! for debugging purposes
+vehicle['distance_limit'] = 500     # ! for debugging purposes
 
 print(f"Max vehicle capacity: {vehicle['capacity']}")
+
+total_distance = 0
+
 for i in range(vehicle['planning_duration']):
     if len(day_assignment[i]) > 0:
         print(f"Edges Assigned for day {i}:")
@@ -84,7 +86,11 @@ for i in range(vehicle['planning_duration']):
         print(f"\nCapacity used for day {i}:{str(capacity_used[i])}")
         routing_cost = calculate_cost(adjacency_list, day_assignment[i], vehicle)
         # since the same graph is used - distances should be calculated only once
-        print(f"Routing cost info for day {i}:{routing_cost['total_distance']}\nNumber of routes: {routing_cost['num_routes']}\n\nRoutes")
+        print(f"Total routing distance for day {i}:{routing_cost['total_distance']}\nNumber of routes: {routing_cost['num_routes']}\n\nRoutes")
         for route in routing_cost['routes']:
+            print(f'Route length: {route.length}')
             print(route.targets)
         print('\n-----------------------------\n')
+        total_distance += routing_cost['total_distance']
+
+print(f"\nTotal distance for all days: {total_distance}")
