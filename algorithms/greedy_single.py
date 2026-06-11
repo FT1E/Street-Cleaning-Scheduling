@@ -23,13 +23,6 @@ vehicle = get_vehicle_data(VEHICLE_ID)
 
 # print(vehicle)
 
-# todo - for now just assigning edges according to priority
-# todo - limited by [sum of edge demand for any day i] < [vehicle capacity]
-
-
-# todo - limited by [sum of routing cost for any day i] < [vehicle distance_limit]
-# * need to do a bit more for this
-
 
 day_assignment = [[] for _ in range(vehicle['planning_duration'])]
 capacity_used = [0] * vehicle['planning_duration']
@@ -70,13 +63,14 @@ for day in range(vehicle['planning_duration']):
             # so some edgees that have higher frequency aren't clean
             hq.heappush(next_day_streets[int(edge.freq // 2)], edge)
 
-# todo - should I calculate routing cost when I assign every new single edge?
 
 vehicle['distance_limit'] = 500     # ! for debugging purposes
 
 print(f"Max vehicle capacity: {vehicle['capacity']}")
 
 total_distance = 0
+
+day_routing_info = []
 
 for i in range(vehicle['planning_duration']):
     if len(day_assignment[i]) > 0:
@@ -93,4 +87,10 @@ for i in range(vehicle['planning_duration']):
         print('\n-----------------------------\n')
         total_distance += routing_cost['total_distance']
 
+        day_routing_info.append(routing_cost)
+
 print(f"\nTotal distance for all days: {total_distance}")
+
+# output saved in 
+# (day_assignment, day_routing_info)
+# day_routing_info can be calculated from day_assignment

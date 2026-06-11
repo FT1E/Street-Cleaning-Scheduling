@@ -23,16 +23,28 @@ PriorityType = Enum('PriorityType', {'Frequency' : 0, 'Deadline' : 1, 'Distance'
 
 class Edge:
     def __init__(self, number, start_node, end_node, demand, distance, freq, priority_type = PriorityType.Deadline, last_cleaning_day=0, curr_day=0):
+        
+        # id
         self.number = number
+        
+        # end-nodes
         self.start_node = start_node
         self.end_node = end_node
+        
+        # demand, distance, frequency
         self.demand = demand
         self.distance = distance
         self.freq = freq
+
+        # for static clustering algorithm
+        self.static_cluster = None
+
+        # run-time info
         self.curr_day = curr_day
         self.last_cleaning_day = last_cleaning_day      # irrelevant for streets which are cleaned only once in time duration
         self.priority_type = priority_type
         self.route = -1
+
 
     def __lt__(self, other):
         return self.priority() - other.priority()
@@ -63,6 +75,12 @@ class Edge:
         if not isinstance(value, Edge):
             return False
         return (self.start_node == value.start_node and self.end_node == value.end_node) or (self.start_node == value.end_node and self.end_node == value.start_node)
+
+    # used for static clustering - satisfied if since last cleaning day, less than half the frequency days have passed
+    def is_satisfied(self, curr_day = None):
+        if curr_day is not None:
+            self.curr_day = curr_day
+        return self.last_cleaning_day + self.freq // 2 < self.curr_day
 
 # get data for graph i
 # list of all edges for graph i
