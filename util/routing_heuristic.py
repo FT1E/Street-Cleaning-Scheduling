@@ -34,6 +34,14 @@ def calculate_distances(adjacency_list):
 
     # print(f"Max distance in the graph: {max_distance}")
 
+def get_min_distances(adjacency_list=None):
+    global memo_distances
+
+    if adjacency_list is not None:
+        calculate_distances(adjacency_list)
+    
+    return memo_distances
+    
 # get the minimum distance from a node to an edge
 def min_distance_ne(node, edge):
     return min(memo_distances[node][edge.start_node], memo_distances[node][edge.end_node])

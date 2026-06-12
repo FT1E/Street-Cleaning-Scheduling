@@ -78,6 +78,9 @@ class Edge:
 
     # used for static clustering - satisfied if since last cleaning day, less than half the frequency days have passed
     def is_satisfied(self, curr_day = None):
+        if self.last_cleaning_day <= 0:
+            return False
+        
         if curr_day is not None:
             self.curr_day = curr_day
         return self.last_cleaning_day + self.freq // 2 < self.curr_day

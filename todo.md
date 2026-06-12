@@ -2,7 +2,7 @@
 - greedy dynamic cluster
 	- consistency between local selection and global selection
 		- done in an efficient way
-
+- caching distance matrices (distance between every pair of nodes) - it's the thing which takes the longest to calculate
 - solution checker - new script
 	- **first organize the output of the scripts in /algorithms**
 	- then test the output, check below for each day
