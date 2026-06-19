@@ -22,7 +22,7 @@ vehicle_data_directory = os.path.join('D:\\','Seminar', 'data', 'SP-CARP vehicle
 PriorityType = Enum('PriorityType', {'Frequency' : 0, 'Deadline' : 1, 'Distance' : 2})
 
 class Edge:
-    def __init__(self, number, start_node, end_node, demand, distance, freq, priority_type = PriorityType.Deadline, last_cleaning_day=0, curr_day=0):
+    def __init__(self, number, start_node, end_node, demand, distance, freq, priority_type = PriorityType.Deadline, last_cleaning_day=-1, curr_day=0):
         
         # id
         self.number = number
@@ -78,7 +78,7 @@ class Edge:
 
     # used for static clustering - satisfied if since last cleaning day, less than half the frequency days have passed
     def is_satisfied(self, curr_day = None):
-        if self.last_cleaning_day <= 0:
+        if self.last_cleaning_day < 0:
             return False
         
         if curr_day is not None:

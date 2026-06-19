@@ -34,8 +34,12 @@ class Cluster:
     def size(self):
         return len(self.edges)
     
-    def num_satisfied_edges(self):
-        return sum(1 for edge in self.edges if edge.is_satisfied(self.curr_day))
+    def num_non_satisfied_edges(self):
+        res = 0
+        for edge in self.edges:
+            if not edge.is_satisfied(self.curr_day):
+                res += 1
+        return res
 
     def assign_cluster(self):
         for edge in self.edges:
@@ -51,16 +55,19 @@ class Cluster:
 
         return res
 
+    def __lt__(self, other):
+        return self.priority() < other.priority()
+
 # for making the cut - do BFS and if a child has level < cut_level add it, else add it to queue for BFS
 
 # todo - consider an alternative implementation where cut is made according to number of clusters if given as argument
-def generate_static_clusters(edge_list, adjacency_list):
+def generate_static_clusters(edge_list, adjacency_list, vehicle):
 
     calculate_distances(adjacency_list)
 
     lvl_0_clusters = [Cluster([edge]) for edge in edge_list]
-    levels = set()
-    levels.add(0)
+    for cluster in lvl_0_clusters:
+        cluster.assign_cluster()
 
     min_distances = []
     for e1 in edge_list:
@@ -70,7 +77,9 @@ def generate_static_clusters(edge_list, adjacency_list):
     hq.heapify(min_distances)
 
     cluster_num = len(edge_list)
-    root_cluster = None
+
+    static_clusters = []
+    merged_cluster = None
     while cluster_num > 1:
         curr_dist, e1, e2 = hq.heappop(min_distances)
         # Find the clusters containing e1 and e2
@@ -80,50 +89,34 @@ def generate_static_clusters(edge_list, adjacency_list):
         if cluster1 == cluster2:
             continue    # skip if in same cluster
 
+        if cluster1.demand() + cluster2.demand() > vehicle['capacity']:
+            # add them to return res
+            static_clusters.append(cluster1)
+            static_clusters.append(cluster2)
+            
+            cluster_num -= 2
+            continue
+
         cluster_num -= 1
-        root_cluster = cluster1.merge(cluster2, curr_dist)
-        levels.add(curr_dist)
+        merged_cluster = cluster1.merge(cluster2, curr_dist)
+        merged_cluster.assign_cluster()
         # last time root_cluster is assigned it will be the root
 
-    # * - find cut - at biggest jump
-    cut_level = -1
-    max_jump = 0
-    levels = list(levels)
-    levels.sort()
-    for i in range(0, len(levels)-1):
-        jump = levels[i+1] - levels[i]
-        if jump > max_jump:
-            max_jump = jump
-            cut_level = i+1     # everything below this will be a cluster
-
-
-    # * - bfs depending on whether the child is
-    # *     - below cut line (add cluster)
-    # *     - or not (continue search)
-    bfs_queue = [root_cluster]
-
-    static_clusters = []
-    while len(bfs_queue) > 0:
-        curr_cluster = bfs_queue.pop(0)
-
-        child_1 = curr_cluster.child_1
-        child_2 = curr_cluster.child_2
-        if child_1.max_dist < levels[cut_level]:
-            static_clusters.append(child_1)
-        else:
-            bfs_queue.append(child_1)
-
-        if child_2.max_dist < levels[cut_level]:
-            static_clusters.append(child_2)
-        else:
-            bfs_queue.append(child_2)
-
-    for cluster in static_clusters:
-        cluster.assign_cluster()
-        cluster.curr_day = 0
-
+    print(f'[DEBUG]: cluster_num == {cluster_num}')
+   
     return static_clusters
 
+def generate_cw_clusters(edge_list, adjacency_list, vehicle):
+    # generate static clusters by giving all of the edges as targets to Clarke-Wright 
+    # and turning each route into a static cluster
+    routing_info = calculate_cost(adjacency_list, edge_list, vehicle)
+
+    cw_clusters = []
+    for route in routing_info['routes']:
+        cw_clusters.append(Cluster(route.targets))
+        cw_clusters[-1].assign_cluster()
+
+    return cw_clusters
 
 def run(edge_list, adjacency_list, vehicle):
     # returns day_assignment list
@@ -131,36 +124,50 @@ def run(edge_list, adjacency_list, vehicle):
     day_assignment = [[] for _ in range(vehicle['planning_duration'])]
     capacity_used = [0] * vehicle['planning_duration']
 
-    clusters = generate_static_clusters(edge_list, adjacency_list)
+    clusters = generate_cw_clusters(edge_list, adjacency_list, vehicle)
     next_day_clusters = []
 
     hq.heapify(clusters)
 
     for day in range(vehicle['planning_duration']):
-        if day in vehicle['days_no_service']:
+        if day+1 in vehicle['days_no_service']:
             continue
         
-        clusters = list(hq.merge(clusters, next_day_clusters))
-        next_day_clusters = []
-
         # update curr_day in every cluster
         for cluster in clusters:
             cluster.curr_day = day
 
+
+        # todo - optimize below stuff later, so it doesn't use too much memory
+
+        # re-sort it
+        clusters = list(clusters)
+        hq.heapify(clusters)
+        clusters = list(hq.merge(clusters, next_day_clusters))
+        next_day_clusters = []
+
+
         while capacity_used[day] < vehicle['capacity'] and len(clusters) > 0:
             cluster = hq.heappop(clusters)
 
-            if cluster.num_satisfied_edges() == 0:
+            if cluster.num_non_satisfied_edges() == 0:
                 # meaning that all clusters further will also have no demanding edges
+                print(f'Breaking for day {day+1}')
+                hq.heappush(next_day_clusters, cluster) # push it back so it gets assigned the next day
                 break   # go to next day
 
-            if capacity_used[day] + cluster.priority() < vehicle['capacity']:
+            if capacity_used[day] + cluster.demand() < vehicle['capacity']:
                 # if cluster has higher demand than the vehicle can handle for the day then skip it for today
                 hq.heappush(next_day_clusters, cluster)
                 continue
 
-            # ? note that this assigns only non-satisfied edges
-            day_assignment[day] += cluster.assign_egdges_to_cleaning_day(day)
-            capacity_used[day] += cluster.priority()
+            # todo - check for routing cost - not above limit, easy to check for the cw_clusters
 
-    return day_assignment
+            # ? note that this assigns only non-satisfied edges
+            capacity_used[day] += cluster.demand()
+            new_edges = cluster.assign_egdges_to_cleaning_day(day)
+            day_assignment[day].extend(new_edges)
+
+            hq.heappush(next_day_clusters, cluster)     # push cluster back
+
+    return day_assignment, capacity_used
