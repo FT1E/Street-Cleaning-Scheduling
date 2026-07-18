@@ -10,7 +10,7 @@
 import sys
 import heapq as hq
 
-from util.routing_heuristic import calculate_cost, min_distance_ee, calculate_distances
+from util.routing_heuristic import calculate_cost
 
 class Cluster:
     def __init__(self, edges, max_dist = 0, child_1=None, child_2=None):
@@ -60,56 +60,11 @@ class Cluster:
 
 # for making the cut - do BFS and if a child has level < cut_level add it, else add it to queue for BFS
 
-# todo - consider an alternative implementation where cut is made according to number of clusters if given as argument
-def generate_static_clusters(edge_list, adjacency_list, vehicle):
 
-    calculate_distances(adjacency_list)
-
-    lvl_0_clusters = [Cluster([edge]) for edge in edge_list]
-    for cluster in lvl_0_clusters:
-        cluster.assign_cluster()
-
-    min_distances = []
-    for e1 in edge_list:
-        for e2 in edge_list:
-            if e1.number != e2.number:
-                min_distances.append((min_distance_ee(e1, e2), e1, e2))
-    hq.heapify(min_distances)
-
-    cluster_num = len(edge_list)
-
-    static_clusters = []
-    merged_cluster = None
-    while cluster_num > 1:
-        curr_dist, e1, e2 = hq.heappop(min_distances)
-        # Find the clusters containing e1 and e2
-        cluster1 = e1.static_cluster
-        cluster2 = e2.static_cluster
-
-        if cluster1 == cluster2:
-            continue    # skip if in same cluster
-
-        if cluster1.demand() + cluster2.demand() > vehicle['capacity']:
-            # add them to return res
-            static_clusters.append(cluster1)
-            static_clusters.append(cluster2)
-            
-            cluster_num -= 2
-            continue
-
-        cluster_num -= 1
-        merged_cluster = cluster1.merge(cluster2, curr_dist)
-        merged_cluster.assign_cluster()
-        # last time root_cluster is assigned it will be the root
-
-    print(f'[DEBUG]: cluster_num == {cluster_num}')
-   
-    return static_clusters
-
-def generate_cw_clusters(edge_list, adjacency_list, vehicle):
+def generate_cw_clusters(edge_list, adjacency_list, vehicle, graph_id):
     # generate static clusters by giving all of the edges as targets to Clarke-Wright 
     # and turning each route into a static cluster
-    routing_info = calculate_cost(adjacency_list, edge_list, vehicle)
+    routing_info = calculate_cost(adjacency_list, edge_list, vehicle, graph_id)
 
     cw_clusters = []
     for route in routing_info['routes']:
@@ -118,13 +73,13 @@ def generate_cw_clusters(edge_list, adjacency_list, vehicle):
 
     return cw_clusters
 
-def run(edge_list, adjacency_list, vehicle):
+def run(edge_list, adjacency_list, vehicle, graph_id):
     # returns day_assignment list
     
     day_assignment = [[] for _ in range(vehicle['planning_duration'])]
     capacity_used = [0] * vehicle['planning_duration']
 
-    clusters = generate_cw_clusters(edge_list, adjacency_list, vehicle)
+    clusters = generate_cw_clusters(edge_list, adjacency_list, vehicle, graph_id)
     next_day_clusters = []
 
     hq.heapify(clusters)

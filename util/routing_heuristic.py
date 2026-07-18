@@ -1,5 +1,6 @@
 import heapq as hq
-import math
+import os
+import json
 
 memo_distances = None
 # todo - use a bit of memoization, since I'm using the same graph
@@ -8,8 +9,21 @@ memo_distances = None
 # todo - also consider how number of vehicles limits the routing 
 
 
-def calculate_distances(adjacency_list):
+min_dist_directory = os.path.join('D:\\','Seminar', 'data', 'SP-CARP-graphs-min-distances')
+
+
+def calculate_distances(adjacency_list, graph_id):
     global memo_distances
+
+    file = f'md_g_{graph_id}.json'
+    try:
+        with open(os.path.join(min_dist_directory, file), 'r') as f:
+            memo_distances = json.load(f)
+            memo_distances = {int(k) : {int(k1) : v1 for k1,v1 in v.items()} for k,v in memo_distances.items() if k != 'max_distance'}
+            return
+    except Exception as e:
+        print(e)
+        print(f'No cached distance matrix found for graph with id {graph_id}, calculating ...')
 
     # ? for debugging purposes - seeing the graph's max distance
     max_distance = 0
@@ -17,22 +31,28 @@ def calculate_distances(adjacency_list):
     memo_distances = dict()
     for i in range(len(adjacency_list)):
         memo_distances[i] = dict()
+        memo_distances[i][i] = 0
         current = adjacency_list[i].copy()
 
         # do dijkstra - take edge with smallest distance - then add that new point
         hq.heapify(current)
         while len(current) > 0:
             min_edge = hq.heappop(current)
-            if min_edge.end_node not in memo_distances[i] or min_edge.distance < memo_distances[i][min_edge.end_node]:
-                memo_distances[i][min_edge.end_node] = min_edge.distance
+            if min_edge.end_node not in memo_distances[i] or memo_distances[i][min_edge.start_node] + min_edge.distance < memo_distances[i][min_edge.end_node]:
+                memo_distances[i][min_edge.end_node] = memo_distances[i][min_edge.start_node] + min_edge.distance
                 
-                if min_edge.distance > max_distance:
-                    max_distance = min_edge.distance
+                if memo_distances[i][min_edge.end_node] > max_distance:
+                    max_distance = memo_distances[i][min_edge.end_node]
 
                 for edge in adjacency_list[min_edge.end_node]:
                     hq.heappush(current, edge)
 
-    # print(f"Max distance in the graph: {max_distance}")
+    memo_distances['max_distance'] = max_distance   # not needed but idk for me
+    json_str = json.dumps(memo_distances, indent=4)
+    with open(os.path.join(min_dist_directory, file), 'w') as f:
+        f.write(json_str)
+
+    print(f"Max distance in the graph: {max_distance}")
 
 def get_min_distances(adjacency_list=None):
     global memo_distances
@@ -64,7 +84,7 @@ class Saving:
         self.saving = saving
 
     def __lt__(self, other):
-        return self.saving < other.saving
+        return self.saving > other.saving
     
     def same_route(self):
         return self.target_1.route == self.target_2.route
@@ -130,16 +150,14 @@ class Route:
 
 # * using memoization so distances in a graph are calculated once and then re-using
 # * using additional argument in case I'm switching between graphs
-def calculate_cost(adjacency_list, targets, vehicle, recalculate_distances = False):
+def calculate_cost(adjacency_list, targets, vehicle, graph_id, recalculate_distances = False):
     
     global memo_distances
 
-    # todo - calculate distances if None or using a different graph
     if memo_distances is None or recalculate_distances:
-        calculate_distances(adjacency_list)
+        calculate_distances(adjacency_list, graph_id)
 
 
-    # todo - routing heuristic, using the given points
     savings = []
     routes = []
 
@@ -147,14 +165,8 @@ def calculate_cost(adjacency_list, targets, vehicle, recalculate_distances = Fal
     # initial routing depot-target-depot
     for i in range(len(targets)):
         routes.append(Route([targets[i]]))
-        distance = 2 * min_distance_ne(0, targets[i])
         targets[i].route = routes[i]
         
-
-    # todo - modified a bit so that the targets are edges instead of single points
-    # todo - so calculate the  distance = min (v1, v2) where v1, v2 are the nodes of the edge
-    
-    # todo - maybe organize the savings in a dictionary or a list with special objects with lt implemented
 
     for i in range(len(targets)):
         d0_e1 = min_distance_ne(0, targets[i])      # distance between depot and edge 1

@@ -43,6 +43,8 @@ class Edge:
         self.priority_type = priority_type
         self.route = -1
 
+        self.service_days = []
+
 
     def __lt__(self, other):
         return self.priority() - other.priority()
@@ -50,7 +52,7 @@ class Edge:
     def priority(self):
         match self.priority_type:
             case PriorityType.Deadline:
-                return self.freq - + self.last_cleaning_day
+                return self.freq + self.last_cleaning_day
             case PriorityType.Frequency:
                 return self.freq
             case PriorityType.Distance:
@@ -64,6 +66,7 @@ class Edge:
 
     def set_cleaning_day(self, day):
         self.last_cleaning_day = day
+        self.service_days.append(day)
 
     def __repr__(self):
         return f"Edge: {self.start_node} <--> {self.end_node} \t Freq: {self.freq} \t Demand: {self.demand}"
@@ -85,7 +88,7 @@ class Edge:
 
 # get data for graph i
 # list of all edges for graph i
-def get_graph_edge_list(i):
+def get_graph_edge_list(i, filter = 0):
     try:
         file = os.listdir(graph_data_directory)[i]
     except IndexError:
@@ -130,15 +133,19 @@ def get_graph_edge_list(i):
         for e in edge_data.itertuples(False):
             edge_frequencies = [intervals[i] for i in range(num_of_intervals) if getattr(e, f'Demand_{i}') != 0]
 
-            if edge_frequencies == []:
-                # make 1 edge with invalid frequency
-                res.append(Edge(e.EdgeNumber, e.StartNodeNumber, e.EndNodeNumber, -1, e.Cost, -1))
-                continue
+            # make 1 edge with invalid frequency - so it doesn't get skipped in routing calculations
+            # in case it gets cut below
+            res.append(Edge(e.EdgeNumber, e.StartNodeNumber, e.EndNodeNumber, -1, e.Cost, -1))
 
             # else make 1 edge for each frequency (1 or more)
             cnt = 0
             for freq in edge_frequencies:
                 # todo
+                if freq > filter:
+                    # skip edges with frequecny higher than planning period
+                    # example planning period is 14 days, but there is an edge with frequency 56
+                    # no edge will be skipped when vehicle with longest planning period is used
+                    continue
                 res.append(Edge(e.EdgeNumber + cnt, e.StartNodeNumber, e.EndNodeNumber, getattr(e, edge_header[5 + 2*intervals.index(freq)]), e.Cost, freq))
                 cnt += 1
                 pass
@@ -150,9 +157,9 @@ def get_graph_edge_list(i):
 
 
 # list of edges with non-zero demand
-def get_graph_demanded_edges(i):
+def get_graph_demanded_edges(i, filter=0):
     
-    edge_list = get_graph_edge_list(i)
+    edge_list = get_graph_edge_list(i, filter=filter)
 
     if edge_list is None:
         # log printed in the other function
@@ -190,8 +197,8 @@ def get_graph_metadata(i):
         return {'num_nodes' : num_nodes, 'num_edges' : num_edges, 'depot_node' : depot_node}
 
 # get adjacency list for graph i
-def get_graph_al(i, priority_type = PriorityType.Deadline):
-    raw_graph_data = get_graph_edge_list(i)
+def get_graph_al(i, priority_type = PriorityType.Deadline, filter=0):
+    raw_graph_data = get_graph_edge_list(i, filter=filter)
     if raw_graph_data is None:
         return None     # log messages in get_graph_data
     
@@ -241,6 +248,8 @@ def get_vehicle_data(i):
 
         days_no_service = [int(x) for x in lines[4].split('\t')[3:]]
 
+        number_of_vehicles = int(lines[8].split('\t'* 4)[1])
+ 
         capacity = int(lines[10].split('\t\t\t')[1])
         
         speed = int(lines[14].split('\t\t\t')[1])
@@ -248,6 +257,7 @@ def get_vehicle_data(i):
 
         distance_limit = speed * time_limit
 
-        return {'planning_duration' : planning_duration, 'days_no_service': days_no_service, 'capacity' : capacity, 'distance_limit' : distance_limit}
+
+        return {'planning_duration' : planning_duration, 'days_no_service': days_no_service, 'count' : number_of_vehicles ,'capacity' : capacity, 'distance_limit' : distance_limit}
 
 

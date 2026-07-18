@@ -6,7 +6,7 @@ sys.path.append('..')
 
 from util.routing_heuristic import calculate_cost
 
-def print_day_assignment(day_assignment, adjacency_lists, vehicle, capacity_used=None, v_distance_limit = None):
+def print_day_assignment(day_assignment, adjacency_lists, vehicle, graph_id, capacity_used=None, v_distance_limit = None):
 
     if v_distance_limit is not None:
         vehicle['distance_limit'] = 500     # ! for debugging purposes
@@ -24,16 +24,20 @@ def print_day_assignment(day_assignment, adjacency_lists, vehicle, capacity_used
         if len(day_assignment[i]) > 0:
             print(f"Edges Assigned for day {day}:")
             for e in day_assignment[i]:
-                print(e, end=', ')
+                # print(e, end=', ')
+                print(f'\t{e}')
             print(f"\nCapacity used for day {day}:{str(capacity_used[i])}")
             
             
-            routing_cost = calculate_cost(adjacency_lists, day_assignment[i], vehicle)
+            routing_cost = calculate_cost(adjacency_lists, day_assignment[i], vehicle, graph_id)
 
             print(f"Total routing distance for day {day}:{routing_cost['total_distance']}\nNumber of routes: {routing_cost['num_routes']}\n\nRoutes")
             for route in routing_cost['routes']:
+                print(f'Route demand: {route.demand}')
                 print(f'Route length: {route.length}')
-                print(route.targets)
+                # print(route.targets)
+                for target in route.targets:
+                    print(f'\t{target}')
             print('\n-----------------------------\n')
 
             total_distance += routing_cost['total_distance']
