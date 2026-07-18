@@ -4,10 +4,8 @@ import os, sys
 import pandas as pd
 from enum import Enum
 
-graph_data_filepath = './SP-CARP graphs/SP-CARP_F1_g_graph.dat' 
-vehicle_data_filepath = './SP-CARP vehicles/SP-CARP_1-2.veh'
 
-
+# ! FIX BELOW SO IT CAN RUN ON ANY DEVICE
 graph_data_directory = os.path.join('D:\\','Seminar', 'data', 'SP-CARP graphs')
 vehicle_data_directory = os.path.join('D:\\','Seminar', 'data', 'SP-CARP vehicles')
 
@@ -68,13 +66,13 @@ class Edge:
         self.last_cleaning_day = day
 
     def __repr__(self):
-        return f"Edge: {self.start_node} --> {self.end_node}"
+        return f"Edge: {self.start_node} <--> {self.end_node} \t Freq: {self.freq} \t Demand: {self.demand}"
 
     # below to avoid assigning a duplicate edge in the same day
     def __eq__(self, value):
         if not isinstance(value, Edge):
             return False
-        return (self.start_node == value.start_node and self.end_node == value.end_node) or (self.start_node == value.end_node and self.end_node == value.start_node)
+        return self.number == value.number and ((self.start_node == value.start_node and self.end_node == value.end_node) or (self.start_node == value.end_node and self.end_node == value.start_node))
 
     # used for static clustering - satisfied if since last cleaning day, less than half the frequency days have passed
     def is_satisfied(self, curr_day = None):
@@ -126,85 +124,43 @@ def get_graph_edge_list(i):
         edge_data = edge_data.apply(pd.to_numeric)
 
         # * - assign frequency to each edge
-        edge_frequencies = [None] * num_edges
-
-        for tuple in edge_data.itertuples(False):
-            edge_frequencies[tuple.EdgeNumber] = [intervals[i] for i in range(num_of_intervals) if getattr(tuple, f'Demand_{i}') != 0]
-
-        non_zero_edges = pd.DataFrame([ [i , edge_frequencies[i], min(edge_frequencies[i]), max(edge_frequencies[i])] for i in range(len(edge_frequencies)) if len(edge_frequencies[i]) > 0], columns = ['EdgeNumber', 'Frequencies', 'MinFrequency', 'MaxFrequency'])
-
-        
-
-        edge_data = pd.merge(edge_data, non_zero_edges, how='left', on='EdgeNumber')
-
-        edge_data = edge_data.fillna(-1)
-
+        edge_frequencies = []
         res = []
+
         for e in edge_data.itertuples(False):
-            if e.MinFrequency != -1:
-                res.append(Edge(e.EdgeNumber, e.StartNodeNumber, e.EndNodeNumber, getattr(e, edge_header[5 + 2*intervals.index(e.MinFrequency)]), e.Cost, e.MinFrequency))
-            else:
+            edge_frequencies = [intervals[i] for i in range(num_of_intervals) if getattr(e, f'Demand_{i}') != 0]
+
+            if edge_frequencies == []:
+                # make 1 edge with invalid frequency
                 res.append(Edge(e.EdgeNumber, e.StartNodeNumber, e.EndNodeNumber, -1, e.Cost, -1))
+                continue
+
+            # else make 1 edge for each frequency (1 or more)
+            cnt = 0
+            for freq in edge_frequencies:
+                # todo
+                res.append(Edge(e.EdgeNumber + cnt, e.StartNodeNumber, e.EndNodeNumber, getattr(e, edge_header[5 + 2*intervals.index(freq)]), e.Cost, freq))
+                cnt += 1
+                pass
+            
+
+
+
         return res
 
 
 # list of edges with non-zero demand
 def get_graph_demanded_edges(i):
     
-    try:
-        file = os.listdir(graph_data_directory)[i]
-        # print(f"Graph file read: {file}")
-    except IndexError:
-        print('Index out of range for file!')
+    edge_list = get_graph_edge_list(i)
+
+    if edge_list is None:
+        # log printed in the other function
         return None
-    except:
-        print("Some other error while reading file")
-        return None
-
-    with open(os.path.join(graph_data_directory, file), 'r') as f:
-        graph_data = f.read()
-
-        lines = graph_data.splitlines()
     
-        # * number of edges
-        num_edges = int(re.sub(r'.*:\s*', '', lines[2]))
+    non_zero_edges = [edge for edge in edge_list if edge.freq != -1]
 
-        # * in the first few files it's 0, but not in all of them
-        depot_node = int(re.sub(r'.*:\s*', '', lines[3]))
-
-        # * note fraction == trash type
-        fraction_line = lines[5].split('\t')
-        fraction_type = fraction_line[1]
-        num_of_intervals = int(fraction_line[2])
-        intervals = [float(x) for x in fraction_line[3:]]
-
-        edge_header = lines[7].split('\t')
-        edge_table = [x.split('\t') for x in lines[9:9+num_edges]]
-        edge_data = pd.DataFrame(edge_table, columns = edge_header)
-
-        # * drop number of bins, only keep demand for now
-        # todo - in future consider number of bins as well
-        edge_data = edge_data.drop([f"Bins_{i}" for i in range(num_of_intervals)], axis=1)
-
-        # * converting data to numeric
-        edge_data = edge_data.apply(pd.to_numeric)
-
-        # * - assign frequency to each edge
-        edge_frequencies = [None] * num_edges
-
-        for tuple in edge_data.itertuples(False):
-            edge_frequencies[tuple.EdgeNumber] = [intervals[i] for i in range(num_of_intervals) if getattr(tuple, f'Demand_{i}') != 0]
-
-        non_zero_edges = pd.DataFrame([ [i , edge_frequencies[i], min(edge_frequencies[i]), max(edge_frequencies[i])] for i in range(len(edge_frequencies)) if len(edge_frequencies[i]) > 0], columns = ['EdgeNumber', 'Frequencies', 'MinFrequency', 'MaxFrequency'])
-
-        
-
-        non_zero_edges = pd.merge(edge_data, non_zero_edges, on='EdgeNumber')
-
-        # todo - chose min frequency and the demand associated with that frequency
-        return [Edge(e.EdgeNumber, e.StartNodeNumber, e.EndNodeNumber, getattr(e, edge_header[5 + 2*intervals.index(e.MinFrequency)]), e.Cost, e.MinFrequency) for e in non_zero_edges.itertuples(False)]
-    
-    return None
+    return non_zero_edges
 
 def get_graph_metadata(i):
     try:
@@ -237,7 +193,7 @@ def get_graph_metadata(i):
 def get_graph_al(i, priority_type = PriorityType.Deadline):
     raw_graph_data = get_graph_edge_list(i)
     if raw_graph_data is None:
-        return      # log messages in get_graph_data
+        return None     # log messages in get_graph_data
     
     graph_metadata = get_graph_metadata(i)
     # not checking for None value on this - since if above works so should this
