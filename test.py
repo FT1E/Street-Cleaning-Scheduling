@@ -7,6 +7,8 @@ from algorithms.greedy_fixed_cluster import run as gfc_run
 from util.logger import print_day_assignment
 from util.Solution import Solution
 
+from algorithms.local_search import run as ls_run
+
 GRAPH_ID = 0
 VEHICLE_ID = 0
 
@@ -43,11 +45,15 @@ routing_cost, vehicle_count = solution.evaluate()
 # print(f"\n\nSolution cost:\n\t- routing: {routing_cost}\n\t- vehicles used: {vehicle_count}")
 
 
-unsatisfied_edges = solution.frequency_satisfied()
+# unsatisfied_edges = solution.frequency_satisfied()
 
-print(f"Number of all demanded edges: {len(demanded_edges)}")
-print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
+# print(f"Number of all demanded edges: {len(demanded_edges)}")
+# print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
 
 # for edge in unsatisfied_edges:
 #     print(edge)
 #     print(f'\t{edge.service_days}')
+
+
+
+ls_run(solution)

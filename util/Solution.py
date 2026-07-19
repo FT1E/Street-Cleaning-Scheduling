@@ -103,6 +103,10 @@ class Solution:
 
         return unsatisfied_edges, ignored_edges, 
 
+    def get_work_days(self):
+        # all except weekends - 5,6 - considering monday 0, tue 1, etc.
+        return [i for i in range(len(self.days)) if i % 7 < 5]
+
     # todo - operators for getting a neigbouring solution
 
 class Day:
@@ -114,14 +118,92 @@ class Day:
         # ? below 2 are just for reference
         self.adjacency_lists = adjacency_lists
         self.vehicle = vehicle
-        
+        self.graph_id = graph_id
+
         self.edges = edges
 
-        info = calculate_cost(self.adjacency_lists, edges, self.vehicle, graph_id)
+        self.recalculate_routes()
+
+    # after adding an edge, routes for the day are recalculated
+    # todo - could try appending the edge either at a beginning or end of a route
+    def add_edge(self, edge, recalculate=True):
+        self.edges.append(edge)
+        if recalculate:
+            self.recalculate_routes()
+    
+    # after removing an edge, remove it in the route which it was contained
+    # the return result is the removed edge if it was serviced in this day, otherwise None
+    def remove_edge(self, edge=None, edge_id=None):
+        # remove it from list of edges
+        try:
+            if edge is not None:
+                self.edges.remove(edge)
+            elif edge_id is not None:
+                edge = self.edges.pop(edge_id)
+            else:
+                return None
+        except:
+            return None
+        
+        # find the route which contains the edge
+        affected_route = None
+        for route in self.routes:
+            if edge in route.targets:
+                affected_route = route
+                break
+        if affected_route is None:
+            return edge
+
+        # once you find the route containing that edge just remove it and recalculate the cost and demand
+        # implicitly connect the points which were connected by the removing edge
+        # ex. say remove b in 0-a-b-c-0, result is 0-a-c-0
+        # or 0-a-b-0, result is 0-a-0
+        affected_route.targets.remove(edge)
+
+        # if the edge was the only target in the route remove it
+        if len(affected_route.targets) == 0:
+            self.routes.remove(affected_route)
+            return edge
+
+        # otherwise recalculate route length and route demand
+        affected_route.calculate_length()
+        affected_route.calculate_demand()
+
+        return edge
+
+    def recalculate_routes(self):
+        
+        info = calculate_cost(self.adjacency_lists, self.edges, self.vehicle, self.graph_id)
 
         self.total_distance = info['total_distance']
         self.routes = info['routes']
         self.route_count = len(self.routes)
 
+    def __repr__(self):
+        self.print()
+        return ""
+    
+    def print(self):
+        print(f"Day {self.number}:")
+        print(f"Number of edges: {len(self.edges)}")
+        for edge in self.edges:
+            print(f"\t{edge}")
+        print(f"Number of routes: {self.route_count}")
+        cnt = 1
+        for route in self.routes:
+            print(f"Route {cnt}")
+            route.print()
+            cnt += 1
+
+    def remove_route(self, route):
+        try:
+            self.routes.remove(route)
+            self.total_distance -= route.length
+        except:
+            pass
+
+    def add_route(self, route):
+        self.routes.append(route)
+        self.total_distance += route.length
 
 # ? note that there is a class Route in read_data, defined there since it's also used there for Clarke-Wright heuristic

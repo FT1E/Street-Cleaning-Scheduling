@@ -110,20 +110,16 @@ class Route:
         self.targets = targets
 
         if length == -1:
-            self.length = min_distance_ne(0, targets[0]) + min_distance_ne(0, targets[-1])
-            for i in range(len(targets) - 1):
-                self.length += min_distance_ee(targets[i], targets[i+1])
+            self.calculate_length()
         else:
             self.length = length
 
         if demand == -1:
-            self.demand = 0
-            for target in targets:
-                self.demand += target.demand
+            self.calculate_demand()
         else:
             self.demand = demand
 
-    def merge(self, other, saving):
+    def merge_cw(self, other, saving):
         # todo - merge two routes and calculate the new length
         
         t1 = saving.target_1
@@ -147,6 +143,71 @@ class Route:
     def set_target_routes(self):
         for target in self.targets:
             target.route = self
+
+    def calculate_length(self):
+        self.length = min_distance_ne(0, self.targets[0]) + min_distance_ne(0, self.targets[-1])
+        for i in range(len(self.targets) - 1):
+            self.length += min_distance_ee(self.targets[i], self.targets[i+1])
+        return self.length
+    
+    def calculate_demand(self):
+        self.demand = 0
+        for target in self.targets:
+            self.demand += target.demand
+        return self.demand
+
+
+    def merge(self, other):
+        # unlike the merge_cw which specifies with saving which 2 endpoints are to be linked in this case all the possible combinations of endpoint links are tried
+        # route a and route b
+        # a' means route a in reverse
+        # possible links are ab, ab', a'b, a'b'
+        # note that ba' is same as ab' since it's connecting last point of a with last point of b
+        # deciding based on the cheapest link among endpoints
+
+        endpoint_a1 = self.targets[0]
+        endpoint_a2 = self.targets[-1]
+        endpoint_b1 = other.targets[0]
+        endpoint_b2 = other.targets[-1]
+
+        link1 = min_distance_ee(endpoint_a1, endpoint_b1)
+        link2 = min_distance_ee(endpoint_a1, endpoint_b2)
+        link3 = min_distance_ee(endpoint_a2, endpoint_b1)
+        link4 = min_distance_ee(endpoint_a2, endpoint_b2)
+
+        if min(link1, link2) < min(link3, link4):
+            # link 1st point of a
+            part1 = self.targets[::-1]
+            if link1 < link2:
+                # with 1st point of b
+                part2 = other.targets[:]
+            else:
+                # with last point of b
+                part2 = other.targets[::-1]
+        else:
+            # link last point of a
+            part1 = self.targets[:]
+            if link3 < link4:
+                # with 1st point of b
+                part2 = other.targets[:]
+            else:
+                # with last point of b
+                part2 = other.targets[::-1]
+
+        return Route(part1 + part2)
+    
+    def __lt__(self, other):
+        return self.length < other.length
+    
+    def __repr__(self):
+        self.print()
+        return ""
+
+    def print(self):
+        print(f"Route length ({self.length}) and demand ({self.demand}):")
+        for edge in self.targets:
+            print(f"\t{edge}")
+        
 
 # * using memoization so distances in a graph are calculated once and then re-using
 # * using additional argument in case I'm switching between graphs
@@ -197,7 +258,7 @@ def calculate_cost(adjacency_list, targets, vehicle, graph_id, recalculate_dista
         route_1 = top_saving.target_1.route
         route_2 = top_saving.target_2.route
 
-        new_route = route_1.merge(route_2, top_saving)
+        new_route = route_1.merge_cw(route_2, top_saving)
 
         if new_route.length > vehicle['distance_limit']:
             continue
