@@ -2,6 +2,7 @@
 import random
 import copy
 import sys
+import math
 
 sys.path.append('..')
 
@@ -34,9 +35,78 @@ def op1(solution, d1, d2, e_id):
 # ? alternate operator 1
 #   - take a task u from day i (d1) and move it a couple days before or after to satisfy the spacing between services wrt frequency
 #   - kinda finding an alternative solution to service_days, such that the difference of any 2 consecutive numbers is less than the frequency
-def op1_alt(solution, d1, e_id):
+#   - find a tight spacing and widen it so you tighten a wide spacing (greater than the frequency)
+def op1_alt(solution,e_id=None):
     # todo
-    pass
+
+    if e_id is None:
+        edge = random.choice(solution.unsatisfied_edges())
+    else:
+        edge = solution.unsatisfied_edges()[e_id]
+    
+    if len(edge.service_days) == 0:
+        # nothing to do since this op is about manipulating the service days not adding or removing
+        return
+
+    # 1. find all spacings
+
+    # storing the number of days passed since last service, 
+    # for 1st service it's days since start of planning
+    # for last service it's days until end of planning
+    spacings = [0] * (len(edge.service_days)+1)
+
+    # first check at the endpoints
+    # beginning - first service - 0
+    spacings[0] = edge.service_days[0] - 0
+    spacings[-1] = solution.vehicle['planning_duration'] - edge.service_days[-1]
+    # then check between services
+    for i in range(1, len(edge.service_days)):
+        spacings[i] = edge.service_days[i] - edge.service_days[i-1]
+
+    # 2. interested in the case - where there are both wide and tight spacings
+    #   widen a tighter spacing to tighten a wider spacing
+    #   example: 
+    #       planning_duration = 28
+    #       freq = 7
+    #       service_days = [1, 8, 16, 23]
+    #       --> spacings = [1, 7, 8, 7, 5]
+    #       spacing at the end can be moved 1 day earlier and with that all of the previous services can also be shifted 1 day earlier
+    #       new_service_days = [1, 8, 15, 22]
+    #       now all of the spacings are less than frequency
+    
+    freq = math.ceil(edge.freq)
+    
+    tight = -1
+    wide = -1
+    shift = 0   # by how much the services can be shifter (forward or backward)
+    for i in range(len(spacings)):
+        if spacings[i] < freq:
+            tight = i
+            shift = freq - spacings[i]
+        elif spacings[i] > freq:
+            wide = i
+
+    
+    new_service_days = edge.service_days[:]
+    if tight != -1 and tight < wide:
+        # there is a matching pair for shifting forward
+        for i in range(tight, wide-1):
+            new_service_days[i+1] += shift
+    elif wide != -1 and wide < tight:
+        # a matching pair for shifting backward
+        for i in range(tight-1, wide-1, -1):
+            new_service_days[i] -= shift
+    
+    # print(f"Selected: {edge}")
+    # print(f"Service days before: {edge.service_days}")
+    # print(f"Service days after: {new_service_days}")
+
+    for i in range(len(edge.service_days)):
+        old_day = edge.service_days[i]
+        new_day = new_service_days[i]
+        if  old_day != new_day:
+            solution.days[old_day].remove_edge(edge)
+            solution.days[new_day].add_edge(edge)
 
 # ? operator 2
 #   - swap the service days of 2 random distinct tasks with the same frequency
@@ -110,10 +180,10 @@ def op3(solution, d1=None):
     r2_h1 = Route(r2.targets[:cut2])
     r2_h2 = Route(r2.targets[cut2:])
 
-    print(r1_h1)
-    print(r1_h2)
-    print(r2_h1)
-    print(r2_h2)
+    # print(r1_h1)
+    # print(r1_h2)
+    # print(r2_h1)
+    # print(r2_h2)
     
     a_r1 = r1_h1.merge(r2_h2)
     a_r2 = r1_h2.merge(r2_h1)
@@ -163,6 +233,10 @@ def run(solution):
     n3 = copy.deepcopy(solution)
     op3(n3)
 
+
+    n1_alt = copy.deepcopy(solution)
+    op1_alt(n1_alt)
+
     # print("ORIGINAL SOLUTION")
     # print('-' * 50)
     # print(' ' * 50)
@@ -189,7 +263,7 @@ def run(solution):
     # print(n2_edge2)
 
     print(f"\n\nOriginal solution cost: {solution.evaluate()}")
-    print(f"Neighbouring (op3) solution cost: {n3.evaluate()}")
+    print(f"Neighbouring (op1_alt) solution cost: {n1_alt.evaluate()}")
     
     
     no_improvement_count = 0

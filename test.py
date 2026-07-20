@@ -45,7 +45,7 @@ routing_cost, vehicle_count = solution.evaluate()
 # print(f"\n\nSolution cost:\n\t- routing: {routing_cost}\n\t- vehicles used: {vehicle_count}")
 
 
-# unsatisfied_edges = solution.frequency_satisfied()
+# unsatisfied_edges = solution.unsatisfied_edges()
 
 # print(f"Number of all demanded edges: {len(demanded_edges)}")
 # print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")

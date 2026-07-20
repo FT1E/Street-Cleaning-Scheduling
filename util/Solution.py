@@ -75,7 +75,7 @@ class Solution:
         return routing_cost, vehicle_count
 
     # for checking if all edges had their frequency satisfied
-    def frequency_satisfied(self):
+    def unsatisfied_edges(self):
         # todo
         unsatisfied_edges = []
         ignored_edges = 0
@@ -95,13 +95,14 @@ class Solution:
                 t1 = edge.service_days[i]
                 t2 = edge.service_days[i+1]
 
-                if t2 - t1 > edge.freq:
+                max_spacing = math.ceil(edge.freq)
+                if t2 - t1 > max_spacing:
                     unsatisfied_edges.append(edge)
                     break   # out of inner loop and continue with next edge in outer loop
         
-        print(f"{ignored_edges} edges were not serviced at all!")
-
-        return unsatisfied_edges, ignored_edges, 
+        # print(f"{ignored_edges} edges were not serviced at all!")
+        print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
+        return unsatisfied_edges 
 
     def get_work_days(self):
         # all except weekends - 5,6 - considering monday 0, tue 1, etc.
