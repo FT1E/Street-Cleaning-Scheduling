@@ -108,6 +108,12 @@ def op1_alt(solution,e_id=None):
             solution.days[old_day].remove_edge(edge)
             solution.days[new_day].add_edge(edge)
 
+    edge.service_days = new_service_days
+
+# todo - maybe op about removing service days in an edge which has too much services and adding services to an edge which has too little
+
+
+
 # ? operator 2
 #   - swap the service days of 2 random distinct tasks with the same frequency
 def op2(solution, edge1=None, edge2=None):
