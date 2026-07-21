@@ -147,7 +147,7 @@ class Route:
             return
 
     def remove_edge(self, edge=None, pos = None):
-
+        
         if edge is not None and edge in self.targets:
             self.targets.remove(edge)
             self.update_day_length()
@@ -164,7 +164,10 @@ class Route:
         else:
             # either edge is not present, index out of bounds, or no arguments given
             return
-            
+
+        if len(self.targets) == 0:
+            self.day.remove_route(self) 
+
     def __lt__(self, other):
         return self.length < other.length
     
