@@ -17,6 +17,14 @@ from solution_representation.Day import Day
 #   - each day contains trips routes for it
 #   - each route contains a sequence of required edges to traverse
 
+
+VEHICLE_WEIGHT = 100_000                    # multiply by number of vehicles used for whole sp-carp, ie the minimum num of vehicles needed, ie maximum number of vehicles among days
+VEHICLE_OVERLOAD_PENALTY = 1_000_000        # when a route has total demand or length greater than what vehicle can handle - multiply by number of routes which violate 
+EXPECTED_SERVICES_PENALTY = 1_000_000       # multiply by number of edges who have too few or too many services
+EXPECTED_SPACING_PENALTY = 500_000        # multiplied by number of spacings which are too tight or too wide
+# last one is lower since i'm expecting there to be a lot of those violations - at least at the beginning
+# todo - may set it higher
+
 class Solution:
 
     # self.day_assignments[i] = routes for day i
@@ -66,16 +74,47 @@ class Solution:
         # routing cost is the total routing cost among all day
         vehicle_count = 0
         routing_cost = 0
+        overload_route_count = 0        # number of routes which can't be handled by a single vehicle, go over the limits
         for day in self.days:
             routing_cost += day.total_distance
             vehicle_count = max(vehicle_count, day.route_count)
 
-        # todo - mix in vehicle count somehow, maybe as a weighted sum with a really high weight on vehicle count
-        return routing_cost, vehicle_count
+            for route in day.routes:
+                if route.length > self.vehicle['distance_limit'] or route.demand > self.vehicle['capacity']:
+                    overload_route_count += 1
+
+        irregular_spacing_count = 0
+        for edge in self.demanded_edges:
+            if len(edge.service_days) == 0:
+                # for edges which weren't serviced at all
+                irregular_spacing_count += self.vehicle['planning_duration'] // math.ceil(edge.freq)
+
+            expected_spacing = math.floor(edge.freq)
+
+            # spacing between beginning of planning and 1st service - edge.service_days[0] - first_day (0)
+            spacing = edge.service_days[0]
+            if self.irregular_spacing_check(spacing, expected_spacing):
+                irregular_spacing_count += 1
+            # spacing between end of planning and last service
+            spacing = self.vehicle['planning_duration'] - edge.service_days[-1]
+            if self.irregular_spacing_check(spacing, expected_spacing):
+                irregular_spacing_count += 1
+            
+            for i in range(len(edge.service_days) - 1):
+                spacing = edge.service_days[i+1] - edge.service_days[i]
+                if self.irregular_spacing_check(spacing, expected_spacing):
+                    irregular_spacing_count += 1
+
+        cost = routing_cost + VEHICLE_WEIGHT * vehicle_count + VEHICLE_OVERLOAD_PENALTY * overload_route_count + EXPECTED_SPACING_PENALTY * irregular_spacing_count
+        return cost
+
+    # if true - spacing is too wide or too tight
+    def irregular_spacing_check(self, spacing, expected_spacing):
+        return spacing > expected_spacing + 1 or spacing < expected_spacing - expected_spacing // 7
+        
 
     # for checking if all edges had their frequency satisfied
     def unsatisfied_edges(self):
-        # todo
         unsatisfied_edges = []
         ignored_edges = 0
         for edge in self.demanded_edges:
@@ -119,3 +158,16 @@ class Solution:
         for edge in self.demanded_edges:
             res += (self.vehicle['planning_duration'] / math.ceil(edge.freq))
         return res
+    
+    def checking_references(self):
+        cnt = 0
+        for day_1 in self.days:
+            for edge_1 in day_1.edges:
+                for day_2 in self.days:
+                    if day_1 == day_2:
+                        continue
+                    for edge_2 in day_2.edges:
+                        if edge_1 is edge_2:
+                            cnt += 1
+
+        print(f"{cnt} edges have same instances in different days")

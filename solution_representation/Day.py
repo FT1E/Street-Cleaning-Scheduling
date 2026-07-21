@@ -53,15 +53,25 @@ class Day:
         # implicitly connect the points which were connected by the removing edge
         # ex. say remove b in 0-a-b-c-0, result is 0-a-c-0, where 0 is depot node
 
-        affected_route = edge.route
+        affected_route = None
+        for route in self.routes:
+            if edge in route.targets:
+                affected_route = route
+                break
+
 
         # lenght is calculated in below method
         affected_route.remove_edge(edge)
                 
         # if the edge was the only target in the route remove it
         if len(affected_route.targets) == 0:
-            self.routes.remove(affected_route)
-
+            try:
+                self.routes.remove(affected_route)
+            except:
+                print("Below edge was removed but its route not in list")
+                print(edge)
+                print("List of all routes:")
+                self.print()
         return edge
 
     def recalculate_routes(self):
@@ -115,9 +125,16 @@ class Day:
     def add_edge_in_list(self, edge):
         if edge not in self.edges:
             self.edges.append(edge)
-            
+
     def remove_edge_in_list(self, edge):
         try:
             self.edges.remove(edge)
         except:
             pass
+
+    def get_edge_route(self, edge):
+        for route in self.routes:
+            if edge in route.targets:
+                return route
+        
+        return None

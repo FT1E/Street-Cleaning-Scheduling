@@ -11,6 +11,9 @@ from solution_representation.Route import Route
 # * receives an sp-carp solution, on which it performs local search
 # todo - every argument which is taken randomly, allow so that it can be passed as an explicit argument
 
+# ? NOTE - ABOUT OPERATORS (OP6 AND OP7)
+#   - they shouldn't be called on every edge, but on specific edges which have too many services or too little services
+
 
 # task = serviced edge
 
@@ -20,7 +23,6 @@ from solution_representation.Route import Route
 def op1(solution, d1, d2, e_id):
     # e_id is index of edge in day.edges
 
-    edge = solution.days[d1].remove_edge(edge_id = e_id)
 
     if edge is None:
         return None
@@ -28,6 +30,7 @@ def op1(solution, d1, d2, e_id):
     if d2 in edge.service_days:
         return
     
+    edge = solution.days[d1].remove_edge(edge_id = e_id)
     solution.days[d2].add_edge(edge)
 
     edge.service_days.remove(d1)
@@ -39,7 +42,6 @@ def op1(solution, d1, d2, e_id):
 #   - kinda finding an alternative solution to service_days, such that the difference of any 2 consecutive numbers is less than the frequency
 #   - find a tight spacing and widen it so you tighten a wide spacing (greater than the frequency)
 def op1_alt(solution,e_id=None):
-    # todo
 
     if e_id is None:
         edge = random.choice(solution.unsatisfied_edges())
@@ -111,9 +113,6 @@ def op1_alt(solution,e_id=None):
             solution.days[new_day].add_edge(edge)
 
     edge.service_days = new_service_days
-
-# todo - maybe op about removing service days in an edge which has too much services and adding services to an edge which has too little
-
 
 
 # ? operator 2
@@ -240,14 +239,11 @@ def op4(solution, d1=None, edge1=None, edge2=None):
     if edge1 not in day.edges or edge2 not in day.edges:
         return
 
+    route_2 = day.get_edge_route(edge2)
+    
+    day.remove_edge(edge1)
+    route_2.insert_edge(edge1, edge_in_route = edge2)
 
-    edge1.route.remove_edge(edge1)
-
-    # - insert edge1 before edge 2
-    edge2.route.insert_edge(edge1, edge_in_route = edge2)
-
-
-    return edge1, edge2
 
 
 # ? operator 5
@@ -262,111 +258,72 @@ def op5(solution, d1=None, edge_a1=None, edge_a2=None, edge_b=None):
         # only change routes within a day
         return
 
-    if edge_a1.route != edge_a2.route:
+    a1_route = day.get_edge_route(edge_a1)
+    a2_route = day.get_edge_route(edge_a2)
+    b_route = day.get_edge_route(edge_b)
+
+    if a1_route != a2_route:
         # not checking for successiveness
         # maybe can just give 1 edge as an argument and take the next one implicitly 
         # only if the given edge is not the last edge
         return
     
-    if edge_a1.route == edge_b.route:
+    if a1_route == b_route:
         # todo - will decide on this behaviour later
         return
     
-    edge_a1.route.remove_edge(edge_a1)
-    edge_a1.route.remove_edge(edge_a2)
+    day.remove_edge(edge_a1)
+    day.remove_edge(edge_a2)
 
     # b
-    edge_b.route.insert_edge(edge_a2, edge_in_route = edge_b)
+    b_route.insert_edge(edge_a2, edge_in_route = edge_b)
     # a2 b
-    edge_b.route.insert_edge(edge_a1, edge_in_route = edge_a2)
+    b_route.insert_edge(edge_a1, edge_in_route = edge_a2)
     # a1 a2 b
+
+
+# ? operator 6
+#   - remove a single service of an edge on some day
+def op6(solution, d1, edge):
+
+    solution.days[d1].remove_edge(edge)
+
+    try:
+        edge.service_days.remove(d1)
+    except:
+        # in case it's called with a day on which the edge is not serviced
+        pass
+
+# ? operator 7
+#   - add a single service of an edge on a day
+#   - only if the edge is not already serviced on that day
+def op7(solution, d1, edge):
+
+    if d1 not in solution.get_work_days():
+        # don't add edges for service to a non-work day (weekend)
+        return
+    elif d1 in edge.service_days:
+        # if the edge is already serviced in that day
+        return
+    
+    solution.days[d1].add_edge(edge)
+    # with the spacing penalty - the proper day will have more priority
 
 
 def run(solution):
 
-    # n1 = copy.deepcopy(solution)
-    
-    # work_days = n1.get_work_days()
-    # d1, d2 = random.sample(work_days, 2)
-    # edge_id = random.randint(0, len(n1.days[d1].edges) - 1)
-
-    # selected_edge = n1.days[d1].edges[edge_id]
-    
-    # op1(n1, d1, d2, edge_id)
-
-
-    # n2 = copy.deepcopy(solution)
-    # n2_edge1, n2_edge2 = op2(n2)
-
-    # n3 = copy.deepcopy(solution)
-    # op3(n3)
-
-
-    # n1_alt = copy.deepcopy(solution)
-    # op1_alt(n1_alt)
-
-    # print("ORIGINAL SOLUTION")
-    # print('-' * 50)
-    # print(' ' * 50)
-    # print('-' * 50)
-    # solution.print()
-    
-    # print("NEIGHBOUR 3 SOLUTION")
-    # print('-' * 50)
-    # print(' ' * 50)
-    # print('-' * 50)
-    # n2.print()
-
-    # print('-' * 50)
-    # print(' ' * 50)
-    # print('-' * 50)
-
-    # print('\n\n')
-    # print(len(n1.days[d1].edges))
-    # print(d1, d2, edge_id)
-    # print(selected_edge)
-
-    og_solution = solution.evaluate()
-    neighbour_score = og_solution
-
-    n4 = copy.deepcopy(solution)
-    op4(n4)
-
-    cnt = 0
-    while neighbour_score >= og_solution:
-        n4 = copy.deepcopy(solution)
-        op4(n4)
-
-        neighbour_score = n4.evaluate()
-        cnt +=1
-        if cnt % 10 == 0:
-            print(f'Tried randomly {cnt} times')
-    
-    print(f"Got an improvement after {cnt} tries")
-    
-    
-    # op3
-    # print("Routes before")
-    # print(b4_r1)
-    # print(b4_r2)
-    # print("Routes after:")
-    # print(after_r1)
-    # print(after_r2)
-
-    # print(f"Selected edge to move from day {d1} to day {d2}")
-    # print(selected_edge)
-
-
-    # print('\n\nSelected edges')
-
-    # print(n2_edge1)
-    # print(n2_edge2)
-
-    print(f"\n\nOriginal solution cost: {og_solution}")
-    print(f"Improved Neighbouring (op4) solution cost: {neighbour_score}")
     
     
     no_improvement_count = 0
     patience = 10       # how many iterations to go without improvement
-    
+
+    current_best_solution = solution
+    neighbour_opX_solution = copy.deepcopy(current_best_solution)
+
+    best_score = current_best_solution.evaluate()
+    neighbour_score = best_score        # just a placeholder number
+    while no_improvement_count < patience:
+        # todo - change above operators so they take proper arguments
+        pass
+        break
 

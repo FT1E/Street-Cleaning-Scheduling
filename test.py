@@ -45,9 +45,8 @@ solution = Solution(day_assignments, demanded_edges, adjacency_list, vehicle, GR
 # print('Printing solution ...')
 # print(solution)
 
-routing_cost, vehicle_count = solution.evaluate()
-print(f"\n\nSolution cost:\n\t- routing: {routing_cost}\n\t- vehicles used: {vehicle_count}")
-
+cost = solution.evaluate()
+print(f"Solution cost: {cost}")
 
 unsatisfied_edges = solution.unsatisfied_edges()
 
@@ -62,4 +61,7 @@ print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
 print(f"Expected number of total services: {solution.expected_number_of_services()}")
 print(f"Actual number of total services: {solution.total_number_of_services()}")
 
-ls_run(solution)
+
+solution.checking_references()
+
+# ls_run(solution)
