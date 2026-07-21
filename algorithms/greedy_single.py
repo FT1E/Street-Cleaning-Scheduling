@@ -15,14 +15,16 @@ def run(demanded_edge_list, vehicle):
 
     for day in range(vehicle['planning_duration']):
 
+        demanded_edge_list = demanded_edge_list + next_day_streets[0]
+
+        for i in range(vehicle['planning_duration'] - day - 1):
+            next_day_streets[i] = next_day_streets[i+1]
+
         if day + 1 in vehicle['days_no_service']:
             # skip day if vehicle not available for today
             continue
 
-        demanded_edge_list = list(hq.merge(demanded_edge_list, next_day_streets[0]))
-
-        for i in range(vehicle['planning_duration'] - day - 1):
-            next_day_streets[i] = next_day_streets[i+1]
+        hq.heapify(demanded_edge_list)
             
 
         while capacity_used[day] < vehicle['count'] * vehicle['capacity'] and len(demanded_edge_list) > 0:
