@@ -246,7 +246,6 @@ def op4(solution, d1=None, edge1=None, edge2=None):
     # - insert edge1 before edge 2
     edge2.route.insert_edge(edge1, edge_in_route = edge2)
 
-    day.recalculate_total_distance()
 
     return edge1, edge2
 
@@ -282,7 +281,6 @@ def op5(solution, d1=None, edge_a1=None, edge_a2=None, edge_b=None):
     edge_b.route.insert_edge(edge_a1, edge_in_route = edge_a2)
     # a1 a2 b
 
-    day.recalculate_total_distance()
 
 def run(solution):
 

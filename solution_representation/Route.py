@@ -10,7 +10,7 @@ from util.min_distances import min_distance_ee, min_distance_ne
 
 class Route:
 
-    def __init__(self, targets, length = None, demand = None):
+    def __init__(self, targets, length = None, demand = None, day = None):
         
         self.targets = targets      # sequence of edges which will be visited then traversed
         if length is None:
@@ -22,6 +22,8 @@ class Route:
             self.calculate_demand()
         else:
             self.demand = demand
+
+        self.day = day      # reference to the Day class object - the day in which the route belongs
 
         # set the route reference in the Edge object
         # so the route of an edge can be directly accessed
@@ -72,10 +74,7 @@ class Route:
             self.demand += target.demand
         return self.demand
 
-    def calculate(self):
-        self.calculate_length()
-        self.calculate_demand()
-
+    
     def merge(self, other):
         # unlike the merge_cw which specifies with saving which 2 endpoints are to be linked in this case all the possible combinations of endpoint links are tried
         # route a and route b
@@ -140,8 +139,9 @@ class Route:
         try:
             self.targets.insert(pos, new_edge)
             new_edge.route = self
-            self.calculate_length()
+            self.update_day_length()
             self.demand += new_edge.demand
+            self.day.add_edge_in_list(new_edge)
         except:
             # in case pos out of bounds
             return
@@ -150,13 +150,15 @@ class Route:
 
         if edge is not None and edge in self.targets:
             self.targets.remove(edge)
-            self.calculate_length()
-            self.demand -= edge.demand  
+            self.update_day_length()
+            self.demand -= edge.demand
+            self.day.remove_edge_in_list(edge)  
         elif pos is not None:
             try:
                 edge = self.targets.pop(pos)
-                self.calculate_length()
+                self.update_day_length()
                 self.demand -= edge.demand
+                self.day.remove_edge_in_list(edge)  
             except:
                 return
         else:
@@ -175,3 +177,10 @@ class Route:
         for edge in self.targets:
             print(f"\t{edge}")
         
+    def set_day(self, day):
+        self.day = day
+
+    def update_day_length(self):
+        len_before = self.length
+        len_after = self.calculate_length()
+        self.day.total_distance = self.day.total_distance - len_before + len_after

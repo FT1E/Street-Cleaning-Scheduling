@@ -55,15 +55,9 @@ class Day:
 
         affected_route = edge.route
 
-        lenght_before = affected_route.length
-
         # lenght is calculated in below method
         affected_route.remove_edge(edge)
-        
-        lenght_after = affected_route.length
-        
-        self.total_distance = self.total_distance - lenght_before + lenght_after
-        
+                
         # if the edge was the only target in the route remove it
         if len(affected_route.targets) == 0:
             self.routes.remove(affected_route)
@@ -76,6 +70,10 @@ class Day:
 
         self.total_distance = info['total_distance']
         self.routes = info['routes']
+
+        for route in self.routes:
+            route.set_day(self)
+
         self.route_count = len(self.routes)
 
     def recalculate_total_distance(self):
@@ -112,3 +110,14 @@ class Day:
         if len(route.targets) > 0:
             self.routes.append(route)
             self.total_distance += route.length
+            route.set_day(self)
+
+    def add_edge_in_list(self, edge):
+        if edge not in self.edges:
+            self.edges.append(edge)
+            
+    def remove_edge_in_list(self, edge):
+        try:
+            self.edges.remove(edge)
+        except:
+            pass
