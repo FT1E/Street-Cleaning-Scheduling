@@ -37,9 +37,14 @@ def run(demanded_edge_list, adjacency_lists, vehicle, CLUSTER_LIMIT = 5):
         # adding edges which need to be serviced
         #   - either previously serviced
         #   - or vehicle couldn't service due to capacity limitations
-        demanded_edge_list = demanded_edge_list + next_day_streets[0]
-        for i in range(vehicle['planning_duration'] - day - 1):
-            next_day_streets[i] = next_day_streets[i+1]
+        
+        # doing a do while loop so there isn't a day where demanded_edge_list is empty
+        cnt = 0
+        while cnt == 0 or cnt < day and len(demanded_edge_list) == 0:
+            demanded_edge_list = demanded_edge_list + next_day_streets[0]
+            for i in range(vehicle['planning_duration']):
+                next_day_streets[i] = next_day_streets[i+1]
+            cnt += 1
 
         if day+1 in vehicle['days_no_service']:
             # skip day if vehicle not available for today
@@ -47,7 +52,10 @@ def run(demanded_edge_list, adjacency_lists, vehicle, CLUSTER_LIMIT = 5):
 
         hq.heapify(demanded_edge_list)
 
-
+        # without the do while loop above, for some reason the list is always empty on 3rd day of week
+        # if day % 7 == 3:
+        #     print("3rd day of week")
+        #     print(f"number of edges in demanded edge list: {len(demanded_edge_list)}")
 
         while capacity_used[day] < (vehicle['count'] - 2)* vehicle['capacity'] and len(demanded_edge_list) > 0:
             # ? reseting to default values for dynamic cluster
@@ -87,7 +95,7 @@ def run(demanded_edge_list, adjacency_lists, vehicle, CLUSTER_LIMIT = 5):
 
                 if capacity_used[day] + edge.demand > vehicle['count'] * vehicle['capacity']:
                     # if edge has higher demand than the vehicle can handle for the day then skip it for today
-                    hq.heappush(next_day_streets[0], edge)
+                    next_day_streets[0].append(edge)
                     continue
 
                 # assign it to day
@@ -98,7 +106,7 @@ def run(demanded_edge_list, adjacency_lists, vehicle, CLUSTER_LIMIT = 5):
                 cluster_edges.append(edge)
 
                 if (edge.last_cleaning_day + edge.freq) < vehicle['planning_duration']:
-                    hq.heappush(next_day_streets[int(edge.freq // 2)], edge)
+                    next_day_streets[int(edge.freq // 2)].append(edge)
 
                 # - add new neighbouring edges to cluster heap
                 # - keep track of which edges where added - which neighbourhoods of vertexes - basically just vertex number

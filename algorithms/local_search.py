@@ -9,6 +9,8 @@ sys.path.append('..')
 from solution_representation.Route import Route
 
 # * receives an sp-carp solution, on which it performs local search
+# todo - every argument which is taken randomly, allow so that it can be passed as an explicit argument
+
 
 # task = serviced edge
 
@@ -156,7 +158,7 @@ def op2(solution, edge1=None, edge2=None):
 #   - from 1 route containing a sequence (a,b) and another route containing a sequence (c,d)
 #   - disconnect a-b and c-d and connect it with the other like a-d and c-b
 #   - the routes are from the same day (d1)
-#   todo - maybe allow a route to be taken whole - like not cut it all (ie cut before beginning of route or cut after end of route)
+#   - allow a route to be taken whole - like not cut it all (ie cut before beginning of route or cut after end of route)
 def op3(solution, d1=None):
     # possible combinatins
     # ac bd, ad bc - everything else is same cb is same as bc (same cost otherwise same route)
@@ -224,46 +226,86 @@ def op4(solution, d1=None, edge1=None, edge2=None):
 
     day = solution.days[d1]
 
+    # print(f"Day {d1} has {len(day.routes)} routes.")
+
+    # random for testing
+    if edge1 is None:
+        route1, route2 = random.sample(day.routes, 2)
+        edge1 = random.choice(route1.targets)
+        edge2 = random.choice(route2.targets)
+
+        # route1.set_target_routes()
+        # route2.set_target_routes()
+
     if edge1 not in day.edges or edge2 not in day.edges:
         return
 
-    day.remove_edge(edge1)
 
-    # todo - insert edge1 after edge 2
-    day.add_edge_in_route(edge1, edge2.route, edge_in_route=edge2)
+    edge1.route.remove_edge(edge1)
 
-    pass
+    # - insert edge1 before edge 2
+    edge2.route.insert_edge(edge1, edge_in_route = edge2)
+
+    day.recalculate_total_distance()
+
+    return edge1, edge2
 
 
 # ? operator 5
 #   - similar to op4, but take 2 successive tasks performed one after another and move them together as a sequence
 #   - again consider all possible places
-def op5(solution):
-    pass
+def op5(solution, d1=None, edge_a1=None, edge_a2=None, edge_b=None):
+    # take successive edges edge_a1, edge_a2 from route A and insert them before edge_b of route B
+    # with route A != route B
 
+    day = solution.days[d1]
+    if edge_a1 not in day.edges or edge_a2 not in day.edges or edge_b not in day.edges:
+        # only change routes within a day
+        return
+
+    if edge_a1.route != edge_a2.route:
+        # not checking for successiveness
+        # maybe can just give 1 edge as an argument and take the next one implicitly 
+        # only if the given edge is not the last edge
+        return
+    
+    if edge_a1.route == edge_b.route:
+        # todo - will decide on this behaviour later
+        return
+    
+    edge_a1.route.remove_edge(edge_a1)
+    edge_a1.route.remove_edge(edge_a2)
+
+    # b
+    edge_b.route.insert_edge(edge_a2, edge_in_route = edge_b)
+    # a2 b
+    edge_b.route.insert_edge(edge_a1, edge_in_route = edge_a2)
+    # a1 a2 b
+
+    day.recalculate_total_distance()
 
 def run(solution):
 
-    n1 = copy.deepcopy(solution)
+    # n1 = copy.deepcopy(solution)
     
-    work_days = n1.get_work_days()
-    d1, d2 = random.sample(work_days, 2)
-    edge_id = random.randint(0, len(n1.days[d1].edges) - 1)
+    # work_days = n1.get_work_days()
+    # d1, d2 = random.sample(work_days, 2)
+    # edge_id = random.randint(0, len(n1.days[d1].edges) - 1)
 
-    selected_edge = n1.days[d1].edges[edge_id]
+    # selected_edge = n1.days[d1].edges[edge_id]
     
-    op1(n1, d1, d2, edge_id)
+    # op1(n1, d1, d2, edge_id)
 
 
-    n2 = copy.deepcopy(solution)
-    n2_edge1, n2_edge2 = op2(n2)
+    # n2 = copy.deepcopy(solution)
+    # n2_edge1, n2_edge2 = op2(n2)
 
     # n3 = copy.deepcopy(solution)
     # op3(n3)
 
 
-    n1_alt = copy.deepcopy(solution)
-    op1_alt(n1_alt)
+    # n1_alt = copy.deepcopy(solution)
+    # op1_alt(n1_alt)
 
     # print("ORIGINAL SOLUTION")
     # print('-' * 50)
@@ -289,14 +331,20 @@ def run(solution):
     og_solution = solution.evaluate()
     neighbour_score = og_solution
 
-    cnt = 0
-    # while neighbour_score >= og_solution:
+    n4 = copy.deepcopy(solution)
+    op4(n4)
 
-    #     cnt +=1
-    #     if cnt % 10 == 0:
-    #         print(f'Tried randomly {cnt} times')
+    cnt = 0
+    while neighbour_score >= og_solution:
+        n4 = copy.deepcopy(solution)
+        op4(n4)
+
+        neighbour_score = n4.evaluate()
+        cnt +=1
+        if cnt % 10 == 0:
+            print(f'Tried randomly {cnt} times')
     
-    # print(f"Got an improvement after {cnt} tries")
+    print(f"Got an improvement after {cnt} tries")
     
     
     # op3
@@ -317,7 +365,7 @@ def run(solution):
     # print(n2_edge2)
 
     print(f"\n\nOriginal solution cost: {og_solution}")
-    print(f"Improved Neighbouring (op3) solution cost: {neighbour_score}")
+    print(f"Improved Neighbouring (op4) solution cost: {neighbour_score}")
     
     
     no_improvement_count = 0

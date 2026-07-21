@@ -59,6 +59,7 @@ class Route:
     def calculate_length(self):
         if len(self.targets) == 0:
             self.length = 0
+            return self.length
 
         self.length = min_distance_ne(0, self.targets[0]) + min_distance_ne(0, self.targets[-1])
         for i in range(len(self.targets) - 1):
@@ -129,21 +130,20 @@ class Route:
             return
     
         if pos is not None:
-            try:
-                self.targets.insert(pos, new_edge)
-                new_edge.route = self
-                self.calculate_length()
-                self.demand += new_edge.demand
-            except:
-                # in case pos out of bounds
-                return
+            pass
         elif edge_in_route is not None and edge_in_route in self.targets:
             pos = self.targets.index(edge_in_route)
+        else:
+            # if no valid arguments are given add it at end of route
+            pos = len(self.targets)
+        
+        try:
             self.targets.insert(pos, new_edge)
             new_edge.route = self
             self.calculate_length()
             self.demand += new_edge.demand
-        else:
+        except:
+            # in case pos out of bounds
             return
 
     def remove_edge(self, edge=None, pos = None):
@@ -151,7 +151,7 @@ class Route:
         if edge is not None and edge in self.targets:
             self.targets.remove(edge)
             self.calculate_length()
-            self.demand -= edge.demand
+            self.demand -= edge.demand  
         elif pos is not None:
             try:
                 edge = self.targets.pop(pos)

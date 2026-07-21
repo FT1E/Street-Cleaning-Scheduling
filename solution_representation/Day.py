@@ -68,9 +68,6 @@ class Day:
         if len(affected_route.targets) == 0:
             self.routes.remove(affected_route)
 
-        # shouldn't happen but just for debugging in case it does
-        print(f"Day {self.number} had edge in edge list but not present in any route!")
-        print(f"\t{edge}")
         return edge
 
     def recalculate_routes(self):
@@ -80,6 +77,13 @@ class Day:
         self.total_distance = info['total_distance']
         self.routes = info['routes']
         self.route_count = len(self.routes)
+
+    def recalculate_total_distance(self):
+        # todo - improve this so the change can be bubbled up from the Route class up to the Day class
+        self.total_distance = 0
+        for route in self.routes:
+            self.total_distance += route.length
+        return self.total_distance
 
     def __repr__(self):
         self.print()

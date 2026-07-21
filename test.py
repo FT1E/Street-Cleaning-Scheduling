@@ -9,6 +9,8 @@ from solution_representation.Solution import Solution
 
 from algorithms.local_search import run as ls_run
 
+import copy
+
 GRAPH_ID = 0
 VEHICLE_ID = 0
 
@@ -19,9 +21,9 @@ vehicle = get_vehicle_data(VEHICLE_ID)
 
 # ! below for debugging
 # vehicle['distance_limit'] = 500     
-print(f"Vehicle distance limit: {vehicle['distance_limit']}")
+# print(f"Vehicle distance limit: {vehicle['distance_limit']}")
 # vehicle['planning_duration'] = 7
-vehicle['count'] = 100           # ? playing around with this value so it's not too high, but also not too low so some edges don't get serviced at all
+vehicle['count'] = 50           # ? playing around with this value so it's not too high, but also not too low so some edges don't get serviced at all
 # (graph_id, vehicle_id) >= value so that no edge is ignored (not serviced at all)
 # (0, 0) >= 33
 
@@ -60,4 +62,4 @@ print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
 print(f"Expected number of total services: {solution.expected_number_of_services()}")
 print(f"Actual number of total services: {solution.total_number_of_services()}")
 
-# ls_run(solution)
+ls_run(solution)

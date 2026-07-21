@@ -80,25 +80,19 @@ def calculate_cost(adjacency_list, targets, vehicle, graph_id, recalculate_dista
         route_1 = top_saving.target_1.route
         route_2 = top_saving.target_2.route
 
-        new_route = route_1.merge_cw(route_2, top_saving)
 
-        if new_route.length > vehicle['distance_limit']:
-
-            if len(route_1.targets) == 1 and len(route_2.targets):
-                print(f"Can't merge route lenght beyond vehicle length limit: {new_route.length}")
+        if route_1.length + route_2.length - top_saving.saving > vehicle['distance_limit']:
             continue
-        if new_route.demand > vehicle['capacity']:
-        
-            # if len(route_1.targets) == 1 and len(route_2.targets):
-            #     print(f"Can't merge route lenght beyond vehicle demand: {new_route.demand}")
+        if route_1.demand + route_2.demand > vehicle['capacity']:
             continue
 
         # else it's fine and merge the routes
+        new_route = route_1.merge_cw(route_2, top_saving)
+
         routes.remove(route_1)
         routes.remove(route_2)
 
         routes.append(new_route)
-        new_route.set_target_routes()
 
 
     # organize the output
@@ -108,6 +102,7 @@ def calculate_cost(adjacency_list, targets, vehicle, graph_id, recalculate_dista
 
     # calculate distance covered
     for route in routes:
+        route.set_target_routes()
         res['total_distance'] += route.length
 
     return res

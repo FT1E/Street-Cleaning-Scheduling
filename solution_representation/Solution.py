@@ -41,11 +41,12 @@ class Solution:
 
     
     def __repr__(self):
-        print_day_assignment(self.arrays, self.adjacency_lists, self.vehicle, self.graph_id)
+        self.print()
         return ""
 
     def print(self):
-        self.__repr__()
+        for day in self.days:
+            day.print()
 
     # ! careful for out of bounds exceptions for below methods
     def get_day_routes(self, day):
