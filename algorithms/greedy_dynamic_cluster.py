@@ -1,28 +1,13 @@
 
 
-import sys
 import heapq as hq
 
-sys.path.append('..')
-from data.read_data import get_graph_al, get_graph_demanded_edges, get_vehicle_data, get_graph_metadata
 
-GRAPH_ID = 8
-VEHICLE_ID = 6
 CLUSTER_LIMIT = 5   # TODO - play with numbers, also consider case of infinite - like selecting 1 edge, then building assignment for day from it / around it
 
 
-edges = get_graph_demanded_edges(GRAPH_ID)
-# - adjacency lists for accessing adjacent edges faster/more easily
-adjacency_lists = get_graph_al(GRAPH_ID)
-
-hq.heapify(edges)
-
-# get vehicle data
-vehicle = get_vehicle_data(VEHICLE_ID)
-
-
 # ? method returns assignment of edges
-def run(demanded_edge_list, adjacency_lists, vehicle):
+def run(demanded_edge_list, adjacency_lists, vehicle, CLUSTER_LIMIT = 5):
     
     
     day_assignment = [[] for _ in range(vehicle['planning_duration'])]

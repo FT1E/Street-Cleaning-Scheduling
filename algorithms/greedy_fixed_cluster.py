@@ -4,10 +4,7 @@
 # * - cluster priority - sum of non-satisfied edges - for satisfaction see class Edge in data/read_data.py
 #   * - edge is satisfied if since last cleaning day, less than half the frequency days have passed
 # * - picking among clusters - when picking cluster only take as target the non-satisfied edges
-# todo - some debugging - if some cluster size exceeds than what the vehicle can handle
-#   todo - implement in generating the clusters if cluster cost or demand exceeds than what a single vehicle can handle then keep exploring
 
-import sys
 import heapq as hq
 
 from util.routing_heuristic import calculate_cost
@@ -68,8 +65,9 @@ def generate_cw_clusters(edge_list, adjacency_list, vehicle, graph_id):
 
     cw_clusters = []
     for route in routing_info['routes']:
-        cw_clusters.append(Cluster(route.targets))
-        cw_clusters[-1].assign_cluster()
+        cluster = Cluster(route.targets)
+        cw_clusters.append(cluster)
+        cluster.assign_cluster()
 
     return cw_clusters
 
@@ -102,7 +100,7 @@ def run(edge_list, adjacency_list, vehicle, graph_id):
         next_day_clusters = []
 
 
-        while capacity_used[day] < vehicle['capacity'] and len(clusters) > 0:
+        while capacity_used[day] < vehicle['count'] * vehicle['capacity'] and len(clusters) > 0:
             cluster = hq.heappop(clusters)
 
             if cluster.num_non_satisfied_edges() == 0:
@@ -111,12 +109,10 @@ def run(edge_list, adjacency_list, vehicle, graph_id):
                 hq.heappush(next_day_clusters, cluster) # push it back so it gets assigned the next day
                 break   # go to next day
 
-            if capacity_used[day] + cluster.demand() < vehicle['capacity']:
+            if capacity_used[day] + cluster.demand() > vehicle['count'] *  vehicle['capacity']:
                 # if cluster has higher demand than the vehicle can handle for the day then skip it for today
                 hq.heappush(next_day_clusters, cluster)
                 continue
-
-            # todo - check for routing cost - not above limit, easy to check for the cw_clusters
 
             # ? note that this assigns only non-satisfied edges
             capacity_used[day] += cluster.demand()

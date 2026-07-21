@@ -6,7 +6,7 @@ import math
 
 sys.path.append('..')
 
-from util.routing_heuristic import Route
+from solution_representation.Route import Route
 
 # * receives an sp-carp solution, on which it performs local search
 
@@ -156,6 +156,7 @@ def op2(solution, edge1=None, edge2=None):
 #   - from 1 route containing a sequence (a,b) and another route containing a sequence (c,d)
 #   - disconnect a-b and c-d and connect it with the other like a-d and c-b
 #   - the routes are from the same day (d1)
+#   todo - maybe allow a route to be taken whole - like not cut it all (ie cut before beginning of route or cut after end of route)
 def op3(solution, d1=None):
     # possible combinatins
     # ac bd, ad bc - everything else is same cb is same as bc (same cost otherwise same route)
@@ -177,8 +178,8 @@ def op3(solution, d1=None):
     day.remove_route(r1)
     day.remove_route(r2)
 
-    cut1 = random.randint(1, len(r1.targets) - 2)
-    cut2 = random.randint(1, len(r2.targets) - 2)
+    cut1 = random.randint(0, len(r1.targets) - 1)
+    cut2 = random.randint(0, len(r2.targets) - 1)
 
     r1_h1 = Route(r1.targets[:cut1])
     r1_h2 = Route(r1.targets[cut1:])
@@ -202,22 +203,43 @@ def op3(solution, d1=None):
 
     # add the new routes depending on which combination is cheaper
     if cost_a < cost_b:
-        day.add_route(a_r1)
-        day.add_route(a_r2)
+        res_r1 = a_r1
+        res_r2 = a_r2
     else:
-        day.add_route(b_r1)
-        day.add_route(b_r2)
+        res_r1 = b_r1
+        res_r2 = b_r2
+
+    day.add_route(res_r1)
+    day.add_route(res_r2)
+    return r1, r2, res_r1, res_r2
 
 # ? operator 4
-#   - similar to operator 1 but do it within a day
-#   - take 2 random tasks u and v and move u to be serviced after v or before u
-#   - just make sure it's different, like don't take 2 (u,v) and move u before v which already is
-#   - different from (u, x, v) and move u before v to get (x, u, v)
-def op4(solution):
+#   - take a task u and move it to a different route within the same day
+#   - consider all spots in 1 route where it can be put in - think I can use binary search here
+#   - or an alternative to consider only adding it at the end/beginning of a route, but try it for all routes
+def op4(solution, d1=None, edge1=None, edge2=None):
+
+    if d1 is None:
+        d1 = random.choice(solution.get_work_days())
+
+    day = solution.days[d1]
+
+    if edge1 not in day.edges or edge2 not in day.edges:
+        return
+
+    day.remove_edge(edge1)
+
+    # todo - insert edge1 after edge 2
+    day.add_edge_in_route(edge1, edge2.route, edge_in_route=edge2)
+
     pass
 
 
-
+# ? operator 5
+#   - similar to op4, but take 2 successive tasks performed one after another and move them together as a sequence
+#   - again consider all possible places
+def op5(solution):
+    pass
 
 
 def run(solution):
@@ -236,8 +258,8 @@ def run(solution):
     n2 = copy.deepcopy(solution)
     n2_edge1, n2_edge2 = op2(n2)
 
-    n3 = copy.deepcopy(solution)
-    op3(n3)
+    # n3 = copy.deepcopy(solution)
+    # op3(n3)
 
 
     n1_alt = copy.deepcopy(solution)
@@ -264,12 +286,38 @@ def run(solution):
     # print(d1, d2, edge_id)
     # print(selected_edge)
 
+    og_solution = solution.evaluate()
+    neighbour_score = og_solution
+
+    cnt = 0
+    # while neighbour_score >= og_solution:
+
+    #     cnt +=1
+    #     if cnt % 10 == 0:
+    #         print(f'Tried randomly {cnt} times')
+    
+    # print(f"Got an improvement after {cnt} tries")
+    
+    
+    # op3
+    # print("Routes before")
+    # print(b4_r1)
+    # print(b4_r2)
+    # print("Routes after:")
+    # print(after_r1)
+    # print(after_r2)
+
+    # print(f"Selected edge to move from day {d1} to day {d2}")
+    # print(selected_edge)
+
+
     # print('\n\nSelected edges')
+
     # print(n2_edge1)
     # print(n2_edge2)
 
-    print(f"\n\nOriginal solution cost: {solution.evaluate()}")
-    print(f"Neighbouring (op1_alt) solution cost: {n1_alt.evaluate()}")
+    print(f"\n\nOriginal solution cost: {og_solution}")
+    print(f"Improved Neighbouring (op3) solution cost: {neighbour_score}")
     
     
     no_improvement_count = 0

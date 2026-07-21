@@ -1,80 +1,10 @@
 import heapq as hq
-import os
-import json
+import sys
 
-memo_distances = None
-# todo - use a bit of memoization, since I'm using the same graph
-# todo - it's enough to calculate the distances once between every pair of vertices/nodes
+sys.path.append('..')
 
-# todo - also consider how number of vehicles limits the routing 
-
-
-min_dist_directory = os.path.join('D:\\','Seminar', 'data', 'SP-CARP-graphs-min-distances')
-
-
-def calculate_distances(adjacency_list, graph_id):
-    global memo_distances
-
-    file = f'md_g_{graph_id}.json'
-    try:
-        with open(os.path.join(min_dist_directory, file), 'r') as f:
-            memo_distances = json.load(f)
-            memo_distances = {int(k) : {int(k1) : v1 for k1,v1 in v.items()} for k,v in memo_distances.items() if k != 'max_distance'}
-            return
-    except Exception as e:
-        print(e)
-        print(f'No cached distance matrix found for graph with id {graph_id}, calculating ...')
-
-    # ? for debugging purposes - seeing the graph's max distance
-    max_distance = 0
-
-    memo_distances = dict()
-    for i in range(len(adjacency_list)):
-        memo_distances[i] = dict()
-        memo_distances[i][i] = 0
-        current = adjacency_list[i].copy()
-
-        # do dijkstra - take edge with smallest distance - then add that new point
-        hq.heapify(current)
-        while len(current) > 0:
-            min_edge = hq.heappop(current)
-            if min_edge.end_node not in memo_distances[i] or memo_distances[i][min_edge.start_node] + min_edge.distance < memo_distances[i][min_edge.end_node]:
-                memo_distances[i][min_edge.end_node] = memo_distances[i][min_edge.start_node] + min_edge.distance
-                
-                if memo_distances[i][min_edge.end_node] > max_distance:
-                    max_distance = memo_distances[i][min_edge.end_node]
-
-                for edge in adjacency_list[min_edge.end_node]:
-                    hq.heappush(current, edge)
-
-    memo_distances['max_distance'] = max_distance   # not needed but idk for me
-    json_str = json.dumps(memo_distances, indent=4)
-    with open(os.path.join(min_dist_directory, file), 'w') as f:
-        f.write(json_str)
-
-    print(f"Max distance in the graph: {max_distance}")
-
-def get_min_distances(adjacency_list=None):
-    global memo_distances
-
-    if adjacency_list is not None:
-        calculate_distances(adjacency_list)
-    
-    return memo_distances
-    
-# get the minimum distance from a node to an edge
-def min_distance_ne(node, edge):
-    return min(memo_distances[node][edge.start_node], memo_distances[node][edge.end_node])
-
-
-# get the minimum distance from an edge to another edge
-def min_distance_ee(edge1, edge2):
-    d1 = memo_distances[edge1.start_node][edge2.start_node]
-    d2 = memo_distances[edge1.start_node][edge2.end_node]
-    d3 = memo_distances[edge1.end_node][edge2.start_node]
-    d4 = memo_distances[edge1.end_node][edge2.end_node]
-    return min([d1, d2, d3, d4])
-
+from solution_representation.Route import Route
+from util.min_distances import calculate_distances, min_distance_ne, min_distance_ee
 
 
 class Saving:
@@ -103,121 +33,13 @@ class Saving:
             return True
         
    
-
-
-class Route:
-    def __init__(self, targets, length=-1, demand=-1):
-        self.targets = targets
-
-        if length == -1:
-            self.calculate_length()
-        else:
-            self.length = length
-
-        if demand == -1:
-            self.calculate_demand()
-        else:
-            self.demand = demand
-
-    def merge_cw(self, other, saving):
-        # todo - merge two routes and calculate the new length
-        
-        t1 = saving.target_1
-        if t1 not in self.targets:
-            t1 = saving.target_2
-            t2 = saving.target_1
-        else:
-            t2 = saving.target_2
-
-        if self.targets.index(t1) == 0:
-            self.targets.reverse()
-
-        if other.targets.index(t2) == 0:
-            new_targets = self.targets + other.targets
-        else:
-            new_targets = other.targets + self.targets
-        
-        length = self.length + other.length - saving.saving
-        return Route(new_targets, length, self.demand + other.demand)
-
-    def set_target_routes(self):
-        for target in self.targets:
-            target.route = self
-
-    def calculate_length(self):
-        self.length = min_distance_ne(0, self.targets[0]) + min_distance_ne(0, self.targets[-1])
-        for i in range(len(self.targets) - 1):
-            self.length += min_distance_ee(self.targets[i], self.targets[i+1])
-        return self.length
-    
-    def calculate_demand(self):
-        self.demand = 0
-        for target in self.targets:
-            self.demand += target.demand
-        return self.demand
-
-
-    def merge(self, other):
-        # unlike the merge_cw which specifies with saving which 2 endpoints are to be linked in this case all the possible combinations of endpoint links are tried
-        # route a and route b
-        # a' means route a in reverse
-        # possible links are ab, ab', a'b, a'b'
-        # note that ba' is same as ab' since it's connecting last point of a with last point of b
-        # deciding based on the cheapest link among endpoints
-
-        endpoint_a1 = self.targets[0]
-        endpoint_a2 = self.targets[-1]
-        endpoint_b1 = other.targets[0]
-        endpoint_b2 = other.targets[-1]
-
-        link1 = min_distance_ee(endpoint_a1, endpoint_b1)
-        link2 = min_distance_ee(endpoint_a1, endpoint_b2)
-        link3 = min_distance_ee(endpoint_a2, endpoint_b1)
-        link4 = min_distance_ee(endpoint_a2, endpoint_b2)
-
-        if min(link1, link2) < min(link3, link4):
-            # link 1st point of a
-            part1 = self.targets[::-1]
-            if link1 < link2:
-                # with 1st point of b
-                part2 = other.targets[:]
-            else:
-                # with last point of b
-                part2 = other.targets[::-1]
-        else:
-            # link last point of a
-            part1 = self.targets[:]
-            if link3 < link4:
-                # with 1st point of b
-                part2 = other.targets[:]
-            else:
-                # with last point of b
-                part2 = other.targets[::-1]
-
-        return Route(part1 + part2)
-    
-    def __lt__(self, other):
-        return self.length < other.length
-    
-    def __repr__(self):
-        self.print()
-        return ""
-
-    def print(self):
-        print(f"Route length ({self.length}) and demand ({self.demand}):")
-        for edge in self.targets:
-            print(f"\t{edge}")
-        
+     
 
 # * using memoization so distances in a graph are calculated once and then re-using
 # * using additional argument in case I'm switching between graphs
 def calculate_cost(adjacency_list, targets, vehicle, graph_id, recalculate_distances = False):
-    
-    global memo_distances
 
-    if memo_distances is None or recalculate_distances:
-        calculate_distances(adjacency_list, graph_id)
-
+    calculate_distances(adjacency_list, graph_id)
 
     savings = []
     routes = []
@@ -261,8 +83,14 @@ def calculate_cost(adjacency_list, targets, vehicle, graph_id, recalculate_dista
         new_route = route_1.merge_cw(route_2, top_saving)
 
         if new_route.length > vehicle['distance_limit']:
+
+            if len(route_1.targets) == 1 and len(route_2.targets):
+                print(f"Can't merge route lenght beyond vehicle length limit: {new_route.length}")
             continue
         if new_route.demand > vehicle['capacity']:
+        
+            # if len(route_1.targets) == 1 and len(route_2.targets):
+            #     print(f"Can't merge route lenght beyond vehicle demand: {new_route.demand}")
             continue
 
         # else it's fine and merge the routes

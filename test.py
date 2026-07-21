@@ -4,8 +4,8 @@ from algorithms.greedy_single import run as gs_run
 from algorithms.greedy_dynamic_cluster import run as gdc_run
 from algorithms.greedy_fixed_cluster import run as gfc_run
 
-from util.logger import print_day_assignment
-from util.Solution import Solution
+from solution_representation.Solution import Solution
+
 
 from algorithms.local_search import run as ls_run
 
@@ -32,17 +32,19 @@ adjacency_list = get_graph_al(GRAPH_ID)
 
 
 # print(vehicle)
-day_assignments, capacity_used = gdc_run(demanded_edges, adjacency_list, vehicle)
+# day_assignments, capacity_used = gs_run(demanded_edges, vehicle)
+# day_assignments, capacity_used = gdc_run(demanded_edges, adjacency_list, vehicle)
+day_assignments, capacity_used = gfc_run(demanded_edges, adjacency_list, vehicle, GRAPH_ID)
 
 
 
 solution = Solution(day_assignments, demanded_edges, adjacency_list, vehicle, GRAPH_ID)
 
-# print('Printing solution ...')
-# print(solution)
+print('Printing solution ...')
+print(solution)
 
 routing_cost, vehicle_count = solution.evaluate()
-# print(f"\n\nSolution cost:\n\t- routing: {routing_cost}\n\t- vehicles used: {vehicle_count}")
+print(f"\n\nSolution cost:\n\t- routing: {routing_cost}\n\t- vehicles used: {vehicle_count}")
 
 
 # unsatisfied_edges = solution.unsatisfied_edges()
@@ -56,4 +58,4 @@ routing_cost, vehicle_count = solution.evaluate()
 
 
 
-ls_run(solution)
+# ls_run(solution)

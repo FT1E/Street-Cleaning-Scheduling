@@ -30,7 +30,7 @@ def run(demanded_edge_list, vehicle):
             # get edge with nearest deadline
             edge = hq.heappop(demanded_edge_list)
 
-            if capacity_used[day] + edge.demand > vehicle['capacity']:
+            if capacity_used[day] + edge.demand > vehicle['count'] * vehicle['capacity']:
                 # if edge has higher demand than the vehicle can handle for the day then skip it for today
                 hq.heappush(next_day_streets[0], edge)
                 continue

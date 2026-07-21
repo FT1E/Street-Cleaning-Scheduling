@@ -2,8 +2,11 @@
 import re
 import os, sys
 import pandas as pd
-from enum import Enum
 
+
+sys.path.append('..')
+
+from solution_representation.Edge import Edge, PriorityType
 
 # ! FIX BELOW SO IT CAN RUN ON ANY DEVICE
 graph_data_directory = os.path.join('D:\\','Seminar', 'data', 'SP-CARP graphs')
@@ -17,74 +20,6 @@ vehicle_data_directory = os.path.join('D:\\','Seminar', 'data', 'SP-CARP vehicle
         # num_fractions = int(re.sub(r'.*:\s*', '', lines[4]))
 
 
-PriorityType = Enum('PriorityType', {'Frequency' : 0, 'Deadline' : 1, 'Distance' : 2})
-
-class Edge:
-    def __init__(self, number, start_node, end_node, demand, distance, freq, priority_type = PriorityType.Deadline, last_cleaning_day=-1, curr_day=0):
-        
-        # id
-        self.number = number
-        
-        # end-nodes
-        self.start_node = start_node
-        self.end_node = end_node
-        
-        # demand, distance, frequency
-        self.demand = demand
-        self.distance = distance
-        self.freq = freq
-
-        # for static clustering algorithm
-        self.static_cluster = None
-
-        # run-time info
-        self.curr_day = curr_day
-        self.last_cleaning_day = last_cleaning_day      # irrelevant for streets which are cleaned only once in time duration
-        self.priority_type = priority_type
-        self.route = -1
-
-        self.service_days = []
-
-
-    def __lt__(self, other):
-        return self.priority() - other.priority()
-    
-    def priority(self):
-        match self.priority_type:
-            case PriorityType.Deadline:
-                return self.freq + self.last_cleaning_day
-            case PriorityType.Frequency:
-                return self.freq
-            case PriorityType.Distance:
-                return self.distance
-            case _:
-                print("Not defined priority type for class Edge!")
-                return None
-    
-    def set_curr_day(self, day):
-        self.curr_day = day
-
-    def set_cleaning_day(self, day):
-        self.last_cleaning_day = day
-        self.service_days.append(day)
-
-    def __repr__(self):
-        return f"Edge: {self.start_node} <--> {self.end_node} \t Freq: {self.freq} \t Demand: {self.demand}"
-
-    # below to avoid assigning a duplicate edge in the same day
-    def __eq__(self, value):
-        if not isinstance(value, Edge):
-            return False
-        return self.number == value.number and ((self.start_node == value.start_node and self.end_node == value.end_node) or (self.start_node == value.end_node and self.end_node == value.start_node))
-
-    # used for static clustering - satisfied if since last cleaning day, less than half the frequency days have passed
-    def is_satisfied(self, curr_day = None):
-        if self.last_cleaning_day < 0:
-            return False
-        
-        if curr_day is not None:
-            self.curr_day = curr_day
-        return self.last_cleaning_day + self.freq // 2 < self.curr_day
 
 # get data for graph i
 # list of all edges for graph i
@@ -106,6 +41,8 @@ def get_graph_edge_list(i, filter = 0):
         # * number of edges
         num_edges = int(re.sub(r'.*:\s*', '', lines[2]))
 
+        # TODO - DEPOT NODE
+        # ! TAKE NOTE OF BELOW
         # * in the first few files it's 0, but not in all of them
         depot_node = int(re.sub(r'.*:\s*', '', lines[3]))
 
@@ -140,19 +77,14 @@ def get_graph_edge_list(i, filter = 0):
             # else make 1 edge for each frequency (1 or more)
             cnt = 0
             for freq in edge_frequencies:
-                # todo
                 if freq > filter:
                     # skip edges with frequecny higher than planning period
                     # example planning period is 14 days, but there is an edge with frequency 56
                     # no edge will be skipped when vehicle with longest planning period is used
                     continue
-                res.append(Edge(e.EdgeNumber + cnt, e.StartNodeNumber, e.EndNodeNumber, getattr(e, edge_header[5 + 2*intervals.index(freq)]), e.Cost, freq))
+                res.append(Edge(int(e.EdgeNumber) + cnt, e.StartNodeNumber, e.EndNodeNumber, getattr(e, edge_header[5 + 2*intervals.index(freq)]), e.Cost, freq))
                 cnt += 1
-                pass
             
-
-
-
         return res
 
 
@@ -165,7 +97,7 @@ def get_graph_demanded_edges(i, filter=0):
         # log printed in the other function
         return None
     
-    non_zero_edges = [edge for edge in edge_list if edge.freq != -1]
+    non_zero_edges = [edge for edge in edge_list if edge.freq > 0]
 
     return non_zero_edges
 

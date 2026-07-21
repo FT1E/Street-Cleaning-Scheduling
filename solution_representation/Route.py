@@ -1,0 +1,177 @@
+
+import sys
+
+sys.path.append('..')
+
+from util.min_distances import min_distance_ee, min_distance_ne
+
+# used to represent the routes/trips in a day which is part of the solution to SP-CARP
+# also used in the Clarke-Wright routing heuristic (modified to use edges instead of vertices as targets)
+
+class Route:
+
+    def __init__(self, targets, length = None, demand = None):
+        
+        self.targets = targets      # sequence of edges which will be visited then traversed
+        if length is None:
+            self.calculate_length()
+        else:
+            self.length = length
+
+        if demand is None:
+            self.calculate_demand()
+        else:
+            self.demand = demand
+
+        # set the route reference in the Edge object
+        # so the route of an edge can be directly accessed
+        self.set_target_routes()
+
+    def merge_cw(self, other, saving):
+        # the conditions for the merging are already checked before
+        # if they are not satisfied this shouldn't be called
+
+        # merge two routes and connect the points which are given in the saving
+        #  and calculate the new length
+        
+        t1 = saving.target_1
+        if t1 not in self.targets:
+            t1 = saving.target_2
+            t2 = saving.target_1
+        else:
+            t2 = saving.target_2
+
+        if self.targets.index(t1) == 0:
+            self.targets.reverse()
+
+        if other.targets.index(t2) == 0:
+            new_targets = self.targets + other.targets
+        else:
+            new_targets = self.targets + other.targets[::-1]
+        
+        length = self.length + other.length - saving.saving
+        return Route(new_targets, length, self.demand + other.demand)
+
+    def set_target_routes(self):
+        for target in self.targets:
+            target.route = self
+
+    def calculate_length(self):
+        if len(self.targets) == 0:
+            self.length = 0
+
+        self.length = min_distance_ne(0, self.targets[0]) + min_distance_ne(0, self.targets[-1])
+        for i in range(len(self.targets) - 1):
+            self.length += min_distance_ee(self.targets[i], self.targets[i+1])
+        return self.length
+    
+    def calculate_demand(self):
+        self.demand = 0
+        for target in self.targets:
+            self.demand += target.demand
+        return self.demand
+
+    def calculate(self):
+        self.calculate_length()
+        self.calculate_demand()
+
+    def merge(self, other):
+        # unlike the merge_cw which specifies with saving which 2 endpoints are to be linked in this case all the possible combinations of endpoint links are tried
+        # route a and route b
+        # a' means route a in reverse
+        # possible links are ab, ab', a'b, a'b'
+        # note that ba' is same as ab' since it's connecting last point of a with last point of b
+        # deciding based on the cheapest link among endpoints
+
+        if len(other.targets) == 0:
+            return self
+        elif len(self.targets) == 0:
+            return other
+
+        endpoint_a1 = self.targets[0]
+        endpoint_a2 = self.targets[-1]
+        endpoint_b1 = other.targets[0]
+        endpoint_b2 = other.targets[-1]
+
+        link1 = min_distance_ee(endpoint_a1, endpoint_b1)
+        link2 = min_distance_ee(endpoint_a1, endpoint_b2)
+        link3 = min_distance_ee(endpoint_a2, endpoint_b1)
+        link4 = min_distance_ee(endpoint_a2, endpoint_b2)
+
+        if min(link1, link2) < min(link3, link4):
+            # link 1st point of a
+            part1 = self.targets[::-1]
+            if link1 < link2:
+                # with 1st point of b
+                part2 = other.targets[:]
+            else:
+                # with last point of b
+                part2 = other.targets[::-1]
+        else:
+            # link last point of a
+            part1 = self.targets[:]
+            if link3 < link4:
+                # with 1st point of b
+                part2 = other.targets[:]
+            else:
+                # with last point of b
+                part2 = other.targets[::-1]
+
+        # todo - can calculate length without looping over whole route
+        return Route(part1 + part2, demand=self.demand + other.demand)
+    
+    # inserts an edge at a position or before a given edge
+    def insert_edge(self, new_edge, pos=None, edge_in_route=None):
+        
+        if new_edge in self.targets:
+            # if edge is already in route
+            # todo - maybe allow this but to put it in different place in route
+            return
+    
+        if pos is not None:
+            try:
+                self.targets.insert(pos, new_edge)
+                new_edge.route = self
+                self.calculate_length()
+                self.demand += new_edge.demand
+            except:
+                # in case pos out of bounds
+                return
+        elif edge_in_route is not None and edge_in_route in self.targets:
+            pos = self.targets.index(edge_in_route)
+            self.targets.insert(pos, new_edge)
+            new_edge.route = self
+            self.calculate_length()
+            self.demand += new_edge.demand
+        else:
+            return
+
+    def remove_edge(self, edge=None, pos = None):
+
+        if edge is not None and edge in self.targets:
+            self.targets.remove(edge)
+            self.calculate_length()
+            self.demand -= edge.demand
+        elif pos is not None:
+            try:
+                edge = self.targets.pop(pos)
+                self.calculate_length()
+                self.demand -= edge.demand
+            except:
+                return
+        else:
+            # either edge is not present, index out of bounds, or no arguments given
+            return
+            
+    def __lt__(self, other):
+        return self.length < other.length
+    
+    def __repr__(self):
+        self.print()
+        return ""
+
+    def print(self):
+        print(f"Route length ({self.length}) and demand ({self.demand}):")
+        for edge in self.targets:
+            print(f"\t{edge}")
+        
