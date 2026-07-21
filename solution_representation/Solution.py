@@ -99,7 +99,7 @@ class Solution:
                     break   # out of inner loop and continue with next edge in outer loop
         
         # print(f"{ignored_edges} edges were not serviced at all!")
-        print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
+        # print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
         return unsatisfied_edges 
 
     def get_work_days(self):

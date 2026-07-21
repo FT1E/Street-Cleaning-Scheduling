@@ -33,24 +33,24 @@ adjacency_list = get_graph_al(GRAPH_ID)
 
 # print(vehicle)
 # day_assignments, capacity_used = gs_run(demanded_edges, vehicle)
-# day_assignments, capacity_used = gdc_run(demanded_edges, adjacency_list, vehicle)
-day_assignments, capacity_used = gfc_run(demanded_edges, adjacency_list, vehicle, GRAPH_ID)
+day_assignments, capacity_used = gdc_run(demanded_edges, adjacency_list, vehicle)
+# day_assignments, capacity_used = gfc_run(demanded_edges, adjacency_list, vehicle, GRAPH_ID)
 
 
 
 solution = Solution(day_assignments, demanded_edges, adjacency_list, vehicle, GRAPH_ID)
 
-print('Printing solution ...')
-print(solution)
+# print('Printing solution ...')
+# print(solution)
 
 routing_cost, vehicle_count = solution.evaluate()
 print(f"\n\nSolution cost:\n\t- routing: {routing_cost}\n\t- vehicles used: {vehicle_count}")
 
 
-# unsatisfied_edges = solution.unsatisfied_edges()
+unsatisfied_edges = solution.unsatisfied_edges()
 
-# print(f"Number of all demanded edges: {len(demanded_edges)}")
-# print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
+print(f"Number of all demanded edges: {len(demanded_edges)}")
+print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
 
 # for edge in unsatisfied_edges:
 #     print(edge)
