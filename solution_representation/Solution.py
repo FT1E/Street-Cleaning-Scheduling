@@ -80,6 +80,7 @@ class Solution:
         for edge in self.demanded_edges:
             if len(edge.service_days) == 0:
                 ignored_edges += 1
+                unsatisfied_edges.append(edge)
 
             # expected_services = math.floor(self.vehicle['planning_duration'] / edge.freq)
             # if expected_services > len(edge.service_days):
@@ -105,3 +106,15 @@ class Solution:
     def get_work_days(self):
         # all except weekends - 5,6 - considering monday 0, tue 1, etc.
         return [i for i in range(len(self.days)) if i % 7 < 5]
+
+    def total_number_of_services(self):
+        cnt = 0
+        for day in self.days:
+            cnt += len(day.edges)
+        return cnt
+    
+    def expected_number_of_services(self):
+        res = 0
+        for edge in self.demanded_edges:
+            res += (self.vehicle['planning_duration'] / math.ceil(edge.freq))
+        return res

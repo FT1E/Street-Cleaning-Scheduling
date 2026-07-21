@@ -94,9 +94,8 @@ def run(edge_list, adjacency_list, vehicle, graph_id):
         # todo - optimize below stuff later, so it doesn't use too much memory
 
         # re-sort it
-        clusters = list(clusters)
+        clusters = clusters + next_day_clusters
         hq.heapify(clusters)
-        clusters = list(hq.merge(clusters, next_day_clusters))
         next_day_clusters = []
 
 
@@ -106,12 +105,12 @@ def run(edge_list, adjacency_list, vehicle, graph_id):
             if cluster.num_non_satisfied_edges() == 0:
                 # meaning that all clusters further will also have no demanding edges
                 print(f'Breaking for day {day+1}')
-                hq.heappush(next_day_clusters, cluster) # push it back so it gets assigned the next day
+                next_day_clusters.append(cluster)
                 break   # go to next day
 
             if capacity_used[day] + cluster.demand() > vehicle['count'] *  vehicle['capacity']:
                 # if cluster has higher demand than the vehicle can handle for the day then skip it for today
-                hq.heappush(next_day_clusters, cluster)
+                next_day_clusters.append(cluster)
                 continue
 
             # ? note that this assigns only non-satisfied edges
@@ -119,6 +118,7 @@ def run(edge_list, adjacency_list, vehicle, graph_id):
             new_edges = cluster.assign_egdges_to_cleaning_day(day)
             day_assignment[day].extend(new_edges)
 
-            hq.heappush(next_day_clusters, cluster)     # push cluster back
+            next_day_clusters.append(cluster)
+
 
     return day_assignment, capacity_used

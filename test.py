@@ -21,7 +21,7 @@ vehicle = get_vehicle_data(VEHICLE_ID)
 # vehicle['distance_limit'] = 500     
 print(f"Vehicle distance limit: {vehicle['distance_limit']}")
 # vehicle['planning_duration'] = 7
-vehicle['count'] = 33           # ? playing around with this value so it's not too high, but also not too low so some edges don't get serviced at all
+vehicle['count'] = 100           # ? playing around with this value so it's not too high, but also not too low so some edges don't get serviced at all
 # (graph_id, vehicle_id) >= value so that no edge is ignored (not serviced at all)
 # (0, 0) >= 33
 
@@ -33,7 +33,7 @@ adjacency_list = get_graph_al(GRAPH_ID)
 
 # print(vehicle)
 # day_assignments, capacity_used = gs_run(demanded_edges, vehicle)
-day_assignments, capacity_used = gdc_run(demanded_edges, adjacency_list, vehicle)
+day_assignments, capacity_used =    gdc_run(demanded_edges, adjacency_list, vehicle)
 # day_assignments, capacity_used = gfc_run(demanded_edges, adjacency_list, vehicle, GRAPH_ID)
 
 
@@ -57,5 +57,7 @@ print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
 #     print(f'\t{edge.service_days}')
 
 
+print(f"Expected number of total services: {solution.expected_number_of_services()}")
+print(f"Actual number of total services: {solution.total_number_of_services()}")
 
 # ls_run(solution)

@@ -34,33 +34,36 @@ def run(demanded_edge_list, adjacency_lists, vehicle, CLUSTER_LIMIT = 5):
     # routes are formed after that with Clarke-Wright heuristic
     for day in range(vehicle['planning_duration']):
 
+        # adding edges which need to be serviced
+        #   - either previously serviced
+        #   - or vehicle couldn't service due to capacity limitations
+        demanded_edge_list = demanded_edge_list + next_day_streets[0]
+        for i in range(vehicle['planning_duration'] - day - 1):
+            next_day_streets[i] = next_day_streets[i+1]
+
         if day+1 in vehicle['days_no_service']:
             # skip day if vehicle not available for today
             continue
 
-        # adding edges which need to be serviced
-        #   - either previously serviced
-        #   - or vehicle couldn't service due to capacity limitations
-        demanded_edge_list = list(hq.merge(demanded_edge_list, next_day_streets[0]))
-        for i in range(vehicle['planning_duration'] - day - 1):
-            next_day_streets[i] = next_day_streets[i+1]
+        hq.heapify(demanded_edge_list)
 
 
 
         while capacity_used[day] < (vehicle['count'] - 2)* vehicle['capacity'] and len(demanded_edge_list) > 0:
+            # ? reseting to default values for dynamic cluster
+            cluster_heap = []
+            current_cluster_size = 0
+            cluster_vertices = []
+            cluster_edges = []
+            
 
             # get edge with nearest deadline
             edge = hq.heappop(demanded_edge_list)
+            cluster_origin = edge
 
             # add it to cluster_heap
             hq.heappush(cluster_heap, edge)
 
-            # ? reseting to default values for dynamic cluster
-            current_cluster_size = 0
-            cluster_vertices = []
-            cluster_edges = []
-            cluster_origin = edge
-            
             # ? loop for expanding cluster until vehicle limit
             # ? CLUSTER_LIMIT = maximum number of edges allowed in the cluster (possibly infinite)
             while current_cluster_size < CLUSTER_LIMIT and len(cluster_heap) > 0:
