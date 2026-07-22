@@ -569,6 +569,7 @@ def run(solution):
     print(f"Current best score: {best_score}")
     print(f"Average iteration time: {average_iteration_time}")
 
+    return current_best_solution
 
 def evaluate_neighbour(neighbour_solution, best_score, current_best_solution):
     neighbour_score = neighbour_solution.evaluate()
