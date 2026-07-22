@@ -2,14 +2,17 @@
 
 import time
 import copy
+import sys
 
-from local_search import op1, undo_op1
-from local_search import op2, undo_op2
-from local_search import op3, undo_op3
-from local_search import op4, undo_op4
-from local_search import op5, undo_op5
-from local_search import op6, undo_op6
-from local_search import op7, undo_op7
+sys.path.append('..')
+
+from algorithms.local_search import op1, undo_op1
+from algorithms.local_search import op2, undo_op2
+from algorithms.local_search import op3, undo_op3
+from algorithms.local_search import op4, undo_op4
+from algorithms.local_search import op5, undo_op5
+from algorithms.local_search import op6, undo_op6
+from algorithms.local_search import op7, undo_op7
 
 
 def run(solution):
