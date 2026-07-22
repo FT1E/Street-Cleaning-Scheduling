@@ -58,6 +58,9 @@ class Day:
 
         affected_route = self.get_edge_route(edge)
 
+        if affected_route is None:
+            return
+
         affected_route.remove_edge(edge)
                 
         # if the edge was the only target in the route remove it

@@ -158,16 +158,11 @@ def op2(solution, edge1=None, edge2=None):
 
     for d in edge1.service_days:
         solution.days[d].remove_edge(edge1)
+        solution.days[d].add_edge(edge2, recalculate = False)
 
     for d in edge2.service_days:
         solution.days[d].remove_edge(edge2)
-
-    for d in edge1.service_days:
-        solution.days[d].add_edge(edge2, recalculate = False)
-        
-    for d in edge2.service_days:
         solution.days[d].add_edge(edge1, recalculate = False)
-
 
     # recalculate routes after swapping the service days of both edges
     affected_days = set(edge1.service_days + edge2.service_days)
@@ -381,6 +376,7 @@ def run(solution):
 
         # 1. operators between days
         # 1.1 - op1 - move an edge from day i to day j - all combinations are tried, including both moving a service forward and backward
+        print("Operator 1 starting ...")
         for i in work_days:
             for j in work_days:
                 if i == j:
@@ -391,6 +387,7 @@ def run(solution):
                         undo_op1(best_before_solution, i, j, edge)
         
         # 1.2 - op2 - swapping the service days of 2 edges with the same frequency
+        print("Operator 2 starting ...")
         for i in range(len(solution.demanded_edges)):
             edge_1 = solution.demanded_edges[i]
             for j in range(i+1, len(solution.demanded_edges)):
@@ -413,6 +410,7 @@ def run(solution):
         i_count = 0
         j_count = 0
 
+        print("Starting operators 3, 4, 5")
         can_do_op5 = False
         for i in work_days:
             day = best_before_solution.days[i]
@@ -452,6 +450,7 @@ def run(solution):
         #   - op6 - remove a single service of an edge
         #   - op7 - add a single service of an edge
         
+        print("Starting operator 6")
         unsatisfied_edges = best_before_solution.unsatisfied_edges()
         for edge in unsatisfied_edges:
             for i in work_days:
@@ -461,6 +460,7 @@ def run(solution):
                     undo_op6(best_before_solution, i, edge)
 
 
+        print("Starting operator 7")
         oversatisfied_edges = best_before_solution.over_satisfied_edges()
         for edge in oversatisfied_edges:
             for i in work_days:
@@ -468,7 +468,6 @@ def run(solution):
                     best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
                     undo_op7(best_before_solution, i, edge)
         
-
         if best_score < best_before_score:
             best_before_score = best_score
             best_before_solution = current_best_solution
@@ -485,10 +484,10 @@ def run(solution):
         iteration_count += 1
 
         average_iteration_time = (average_iteration_time) * (iteration_count - 1) / iteration_count + iteration_time_taken / iteration_count
-        if iteration_count % 10 == 1:
-            print(f"Original score: {original_score}")
-            print(f"Current best score: {best_score}")
-            print(f"Average iteration time: {average_iteration_time}")
+        print(f"Original score: {original_score}")
+        print(f"Current best score: {best_score}")
+        print(f"Last iteration time: {iteration_time_taken}")
+        print(f"Average iteration time: {average_iteration_time}")
 
 
     print(f"End of local search, after {iteration_count} iterations!")
@@ -502,4 +501,5 @@ def evaluate_neighbour(neighbour_solution, best_score, current_best_solution):
     if neighbour_score < best_score:
         best_score = neighbour_score
         current_best_solution = copy.deepcopy(neighbour_solution)
+        print(f"Found improving solution with score: {best_score}")
     return best_score, current_best_solution
