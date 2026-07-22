@@ -53,14 +53,8 @@ class Day:
         # implicitly connect the points which were connected by the removing edge
         # ex. say remove b in 0-a-b-c-0, result is 0-a-c-0, where 0 is depot node
 
-        affected_route = None
-        for route in self.routes:
-            if edge in route.targets:
-                affected_route = route
-                break
+        affected_route = self.get_edge_route(edge)
 
-
-        # lenght is calculated in below method
         affected_route.remove_edge(edge)
                 
         # if the edge was the only target in the route remove it

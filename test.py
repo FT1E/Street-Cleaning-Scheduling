@@ -62,6 +62,6 @@ print(f"Expected number of total services: {solution.expected_number_of_services
 print(f"Actual number of total services: {solution.total_number_of_services()}")
 
 
-solution.checking_references()
+# solution.checking_references()
 
-# ls_run(solution)
+ls_run(solution)

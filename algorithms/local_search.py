@@ -4,15 +4,19 @@ import copy
 import sys
 import math
 
+import time
+
 sys.path.append('..')
 
 from solution_representation.Route import Route
 
 # * receives an sp-carp solution, on which it performs local search
-# todo - every argument which is taken randomly, allow so that it can be passed as an explicit argument
 
 # ? NOTE - ABOUT OPERATORS (OP6 AND OP7)
 #   - they shouldn't be called on every edge, but on specific edges which have too many services or too little services
+
+
+# todo - shaking procedure
 
 
 # task = serviced edge
@@ -20,37 +24,46 @@ from solution_representation.Route import Route
 # ? operator 1:
 #   - take a task u on day i and move it from day i (d1) to day j (d2)
 #   !- make sure to pick day d2 so that the edge is not already serviced that day - see below op1_alt comments
-def op1(solution, d1, d2, e_id):
+def op1(solution, d1, d2, edge= None, edge_id = None):
     # e_id is index of edge in day.edges
 
+    if edge is None and edge_id is not None:
+        edge = solution.days[d1].edges[edge_id]
+    elif edge is None:
+        return None
 
-    if edge is None:
+    if d2 in edge.service_days:
+        # if this is the case, then it's the same as just removing the service (op6)
         return None
     
-    if d2 in edge.service_days:
-        return
-    
-    edge = solution.days[d1].remove_edge(edge_id = e_id)
+
+    solution.days[d1].remove_edge(edge)
     solution.days[d2].add_edge(edge)
 
     edge.service_days.remove(d1)
     edge.service_days.append(d1)
     edge.service_days.sort()
 
+    return True
+
 # ? alternate operator 1
 #   - take a task u from day i (d1) and move it a couple days before or after to satisfy the spacing between services wrt frequency
 #   - kinda finding an alternative solution to service_days, such that the difference of any 2 consecutive numbers is less than the frequency
 #   - find a tight spacing and widen it so you tighten a wide spacing (greater than the frequency)
-def op1_alt(solution,e_id=None):
+def op1_alt(solution,edge=None, edge_id=None):
 
-    if e_id is None:
-        edge = random.choice(solution.unsatisfied_edges())
+    if edge is None and edge_id is not None:
+        edge = solution.unsatisfied_edges()[edge_id]
+    elif edge is not None and edge not in solution.unsatisfied_edges():
+        # if the edge already has satisfied spacing 
+        return None
     else:
-        edge = solution.unsatisfied_edges()[e_id]
+        # either no arguments given or the edge already has satisfied frequency
+        return None
     
     if len(edge.service_days) == 0:
         # nothing to do since this op is about manipulating the service days not adding or removing
-        return
+        return None
 
     # 1. find all spacings
 
@@ -113,25 +126,22 @@ def op1_alt(solution,e_id=None):
             solution.days[new_day].add_edge(edge)
 
     edge.service_days = new_service_days
+    return True
 
 
 # ? operator 2
 #   - swap the service days of 2 random distinct tasks with the same frequency
 def op2(solution, edge1=None, edge2=None):
 
-    demanded_edges = solution.demanded_edges
     
-    if edge1 is None:
-        edge1 = random.choice(demanded_edges)
-
-    if edge2 is None:
-        same_freq = [e for e in demanded_edges if e.freq == edge1.freq and e != edge1]
-
-        edge2 = random.choice(same_freq)
+    if edge1 is None or edge2 is None:
+        # can't do anything if not enough arguments are given
+        return None
+    
 
     if edge1.freq != edge2.freq:
         # don't do anything if arguments are given for edges with different frequency
-        return
+        return None
 
     for d in edge1.service_days:
         solution.days[d].remove_edge(edge1)
@@ -150,7 +160,7 @@ def op2(solution, edge1=None, edge2=None):
     edge1.service_days = edge2.service_days
     edge2.service_days = temp
     
-    return edge1, edge2
+    return True
 
 # ? operator 3
 #   - two-opt
@@ -158,141 +168,117 @@ def op2(solution, edge1=None, edge2=None):
 #   - disconnect a-b and c-d and connect it with the other like a-d and c-b
 #   - the routes are from the same day (d1)
 #   - allow a route to be taken whole - like not cut it all (ie cut before beginning of route or cut after end of route)
-def op3(solution, d1=None):
+def op3(solution, route_1, route_2, r1_cutpoint, r2_cutpoint):
     # possible combinatins
     # ac bd, ad bc - everything else is same cb is same as bc (same cost otherwise same route)
     # basically cut 2 routes in half and connect a half with a half from the other route
 
-    if d1 is None:
-        d1 = random.choice(solution.get_work_days())
+    if route_1.day.number != route_2.day.number:
+        # if in different days don't do anything
+        # comparing the number to save on time
+        return None
     
-    day = solution.days[d1]
-
-    # if the day has only one route
-    if day.route_count <= 1:
-        return
-    
-    # take 2 distinct routes
-    r1, r2 = random.sample(day.routes, 2)
+    day = route_1.day
 
     # remove the routes from the day
-    day.remove_route(r1)
-    day.remove_route(r2)
+    day.remove_route(route_1)
+    day.remove_route(route_2)
 
-    cut1 = random.randint(0, len(r1.targets) - 1)
-    cut2 = random.randint(0, len(r2.targets) - 1)
-
-    r1_h1 = Route(r1.targets[:cut1])
-    r1_h2 = Route(r1.targets[cut1:])
-
-    r2_h1 = Route(r2.targets[:cut2])
-    r2_h2 = Route(r2.targets[cut2:])
-
-    # print(r1_h1)
-    # print(r1_h2)
-    # print(r2_h1)
-    # print(r2_h2)
     
-    a_r1 = r1_h1.merge(r2_h2)
-    a_r2 = r1_h2.merge(r2_h1)
 
-    b_r1 = r1_h1.merge(r2_h1)
-    b_r2 = r1_h2.merge(r2_h2)
+    route_1_half_1 = Route(route_1.targets[:r1_cutpoint])
+    route_1_half_2 = Route(route_1.targets[r1_cutpoint:])
 
-    cost_a = a_r1.length + a_r2.length
-    cost_b = b_r1.length + b_r2.length
+    route_2_half_1 = Route(route_2.targets[:r2_cutpoint])
+    route_2_half_2 = Route(route_2.targets[r2_cutpoint:])
+
+    # try both combinations and apply the one which has cheaper routing lenght
+    
+    a_route1 = route_1_half_1.merge(route_2_half_2)
+    a_route2 = route_1_half_2.merge(route_2_half_1)
+
+    b_route1 = route_1_half_1.merge(route_2_half_1)
+    b_route2 = route_1_half_2.merge(route_2_half_2)
+
+    cost_a = a_route1.length + a_route2.length
+    cost_b = b_route1.length + b_route2.length
 
     # add the new routes depending on which combination is cheaper
     if cost_a < cost_b:
-        res_r1 = a_r1
-        res_r2 = a_r2
+        res_r1 = a_route1
+        res_r2 = a_route2
     else:
-        res_r1 = b_r1
-        res_r2 = b_r2
+        res_r1 = b_route1
+        res_r2 = b_route2
 
     day.add_route(res_r1)
     day.add_route(res_r2)
-    return r1, r2, res_r1, res_r2
+    return True
 
 # ? operator 4
 #   - take a task u and move it to a different route within the same day
 #   - consider all spots in 1 route where it can be put in - think I can use binary search here
 #   - or an alternative to consider only adding it at the end/beginning of a route, but try it for all routes
-def op4(solution, d1=None, edge1=None, edge2=None):
+def op4(solution, edge_1_id, edge_2_id, route_1, route_2):
 
-    if d1 is None:
-        d1 = random.choice(solution.get_work_days())
+    # move edge_1 from route_1 before edge_2 in route_2
 
-    day = solution.days[d1]
-
-    # print(f"Day {d1} has {len(day.routes)} routes.")
-
-    # random for testing
-    if edge1 is None:
-        route1, route2 = random.sample(day.routes, 2)
-        edge1 = random.choice(route1.targets)
-        edge2 = random.choice(route2.targets)
-
-        # route1.set_target_routes()
-        # route2.set_target_routes()
-
-    if edge1 not in day.edges or edge2 not in day.edges:
-        return
-
-    route_2 = day.get_edge_route(edge2)
+    if route_1.day.number != route_2.day.number:
+        # routes in different days
+        return None
     
-    day.remove_edge(edge1)
-    route_2.insert_edge(edge1, edge_in_route = edge2)
+    
+    edge_1 = route_1.targets[edge_1_id]
+    edge_2 = route_2.targets[edge_2_id]
 
+
+    # note - allowing the routes to be the same, ie to move the edge in the same route just a different place in it
+
+    # remove edge in route 1
+    route_1.remove_edge(edge_1)
+    # insert the edge before edge_2 in route_2
+    route_2.insert_edge(edge_1, edge_in_route = edge_2)
+    
+    return True
 
 
 # ? operator 5
 #   - similar to op4, but take 2 successive tasks performed one after another and move them together as a sequence
 #   - again consider all possible places
-def op5(solution, d1=None, edge_a1=None, edge_a2=None, edge_b=None):
+def op5(solution, edge_a1_id, edge_a2_id, edge_b_id, route_a, route_b):
     # take successive edges edge_a1, edge_a2 from route A and insert them before edge_b of route B
-    # with route A != route B
-
-    day = solution.days[d1]
-    if edge_a1 not in day.edges or edge_a2 not in day.edges or edge_b not in day.edges:
-        # only change routes within a day
-        return
-
-    a1_route = day.get_edge_route(edge_a1)
-    a2_route = day.get_edge_route(edge_a2)
-    b_route = day.get_edge_route(edge_b)
-
-    if a1_route != a2_route:
-        # not checking for successiveness
-        # maybe can just give 1 edge as an argument and take the next one implicitly 
-        # only if the given edge is not the last edge
-        return
     
-    if a1_route == b_route:
-        # todo - will decide on this behaviour later
-        return
+    if route_a.day.number != route_b.day.number:
+        # only done between rotues in the same day
+        return None
     
-    day.remove_edge(edge_a1)
-    day.remove_edge(edge_a2)
+    edge_a1 = route_a.targets[edge_a1_id]
+    edge_a2 = route_a.targets[edge_a2_id]
+
+    route_a.remove_edge(pos = edge_a2_id)
+    route_a.remove_edge(pos = edge_a1_id)
 
     # b
-    b_route.insert_edge(edge_a2, edge_in_route = edge_b)
+    route_b.insert_edge(edge_a2, pos = edge_b_id)
     # a2 b
-    b_route.insert_edge(edge_a1, edge_in_route = edge_a2)
+    route_b.insert_edge(edge_a1, pos = edge_b_id)
     # a1 a2 b
+    
+    return True
 
 
 # ? operator 6
 #   - remove a single service of an edge on some day
 def op6(solution, d1, edge):
 
+    if d1 not in edge.service_days:
+        # can't remove a service if it isn't serviced on that day
+        return None
+
     solution.days[d1].remove_edge(edge)
 
-    try:
-        edge.service_days.remove(d1)
-    except:
-        # in case it's called with a day on which the edge is not serviced
-        pass
+    return True
+
 
 # ? operator 7
 #   - add a single service of an edge on a day
@@ -300,30 +286,163 @@ def op6(solution, d1, edge):
 def op7(solution, d1, edge):
 
     if d1 not in solution.get_work_days():
-        # don't add edges for service to a non-work day (weekend)
-        return
+        # don't add services to a non-work day (weekend)
+        return None
     elif d1 in edge.service_days:
         # if the edge is already serviced in that day
-        return
+        return None
     
     solution.days[d1].add_edge(edge)
     # with the spacing penalty - the proper day will have more priority
 
+    return True
 
 def run(solution):
 
+    work_days = solution.get_work_days()
     
     
     no_improvement_count = 0
     patience = 10       # how many iterations to go without improvement
 
-    current_best_solution = solution
-    neighbour_opX_solution = copy.deepcopy(current_best_solution)
+    best_before_solution = solution     # best found before applying operators in this iteration
+    current_best_solution = solution    # best found from applying operators during this iteration
+    neighbour_solution = None
 
-    best_score = current_best_solution.evaluate()
+    original_score = current_best_solution.evaluate()
+    best_before_score = original_score
+    best_score = best_before_score
     neighbour_score = best_score        # just a placeholder number
-    while no_improvement_count < patience:
-        # todo - change above operators so they take proper arguments
-        pass
-        break
+    
+    iteration_count = 0
+    iteration_start_time = 0
+    iteration_end_time = 0
+    iteration_time_taken = 0
+    average_iteration_time = 0
 
+    while no_improvement_count < patience:
+        
+        iteration_start_time = time.time()
+        
+
+        # 1. operators between days
+        # 1.1 - op1 - move an edge from day i to day j - all combinations are tried, including both moving a service forward and backward
+        for i in work_days:
+            for j in work_days:
+                if i == j:
+                    continue
+                for edge in solution.days[i].edges:
+                    neighbour_solution = copy.deepcopy(best_before_solution)
+                    if op1(neighbour_solution, i, j, edge):
+                        best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+
+        # 1.2 - op1_alt - shifting services - which can be seen as multiple applications of op1
+        for edge in solution.demanded_edges:
+            neighbour_solution = copy.deepcopy(best_before_solution)
+            if op1_alt(neighbour_solution, edge):
+                best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+
+        # 1.3 - op2 - swapping the service days of 2 edges with the same frequency
+        for i in range(len(solution.demanded_edges)):
+            edge_1 = solution.demanded_edges[i]
+            for j in range(i+1, len(solution.demanded_edges)):
+                edge_2 = solution.demanded_edges[j]
+                # edges are skipped if they have different frequency
+                neighbour_solution = copy.deepcopy(best_before_solution)
+                if op2(neighbour_solution, edge_1, edge_2):
+                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+                    
+
+        # 2. operators within days
+        # 2.1
+        #   - op3 - cut 2 routes and merge them - cuts can be at endpoints so it can be just merging 2 routes
+        #   - op4 - move an edge from route 1 to a different route 2 - before an edge 2 inside it
+        #   - op5 - similar to route 4, but instead of moving 1 edge, take 2 successive edges in the route and move them together
+
+
+        # below counters are for op3 - since it operates on all unordered pair of routes in the same day
+        # but op4, op5 operate on all ordered pair of routes
+        i_count = 0
+        j_count = 0
+
+        can_do_op5 = False
+        for i in work_days:
+            day = solution.days[i]
+            
+            for route_1 in day.routes:
+                for r1_cutpoint in range(len(route_1.targets)):
+                    can_do_op5 = r1_cutpoint < len(route_1.targets) - 1
+
+                    for route_2 in day.routes:
+                        if i_count == j_count:
+                            continue
+
+                        for r2_cutpoint in range(len(route_2.targets)):
+                            
+                            if i_count < j_count:
+                                neighbour_solution = copy.deepcopy(best_before_solution)
+                                if op3(neighbour_solution, route_1, route_2, r1_cutpoint, r2_cutpoint):
+                                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+
+
+                            neighbour_solution = copy.deepcopy(best_before_solution)
+                            if op4(neighbour_solution, r1_cutpoint, r2_cutpoint, route_1, route_2):
+                                best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+
+                            if can_do_op5:
+                                neighbour_solution = copy.deepcopy(best_before_solution)
+                                if op5(neighbour_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2):
+                                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+
+                        j_count += 1
+                i_count += 1
+        
+        # 2.2
+        #   - op6 - remove a single service of an edge
+        #   - op7 - add a single service of an edge
+        
+        unsatisfied_edges = current_best_solution.unsatisfied_edges()
+        for edge in unsatisfied_edges:
+            for i in work_days:
+                neighbour_solution = copy.deepcopy(best_before_solution)
+                if op6(neighbour_solution, i, edge):
+                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+
+                neighbour_solution = copy.deepcopy(best_before_solution)
+                if op7(neighbour_solution, i, edge):
+                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+        
+        if best_score < best_before_score:
+            best_before_score = best_score
+            best_before_solution = current_best_solution
+
+            no_improvement_count = 0
+        else:
+            no_improvement_count += 1
+            break       # todo - remove this break once you implement a shaking procedure
+        
+        iteration_end_time = time.time()
+
+        iteration_time_taken = iteration_end_time - iteration_start_time
+
+        iteration_count += 1
+
+        average_iteration_time = (average_iteration_time) * (iteration_count - 1) / iteration_count + iteration_time_taken / iteration_count
+        if iteration_count % 10 == 1:
+            print(f"Original score: {original_score}")
+            print(f"Current best score: {best_score}")
+            print(f"Average iteration time: {average_iteration_time}")
+
+
+    print(f"End of local search, after {iteration_count} iterations!")
+    print(f"Original score: {original_score}")
+    print(f"Current best score: {best_score}")
+    print(f"Average iteration time: {average_iteration_time}")
+
+
+def evaluate_neighbour(neighbour_solution, best_score, current_best_solution):
+    neighbour_score = neighbour_solution.evaluate()
+    if neighbour_score < best_score:
+        best_score = neighbour_score
+        current_best_solution = neighbour_solution
+    return best_score, current_best_solution
