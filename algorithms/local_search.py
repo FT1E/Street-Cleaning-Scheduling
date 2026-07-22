@@ -447,7 +447,7 @@ def run(solution):
         #   - op6 - remove a single service of an edge
         #   - op7 - add a single service of an edge
         
-        unsatisfied_edges = best_before_score.unsatisfied_edges()
+        unsatisfied_edges = best_before_solution.unsatisfied_edges()
         for edge in unsatisfied_edges:
             for i in work_days:
                 
@@ -456,6 +456,9 @@ def run(solution):
                     undo_op6(best_before_solution, i, edge)
 
 
+        oversatisfied_edges = best_before_solution.over_satisfied_edges()
+        for edge in oversatisfied_edges:
+            for i in work_days:
                 if op7(best_before_solution, i, edge):
                     best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
                     undo_op7(best_before_solution, i, edge)

@@ -65,10 +65,11 @@ class Day:
             try:
                 self.routes.remove(affected_route)
             except:
-                print("Below edge was removed but its route not in list")
-                print(edge)
-                print("List of all routes:")
-                self.print()
+                pass
+                # print("Below edge was removed but its route not in list")
+                # print(edge)
+                # print("List of all routes:")
+                # self.print()
         return edge
 
     def recalculate_routes(self):

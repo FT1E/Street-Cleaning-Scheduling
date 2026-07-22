@@ -143,6 +143,17 @@ class Solution:
         # print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
         return unsatisfied_edges 
 
+    def over_satisfied_edges(self):
+        over_satisfied_edges = []
+        for edge in self.demanded_edges:
+            service_count = len(edge.service_days)
+            expected_service_count = self.vehicle['planning_duration'] / math.ceil(edge.freq)
+            if service_count > self.expected_number_of_services:
+                self.over_satisfied_edges.append(edge)
+
+        return over_satisfied_edges
+
+
     def get_work_days(self):
         # all except weekends - 5,6 - considering monday 0, tue 1, etc.
         return [i for i in range(len(self.days)) if i % 7 < 5]
