@@ -189,7 +189,7 @@ class Solution:
     # for op2 - instead of skipping to just directly get the needed edges
     def init_freq_buckets(self):
         for edge in self.demanded_edges:
-            if self.frequency_buckets[edge.freq] is None:
+            if edge.freq not in self.frequency_buckets:
                 self.frequency_buckets[edge.freq] = [edge]
             else:
                 self.frequency_buckets[edge.freq].append(edge)
