@@ -35,7 +35,7 @@ class Day:
     
     # after removing an edge, remove it in the route which it was contained
     # the return result is the removed edge if it was serviced in this day, otherwise None
-    def remove_edge(self, edge=None, edge_id=None):
+    def remove_edge(self, edge=None, edge_id=None, recalculate=False):
         # remove it from list of edges
         try:
             if edge is not None:
@@ -48,6 +48,9 @@ class Day:
             # in case edge is not serviced in this day
             return None
         
+        if recalculate:
+            self.recalculate_routes()
+            return
 
         # in the route containing that edge just remove it and recalculate the cost and demand
         # implicitly connect the points which were connected by the removing edge
@@ -81,7 +84,6 @@ class Day:
         self.route_count = len(self.routes)
 
     def recalculate_total_distance(self):
-        # todo - improve this so the change can be bubbled up from the Route class up to the Day class
         self.total_distance = 0
         for route in self.routes:
             self.total_distance += route.length
@@ -103,18 +105,24 @@ class Day:
             route.print()
             cnt += 1
 
-    def remove_route(self, route):
+    def remove_route(self, route=None, route_id=None):
         try:
-            self.routes.remove(route)
+            self.routes.pop(route_id)
             self.total_distance -= route.length
         except:
-            pass
+            try:
+                self.routes.remove(route)
+                self.total_distance -= route.length
+            except:
+                pass
 
     def add_route(self, route):
         if len(route.targets) > 0:
             self.routes.append(route)
             self.total_distance += route.length
             route.set_day(self)
+            return True
+        return False
 
     def add_edge_in_list(self, edge):
         if edge not in self.edges:

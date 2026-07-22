@@ -41,10 +41,23 @@ def op1(solution, d1, d2, edge= None, edge_id = None):
     solution.days[d2].add_edge(edge)
 
     edge.service_days.remove(d1)
-    edge.service_days.append(d1)
+    edge.service_days.append(d2)
     edge.service_days.sort()
 
     return True
+
+def undo_op1(solution, day_1, day_2, edge=None, edge_id=None):
+
+    if edge is None and edge_id is not None:
+        edge = solution.days[day_1].edges[edge_id]
+    elif edge is None:
+        return None
+    
+    solution.days[day_2].remove_edge(edge, recalculate=True)
+    solution.days[day_1].add_edge(edge)
+    edge.service_days.remove(day_2)
+    edge.service_days.append(day_1)
+    edge.service_days.sort()
 
 # ? alternate operator 1
 #   - take a task u from day i (d1) and move it a couple days before or after to satisfy the spacing between services wrt frequency
@@ -162,6 +175,11 @@ def op2(solution, edge1=None, edge2=None):
     
     return True
 
+
+def undo_op2(solution, edge1, edge2):
+    op2(edge1, edge2)
+
+
 # ? operator 3
 #   - two-opt
 #   - from 1 route containing a sequence (a,b) and another route containing a sequence (c,d)
@@ -211,9 +229,22 @@ def op3(solution, route_1, route_2, r1_cutpoint, r2_cutpoint):
         res_r1 = b_route1
         res_r2 = b_route2
 
-    day.add_route(res_r1)
-    day.add_route(res_r2)
-    return True
+    cnt = 0     # how many routes were added
+    if day.add_route(res_r1):
+        cnt += 1
+    if day.add_route(res_r2):
+        cnt += 1
+    return route_1, route_2, cnt
+
+def undo_op3(solution, route_1, route_2, routes_added):
+    
+    day = route_1.day
+    # remove last 2 or 1 routes
+    for i in range(routes_added):
+        day.remove_route(route_id = -1)
+    
+    day.add_route(route_1)
+    day.add_route(route_2)
 
 # ? operator 4
 #   - take a task u and move it to a different route within the same day
@@ -229,17 +260,22 @@ def op4(solution, edge_1_id, edge_2_id, route_1, route_2):
     
     
     edge_1 = route_1.targets[edge_1_id]
-    edge_2 = route_2.targets[edge_2_id]
 
 
     # note - allowing the routes to be the same, ie to move the edge in the same route just a different place in it
 
     # remove edge in route 1
-    route_1.remove_edge(edge_1)
+    route_1.remove_edge(pos = edge_1_id)
     # insert the edge before edge_2 in route_2
-    route_2.insert_edge(edge_1, edge_in_route = edge_2)
+    route_2.insert_edge(edge_1, pos = edge_2_id)
     
-    return True
+    return edge_1_id, edge_2_id
+
+def undo_op4(solution, edge_1_id, edge_2_id, route_1, route_2):
+    op4(solution, edge_2_id, edge_1_id, route_2, route_1)
+    day = route_1.day
+    if route_1 not in day.routes:
+        day.add_route(route_1)
 
 
 # ? operator 5
@@ -267,6 +303,14 @@ def op5(solution, edge_a1_id, edge_a2_id, edge_b_id, route_a, route_b):
     return True
 
 
+def undo_op5(solution, edge_a1_id, edge_a2_id, edge_b_id, route_a, route_b):
+    op4(solution, edge_b_id, edge_a1_id, route_b, route_a)
+    op4(solution, edge_b_id, edge_a2_id, route_b, route_a)
+
+    day = route_a.day
+    if route_a not in day.routes:
+        day.add_route(route_a)
+
 # ? operator 6
 #   - remove a single service of an edge on some day
 def op6(solution, d1, edge):
@@ -279,6 +323,8 @@ def op6(solution, d1, edge):
 
     return True
 
+def undo_op6(solution, d1, edge):
+    op7(solution, d1, edge)
 
 # ? operator 7
 #   - add a single service of an edge on a day
@@ -297,6 +343,10 @@ def op7(solution, d1, edge):
 
     return True
 
+def undo_op7(solution, d1, edge):
+    op6(solution, d1, edge)
+    solution.days[d1].recalculate_routes()
+
 def run(solution):
 
     work_days = solution.get_work_days()
@@ -306,13 +356,12 @@ def run(solution):
     patience = 10       # how many iterations to go without improvement
 
     best_before_solution = solution     # best found before applying operators in this iteration
-    current_best_solution = solution    # best found from applying operators during this iteration
-    neighbour_solution = None
+    current_best_solution = best_before_solution    # best found from applying operators during this iteration
+
 
     original_score = current_best_solution.evaluate()
     best_before_score = original_score
     best_score = best_before_score
-    neighbour_score = best_score        # just a placeholder number
     
     iteration_count = 0
     iteration_start_time = 0
@@ -332,26 +381,20 @@ def run(solution):
                 if i == j:
                     continue
                 for edge in solution.days[i].edges:
-                    neighbour_solution = copy.deepcopy(best_before_solution)
-                    if op1(neighbour_solution, i, j, edge):
-                        best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
-
-        # 1.2 - op1_alt - shifting services - which can be seen as multiple applications of op1
-        for edge in solution.demanded_edges:
-            neighbour_solution = copy.deepcopy(best_before_solution)
-            if op1_alt(neighbour_solution, edge):
-                best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
-
-        # 1.3 - op2 - swapping the service days of 2 edges with the same frequency
+                    if op1(best_before_solution, i, j, edge):
+                        best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                        undo_op1(best_before_solution, i, j, edge)
+        
+        # 1.2 - op2 - swapping the service days of 2 edges with the same frequency
         for i in range(len(solution.demanded_edges)):
             edge_1 = solution.demanded_edges[i]
             for j in range(i+1, len(solution.demanded_edges)):
                 edge_2 = solution.demanded_edges[j]
                 # edges are skipped if they have different frequency
-                neighbour_solution = copy.deepcopy(best_before_solution)
-                if op2(neighbour_solution, edge_1, edge_2):
-                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
-                    
+
+                if op2(best_before_solution, edge_1, edge_2):
+                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                    undo_op2(best_before_solution, edge_1, edge_2)
 
         # 2. operators within days
         # 2.1
@@ -367,12 +410,14 @@ def run(solution):
 
         can_do_op5 = False
         for i in work_days:
-            day = solution.days[i]
+            day = best_before_solution.days[i]
             
+            i_count = 0
             for route_1 in day.routes:
                 for r1_cutpoint in range(len(route_1.targets)):
                     can_do_op5 = r1_cutpoint < len(route_1.targets) - 1
 
+                    j_count = 0
                     for route_2 in day.routes:
                         if i_count == j_count:
                             continue
@@ -380,19 +425,20 @@ def run(solution):
                         for r2_cutpoint in range(len(route_2.targets)):
                             
                             if i_count < j_count:
-                                neighbour_solution = copy.deepcopy(best_before_solution)
-                                if op3(neighbour_solution, route_1, route_2, r1_cutpoint, r2_cutpoint):
-                                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+                                res = op3(best_before_solution, route_1, route_2, r1_cutpoint, r2_cutpoint)
+                                if res is not None:
+                                    route_1, route_2, cnt = res
+                                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                                    undo_op3(best_before_solution, route_1, route_2, cnt)
 
-
-                            neighbour_solution = copy.deepcopy(best_before_solution)
-                            if op4(neighbour_solution, r1_cutpoint, r2_cutpoint, route_1, route_2):
-                                best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+                            if op4(best_before_solution, r1_cutpoint, r2_cutpoint, route_1, route_2):
+                                best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                                undo_op4(best_before_solution, r1_cutpoint, r2_cutpoint, route_1, route_2)
 
                             if can_do_op5:
-                                neighbour_solution = copy.deepcopy(best_before_solution)
-                                if op5(neighbour_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2):
-                                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+                                if op5(best_before_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2):
+                                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                                    undo_op5(best_before_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2)
 
                         j_count += 1
                 i_count += 1
@@ -401,17 +447,20 @@ def run(solution):
         #   - op6 - remove a single service of an edge
         #   - op7 - add a single service of an edge
         
-        unsatisfied_edges = current_best_solution.unsatisfied_edges()
+        unsatisfied_edges = best_before_score.unsatisfied_edges()
         for edge in unsatisfied_edges:
             for i in work_days:
-                neighbour_solution = copy.deepcopy(best_before_solution)
-                if op6(neighbour_solution, i, edge):
-                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+                
+                if op6(best_before_solution, i, edge):
+                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                    undo_op6(best_before_solution, i, edge)
 
-                neighbour_solution = copy.deepcopy(best_before_solution)
-                if op7(neighbour_solution, i, edge):
-                    best_score, current_best_solution = evaluate_neighbour(neighbour_solution, best_score, current_best_solution)
+
+                if op7(best_before_solution, i, edge):
+                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                    undo_op7(best_before_solution, i, edge)
         
+
         if best_score < best_before_score:
             best_before_score = best_score
             best_before_solution = current_best_solution
@@ -444,5 +493,5 @@ def evaluate_neighbour(neighbour_solution, best_score, current_best_solution):
     neighbour_score = neighbour_solution.evaluate()
     if neighbour_score < best_score:
         best_score = neighbour_score
-        current_best_solution = neighbour_solution
+        current_best_solution = copy.deepcopy(neighbour_solution)
     return best_score, current_best_solution
