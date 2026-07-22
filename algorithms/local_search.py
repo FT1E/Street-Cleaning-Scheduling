@@ -433,7 +433,7 @@ def run(solution):
 
                     if op2(best_before_solution, edge_1, edge_2):
                         best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
-                        undo_op2()
+                        undo_op2(best_before_solution, edge_1, edge_2)
                     # if is kinda pointless now, but still leaving it this way
                     if iteration_count == 0:
                         op2_count += 1

@@ -78,7 +78,7 @@ def run(solution):
                     if op2(best_before_solution, edge_1, edge_2):
                         best_score, current_best_solution, improved = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
                         if not improved:
-                            undo_op2()
+                            undo_op2(best_before_solution, edge_1, edge_2)
                     # if is kinda pointless now, but still leaving it this way
                     if iteration_count == 0:
                         op2_count += 1
@@ -103,6 +103,7 @@ def run(solution):
             
             i_count = 0
             for route_1 in day.routes:
+                i_count += 1
                 for r1_cutpoint in range(len(route_1.targets)):
                     can_do_op5 = r1_cutpoint < len(route_1.targets) - 1
 
@@ -110,6 +111,7 @@ def run(solution):
                     for route_2 in day.routes:
                         if i_count == j_count:
                             continue
+                        j_count += 1
 
                         for r2_cutpoint in range(len(route_2.targets)):
                             
@@ -123,6 +125,7 @@ def run(solution):
                                     if neighbour_score < best_score :
                                         best_score = neighbour_score
                                         current_best_solution = copy.deepcopy(best_before_solution)
+                                        break
                                     else:
                                         undo_op3(best_before_solution, route_1, route_2, cnt)
 
@@ -135,6 +138,7 @@ def run(solution):
                                 if neighbour_score < best_score:
                                     best_score = neighbour_score
                                     current_best_solution = copy.deepcopy(best_before_solution)
+                                    break
                                 else:
                                     undo_op4(best_before_solution, r1_cutpoint, r2_cutpoint, route_1, route_2)
                             if iteration_count == 0:
@@ -147,14 +151,25 @@ def run(solution):
                                     if neighbour_score < best_score:
                                         best_score = neighbour_score
                                         current_best_solution = copy.deepcopy(best_before_solution)
+                                        break
                                     else:
                                         undo_op5(best_before_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2)
                                 
                                 if iteration_count == 0:
                                     op5_count +=1 
+                        else:
+                            continue
+                        break
+                    else:
+                        continue
+                    break
+                else:
+                    continue
+                break
+            else:
+                continue
+            break
 
-                        j_count += 1
-                i_count += 1
         
         # 2.2
         #   - op6 - remove a single service of an edge
@@ -199,10 +214,11 @@ def run(solution):
         iteration_count += 1
 
         average_iteration_time = (average_iteration_time) * (iteration_count - 1) / iteration_count + iteration_time_taken / iteration_count
-        if iteration_count % 10 == 1:
-            print(f"Original score: {original_score}")
-            print(f"Current best score: {best_score}")
-            print(f"Average iteration time: {average_iteration_time}")
+        print(f"Iteration {iteration_count} end, current state:")
+        print(f"Original score: {original_score}")
+        print(f"Current best score: {best_score}")
+        print(f"Average iteration time: {average_iteration_time}")
+
 
         if iteration_count == 1:
             print("Operations performed counters:")
