@@ -5,6 +5,10 @@ sys.path.append('..')
 
 from util.min_distances import min_distance_ee, min_distance_ne
 
+# for evaluating cost of route
+VEHICLE_OVERLOAD_PENALTY = 1_000_000        # when a route has total demand or length greater than what vehicle can handle - multiply by number of routes which violate 
+
+
 # used to represent the routes/trips in a day which is part of the solution to SP-CARP
 # also used in the Clarke-Wright routing heuristic (modified to use edges instead of vertices as targets)
 
@@ -187,3 +191,9 @@ class Route:
         len_before = self.length
         len_after = self.calculate_length()
         self.day.total_distance = self.day.total_distance - len_before + len_after
+
+    def evaluate(self, vehicle):
+        cost = self.length
+        if self.length > vehicle['distance_limit'] or self.demand > vehicle['capacity']:
+            cost += VEHICLE_OVERLOAD_PENALTY
+        return cost

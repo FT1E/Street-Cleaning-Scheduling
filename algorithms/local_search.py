@@ -16,6 +16,13 @@ from solution_representation.Route import Route
 #   - they shouldn't be called on every edge, but on specific edges which have too many services or too little services
 
 
+# weights copied for estimating a delta on the cost instead of whole re-evaluation
+VEHICLE_WEIGHT = 100_000                    # multiply by number of vehicles used for whole sp-carp, ie the minimum num of vehicles needed, ie maximum number of vehicles among days
+VEHICLE_OVERLOAD_PENALTY = 1_000_000        # when a route has total demand or length greater than what vehicle can handle - multiply by number of routes which violate 
+EXPECTED_SERVICES_PENALTY = 1_000_000       # multiply by number of edges who have too few or too many services
+EXPECTED_SPACING_PENALTY = 500_000        # multiplied by number of spacings which are too tight or too wide
+
+
 # todo - shaking procedure
 
 
@@ -207,6 +214,7 @@ def op3(solution, route_1, route_2, r1_cutpoint, r2_cutpoint):
     day.remove_route(route_1)
     day.remove_route(route_2)
 
+    delta_cost -= (route_1.evaluate(solution.vehicle) + route_2.evaluate(solution.vehicle))
     
 
     route_1_half_1 = Route(route_1.targets[:r1_cutpoint])
@@ -239,7 +247,9 @@ def op3(solution, route_1, route_2, r1_cutpoint, r2_cutpoint):
         cnt += 1
     if day.add_route(res_r2):
         cnt += 1
-    return route_1, route_2, cnt
+
+    delta_cost += (res_r1.evaluate(solution.vehicle) + res_r1.evaluate(solution.vehicle))
+    return delta_cost, route_1, route_2, cnt
 
 def undo_op3(solution, route_1, route_2, routes_added):
     
@@ -264,6 +274,8 @@ def op4(solution, edge_1_id, edge_2_id, route_1, route_2):
         return None
     
     
+    delta_cost -= (route_1.evaluate(solution.vehicle) + route_2.evaluate(solution.vehicle))
+
     edge_1 = route_1.targets[edge_1_id]
 
 
@@ -273,8 +285,10 @@ def op4(solution, edge_1_id, edge_2_id, route_1, route_2):
     route_1.remove_edge(pos = edge_1_id)
     # insert the edge before edge_2 in route_2
     route_2.insert_edge(edge_1, pos = edge_2_id)
+
+    delta_cost += (route_1.evaluate(solution.vehicle) + route_2.evaluate(solution.vehicle))
     
-    return edge_1_id, edge_2_id
+    return delta_cost
 
 def undo_op4(solution, edge_1_id, edge_2_id, route_1, route_2):
     op4(solution, edge_2_id, edge_1_id, route_2, route_1)
@@ -293,6 +307,8 @@ def op5(solution, edge_a1_id, edge_a2_id, edge_b_id, route_a, route_b):
         # only done between rotues in the same day
         return None
     
+    delta_cost -= (route_a.evaluate(solution.vehicle) + route_b.evaluate(solution.vehicle))
+
     edge_a1 = route_a.targets[edge_a1_id]
     edge_a2 = route_a.targets[edge_a2_id]
 
@@ -305,7 +321,10 @@ def op5(solution, edge_a1_id, edge_a2_id, edge_b_id, route_a, route_b):
     route_b.insert_edge(edge_a1, pos = edge_b_id)
     # a1 a2 b
     
-    return True
+    delta_cost += (route_a.evaluate(solution.vehicle) + route_b.evaluate(solution.vehicle))
+
+
+    return delta_cost
 
 
 def undo_op5(solution, edge_a1_id, edge_a2_id, edge_b_id, route_a, route_b):
@@ -374,6 +393,17 @@ def run(solution):
     iteration_time_taken = 0
     average_iteration_time = 0
 
+    op1_count = 0
+    op2_count = 0
+    op3_count = 0
+    op4_count = 0
+    op5_count = 0
+    op6_count = 0
+    op7_count = 0
+
+    frequency_buckets = solution.frequency_buckets
+
+
     while no_improvement_count < patience:
         
         iteration_start_time = time.time()
@@ -389,17 +419,24 @@ def run(solution):
                     if op1(best_before_solution, i, j, edge):
                         best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
                         undo_op1(best_before_solution, i, j, edge)
+                    if iteration_count == 1:
+                        op1_count += 1
         
-        # 1.2 - op2 - swapping the service days of 2 edges with the same frequency
-        for i in range(len(solution.demanded_edges)):
-            edge_1 = solution.demanded_edges[i]
-            for j in range(i+1, len(solution.demanded_edges)):
-                edge_2 = solution.demanded_edges[j]
-                # edges are skipped if they have different frequency
 
-                if op2(best_before_solution, edge_1, edge_2):
-                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
-                    undo_op2(best_before_solution, edge_1, edge_2)
+        # 1.2 - op2 - swapping the service days of 2 edges with the same frequency
+        for bucket in frequency_buckets.values():
+            # bucket == list of all edges with the same frequency
+            for i in range(len(bucket)):
+                edge_1 = bucket[i]
+                for j in range(i+1, len(bucket)):
+                    edge_2 = bucket[j]
+
+                    if op2(best_before_solution, edge_1, edge_2):
+                        best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                        undo_op2()
+                    # if is kinda pointless now, but still leaving it this way
+                    if iteration_count == 0:
+                        op2_count += 1
 
         # 2. operators within days
         # 2.1
@@ -412,6 +449,8 @@ def run(solution):
         # but op4, op5 operate on all ordered pair of routes
         i_count = 0
         j_count = 0
+
+        neighbour_score = 0
 
         can_do_op5 = False
         for i in work_days:
@@ -431,19 +470,40 @@ def run(solution):
                             
                             if i_count < j_count:
                                 res = op3(best_before_solution, route_1, route_2, r1_cutpoint, r2_cutpoint)
-                                if res is not None:
-                                    route_1, route_2, cnt = res
-                                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                                if res is None:
+                                    continue
+                                else:
+                                    delta_cost, route_1, route_2, cnt = res
+                                    neighbour_score = best_before_score + delta_cost
+                                    if neighbour_score < best_score :
+                                        best_score = neighbour_score
+                                        current_best_solution = copy.deepcopy(best_before_solution)
                                     undo_op3(best_before_solution, route_1, route_2, cnt)
 
-                            if op4(best_before_solution, r1_cutpoint, r2_cutpoint, route_1, route_2):
-                                best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                                if iteration_count == 0:
+                                    op3_count += 1
+
+                            delta_cost = op4(best_before_solution, r1_cutpoint, r2_cutpoint, route_1, route_2)
+                            if delta_cost is not None:
+                                neighbour_score = best_before_score + delta_cost
+                                if neighbour_score < best_score:
+                                    best_score = neighbour_score
+                                    current_best_solution = copy.deepcopy(best_before_solution)
                                 undo_op4(best_before_solution, r1_cutpoint, r2_cutpoint, route_1, route_2)
+                            if iteration_count == 0:
+                                op4_count += 1
 
                             if can_do_op5:
-                                if op5(best_before_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2):
-                                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
+                                delta_cost = op5(best_before_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2)
+                                if delta_cost is not None:
+                                    neighbour_score = best_before_score + delta_cost
+                                    if neighbour_score < best_score:
+                                        best_score = neighbour_score
+                                        current_best_solution = copy.deepcopy(best_before_solution)
                                     undo_op5(best_before_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2)
+                                
+                                if iteration_count == 0:
+                                    op5_count +=1 
 
                         j_count += 1
                 i_count += 1
@@ -460,6 +520,8 @@ def run(solution):
                     best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
                     undo_op6(best_before_solution, i, edge)
 
+                if iteration_count == 0:
+                    op6_count += 1
 
         oversatisfied_edges = best_before_solution.over_satisfied_edges()
         for edge in oversatisfied_edges:
@@ -467,7 +529,9 @@ def run(solution):
                 if op7(best_before_solution, i, edge):
                     best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
                     undo_op7(best_before_solution, i, edge)
-        
+                    
+                if iteration_count == 0:
+                    op7_count += 1
 
         if best_score < best_before_score:
             best_before_score = best_score
@@ -490,6 +554,15 @@ def run(solution):
             print(f"Current best score: {best_score}")
             print(f"Average iteration time: {average_iteration_time}")
 
+        if iteration_count == 1:
+            print("Operations performed counters:")
+            print(f"op1: {op1_count}")
+            print(f"op2: {op2_count}")
+            print(f"op3: {op3_count}")
+            print(f"op4: {op4_count}")
+            print(f"op5: {op5_count}")
+            print(f"op6: {op6_count}")
+            print(f"op7: {op7_count}")
 
     print(f"End of local search, after {iteration_count} iterations!")
     print(f"Original score: {original_score}")

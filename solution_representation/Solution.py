@@ -45,7 +45,10 @@ class Solution:
         # ? below just for reference for calculating routing cost
         self.vehicle = vehicle
         self.adjacency_lists = adjacency_lists
-        pass
+        
+        # for op2
+        self.frequency_buckets = dict()
+        self.init_freq_buckets()
 
     
     def __repr__(self):
@@ -182,3 +185,11 @@ class Solution:
                             cnt += 1
 
         print(f"{cnt} edges have same instances in different days")
+
+    # for op2 - instead of skipping to just directly get the needed edges
+    def init_freq_buckets(self):
+        for edge in self.demanded_edges:
+            if self.frequency_buckets[edge.freq] is None:
+                self.frequency_buckets[edge.freq] = [edge]
+            else:
+                self.frequency_buckets[edge.freq].append(edge)
