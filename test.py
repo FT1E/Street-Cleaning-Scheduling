@@ -64,4 +64,10 @@ print(f"Actual number of total services: {solution.total_number_of_services()}")
 
 # solution.checking_references()
 
-ls_run(solution)
+score, solution = ls_run(solution)
+
+print(solution)
+
+print("\n\n")
+print(f"Cost before: {cost}")
+print(f"Cost after: {score}")
