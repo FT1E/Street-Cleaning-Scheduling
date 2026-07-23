@@ -153,9 +153,6 @@ class Solution:
         return unsatisfied_edges 
 
     def get_over_satisfied_edges(self):
-        if self.over_satisfied_edges is not None:
-            return self.over_satisfied_edges
-
         self.over_satisfied_edges = []
         
         for edge in self.demanded_edges:
@@ -165,9 +162,6 @@ class Solution:
         return self.over_satisfied_edges
 
     def get_under_satisfied_edges(self):
-        if self.under_satisfied_edges is not None:
-            return self.under_satisfied_edges
-
         self.under_satisfied_edges = []
         
         for edge in self.demanded_edges:
