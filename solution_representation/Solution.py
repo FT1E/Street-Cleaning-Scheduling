@@ -50,6 +50,12 @@ class Solution:
         self.frequency_buckets = dict()
         self.init_freq_buckets()
 
+        # for op6
+        self.over_satisfied_edges = None
+
+        # for op7
+        self.under_satisfied_edges = None
+
     
     def __repr__(self):
         self.print()
@@ -146,16 +152,29 @@ class Solution:
         # print(f"Number of unsatisfied edges: {len(unsatisfied_edges)}")
         return unsatisfied_edges 
 
-    def over_satisfied_edges(self):
-        over_satisfied_edges = []
+    def get_over_satisfied_edges(self):
+        if self.over_satisfied_edges is not None:
+            return self.over_satisfied_edges
+
+        self.over_satisfied_edges = []
+        
         for edge in self.demanded_edges:
-            service_count = len(edge.service_days)
-            expected_service_count = self.vehicle['planning_duration'] / math.ceil(edge.freq)
-            if service_count > self.expected_number_of_services:
+            if edge.is_over_satisfied(self.vehicle):
                 self.over_satisfied_edges.append(edge)
 
-        return over_satisfied_edges
+        return self.over_satisfied_edges
 
+    def get_under_satisfied_edges(self):
+        if self.under_satisfied_edges is not None:
+            return self.under_satisfied_edges
+
+        self.under_satisfied_edges = []
+        
+        for edge in self.demanded_edges:
+            if edge.is_under_satisfied(self.vehicle):
+                self.under_satisfied_edges.append(edge)
+
+        return self.under_satisfied_edges
 
     def get_work_days(self):
         # all except weekends - 5,6 - considering monday 0, tue 1, etc.

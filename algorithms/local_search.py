@@ -344,6 +344,8 @@ def op6(solution, d1, edge):
         return None
 
     solution.days[d1].remove_edge(edge)
+    edge.service_days.remove(d1)
+    edge.service_days.sort()
 
     return True
 
@@ -364,6 +366,9 @@ def op7(solution, d1, edge):
     
     solution.days[d1].add_edge(edge)
     # with the spacing penalty - the proper day will have more priority
+    edge.service_days.append(d1)
+    edge.service_days.sort()
+
 
     return True
 
@@ -373,15 +378,11 @@ def undo_op7(solution, d1, edge):
 
 def run(solution):
 
-    work_days = solution.get_work_days()
-    
-    
+     
     no_improvement_count = 0
     patience = 10       # how many iterations to go without improvement
 
-    best_before_solution = solution     # best found before applying operators in this iteration
-    current_best_solution = best_before_solution    # best found from applying operators during this iteration
-
+    current_best_solution = solution
 
     original_score = current_best_solution.evaluate()
     best_before_score = original_score
@@ -393,187 +394,243 @@ def run(solution):
     iteration_time_taken = 0
     average_iteration_time = 0
 
-    op1_count = 0
-    op2_count = 0
-    op3_count = 0
-    op4_count = 0
-    op5_count = 0
-    op6_count = 0
-    op7_count = 0
+ 
+    improving = True
+    phase_improving = False
+    while improving:
+        improving = False
 
-    frequency_buckets = solution.frequency_buckets
-
-
-    while no_improvement_count < patience:
-        
+        iteration_count += 1
         iteration_start_time = time.time()
+
+        # phase 1 - add or remove services of edges with too litle or too many services
+        best_score, current_best_solution, phase_improving = phase_1(current_best_solution, best_score)
+
+        p1_end_time = time.time()
+        if iteration_count == 1:
+            print(f"Phase 1 ended after {p1_end_time - iteration_start_time} seconds")
+            print(f"Current score: {best_score}")
+
+        if phase_improving:
+            improving = True
+
+        # phase 2 - move services from 1 day to another day and swap service days of edges with same frequency 
+        best_score, current_best_solution, phase_improving = phase_2(current_best_solution, best_score)
+
+        p2_end_time = time.time()
+        if iteration_count == 1:
+            print(f"Phase 2 ended after {p2_end_time - p1_end_time} seconds")
+            print(f"Current score: {best_score}")
+
+        if phase_improving:
+            improving = True
+
+        # phase 3 - improve the routes
+        best_score, current_best_solution, phase_improving = phase_3(current_best_solution, best_score)
+
+        if phase_improving:
+            improving = True
+
+        iteration_end_time = time.time()
+        if iteration_count == 1:
+            print(f"Phase 3 ended after {iteration_end_time - p2_end_time} seconds")
+            print(f"Current score: {best_score}")
         
 
-        # 1. operators between days
-        # 1.1 - op1 - move an edge from day i to day j - all combinations are tried, including both moving a service forward and backward
-        for i in work_days:
-            for j in work_days:
-                if i == j:
-                    continue
-                for edge in solution.days[i].edges:
-                    if op1(best_before_solution, i, j, edge):
-                        best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
-                        undo_op1(best_before_solution, i, j, edge)
-                    if iteration_count == 1:
-                        op1_count += 1
+        iteration_time_taken = iteration_end_time - iteration_start_time
+        average_iteration_time = average_iteration_time * (iteration_count - 1) / iteration_count + iteration_time_taken / iteration_count
+        if iteration_count % 10 == 1:
+            print(f"Iteration count: {iteration_count} iterations")
+            print(f"Last iteration time: {iteration_time_taken} seconds")
+            print(f"Iteration average time: {iteration_time_taken} seconds")
+            print(f"Current score: {best_score}")
         
+    print(f"Local search ended after {iteration_count} iterations.")
+    print(f"Last iteration time: {iteration_time_taken} seconds")
+    print(f"Iteration average time: {iteration_time_taken} seconds")
+    print(f"Original score: {original_score}")
+    print(f"Current score: {best_score}")
 
-        # 1.2 - op2 - swapping the service days of 2 edges with the same frequency
+    return best_score, current_best_solution
+
+def evaluate_neighbour(neighbour_solution, best_score, current_best_solution):
+    neighbour_score = neighbour_solution.evaluate()
+    improved = False
+    if neighbour_score < best_score:
+        best_score = neighbour_score
+        current_best_solution = copy.deepcopy(neighbour_solution)
+        improved = True
+    return best_score, current_best_solution, improved
+
+
+def phase_1(current_best_solution, best_score):
+    # apply ops 6 and 7 - while you can get an improvement
+
+    original_score = best_score
+
+    working = current_best_solution
+
+    work_days = set(working.get_work_days())
+
+    improved = True
+    improved_op = False
+
+    while improved:
+        improved = False
+
+        over_satisfied_edges = working.get_over_satisfied_edges()
+
+
+        for edge in over_satisfied_edges:
+            for day in edge.service_days:
+                if op6(working, day, edge):
+                    best_score, current_best_solution, improved_op  = evaluate_neighbour(working, best_score, current_best_solution)
+                    undo_op6(working, day, edge)
+                    if improved_op:
+                        improved = True
+
+        under_satisfied_edges = working.get_under_satisfied_edges()
+        for edge in under_satisfied_edges:
+
+            no_service_days = work_days.difference(set(edge.service_days))
+            for day in no_service_days:
+                if op7(working, day, edge):
+                    best_score, current_best_solution, improved_op = evaluate_neighbour(working, best_score, current_best_solution)
+                    undo_op7(working, day, edge)
+                    if improved_op:
+                        improved = True
+
+        # after trying all combinations save the best one and try again
+        working = current_best_solution
+
+    return best_score, current_best_solution, best_score < original_score
+
+
+def phase_2(current_best_solution, best_score):
+    # apply op 1 and op2 - while you can get an improvement
+
+    original_score = best_score
+
+    working = current_best_solution
+
+    work_days = set(working.get_work_days())
+    frequency_buckets = working.frequency_buckets
+
+    improved = True
+    improved_op = False
+    while improved:
+        improved = False
+
+        # op1 - move a service from 1 day to another day
+        # iterate through service days of an edge and opposite for moving to another day
+        for edge in working.demanded_edges:
+
+            no_service_days = work_days.difference(set(edge.service_days))
+
+            for day_1 in edge.service_days:
+                for day_2 in no_service_days:
+                    if op1(working, day_1, day_2, edge):
+                        best_score, current_best_solution, improved_op = evaluate_neighbour(working, best_score, current_best_solution)
+                        undo_op1(working, day_1, day_2, edge)
+                        if improved_op:
+                            improved = True
+
+        # op2 - swap the service days of 2 edges with the same frequency
         for bucket in frequency_buckets.values():
-            # bucket == list of all edges with the same frequency
             for i in range(len(bucket)):
                 edge_1 = bucket[i]
                 for j in range(i+1, len(bucket)):
                     edge_2 = bucket[j]
-
-                    if op2(best_before_solution, edge_1, edge_2):
-                        best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
-                        undo_op2(best_before_solution, edge_1, edge_2)
+                    if op2(working, edge_1, edge_2):
+                        best_score, current_best_solution, improved_op = evaluate_neighbour(working, best_score, current_best_solution)
+                        undo_op2(working, edge_1, edge_2)
+                        if improved_op:
+                            improved = True
                     # if is kinda pointless now, but still leaving it this way
-                    if iteration_count == 0:
-                        op2_count += 1
-
-        # 2. operators within days
-        # 2.1
-        #   - op3 - cut 2 routes and merge them - cuts can be at endpoints so it can be just merging 2 routes
-        #   - op4 - move an edge from route 1 to a different route 2 - before an edge 2 inside it
-        #   - op5 - similar to route 4, but instead of moving 1 edge, take 2 successive edges in the route and move them together
+                    
 
 
-        # below counters are for op3 - since it operates on all unordered pair of routes in the same day
-        # but op4, op5 operate on all ordered pair of routes
-        i_count = 0
-        j_count = 0
+        working = current_best_solution
 
-        neighbour_score = 0
+    return best_score, current_best_solution, best_score < original_score
 
-        can_do_op5 = False
-        for i in work_days:
-            day = best_before_solution.days[i]
-            
-            i_count = 0
-            for route_1 in day.routes:
+
+def phase_3(current_best_solution, best_score):
+    # apply ops 3, 4 and 5 - while you can get an improvement
+    # for each day pick the best and apply it
+    # can parallelize for each day separate thread
+
+    original_score = best_score
+
+    working = current_best_solution
+    working_score = best_score
+    
+
+    work_days = working.get_work_days()
+
+    improved = True
+
+    while improved:
+        improved = False
+
+        for day in work_days:
+
+            for i_count, route_1 in enumerate(working.day[day].routes):
+ 
                 for r1_cutpoint in range(len(route_1.targets)):
-                    can_do_op5 = r1_cutpoint < len(route_1.targets) - 1
 
-                    j_count = 0
-                    for route_2 in day.routes:
+                    # if you can take 2 successive edges - only not reached the last point
+                    can_do_op5 = (r1_cutpoint + 1) < len(route_1.targets) 
+
+                    for j_count, route_2 in enumerate(working.day[day].routes):
                         if i_count == j_count:
                             continue
 
+
+                        # op4 and op5 perform work on all ordered pair of routes 
+                        # but op3 performs work on all unordered pair of routes
+                        # that's why counters i_count and j_count
+
+                        can_do_op3 = i_count < j_count
                         for r2_cutpoint in range(len(route_2.targets)):
-                            
-                            if i_count < j_count:
-                                res = op3(best_before_solution, route_1, route_2, r1_cutpoint, r2_cutpoint)
+
+                            # op3
+                            if can_do_op3:
+                                res = op3(working, route_1, route_2, r1_cutpoint, r2_cutpoint)
                                 if res is None:
                                     continue
                                 else:
                                     delta_cost, route_1, route_2, cnt = res
-                                    neighbour_score = best_before_score + delta_cost
+                                    neighbour_score = working_score + delta_cost
                                     if neighbour_score < best_score :
                                         best_score = neighbour_score
-                                        current_best_solution = copy.deepcopy(best_before_solution)
-                                    undo_op3(best_before_solution, route_1, route_2, cnt)
+                                        current_best_solution = copy.deepcopy(working)
+                                        improved = True
+                                    undo_op3(working, route_1, route_2, cnt)
 
-                                if iteration_count == 0:
-                                    op3_count += 1
-
-                            delta_cost = op4(best_before_solution, r1_cutpoint, r2_cutpoint, route_1, route_2)
+                            # op4
+                            delta_cost = op4(working, r1_cutpoint, r2_cutpoint, route_1, route_2)
                             if delta_cost is not None:
-                                neighbour_score = best_before_score + delta_cost
+                                neighbour_score = working_score + delta_cost
                                 if neighbour_score < best_score:
                                     best_score = neighbour_score
-                                    current_best_solution = copy.deepcopy(best_before_solution)
-                                undo_op4(best_before_solution, r1_cutpoint, r2_cutpoint, route_1, route_2)
-                            if iteration_count == 0:
-                                op4_count += 1
+                                    current_best_solution = copy.deepcopy(working)
+                                undo_op4(working, r1_cutpoint, r2_cutpoint, route_1, route_2)
 
+                            # op5
                             if can_do_op5:
-                                delta_cost = op5(best_before_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2)
+                                delta_cost = op5(working, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2)
                                 if delta_cost is not None:
-                                    neighbour_score = best_before_score + delta_cost
+                                    neighbour_score = working_score + delta_cost
                                     if neighbour_score < best_score:
                                         best_score = neighbour_score
-                                        current_best_solution = copy.deepcopy(best_before_solution)
-                                    undo_op5(best_before_solution, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2)
+                                        current_best_solution = copy.deepcopy(working)
+                                        improved = True
+                                    undo_op5(working, r1_cutpoint, r1_cutpoint + 1, r2_cutpoint, route_1, route_2)
                                 
-                                if iteration_count == 0:
-                                    op5_count +=1 
 
-                        j_count += 1
-                i_count += 1
-        
-        # 2.2
-        #   - op6 - remove a single service of an edge
-        #   - op7 - add a single service of an edge
-        
-        unsatisfied_edges = best_before_solution.unsatisfied_edges()
-        for edge in unsatisfied_edges:
-            for i in work_days:
-                
-                if op6(best_before_solution, i, edge):
-                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
-                    undo_op6(best_before_solution, i, edge)
+            # apply the best op for each day, since operations applied on different days don't have an effect on each other
+            working = current_best_solution
+            working_score = best_score
 
-                if iteration_count == 0:
-                    op6_count += 1
-
-        oversatisfied_edges = best_before_solution.over_satisfied_edges()
-        for edge in oversatisfied_edges:
-            for i in work_days:
-                if op7(best_before_solution, i, edge):
-                    best_score, current_best_solution = evaluate_neighbour(best_before_solution, best_score, current_best_solution)
-                    undo_op7(best_before_solution, i, edge)
-                    
-                if iteration_count == 0:
-                    op7_count += 1
-
-        if best_score < best_before_score:
-            best_before_score = best_score
-            best_before_solution = current_best_solution
-
-            no_improvement_count = 0
-        else:
-            no_improvement_count += 1
-            break       # todo - remove this break once you implement a shaking procedure
-        
-        iteration_end_time = time.time()
-
-        iteration_time_taken = iteration_end_time - iteration_start_time
-
-        iteration_count += 1
-
-        average_iteration_time = (average_iteration_time) * (iteration_count - 1) / iteration_count + iteration_time_taken / iteration_count
-        if iteration_count % 10 == 1:
-            print(f"Original score: {original_score}")
-            print(f"Current best score: {best_score}")
-            print(f"Average iteration time: {average_iteration_time}")
-
-        if iteration_count == 1:
-            print("Operations performed counters:")
-            print(f"op1: {op1_count}")
-            print(f"op2: {op2_count}")
-            print(f"op3: {op3_count}")
-            print(f"op4: {op4_count}")
-            print(f"op5: {op5_count}")
-            print(f"op6: {op6_count}")
-            print(f"op7: {op7_count}")
-
-    print(f"End of local search, after {iteration_count} iterations!")
-    print(f"Original score: {original_score}")
-    print(f"Current best score: {best_score}")
-    print(f"Average iteration time: {average_iteration_time}")
-
-    return current_best_solution
-
-def evaluate_neighbour(neighbour_solution, best_score, current_best_solution):
-    neighbour_score = neighbour_solution.evaluate()
-    if neighbour_score < best_score:
-        best_score = neighbour_score
-        current_best_solution = copy.deepcopy(neighbour_solution)
-    return best_score, current_best_solution
+    return best_score, current_best_solution, best_score < original_score

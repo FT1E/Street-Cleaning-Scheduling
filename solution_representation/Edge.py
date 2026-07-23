@@ -1,8 +1,13 @@
 
 from enum import Enum
+import math
 
 # used to represent an Edge which belongs to a route in a solution
 # also used in the greedy algorithms to represent an edge list from which an edge is picked in a greedy way
+
+# below copied from Solution.py
+EXPECTED_SERVICES_PENALTY = 1_000_000       # multiply by number of edges who have too few or too many services
+EXPECTED_SPACING_PENALTY = 500_000        # multiplied by number of spacings which are too tight or too wide
 
 
 
@@ -76,3 +81,46 @@ class Edge:
         if curr_day is not None:
             self.curr_day = curr_day
         return self.last_cleaning_day + self.freq // 2 < self.curr_day
+
+
+    def is_under_satisfied(self, vehicle):
+        service_count = len(self.service_days)
+        expected_service_count = math.floor(vehicle['planning_duration'] / math.ceil(self.freq))
+        if service_count < expected_service_count:
+            return True
+        return False
+
+
+    def is_over_satisfied(self, vehicle):
+        service_count = len(self.service_days)
+        expected_service_count = math.ceil(vehicle['planning_duration'] / math.ceil(self.freq))
+        if service_count > expected_service_count:
+            return True
+        return False
+
+
+    def spacing_cost(self, vehicle):
+        cost = 0
+        
+        if len(self.service_days) == 0:
+            cost += math.floor(vehicle['planning_duration'] / math.ceil(self.freq)) * EXPECTED_SPACING_PENALTY
+            return cost
+
+        expected_spacing = math.ceil(self.freq)
+
+        spacing = self.service_days[0]
+
+        if spacing > expected_spacing + self.freq // 7 or spacing < expected_spacing:
+            cost += EXPECTED_SPACING_PENALTY
+
+        spacing = vehicle['planning_duration'] - self.service_days[-1]
+
+        if spacing > expected_spacing + self.freq // 7 or spacing < expected_spacing:
+                    cost += EXPECTED_SPACING_PENALTY
+
+        for i in range(len(self.service_days) - 1):
+            spacing = self.service_days[i+1] - self.service_days[i]
+            if spacing > expected_spacing + self.freq // 7 or spacing < expected_spacing:
+                cost += EXPECTED_SPACING_PENALTY
+
+        return cost
