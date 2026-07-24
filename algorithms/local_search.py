@@ -351,10 +351,7 @@ def undo_op6(solution, d1, edge, route, pos_in_route):
     solution.days[d1].add_edge(edge, route=route, pos = pos_in_route)
 
     # with the spacing penalty - the proper day will have more priority
-    for i in range(len(edge.service_days)):
-        if edge.service_days[i] > d1:
-            edge.service_days.insert(i, d1)
-            break
+    edge.add_service_day(d1)
     
     
 
@@ -373,10 +370,7 @@ def op7(solution, d1, edge):
     
     solution.days[d1].add_edge(edge)
     # with the spacing penalty - the proper day will have more priority
-    for i in range(len(edge.service_days)):
-        if edge.service_days[i] > d1:
-            edge.service_days.insert(i, d1)
-            break
+    edge.add_service_day(d1)
 
 
     return True

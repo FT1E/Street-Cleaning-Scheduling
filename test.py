@@ -66,6 +66,8 @@ print(f"Actual number of total services: {solution.total_number_of_services()}")
 
 score, solution = ls_run(solution)
 
+print("\n\n --MARKER for getting logs of LS before solution is printed-- \n\n")
+
 print(solution)
 
 print("\n\n")

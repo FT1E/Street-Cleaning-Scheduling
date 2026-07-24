@@ -124,3 +124,12 @@ class Edge:
                 cost += EXPECTED_SPACING_PENALTY
 
         return cost
+
+    def add_service_day(self, day):
+        for i in range(len(self.service_days)):
+            if self.service_days[i] > day:
+                self.service_days.insert(i, day)
+                return
+    
+        # in case it's the last service
+        self.service_days.append(day)
