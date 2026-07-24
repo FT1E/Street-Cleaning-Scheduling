@@ -35,6 +35,8 @@ class Day:
 
         if route is not None:
             route.insert_edge(edge, pos = pos)
+            if len(route.targets) == 1:
+                self.routes.append(route)
             return
 
         best_route = None

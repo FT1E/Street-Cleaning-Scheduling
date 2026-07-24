@@ -519,10 +519,12 @@ def phase_1(current_best_solution, best_score):
 
         iter_time = iter_end_time - iter_start_time
         iter_avg_time = iter_avg_time * (iter_count - 1) / iter_count + iter_time / iter_count
-        print(f"Iteration count: {iter_count} iterations")
-        print(f"Last iteration time: {iter_time} seconds")
-        print(f"Average iteration time: {iter_avg_time} seconds")
-        print(f"Current best score: {best_score}")
+
+        if iter_count % 30 == 0:
+            print(f"Iteration count: {iter_count} iterations")
+            print(f"Last iteration time: {iter_time} seconds")
+            print(f"Average iteration time: {iter_avg_time} seconds")
+            print(f"Current best score: {best_score}")
 
     return best_score, current_best_solution, best_score < original_score
 
