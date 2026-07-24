@@ -28,10 +28,28 @@ class Day:
 
     # after adding an edge, routes for the day are recalculated
     # todo - could try appending the edge either at a beginning or end of a route
-    def add_edge(self, edge, recalculate=True):
+    def add_edge(self, edge, route=None, pos=None, recalculate=False):
         self.edges.append(edge)
         if recalculate:
             self.recalculate_routes()
+
+        if route is not None:
+            route.insert_edge(edge, pos = pos)
+            return
+
+        best_route = None
+        best_route_cost = None
+        for route in self.routes:
+            route.insert_edge(edge)
+            new_route_cost = route.evaluate(self.vehicle)
+            if best_route is None or new_route_cost < best_route_cost:
+                best_route = route
+                best_route_cost = new_route_cost
+            route.remove_edge(edge)
+
+        # add it to the best route
+        best_route.insert_edge(edge)
+            
     
     # after removing an edge, remove it in the route which it was contained
     # the return result is the removed edge if it was serviced in this day, otherwise None
