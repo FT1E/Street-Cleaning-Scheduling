@@ -126,8 +126,9 @@ class Route:
     
     # inserts an edge at a position or before a given edge
     def insert_edge(self, new_edge, pos=None, edge_in_route=None):
-        
+
         if new_edge in self.targets:
+            print(f"The {new_edge} is already in route for day {self.day.number} (day number)")
             # if edge is already in route
             # todo - maybe allow this but to put it in different place in route
             return
@@ -140,15 +141,12 @@ class Route:
             # if no valid arguments are given add it at end of route
             pos = len(self.targets)
         
-        try:
-            self.targets.insert(pos, new_edge)
-            new_edge.route = self
-            self.update_day_length()
-            self.demand += new_edge.demand
-            self.day.add_edge_in_list(new_edge)
-        except:
-            # in case pos out of bounds
-            return
+        self.targets.insert(pos, new_edge)
+        new_edge.route = self
+        self.update_day_length()
+        self.demand += new_edge.demand
+        self.day.add_edge_in_list(new_edge)
+    
 
     def remove_edge(self, edge=None, pos = None):
         
@@ -156,7 +154,7 @@ class Route:
             self.targets.remove(edge)
             self.update_day_length()
             self.demand -= edge.demand
-            self.day.remove_edge_in_list(edge)  
+            self.day.remove_edge_in_list(edge)
         elif pos is not None:
             try:
                 edge = self.targets.pop(pos)

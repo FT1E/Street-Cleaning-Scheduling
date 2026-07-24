@@ -4,6 +4,7 @@ import sys
 sys.path.append('..')
 
 from util.routing_heuristic import calculate_cost
+from solution_representation.Route import Route
 
 # used in the solution representation to represent a single day of the solution consisting of routes in the day
 # also has a list of edges, which can be inferred from the routes
@@ -28,10 +29,7 @@ class Day:
 
     # after adding an edge, routes for the day are recalculated
     # todo - could try appending the edge either at a beginning or end of a route
-    def add_edge(self, edge, route=None, pos=None, recalculate=False):
-        self.edges.append(edge)
-        if recalculate:
-            self.recalculate_routes()
+    def add_edge(self, edge, route=None, pos=None):
 
         if route is not None:
             route.insert_edge(edge, pos = pos)
@@ -41,7 +39,7 @@ class Day:
 
         best_route = None
         best_route_cost = None
-        for route in self.routes:
+        for route in self.routes[:]:
             route.insert_edge(edge)
             new_route_cost = route.evaluate(self.vehicle)
             if best_route is None or new_route_cost < best_route_cost:
@@ -49,28 +47,18 @@ class Day:
                 best_route_cost = new_route_cost
             route.remove_edge(edge)
 
-        # add it to the best route
-        best_route.insert_edge(edge)
+        if best_route is None:
+            # if day has no routes
+            route = Route([edge], day = self)
+            self.routes.append(route)
+        else:
+            # add it to the best route
+            best_route.insert_edge(edge)
             
     
     # after removing an edge, remove it in the route which it was contained
     # the return result is the removed edge if it was serviced in this day, otherwise None
-    def remove_edge(self, edge=None, edge_id=None, recalculate=False):
-        # remove it from list of edges
-        try:
-            if edge is not None:
-                self.edges.remove(edge)
-            elif edge_id is not None:
-                edge = self.edges.pop(edge_id)
-            else:
-                return None
-        except:
-            # in case edge is not serviced in this day
-            return None
-        
-        if recalculate:
-            self.recalculate_routes()
-            return
+    def remove_edge(self, edge=None, edge_id=None):
 
         # in the route containing that edge just remove it and recalculate the cost and demand
         # implicitly connect the points which were connected by the removing edge
@@ -79,20 +67,10 @@ class Day:
         affected_route = self.get_edge_route(edge)
 
         if affected_route is None:
+            print(f"Trying to remove {edge} from day {self.number} (day number) but its route not present")
             return
 
         affected_route.remove_edge(edge)
-                
-        # if the edge was the only target in the route remove it
-        if len(affected_route.targets) == 0:
-            try:
-                self.routes.remove(affected_route)
-            except:
-                pass
-                # print("Below edge was removed but its route not in list")
-                # print(edge)
-                # print("List of all routes:")
-                # self.print()
         return edge
 
     def recalculate_routes(self):
@@ -122,23 +100,19 @@ class Day:
         print(f"Number of edges: {len(self.edges)}")
         for edge in self.edges:
             print(f"\t{edge}")
-        print(f"Number of routes: {self.route_count}")
+        print(f"Number of routes: {len(self.routes)}")
         cnt = 1
         for route in self.routes:
             print(f"Route {cnt}")
             route.print()
             cnt += 1
 
-    def remove_route(self, route=None, route_id=None):
+    def remove_route(self, route=None):
         try:
-            self.routes.pop(route_id)
+            self.routes.remove(route)
             self.total_distance -= route.length
         except:
-            try:
-                self.routes.remove(route)
-                self.total_distance -= route.length
-            except:
-                pass
+            pass
 
     def add_route(self, route):
         if len(route.targets) > 0:
@@ -162,5 +136,5 @@ class Day:
         for route in self.routes:
             if edge in route.targets:
                 return route
-        
+
         return None

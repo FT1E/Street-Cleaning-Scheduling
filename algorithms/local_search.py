@@ -352,7 +352,7 @@ def undo_op6(solution, d1, edge, route, pos_in_route):
 
     # with the spacing penalty - the proper day will have more priority
     edge.add_service_day(d1)
-    
+
     
 
 
@@ -409,6 +409,8 @@ def run(solution):
         # phase 1 - add or remove services of edges with too litle or too many services
         best_score, current_best_solution, phase_improving = phase_1(current_best_solution, best_score)
 
+        # print("Skipped phase 1!")
+
         p1_end_time = time.time()
         if iteration_count == 1:
             print(f"Phase 1 ended after {p1_end_time - iteration_start_time} seconds")
@@ -416,6 +418,11 @@ def run(solution):
 
         if phase_improving:
             improving = True
+
+
+        # print("\nSolution after phase 1:\n\n")
+        # print(current_best_solution)
+
 
         # phase 2 - move services from 1 day to another day and swap service days of edges with same frequency 
         best_score, current_best_solution, phase_improving = phase_2(current_best_solution, best_score)
@@ -520,11 +527,14 @@ def phase_1(current_best_solution, best_score):
         iter_time = iter_end_time - iter_start_time
         iter_avg_time = iter_avg_time * (iter_count - 1) / iter_count + iter_time / iter_count
 
-        if iter_count % 30 == 0:
-            print(f"Iteration count: {iter_count} iterations")
-            print(f"Last iteration time: {iter_time} seconds")
-            print(f"Average iteration time: {iter_avg_time} seconds")
-            print(f"Current best score: {best_score}")
+
+
+    print("\n\nPhase 1 Report:")
+    print(f"Iteration count: {iter_count} iterations")
+    print(f"Last iteration time: {iter_time} seconds")
+    print(f"Average iteration time: {iter_avg_time} seconds")
+    print(f"Current best score: {best_score}")
+    print('\n\n')
 
     return best_score, current_best_solution, best_score < original_score
 
@@ -539,10 +549,17 @@ def phase_2(current_best_solution, best_score):
     work_days = set(working.get_work_days())
     frequency_buckets = working.frequency_buckets
 
+    iter_count = 0
+    iter_avg_time = 0
+    
+
     improved = True
     improved_op = False
     while improved:
         improved = False
+
+        iter_start_time = time.time()
+        iter_count += 1
 
         # op1 - move a service from 1 day to another day
         # iterate through service days of an edge and opposite for moving to another day
@@ -574,9 +591,31 @@ def phase_2(current_best_solution, best_score):
                             improved = True
                     # if is kinda pointless now, but still leaving it this way
                     
-
+        
 
         working = current_best_solution
+
+        iter_end_time = time.time()
+        
+        iter_time = iter_end_time - iter_start_time
+        iter_avg_time = iter_avg_time * (iter_count - 1) / iter_count + iter_time / iter_count
+
+        if iter_count % 5 == 1:
+            print("Phase 2:")
+            print(f"Iteration count: {iter_count} iterations")
+            print(f"Last iteration time: {iter_time} seconds")
+            print(f"Average iteration time: {iter_avg_time} seconds")
+            print(f"Current best score: {best_score}")
+            print('\n')
+        
+
+    print("Phase 2 Report:")
+    print(f"Iteration count: {iter_count} iterations")
+    print(f"Last iteration time: {iter_time} seconds")
+    print(f"Average iteration time: {iter_avg_time} seconds")
+    print(f"Current best score: {best_score}")
+    print('\n\n')
+
 
     return best_score, current_best_solution, best_score < original_score
 
@@ -590,7 +629,10 @@ def phase_3(current_best_solution, best_score):
 
     working = current_best_solution
     working_score = best_score
-    
+
+    iter_count = 0
+    iter_avg_time = 0
+        
 
     work_days = working.get_work_days()
 
@@ -598,6 +640,10 @@ def phase_3(current_best_solution, best_score):
 
     while improved:
         improved = False
+
+        iter_start_time = time.time()
+        iter_count += 1
+        
 
         for day in work_days:
 
@@ -658,5 +704,25 @@ def phase_3(current_best_solution, best_score):
             # apply the best op for each day, since operations applied on different days don't have an effect on each other
             working = current_best_solution
             working_score = best_score
+
+        iter_end_time = time.time()
+                
+        iter_time = iter_end_time - iter_start_time
+        iter_avg_time = iter_avg_time * (iter_count - 1) / iter_count + iter_time / iter_count
+
+        if iter_count % 10 == 1:
+            print("Phase 3:")
+            print(f"Iteration count: {iter_count} iterations")
+            print(f"Last iteration time: {iter_time} seconds")
+            print(f"Average iteration time: {iter_avg_time} seconds")
+            print(f"Current best score: {best_score}")
+            print('\n')
+
+    print("Phase 3 Report:")
+    print(f"Iteration count: {iter_count} iterations")
+    print(f"Last iteration time: {iter_time} seconds")
+    print(f"Average iteration time: {iter_avg_time} seconds")
+    print(f"Current best score: {best_score}")
+    print('\n\n')
 
     return best_score, current_best_solution, best_score < original_score
