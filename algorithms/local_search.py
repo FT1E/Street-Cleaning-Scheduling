@@ -171,7 +171,7 @@ def op2(solution, edge1=None, edge2=None):
         pos = route.targets.index(edge1)
         edge_1_routes.append((route, pos))
 
-        solution.days[d].remove_edge(edge1)
+        route.remove_edge(edge1)
         solution.days[d].add_edge(edge2)
 
     edge_2_routes = []
@@ -180,14 +180,12 @@ def op2(solution, edge1=None, edge2=None):
         pos = route.targets.index(edge2)
         edge_2_routes.append((route, pos))
 
-        solution.days[d].remove_edge(edge2)
+        route.remove_edge(edge2)
         solution.days[d].add_edge(edge1)
 
     edge1.service_days, edge2.service_days = edge2.service_days, edge1.service_days
     
     return edge_1_routes, edge_2_routes
-
-        
 
 
 def undo_op2(solution, edge1, edge2, edge_1_routes, edge_2_routes):
@@ -196,12 +194,14 @@ def undo_op2(solution, edge1, edge2, edge_1_routes, edge_2_routes):
     # same for edge_1 inserted in edge_2's day, not neccessarilly in the same route
 
     for route, pos in edge_1_routes:
-        route.day.remove_edge(edge2)
-        route.insert_edge(edge1, pos=pos)
+        day = route.day
+        day.remove_edge(edge2)
+        day.add_edge(edge1, route, pos)
 
     for route, pos in edge_2_routes:
-        route.day.remove_edge(edge1)
-        route.insert_edge(edge2, pos=pos)
+        day = route.day
+        day.remove_edge(edge1)
+        day.add_edge(edge2, route, pos)
 
     # swap back service days
     edge1.service_days, edge2.service_days = edge2.service_days, edge1.service_days
@@ -264,7 +264,7 @@ def op3(solution, route_1, route_2, r1_cutpoint, r2_cutpoint):
     if day.add_route(res_r2):
         cnt += 1
 
-    delta_cost += (res_r1.evaluate(solution.vehicle) + res_r1.evaluate(solution.vehicle))
+    delta_cost += (res_r1.evaluate(solution.vehicle) + res_r2.evaluate(solution.vehicle))
     return delta_cost, route_1, route_2, cnt
 
 def undo_op3(solution, route_1, route_2, routes_added):
@@ -310,7 +310,7 @@ def undo_op4(solution, edge_1_id, edge_2_id, route_1, route_2):
     op4(solution, edge_2_id, edge_1_id, route_2, route_1)
     day = route_1.day
     if route_1 not in day.routes:
-        day.add_route(route_1)
+        day.routes.append(route_1)
 
 
 # ? operator 5
@@ -350,7 +350,7 @@ def undo_op5(solution, edge_a1_id, edge_a2_id, edge_b_id, route_a, route_b):
 
     day = route_a.day
     if route_a not in day.routes:
-        day.add_route(route_a)
+        day.routes.append(route_a)
 
 # ? operator 6
 #   - remove a single service of an edge on some day
@@ -521,7 +521,7 @@ def phase_1(current_best_solution, best_score):
 
 
         for edge in over_satisfied_edges:
-            for day in edge.service_days:
+            for day in edge.service_days[:]:
                 res = op6(working, day, edge)
                 if res is not None:
                     best_score, current_best_solution, improved_op  = evaluate_neighbour(working, best_score, current_best_solution)
@@ -570,7 +570,6 @@ def phase_2(current_best_solution, best_score):
     working = current_best_solution
 
     work_days = set(working.get_work_days())
-    frequency_buckets = working.frequency_buckets
 
     iter_count = 0
     iter_avg_time = 0
@@ -590,7 +589,7 @@ def phase_2(current_best_solution, best_score):
 
             no_service_days = work_days.difference(set(edge.service_days))
 
-            for day_1 in edge.service_days:
+            for day_1 in edge.service_days[:]:
                 for day_2 in no_service_days:
                     res =  op1(working, day_1, day_2, edge)
                     if res is not None:
@@ -602,7 +601,7 @@ def phase_2(current_best_solution, best_score):
                             improved = True
 
         # op2 - swap the service days of 2 edges with the same frequency
-        for bucket in frequency_buckets.values():
+        for bucket in working.frequency_buckets.values():
             for i in range(len(bucket)):
                 edge_1 = bucket[i]
                 for j in range(i+1, len(bucket)):
@@ -672,14 +671,14 @@ def phase_3(current_best_solution, best_score):
 
         for day in work_days:
 
-            for i_count, route_1 in enumerate(working.day[day].routes):
+            for i_count, route_1 in enumerate(working.days[day].routes[:]):
  
                 for r1_cutpoint in range(len(route_1.targets)):
 
                     # if you can take 2 successive edges - only not reached the last point
                     can_do_op5 = (r1_cutpoint + 1) < len(route_1.targets) 
 
-                    for j_count, route_2 in enumerate(working.day[day].routes):
+                    for j_count, route_2 in enumerate(working.days[day].routes[:]):
                         if i_count == j_count:
                             continue
 
@@ -712,6 +711,7 @@ def phase_3(current_best_solution, best_score):
                                 if neighbour_score < best_score:
                                     best_score = neighbour_score
                                     current_best_solution = copy.deepcopy(working)
+                                    improved = True
                                 undo_op4(working, r1_cutpoint, r2_cutpoint, route_1, route_2)
 
                             # op5

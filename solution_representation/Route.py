@@ -147,7 +147,12 @@ class Route:
         self.update_day_length()
         self.demand += new_edge.demand
         self.day.add_edge_in_list(new_edge)
-    
+
+        # todo - should it add itself if this is the only target
+        # ? like previously it could've been a 1 targets route - so when remove that target, route is removed
+        # ? but if inserting through here then route isn't added back to day
+        if len(self.targets) == 1 and self not in self.day.routes:
+            self.day.routes.append(self)
 
     def remove_edge(self, edge=None, pos = None):
         

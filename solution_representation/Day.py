@@ -41,8 +41,9 @@ class Day:
         
         if len(self.routes) == 0:
             # if day has no routes
-            route = Route([edge], day = self)
+            route = Route([], day = self)
             self.routes.append(route)
+            route.insert_edge(edge)
         else:
             # add it to a random route
             # other operators will move it to a better route
@@ -51,7 +52,7 @@ class Day:
     
     # after removing an edge, remove it in the route which it was contained
     # the return result is the removed edge if it was serviced in this day, otherwise None
-    def remove_edge(self, edge=None, edge_id=None):
+    def remove_edge(self, edge=None):
 
         # in the route containing that edge just remove it and recalculate the cost and demand
         # implicitly connect the points which were connected by the removing edge
@@ -141,11 +142,13 @@ class Day:
             if edge in route.targets:
                 return route
 
+        if edge in self.edges:
+            print(f"{edge} in day {self.number} (day number) but no route in it")
         return None
 
     def edge_in_day(self, edge):
         if edge not in self.edges:
-            print(f"{edge} not in day {self.number} edge list")
+            # print(f"{edge} not in day {self.number} edge list")
             return False
         if self.get_edge_route(edge) is None:
             print(f"{edge} in day {self.number} list, but in no route inside")
