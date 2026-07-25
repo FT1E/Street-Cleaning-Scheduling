@@ -156,7 +156,7 @@ class Route:
             self.update_day_length()
             self.demand -= edge.demand
             self.day.remove_edge_in_list(edge)
-            print(f"Successfully removed {edge} from route in day {self.day.number - 1} (day id not number)")
+            # print(f"Successfully removed {edge} from route in day {self.day.number - 1} (day id not number)")
         elif pos is not None:
             try:
                 edge = self.targets.pop(pos)
@@ -168,9 +168,9 @@ class Route:
         else:
             # either edge is not present, index out of bounds, or no arguments given
             print(f"Failed to remove {edge} from route in day {self.day.number - 1} (day id not number)")
-            print(f"Edge is not None: {edge is not None}")
-            print(f"Edge in targets: {edge in self.targets}")
-            print(f"Pos is not None: {pos is not None}")
+            # print(f"Edge is not None: {edge is not None}")
+            # print(f"Edge in targets: {edge in self.targets}")
+            # print(f"Pos is not None: {pos is not None}")
             return
 
         if len(self.targets) == 0:
