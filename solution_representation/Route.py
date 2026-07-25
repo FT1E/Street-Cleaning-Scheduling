@@ -6,7 +6,7 @@ sys.path.append('..')
 from util.min_distances import min_distance_ee, min_distance_ne
 
 # for evaluating cost of route
-VEHICLE_OVERLOAD_PENALTY = 1_000_000        # when a route has total demand or length greater than what vehicle can handle - multiply by number of routes which violate 
+VEHICLE_OVERLOAD_PENALTY = 400_000        # when a route has total demand or length greater than what vehicle can handle - multiply by number of routes which violate 
 
 
 # used to represent the routes/trips in a day which is part of the solution to SP-CARP
@@ -131,6 +131,7 @@ class Route:
             print(f"The {new_edge} is already in route for day {self.day.number} (day number)")
             # if edge is already in route
             # todo - maybe allow this but to put it in different place in route
+            raise Exception()
             return
     
         if pos is not None:
@@ -155,6 +156,7 @@ class Route:
             self.update_day_length()
             self.demand -= edge.demand
             self.day.remove_edge_in_list(edge)
+            print(f"Successfully removed {edge} from route in day {self.day.number - 1} (day id not number)")
         elif pos is not None:
             try:
                 edge = self.targets.pop(pos)
@@ -165,6 +167,10 @@ class Route:
                 return
         else:
             # either edge is not present, index out of bounds, or no arguments given
+            print(f"Failed to remove {edge} from route in day {self.day.number - 1} (day id not number)")
+            print(f"Edge is not None: {edge is not None}")
+            print(f"Edge in targets: {edge in self.targets}")
+            print(f"Pos is not None: {pos is not None}")
             return
 
         if len(self.targets) == 0:
@@ -178,7 +184,7 @@ class Route:
         return ""
 
     def print(self):
-        print(f"Route length ({self.length}) and demand ({self.demand}):")
+        print(f"\tRoute length ({self.length}) and demand ({self.demand}):")
         for edge in self.targets:
             print(f"\t{edge}")
         

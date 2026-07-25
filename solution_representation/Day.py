@@ -1,5 +1,6 @@
 
 import sys
+import random
 
 sys.path.append('..')
 
@@ -37,23 +38,15 @@ class Day:
                 self.routes.append(route)
             return
 
-        best_route = None
-        best_route_cost = None
-        for route in self.routes[:]:
-            route.insert_edge(edge)
-            new_route_cost = route.evaluate(self.vehicle)
-            if best_route is None or new_route_cost < best_route_cost:
-                best_route = route
-                best_route_cost = new_route_cost
-            route.remove_edge(edge)
-
-        if best_route is None:
+        
+        if len(self.routes) == 0:
             # if day has no routes
             route = Route([edge], day = self)
             self.routes.append(route)
         else:
-            # add it to the best route
-            best_route.insert_edge(edge)
+            # add it to a random route
+            # other operators will move it to a better route
+            random.choice(self.routes).insert_edge(edge)
             
     
     # after removing an edge, remove it in the route which it was contained
@@ -68,7 +61,7 @@ class Day:
 
         if affected_route is None:
             print(f"Trying to remove {edge} from day {self.number} (day number) but its route not present")
-            return
+            raise Exception()
 
         affected_route.remove_edge(edge)
         return edge
@@ -97,22 +90,33 @@ class Day:
     
     def print(self):
         print(f"Day {self.number}:")
-        print(f"Number of edges: {len(self.edges)}")
+        print(f"\tNumber of edges: {len(self.edges)}")
         for edge in self.edges:
             print(f"\t{edge}")
-        print(f"Number of routes: {len(self.routes)}")
+        print(f"\tNumber of routes: {len(self.routes)}")
         cnt = 1
         for route in self.routes:
-            print(f"Route {cnt}")
+            print(f"\tRoute {cnt}")
             route.print()
             cnt += 1
 
-    def remove_route(self, route=None):
-        try:
-            self.routes.remove(route)
-            self.total_distance -= route.length
-        except:
-            pass
+    def remove_route(self, route=None, route_id=None):
+        if route is not None:
+            try:
+                self.routes.remove(route)
+                self.total_distance -= route.length
+            except:
+                print(f"Failed to remove route in day {self.number} given as value")
+                pass
+                raise Exception()
+        elif route_id is not None:
+            try:
+                route = self.routes.pop(route_id)
+                self.total_distance -= route.length
+            except:
+                print(f"Failed to remove route in day {self.number} given as route_id")
+                pass
+                raise Exception()
 
     def add_route(self, route):
         if len(route.targets) > 0:
@@ -138,3 +142,13 @@ class Day:
                 return route
 
         return None
+
+    def edge_in_day(self, edge):
+        if edge not in self.edges:
+            print(f"{edge} not in day {self.number} edge list")
+            return False
+        if self.get_edge_route(edge) is None:
+            print(f"{edge} in day {self.number} list, but in no route inside")
+            return False
+
+        return True

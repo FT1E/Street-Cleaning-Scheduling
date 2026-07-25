@@ -43,7 +43,7 @@ def op1(solution, d1, d2, edge= None, edge_id = None):
         # if this is the case, then it's the same as just removing the service (op6)
         return None
     
-    # todo save the original route and the spot in it for undo
+    # save the original route and the spot in it for undo
     route, pos_in_route = op6(solution, d1, edge)
     op7(solution, d2, edge)
 
@@ -163,26 +163,49 @@ def op2(solution, edge1=None, edge2=None):
     only_edge_1_days = common_days.difference(edge2.service_days)
     only_edge_2_days = common_days.difference(edge1.service_days)
 
+
+    # - save the original routes and the spots in them for a proper undo
+    edge_1_routes = []
     for d in only_edge_1_days:
+        route = solution.days[d].get_edge_route(edge1)
+        pos = route.targets.index(edge1)
+        edge_1_routes.append((route, pos))
+
         solution.days[d].remove_edge(edge1)
         solution.days[d].add_edge(edge2)
 
+    edge_2_routes = []
     for d in only_edge_2_days:
+        route = solution.days[d].get_edge_route(edge2)
+        pos = route.targets.index(edge2)
+        edge_2_routes.append((route, pos))
+
         solution.days[d].remove_edge(edge2)
         solution.days[d].add_edge(edge1)
 
-    # todo - save the original routes and the spots in them for a proper undo
-
-    temp = edge1.service_days.copy()
-    edge1.service_days = edge2.service_days
-    edge2.service_days = temp
+    edge1.service_days, edge2.service_days = edge2.service_days, edge1.service_days
     
-    return True
+    return edge_1_routes, edge_2_routes
+
+        
 
 
-def undo_op2(solution, edge1, edge2):
-    op2(edge1, edge2)
+def undo_op2(solution, edge1, edge2, edge_1_routes, edge_2_routes):
 
+    # note edge_2 is inserted in edge_1's day, not neccessarilly in the same route
+    # same for edge_1 inserted in edge_2's day, not neccessarilly in the same route
+
+    for route, pos in edge_1_routes:
+        route.day.remove_edge(edge2)
+        route.insert_edge(edge1, pos=pos)
+
+    for route, pos in edge_2_routes:
+        route.day.remove_edge(edge1)
+        route.insert_edge(edge2, pos=pos)
+
+    # swap back service days
+    edge1.service_days, edge2.service_days = edge2.service_days, edge1.service_days
+                
 
 # ? operator 3
 #   - two-opt
@@ -584,9 +607,11 @@ def phase_2(current_best_solution, best_score):
                 edge_1 = bucket[i]
                 for j in range(i+1, len(bucket)):
                     edge_2 = bucket[j]
-                    if op2(working, edge_1, edge_2):
+                    res = op2(working, edge_1, edge_2)
+                    if res is not None:
+                        edge_1_routes, edge_2_routes = res
                         best_score, current_best_solution, improved_op = evaluate_neighbour(working, best_score, current_best_solution)
-                        undo_op2(working, edge_1, edge_2)
+                        undo_op2(working, edge_1, edge_2, edge_1_routes, edge_2_routes)
                         if improved_op:
                             improved = True
                     # if is kinda pointless now, but still leaving it this way

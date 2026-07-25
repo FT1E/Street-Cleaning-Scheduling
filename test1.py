@@ -9,6 +9,16 @@ from solution_representation.Solution import Solution
 
 from algorithms.local_search_first_found import run as ls_run
 
+from algorithms.local_search import op1, undo_op1
+from algorithms.local_search import op2, undo_op2
+from algorithms.local_search import op3, undo_op3
+from algorithms.local_search import op4, undo_op4
+from algorithms.local_search import op5, undo_op5
+from algorithms.local_search import op6, undo_op6
+from algorithms.local_search import op7, undo_op7
+import random
+
+
 import copy
 import time
 
@@ -72,14 +82,7 @@ print(f"Actual number of total services: {solution.total_number_of_services()}")
 
 # ls_run(solution)
 
-from algorithms.local_search import op1, undo_op1
-from algorithms.local_search import op2, undo_op2
-from algorithms.local_search import op3, undo_op3
-from algorithms.local_search import op4, undo_op4
-from algorithms.local_search import op5, undo_op5
-from algorithms.local_search import op6, undo_op6
-from algorithms.local_search import op7, undo_op7
-import random
+
 print(f"\n\nTime it took for 1 evaluate: {eval_time} seconds")
 
 edge = random.choice(solution.demanded_edges)
@@ -99,22 +102,86 @@ end_time = time.time()
 undo_op1_time = end_time - start_time
 
 
-edge_1, edge_2 = random.sample(solution.frequency_buckets[7], 2)
+
+edge_1, edge_2 = random.sample(random.choice(list(solution.frequency_buckets.values())), 2)
+
+while edge_1.service_days == edge_2.service_days:
+    edge_1, edge_2 = random.sample(random.choice(list(solution.frequency_buckets.values())), 2)
 
 if edge_1 is None:
     print("Random sample on freq buckets not working")
 
+all_days = list(set(edge_1.service_days + edge_2.service_days))
+all_days.sort()
+
+
+# print("OP2 REFERENCE CHECKS")
+# print("BEFORE")
+# print(f"Selected edge 1: {edge_1}")
+# print(f"\tEdge 1 service days: {edge_1.service_days}")
+# print(f"\tIs edge 1 in day:")
+# print([solution.days[d].edge_in_day(edge_1) for d in edge_1.service_days])
+# print(f"Selected edge 2: {edge_2}")
+# print(f"\tEdge 2 service days: {edge_2.service_days}")
+# print(f"\tIs edge 2 in day:")
+# print([solution.days[d].edge_in_day(edge_2) for d in edge_2.service_days])
+# print(f"ALL DAYS CHECK: {all_days}")
+# print(f"Edge 1: {[solution.days[d].edge_in_day(edge_1) for d in all_days]}")
+# print(f"Edge 2: {[solution.days[d].edge_in_day(edge_2) for d in all_days]}")
+
+# print('\n\nOP2 START\n')
+
+
 start_time = time.time()
-op2(solution, edge_1, edge_2)
+e1_routes, e2_routes = op2(solution, edge_1, edge_2)
 end_time = time.time()
 
 op2_time = end_time - start_time
 
+# print('\n\nOP2 END\n')
+
+
+# print("UNDO_OP2 REFERENCE CHECKS")
+# print("BEFORE")
+# print(f"Selected edge 1: {edge_1}")
+# print(f"\tEdge 1 service days: {edge_1.service_days}")
+# print(f"\tIs edge 1 in day:")
+# print([solution.days[d].edge_in_day(edge_1) for d in edge_1.service_days])
+# print(f"Selected edge 2: {edge_2}")
+# print(f"\tEdge 2 service days: {edge_2.service_days}")
+# print(f"\tIs edge 2 in day:")
+# print([solution.days[d].edge_in_day(edge_2) for d in edge_2.service_days])
+
+
+# print(f"ALL DAYS CHECK: {all_days}")
+# print(f"Edge 1: {[solution.days[d].edge_in_day(edge_1) for d in all_days]}")
+# print(f"Edge 2: {[solution.days[d].edge_in_day(edge_2) for d in all_days]}")
+
+# print('\n\nUNDO_OP2 START\n')
+
+
 start_time = time.time()
-undo_op2(solution, edge_1, edge_2)
+undo_op2(solution, edge_1, edge_2, e1_routes, e2_routes)
 end_time = time.time()
 
 undo_op2_time = end_time - start_time
+
+# print('\n\nUNDO_OP2 END\n')
+
+# print("AFTER")
+# print(f"Selected edge 1: {edge_1}")
+# print(f"\tEdge 1 service days: {edge_1.service_days}")
+# print(f"\tIs edge 1 in day:")
+# print([solution.days[d].edge_in_day(edge_1) for d in edge_1.service_days])
+# print(f"Selected edge 2: {edge_2}")
+# print(f"\tEdge 2 service days: {edge_2.service_days}")
+# print(f"\tIs edge 2 in day:")
+# print([solution.days[d].edge_in_day(edge_2) for d in edge_2.service_days])
+
+
+# print(f"ALL DAYS CHECK: {all_days}")
+# print(f"Edge 1: {[solution.days[d].edge_in_day(edge_1) for d in all_days]}")
+# print(f"Edge 2: {[solution.days[d].edge_in_day(edge_2) for d in all_days]}")
 
 
 start_time = time.time()
