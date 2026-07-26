@@ -89,7 +89,7 @@ class Solution:
         routing_cost = 0
         overload_route_count = 0        # number of routes which can't be handled by a single vehicle, go over the limits
         for day in self.days:
-            routing_cost += day.total_distance
+            routing_cost += day.calculate_total_distance()
             vehicle_count = max(vehicle_count, len(day.routes))
 
             for route in day.routes:
@@ -97,10 +97,19 @@ class Solution:
                     overload_route_count += 1
 
         irregular_spacing_count = 0
+
+        irregular_services_count = 0
+
         for edge in self.demanded_edges:
             if len(edge.service_days) == 0:
-                # for edges which weren't serviced at all
-                irregular_spacing_count += self.vehicle['planning_duration'] // math.ceil(edge.freq)
+                # for edges which weren't serviced at all - skip them
+                # that penalty is added separately - expected services count
+                continue
+
+            # number of services penalty
+            if edge.is_under_satisfied(self.vehicle) or edge.is_over_satisfied(self.vehicle):
+                irregular_services_count += 1
+
 
             expected_spacing = math.floor(edge.freq)
 
@@ -118,7 +127,7 @@ class Solution:
                 if self.irregular_spacing_check(spacing, expected_spacing):
                     irregular_spacing_count += 1
 
-        cost = routing_cost + VEHICLE_WEIGHT * vehicle_count + VEHICLE_OVERLOAD_PENALTY * overload_route_count + EXPECTED_SPACING_PENALTY * irregular_spacing_count
+        cost = routing_cost + VEHICLE_WEIGHT * vehicle_count + VEHICLE_OVERLOAD_PENALTY * overload_route_count + EXPECTED_SERVICES_PENALTY * irregular_services_count+ EXPECTED_SPACING_PENALTY * irregular_spacing_count
         return cost
 
     # if true - spacing is too wide or too tight

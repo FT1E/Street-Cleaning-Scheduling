@@ -79,7 +79,7 @@ class Day:
         for route in self.routes:
             route.set_day(self)
 
-    def recalculate_total_distance(self):
+    def calculate_total_distance(self):
         self.total_distance = 0
         for route in self.routes:
             self.total_distance += route.length
@@ -105,7 +105,6 @@ class Day:
         if route is not None:
             try:
                 self.routes.remove(route)
-                self.total_distance -= route.length
             except:
                 print(f"Failed to remove route in day {self.number} given as value")
                 pass
@@ -113,7 +112,6 @@ class Day:
         elif route_id is not None:
             try:
                 route = self.routes.pop(route_id)
-                self.total_distance -= route.length
             except:
                 print(f"Failed to remove route in day {self.number} given as route_id")
                 pass
@@ -122,7 +120,6 @@ class Day:
     def add_route(self, route):
         if len(route.targets) > 0:
             self.routes.append(route)
-            self.total_distance += route.length
             route.set_day(self)
             return True
         return False
@@ -135,6 +132,7 @@ class Day:
         try:
             self.edges.remove(edge)
         except:
+            print(f"Trying to remove {edge} for edge list but not in it for day {self.number} (day number)")
             pass
 
     def get_edge_route(self, edge):

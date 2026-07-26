@@ -427,7 +427,8 @@ def run(solution):
         iteration_start_time = time.time()
 
         # phase 1 - add or remove services of edges with too litle or too many services
-        best_score, current_best_solution, phase_improving = phase_1(current_best_solution, best_score)
+        # best_score, current_best_solution, phase_improving = phase_1(current_best_solution, best_score)
+        best_score, current_best_solution, phase_improving = improved_phase_1(current_best_solution, best_score)
 
         # print("Skipped phase 1!")
 
@@ -445,7 +446,8 @@ def run(solution):
 
 
         # phase 2 - move services from 1 day to another day and swap service days of edges with same frequency 
-        best_score, current_best_solution, phase_improving = phase_2(current_best_solution, best_score)
+        # best_score, current_best_solution, phase_improving = phase_2(current_best_solution, best_score)
+        best_score, current_best_solution, phase_improving = improved_phase_2(current_best_solution, best_score)
 
         p2_end_time = time.time()
         if iteration_count == 1:
@@ -469,11 +471,16 @@ def run(solution):
 
         iteration_time_taken = iteration_end_time - iteration_start_time
         average_iteration_time = average_iteration_time * (iteration_count - 1) / iteration_count + iteration_time_taken / iteration_count
-        if iteration_count % 10 == 1:
-            print(f"Iteration count: {iteration_count} iterations")
-            print(f"Last iteration time: {iteration_time_taken} seconds")
-            print(f"Iteration average time: {iteration_time_taken} seconds")
-            print(f"Current score: {best_score}")
+
+        print(f"Local search report:")
+        print(f"Iteration count: {iteration_count} iterations")
+        print(f"Last iteration time: {iteration_time_taken} seconds")
+        print(f"Iteration average time: {iteration_time_taken} seconds")
+        print(f"Current score: {best_score}")
+
+        if iteration_count == 1:
+            print("\nSolution after going through each phase once:\n\n")
+            print(current_best_solution)
         
     print(f"Local search ended after {iteration_count} iterations.")
     print(f"Last iteration time: {iteration_time_taken} seconds")
@@ -586,7 +593,7 @@ def phase_2(current_best_solution, best_score):
 
             no_service_days = work_days.difference(set(edge.service_days))
 
-            for day_1 in edge.service_days[:]:
+            for day_1 in edge.service_days[:]:                  
                 for day_2 in no_service_days:
                     res =  op1(working, day_1, day_2, edge)
                     if res is not None:
@@ -640,7 +647,7 @@ def phase_2(current_best_solution, best_score):
 
     return best_score, current_best_solution, best_score < original_score
 
-
+    
 def phase_3(current_best_solution, best_score):
     # apply ops 3, 4 and 5 - while you can get an improvement
     # for each day pick the best and apply it
@@ -748,5 +755,265 @@ def phase_3(current_best_solution, best_score):
     print(f"Average iteration time: {iter_avg_time} seconds")
     print(f"Current best score: {best_score}")
     print('\n\n')
+
+    return best_score, current_best_solution, best_score < original_score
+
+
+
+# applies the best operation application for each edge
+# i.e. for every under-satisfied edge, it finds best application of op7
+# for every over-satisfied edge, it finds best application of op6
+# should be waaay faster
+def improved_phase_1(current_best_solution, best_score):
+    # apply ops 6 and 7 - while you can get an improvement
+
+    original_score = best_score
+
+    working = current_best_solution
+
+    work_days = set(working.get_work_days())
+
+    improved = True
+    improved_op = False
+
+    iter_count = 0
+    iter_avg_time = 0
+
+    best_day_op6 = dict()
+    best_day_op7 = dict()
+
+    # this way it should end after 1 iteration
+    # or maybe extra iterations for every edge which needs extra removals
+    # but definitely less iterations
+    while improved:
+        improved = False
+
+        iter_start_time = time.time()
+        iter_count += 1
+
+        over_satisfied_edges = working.get_over_satisfied_edges()
+
+
+        for edge in over_satisfied_edges:
+            for day in edge.service_days[:]:
+                res = op6(working, day, edge)
+                if res is not None:
+                    neighbour_score = working.evaluate()
+                    if edge not in best_day_op6:
+                        best_day_op6[edge] = [day, neighbour_score]
+                    elif neighbour_score < best_day_op6[edge][1]:
+                        best_day_op6[edge][0] = day
+                        best_day_op6[edge][1] = neighbour_score
+
+                    route, route_pos = res
+                    undo_op6(working, day, edge, route, route_pos)
+                    if improved_op:
+                        improved = True
+
+        # apply all best changes for op6
+        for edge, res in best_day_op6.items():
+            day = res[0]
+            op6(working, day, edge)
+            improved = True
+            
+        under_satisfied_edges = working.get_under_satisfied_edges()
+        for edge in under_satisfied_edges:
+
+            no_service_days = work_days.difference(set(edge.service_days))
+            for day in no_service_days:
+                if op7(working, day, edge):
+                    neighbour_score = working.evaluate()
+                    if edge not in best_day_op7:
+                        best_day_op7[edge] = [day, neighbour_score]
+                    elif neighbour_score < best_day_op7[edge][1]:
+                        best_day_op7[edge][0] = day
+                        best_day_op7[edge][1] = neighbour_score
+
+                    undo_op7(working, day, edge)
+                    if improved_op:
+                        improved = True
+        # apply all best changes for op7
+        for edge, res in best_day_op7.items():
+            day = res
+            op7(working, day, edge)
+            improved = True
+
+        current_best_solution = working
+        best_score = current_best_solution.evaluate()
+
+        iter_end_time = time.time()
+
+        iter_time = iter_end_time - iter_start_time
+        iter_avg_time = iter_avg_time * (iter_count - 1) / iter_count + iter_time / iter_count
+
+
+
+    print("\n\nPhase 1 Report:")
+    print(f"Iteration count: {iter_count} iterations")
+    print(f"Last iteration time: {iter_time} seconds")
+    print(f"Average iteration time: {iter_avg_time} seconds")
+    print(f"Current best score: {best_score}")
+    print('\n\n')
+
+    return best_score, current_best_solution, best_score < original_score
+
+
+
+# uses more memory, but fewer applications of op2
+def improved_phase_2(current_best_solution, best_score):
+
+    original_score = best_score
+    working_score = best_score
+    
+    working = current_best_solution
+
+    work_days = set(working.get_work_days())
+
+    iter_count = 0
+    iter_avg_time = 0
+    
+
+    improved = True
+    improved_op = False
+    
+    # calculate score for every application of op2
+    # sensible - that is only on edge pairs with same frequency
+
+    edge_pairs_delta_score = dict()
+
+    for bucket in working.frequency_buckets.values():
+        for i in range(len(bucket)):
+            edge_1 = bucket[i]
+            for j in range(i+1, len(bucket)):
+                edge_2 = bucket[j]
+
+                res = op2(working, edge_1, edge_2)
+                if res is not None:
+                    edge_1_routes, edge_2_routes = res
+                    edge_pairs_delta_score[(edge_1, edge_2)] = working_score - working.evaluate()
+                    undo_op2(working, edge_1, edge_2, edge_1_routes, edge_2_routes)
+
+                # if is kinda pointless now, but still leaving it this way
+
+    # pick largest delta score from op2 in the main loop
+    # and recalculate only for edge pairs, where one of the edge was part of the best application of an operator in the previous iteration
+
+
+    best_op2_edges = None
+    best_op2_delta_score = 0
+
+    last_affected_edges = []
+    current_affected_edges = []
+
+    while improved:
+        improved = False
+
+
+        iter_start_time = time.time()
+        iter_count += 1
+
+
+        # op1 - move a service from 1 day to another day
+        # iterate through service days of an edge and opposite for moving to another day
+        for edge in working.demanded_edges:
+
+            no_service_days = work_days.difference(set(edge.service_days))
+
+            for day_1 in edge.service_days[:]:                  
+                for day_2 in no_service_days:
+                    res =  op1(working, day_1, day_2, edge)
+                    if res is not None:
+                        best_score, current_best_solution, improved_op = evaluate_neighbour(working, best_score, current_best_solution)
+
+                        route, route_pos = res
+                        undo_op1(working, day_1, day_2, edge, route, route_pos)
+                        if improved_op:
+                            improved = True
+                            current_affected_edges = (edge,)
+
+        # op2 - recalculate only for argument pairs, where at least 1 edge was part of the best move from last iteration
+
+        # either 1 edge from op1 - which means recalculate all edge pairs with that edge
+        # or 2 edges from op2 - both with the same frequency - in both cases only edge pairs in 1 frequency bucket are affected
+        affected_frequency = None
+        if len(last_affected_edges) > 0:
+            affected_frequency = last_affected_edges[0].freq
+
+        if affected_frequency is not None:
+            bucket = working.frequency_buckets[affected_frequency]
+
+            for i in range(len(bucket)):
+                edge_1 = bucket[i]
+                if edge_1 not in last_affected_edges:
+                    continue
+
+                for j in range(len(bucket)):
+
+                    if i == j:
+                        continue
+
+                    # below if-else is to keep the original ordering - since this is called on unordered pairs,
+                    if j < i:
+                        edge_2 = bucket[i]
+                        edge_1 = bucket[j]
+                    else:
+                        edge_2 = bucket[j]
+
+                    res = op2(working, edge_1, edge_2)
+                    if res is not None:
+                        edge_1_routes, edge_2_routes = res
+                        # note - below working score is score of working before applying the operator
+                        edge_pairs_delta_score[(edge_1, edge_2)] = working_score - working.evaluate()
+                        undo_op2(working, edge_1, edge_2, edge_1_routes, edge_2_routes)
+
+        for edges, delta_score in edge_pairs_delta_score.items():
+            if delta_score > best_op2_delta_score:
+                best_op2_delta_score = delta_score
+                best_op2_edges = edges
+
+        best_op2_score = working_score - best_op2_delta_score
+
+        # if best op2_score is better than best_score found from application of op1, then apply op2, otherwise just keep the best found from op1
+        if best_op2_score < best_score:
+            # apply op2
+            improved = True
+            edge_1 = best_op2_edges[0]
+            edge_2 = best_op2_edges[1]
+            op2(working, edge_1, edge_2)
+
+            current_best_solution = working
+            best_score = working.evaluate()
+
+            current_affected_edges = tuple(edge_1, edge_2)
+
+        # double re-assigning but it's just references
+        # else keep the best found from op1
+        working = current_best_solution
+        working_score = best_score
+        last_affected_edges = current_affected_edges
+        current_affected_edges = tuple()
+
+
+        iter_end_time = time.time()
+                
+        iter_time = iter_end_time - iter_start_time
+        iter_avg_time = iter_avg_time * (iter_count - 1) / iter_count + iter_time / iter_count
+
+        if iter_count % 5 == 1:
+            print("Phase 2:")
+            print(f"Iteration count: {iter_count} iterations")
+            print(f"Last iteration time: {iter_time} seconds")
+            print(f"Average iteration time: {iter_avg_time} seconds")
+            print(f"Current best score: {best_score}")
+            print('\n')
+        
+
+    print("Phase 2 Report:")
+    print(f"Iteration count: {iter_count} iterations")
+    print(f"Last iteration time: {iter_time} seconds")
+    print(f"Average iteration time: {iter_avg_time} seconds")
+    print(f"Current best score: {best_score}")
+    print('\n\n')
+
 
     return best_score, current_best_solution, best_score < original_score

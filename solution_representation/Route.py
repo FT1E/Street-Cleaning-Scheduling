@@ -149,7 +149,6 @@ class Route:
         # ? like previously it could've been a 1 targets route - so when remove that target, route is removed
         # ? but if inserting through here then route isn't added back to day
         if bubble_up:
-            self.update_day_length()
             self.day.add_edge_in_list(new_edge)
             if len(self.targets) == 1 and self not in self.day.routes:
                 self.day.routes.append(self)
@@ -178,7 +177,6 @@ class Route:
 
         if bubble_up:
             self.day.remove_edge_in_list(edge)
-            self.update_day_length()
             if len(self.targets) == 0:
              self.day.remove_route(self) 
         else:
@@ -200,9 +198,7 @@ class Route:
         self.day = day
 
     def update_day_length(self):
-        len_before = self.length
-        len_after = self.calculate_length()
-        self.day.total_distance = self.day.total_distance - len_before + len_after
+        pass
 
     def evaluate(self, vehicle):
         cost = self.length
