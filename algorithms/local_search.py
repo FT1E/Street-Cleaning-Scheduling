@@ -813,8 +813,10 @@ def improved_phase_1(current_best_solution, best_score):
         # apply all best changes for op6
         for edge, res in best_day_op6.items():
             day = res[0]
-            op6(working, day, edge)
-            improved = True
+            score = res[1]
+            if score < best_score:
+                op6(working, day, edge)
+                improved = True
             
         under_satisfied_edges = working.get_under_satisfied_edges()
         for edge in under_satisfied_edges:
@@ -834,9 +836,11 @@ def improved_phase_1(current_best_solution, best_score):
                         improved = True
         # apply all best changes for op7
         for edge, res in best_day_op7.items():
-            day = res
-            op7(working, day, edge)
-            improved = True
+            day = res[0]
+            score = res[1]
+            if score < best_score:
+                op7(working, day, edge)
+                improved = True
 
         current_best_solution = working
         best_score = current_best_solution.evaluate()
@@ -846,6 +850,13 @@ def improved_phase_1(current_best_solution, best_score):
         iter_time = iter_end_time - iter_start_time
         iter_avg_time = iter_avg_time * (iter_count - 1) / iter_count + iter_time / iter_count
 
+        if iter_count % 10 == 1:
+            print("Phase 1:")
+            print(f"Iteration count: {iter_count} iterations")
+            print(f"Last iteration time: {iter_time} seconds")
+            print(f"Average iteration time: {iter_avg_time} seconds")
+            print(f"Current best score: {best_score}")
+            print('\n')
 
 
     print("\n\nPhase 1 Report:")
