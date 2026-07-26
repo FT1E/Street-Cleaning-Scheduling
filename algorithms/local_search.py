@@ -171,7 +171,7 @@ def op2(solution, edge1=None, edge2=None):
         pos = route.targets.index(edge1)
         edge_1_routes.append((route, pos))
 
-        route.remove_edge(edge1)
+        route.remove_edge(edge1, bubble_up = True)
         solution.days[d].add_edge(edge2)
 
     edge_2_routes = []
@@ -180,7 +180,7 @@ def op2(solution, edge1=None, edge2=None):
         pos = route.targets.index(edge2)
         edge_2_routes.append((route, pos))
 
-        route.remove_edge(edge2)
+        route.remove_edge(edge2, bubble_up = True)
         solution.days[d].add_edge(edge1)
 
     edge1.service_days, edge2.service_days = edge2.service_days, edge1.service_days
@@ -217,6 +217,9 @@ def op3(solution, route_1, route_2, r1_cutpoint, r2_cutpoint):
     # possible combinatins
     # ac bd, ad bc - everything else is same cb is same as bc (same cost otherwise same route)
     # basically cut 2 routes in half and connect a half with a half from the other route
+
+    if route_1 is route_2:
+        return None
 
     if route_1.day.number != route_2.day.number:
         # if in different days don't do anything
@@ -271,7 +274,7 @@ def undo_op3(solution, route_1, route_2, routes_added):
     
     day = route_1.day
     # remove last 2 or 1 routes
-    for i in range(routes_added):
+    for _ in range(routes_added):
         day.remove_route(route_id = -1)
     
     day.add_route(route_1)
@@ -298,9 +301,9 @@ def op4(solution, edge_1_id, edge_2_id, route_1, route_2):
     # note - allowing the routes to be the same, ie to move the edge in the same route just a different place in it
 
     # remove edge in route 1
-    route_1.remove_edge(pos = edge_1_id)
+    route_1.remove_edge(pos = edge_1_id, bubble_up = True)
     # insert the edge before edge_2 in route_2
-    route_2.insert_edge(edge_1, pos = edge_2_id)
+    route_2.insert_edge(edge_1, pos = edge_2_id, bubble_up = True)
 
     delta_cost += (route_1.evaluate(solution.vehicle) + route_2.evaluate(solution.vehicle))
     
@@ -308,9 +311,6 @@ def op4(solution, edge_1_id, edge_2_id, route_1, route_2):
 
 def undo_op4(solution, edge_1_id, edge_2_id, route_1, route_2):
     op4(solution, edge_2_id, edge_1_id, route_2, route_1)
-    day = route_1.day
-    if route_1 not in day.routes:
-        day.routes.append(route_1)
 
 
 # ? operator 5
@@ -348,9 +348,6 @@ def undo_op5(solution, edge_a1_id, edge_a2_id, edge_b_id, route_a, route_b):
     op4(solution, edge_b_id, edge_a1_id, route_b, route_a)
     op4(solution, edge_b_id, edge_a2_id, route_b, route_a)
 
-    day = route_a.day
-    if route_a not in day.routes:
-        day.routes.append(route_a)
 
 # ? operator 6
 #   - remove a single service of an edge on some day
@@ -671,14 +668,16 @@ def phase_3(current_best_solution, best_score):
 
         for day in work_days:
 
-            for i_count, route_1 in enumerate(working.days[day].routes[:]):
+            day_routes = working.days[day].routes[:]
+
+            for i_count, route_1 in enumerate(day_routes):
  
                 for r1_cutpoint in range(len(route_1.targets)):
 
                     # if you can take 2 successive edges - only not reached the last point
                     can_do_op5 = (r1_cutpoint + 1) < len(route_1.targets) 
 
-                    for j_count, route_2 in enumerate(working.days[day].routes[:]):
+                    for j_count, route_2 in enumerate(day_routes):
                         if i_count == j_count:
                             continue
 

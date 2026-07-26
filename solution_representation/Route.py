@@ -125,7 +125,7 @@ class Route:
         return Route(part1 + part2, demand=self.demand + other.demand)
     
     # inserts an edge at a position or before a given edge
-    def insert_edge(self, new_edge, pos=None, edge_in_route=None):
+    def insert_edge(self, new_edge, pos=None, edge_in_route=None, bubble_up = False):
 
         if new_edge in self.targets:
             print(f"The {new_edge} is already in route for day {self.day.number} (day number)")
@@ -143,43 +143,46 @@ class Route:
             pos = len(self.targets)
         
         self.targets.insert(pos, new_edge)
-        new_edge.route = self
-        self.update_day_length()
         self.demand += new_edge.demand
-        self.day.add_edge_in_list(new_edge)
 
         # todo - should it add itself if this is the only target
         # ? like previously it could've been a 1 targets route - so when remove that target, route is removed
         # ? but if inserting through here then route isn't added back to day
-        if len(self.targets) == 1 and self not in self.day.routes:
-            self.day.routes.append(self)
+        if bubble_up:
+            self.update_day_length()
+            self.day.add_edge_in_list(new_edge)
+            if len(self.targets) == 1 and self not in self.day.routes:
+                self.day.routes.append(self)
+        else:
+            self.calculate_length()
 
-    def remove_edge(self, edge=None, pos = None):
+    def remove_edge(self, edge=None, pos = None, bubble_up = False):
         
         if edge is not None and edge in self.targets:
             self.targets.remove(edge)
-            self.update_day_length()
-            self.demand -= edge.demand
-            self.day.remove_edge_in_list(edge)
             # print(f"Successfully removed {edge} from route in day {self.day.number - 1} (day id not number)")
         elif pos is not None:
             try:
-                edge = self.targets.pop(pos)
-                self.update_day_length()
-                self.demand -= edge.demand
-                self.day.remove_edge_in_list(edge)  
+                edge = self.targets.pop(pos)  
             except:
                 return
         else:
             # either edge is not present, index out of bounds, or no arguments given
-            print(f"Failed to remove {edge} from route in day {self.day.number - 1} (day id not number)")
+            print(f"Failed to remove {edge} from route in day {self.day.number} (day number)")
             # print(f"Edge is not None: {edge is not None}")
             # print(f"Edge in targets: {edge in self.targets}")
             # print(f"Pos is not None: {pos is not None}")
             return
 
-        if len(self.targets) == 0:
-            self.day.remove_route(self) 
+        self.demand -= edge.demand
+
+        if bubble_up:
+            self.day.remove_edge_in_list(edge)
+            self.update_day_length()
+            if len(self.targets) == 0:
+             self.day.remove_route(self) 
+        else:
+            self.calculate_length()
 
     def __lt__(self, other):
         return self.length < other.length

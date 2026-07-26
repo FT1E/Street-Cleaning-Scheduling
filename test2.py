@@ -17,6 +17,7 @@ from algorithms.local_search import op5, undo_op5
 from algorithms.local_search import op6, undo_op6
 from algorithms.local_search import op7, undo_op7
 from algorithms.local_search import evaluate_neighbour
+from algorithms.local_search import phase_3
 import random
 
 
@@ -619,4 +620,5 @@ def phase_2_checkers(current_best_solution, best_score):
     return best_score, current_best_solution, best_score < original_score
 
 
-best_score, best_solution = phase_2_checkers(solution, cost)
+# best_score, best_solution = phase_2_checkers(solution, cost)
+best_score, best_solution = phase_3(solution, cost)

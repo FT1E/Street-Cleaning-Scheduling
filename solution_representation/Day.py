@@ -28,26 +28,23 @@ class Day:
 
         self.recalculate_routes()
 
-    # after adding an edge, routes for the day are recalculated
-    # todo - could try appending the edge either at a beginning or end of a route
+    # - edge is added in a random route at the end
+    # - or the route and position can be specified - for undo operations
     def add_edge(self, edge, route=None, pos=None):
 
         if route is not None:
-            route.insert_edge(edge, pos = pos)
-            if len(route.targets) == 1:
-                self.routes.append(route)
+            route.insert_edge(edge, pos = pos, bubble_up = True)
             return
 
         
         if len(self.routes) == 0:
             # if day has no routes
             route = Route([], day = self)
-            self.routes.append(route)
-            route.insert_edge(edge)
+            route.insert_edge(edge, bubble_up=True)
         else:
             # add it to a random route
             # other operators will move it to a better route
-            random.choice(self.routes).insert_edge(edge)
+            random.choice(self.routes).insert_edge(edge, bubble_up = True)
             
     
     # after removing an edge, remove it in the route which it was contained
@@ -64,7 +61,12 @@ class Day:
             print(f"Trying to remove {edge} from day {self.number} (day number) but its route not present")
             raise Exception()
 
-        affected_route.remove_edge(edge)
+        affected_route.remove_edge(edge, bubble_up = True)
+
+        # below done in above
+        # if len(affected_route.targets) == 1:
+        #     self.routes.append(affected_route)
+        
         return edge
 
     def recalculate_routes(self):
@@ -76,8 +78,6 @@ class Day:
 
         for route in self.routes:
             route.set_day(self)
-
-        self.route_count = len(self.routes)
 
     def recalculate_total_distance(self):
         self.total_distance = 0

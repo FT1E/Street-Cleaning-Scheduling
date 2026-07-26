@@ -41,6 +41,10 @@ class Edge:
 
         self.service_days = []
 
+        # todo - add a list, one elt for each day
+        # ? storing references to routes for that day, None if not serviced in that day
+        # ? updated whenever service_days is updated - maybe write methods to call to update both, more readable code
+
 
     def __lt__(self, other):
         return self.priority() < other.priority()
@@ -99,6 +103,7 @@ class Edge:
         return False
 
 
+    # todo - should penalty for number of services be taken into account here, also play with the values, decide which one is more important 
     def spacing_cost(self, vehicle):
         cost = 0
         

@@ -90,7 +90,7 @@ class Solution:
         overload_route_count = 0        # number of routes which can't be handled by a single vehicle, go over the limits
         for day in self.days:
             routing_cost += day.total_distance
-            vehicle_count = max(vehicle_count, day.route_count)
+            vehicle_count = max(vehicle_count, len(day.routes))
 
             for route in day.routes:
                 if route.length > self.vehicle['distance_limit'] or route.demand > self.vehicle['capacity']:
