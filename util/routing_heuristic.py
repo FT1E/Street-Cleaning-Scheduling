@@ -62,7 +62,7 @@ def calculate_cost(adjacency_list, targets, vehicle, graph_id, recalculate_dista
             savings.append(Saving(targets[i], targets[j], saving))
 
     hq.heapify(savings)
-    while len(routes) > 1 and len(savings) > 1:
+    while len(routes) > 1 and len(savings) >= 1:
         
         top_saving = hq.heappop(savings)
         
