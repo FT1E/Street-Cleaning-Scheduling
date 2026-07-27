@@ -32,19 +32,28 @@ class Day:
     # - or the route and position can be specified - for undo operations
     def add_edge(self, edge, route=None, pos=None):
 
+        if not self.add_edge_in_list(edge):
+            print(f"\n{edge} already added in day {self.number}\n")
+
+
+        # if a specific route is given - insert it in it and finish
+        # this is for undo
         if route is not None:
-            route.insert_edge(edge, pos = pos, bubble_up = True)
+            route.insert_edge(edge, pos = pos)
+            if len(route.targets) == 1:
+                self.add_route(route)
             return
 
-        
+
+        # else either make a new route if day has no routes, or insert it in a random one
         if len(self.routes) == 0:
             # if day has no routes
-            route = Route([], day = self)
-            route.insert_edge(edge, bubble_up=True)
+            route = Route([edge], day = self)
+            self.add_route(route)
         else:
             # add it to a random route
             # other operators will move it to a better route
-            random.choice(self.routes).insert_edge(edge, bubble_up = True)
+            random.choice(self.routes).insert_edge(edge)
             
     
     # after removing an edge, remove it in the route which it was contained
@@ -58,10 +67,15 @@ class Day:
         affected_route = self.get_edge_route(edge)
 
         if affected_route is None:
-            print(f"Trying to remove {edge} from day {self.number} (day number) but its route not present")
-            raise Exception()
+            print(f"\nTrying to remove {edge} from day {self.number} (day number) but its route not present\n")
+            # raise Exception()
+            return
 
-        affected_route.remove_edge(edge, bubble_up = True)
+        self.remove_edge_in_list(edge)
+        affected_route.remove_edge(edge)
+
+        if len(affected_route.targets) == 0:
+            self.remove_route(affected_route)
 
         # below done in above
         # if len(affected_route.targets) == 1:
@@ -81,7 +95,10 @@ class Day:
 
     def calculate_total_distance(self):
         self.total_distance = 0
-        for route in self.routes:
+        for route in self.routes.copy():
+            if len(route.targets) == 0:
+                self.routes.remove(route)
+                continue
             self.total_distance += route.length
         return self.total_distance
 
@@ -106,19 +123,19 @@ class Day:
             try:
                 self.routes.remove(route)
             except:
-                print(f"Failed to remove route in day {self.number} given as value")
+                print(f"\nFailed to remove route in day {self.number} given as value\n")
                 pass
                 raise Exception()
         elif route_id is not None:
             try:
                 route = self.routes.pop(route_id)
             except:
-                print(f"Failed to remove route in day {self.number} given as route_id")
+                print(f"\nFailed to remove route in day {self.number} given as route_id\n")
                 pass
                 raise Exception()
 
     def add_route(self, route):
-        if len(route.targets) > 0:
+        if len(route.targets) > 0 and route not in self.routes:
             self.routes.append(route)
             route.set_day(self)
             return True
@@ -127,12 +144,14 @@ class Day:
     def add_edge_in_list(self, edge):
         if edge not in self.edges:
             self.edges.append(edge)
+            return True
+        return False
 
     def remove_edge_in_list(self, edge):
         try:
             self.edges.remove(edge)
         except:
-            print(f"Trying to remove {edge} for edge list but not in it for day {self.number} (day number)")
+            print(f"\nTrying to remove {edge} for edge list but not in it for day {self.number} (day number)\n")
             pass
 
     def get_edge_route(self, edge):
@@ -141,7 +160,7 @@ class Day:
                 return route
 
         if edge in self.edges:
-            print(f"{edge} in day {self.number} (day number) but no route in it")
+            print(f"\n{edge} in day {self.number} (day number) but no route in it\n")
         return None
 
     def edge_in_day(self, edge):
@@ -149,7 +168,7 @@ class Day:
             # print(f"{edge} not in day {self.number} edge list")
             return False
         if self.get_edge_route(edge) is None:
-            print(f"{edge} in day {self.number} list, but in no route inside")
+            print(f"\n{edge} in day {self.number} list, but in no route inside\n")
             return False
 
         return True

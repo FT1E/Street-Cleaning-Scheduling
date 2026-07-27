@@ -38,6 +38,9 @@ class Solution:
         
         self.demanded_edges = demanded_edges
 
+        for i in range(len(self.demanded_edges)):
+            self.demanded_edges[i].sid = i
+
         self.arrays = day_assignments
         self.graph_id = graph_id
         self.days = []

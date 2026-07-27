@@ -171,7 +171,7 @@ def op2(solution, edge1=None, edge2=None):
         pos = route.targets.index(edge1)
         edge_1_routes.append((route, pos))
 
-        route.remove_edge(edge1, bubble_up = True)
+        solution.days[d].remove_edge(edge1)
         solution.days[d].add_edge(edge2)
 
     edge_2_routes = []
@@ -180,7 +180,7 @@ def op2(solution, edge1=None, edge2=None):
         pos = route.targets.index(edge2)
         edge_2_routes.append((route, pos))
 
-        route.remove_edge(edge2, bubble_up = True)
+        solution.days[d].remove_edge(edge2)
         solution.days[d].add_edge(edge1)
 
     edge1.service_days, edge2.service_days = edge2.service_days, edge1.service_days
@@ -901,7 +901,7 @@ def improved_phase_2(current_best_solution, best_score):
                 res = op2(working, edge_1, edge_2)
                 if res is not None:
                     edge_1_routes, edge_2_routes = res
-                    edge_pairs_delta_score[(edge_1, edge_2)] = working_score - working.evaluate()
+                    edge_pairs_delta_score[(edge_1.sid, edge_2.sid)] = working_score - working.evaluate()
                     undo_op2(working, edge_1, edge_2, edge_1_routes, edge_2_routes)
 
                 # if is kinda pointless now, but still leaving it this way
@@ -923,7 +923,6 @@ def improved_phase_2(current_best_solution, best_score):
         iter_start_time = time.time()
         iter_count += 1
 
-
         # op1 - move a service from 1 day to another day
         # iterate through service days of an edge and opposite for moving to another day
         for edge in working.demanded_edges:
@@ -934,12 +933,14 @@ def improved_phase_2(current_best_solution, best_score):
                 for day_2 in no_service_days:
                     res =  op1(working, day_1, day_2, edge)
                     if res is not None:
+                        prev_best_score = best_score
                         best_score, current_best_solution, improved_op = evaluate_neighbour(working, best_score, current_best_solution)
 
                         route, route_pos = res
                         undo_op1(working, day_1, day_2, edge, route, route_pos)
                         if improved_op:
                             improved = True
+                        if best_score < prev_best_score:
                             current_affected_edges = (edge,)
 
         # op2 - recalculate only for argument pairs, where at least 1 edge was part of the best move from last iteration
@@ -974,7 +975,7 @@ def improved_phase_2(current_best_solution, best_score):
                     if res is not None:
                         edge_1_routes, edge_2_routes = res
                         # note - below working score is score of working before applying the operator
-                        edge_pairs_delta_score[(edge_1, edge_2)] = working_score - working.evaluate()
+                        edge_pairs_delta_score[(edge_1.sid, edge_2.sid)] = working_score - working.evaluate()
                         undo_op2(working, edge_1, edge_2, edge_1_routes, edge_2_routes)
 
         for edges, delta_score in edge_pairs_delta_score.items():
@@ -987,15 +988,18 @@ def improved_phase_2(current_best_solution, best_score):
         # if best op2_score is better than best_score found from application of op1, then apply op2, otherwise just keep the best found from op1
         if best_op2_score < best_score:
             # apply op2
-            improved = True
-            edge_1 = best_op2_edges[0]
-            edge_2 = best_op2_edges[1]
-            op2(working, edge_1, edge_2)
+            edge_1 = working.demanded_edges[best_op2_edges[0]]
+            edge_2 = working.demanded_edges[best_op2_edges[1]]
+            res = op2(working, edge_1, edge_2)
 
-            current_best_solution = working
-            best_score = working.evaluate()
-
-            current_affected_edges = (edge_1, edge_2)
+            # still doing the checking since the above calculated delta is an estimation, which might differ slightly
+            if res is not None:
+                edge_1_routes, edge_2_routes = res
+                best_score, current_best_solution, improved = evaluate_neighbour(working, best_score, current_best_solution)
+                if not improved:
+                    undo_op2(working, edge_1, edge_2, edge_1_routes, edge_2_routes)
+                else:
+                    current_affected_edges = (edge_1, edge_2)
 
         # double re-assigning but it's just references
         # else keep the best found from op1
@@ -1004,6 +1008,9 @@ def improved_phase_2(current_best_solution, best_score):
         last_affected_edges = current_affected_edges
         current_affected_edges = tuple()
 
+        best_op2_edges = None
+        best_op2_delta_score = 0
+        
 
         iter_end_time = time.time()
                 
@@ -1028,3 +1035,6 @@ def improved_phase_2(current_best_solution, best_score):
 
 
     return best_score, current_best_solution, best_score < original_score
+
+def improved_phase_3(current_best_solution, best_score):
+    pass

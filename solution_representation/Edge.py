@@ -20,6 +20,7 @@ class Edge:
         # so in equality check it's checked that edges have same id and same endpoints
         # to differentiate duplicate edges - for edges with more than 1 frequency type
         self.number = number
+        self.sid = None
         
         # end-nodes
         self.start_node = start_node
@@ -44,6 +45,7 @@ class Edge:
         # todo - add a list, one elt for each day
         # ? storing references to routes for that day, None if not serviced in that day
         # ? updated whenever service_days is updated - maybe write methods to call to update both, more readable code
+        self.routes = None
 
 
     def __lt__(self, other):
@@ -138,3 +140,21 @@ class Edge:
     
         # in case it's the last service
         self.service_days.append(day)
+        # todo - set route
+        # todo - find all places where route of edge is accessed for day and change it
+        # todo - not places where edge is changed when route is given, but when route is looked for
+        # ? i guess all places which call day.get_edge_route()
+
+
+    def init_routes(self, vehicle):
+        self.routes = [None for _ in range(vehicle['planning_duration'])]
+
+    def remove_service_day(self, day):
+        self.service_days.remove(day)
+        self.routes[day] = None
+
+    def __hash__(self):
+        if self.start_node < self.end_node:
+            return hash((self.start_node, self.end_node, self.freq))
+        else:
+            return hash((self.end_node, self.start_node, self.freq))

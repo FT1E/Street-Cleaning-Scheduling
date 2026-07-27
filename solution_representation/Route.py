@@ -144,6 +144,7 @@ class Route:
         
         self.targets.insert(pos, new_edge)
         self.demand += new_edge.demand
+        self.calculate_length()
 
         # todo - should it add itself if this is the only target
         # ? like previously it could've been a 1 targets route - so when remove that target, route is removed
@@ -151,9 +152,8 @@ class Route:
         if bubble_up:
             self.day.add_edge_in_list(new_edge)
             if len(self.targets) == 1 and self not in self.day.routes:
-                self.day.routes.append(self)
-        else:
-            self.calculate_length()
+                self.day.add_route(self)
+
 
     def remove_edge(self, edge=None, pos = None, bubble_up = False):
         
@@ -174,13 +174,13 @@ class Route:
             return
 
         self.demand -= edge.demand
+        self.calculate_length()
 
         if bubble_up:
             self.day.remove_edge_in_list(edge)
             if len(self.targets) == 0:
-             self.day.remove_route(self) 
-        else:
-            self.calculate_length()
+                self.day.remove_route(self) 
+        
 
     def __lt__(self, other):
         return self.length < other.length
