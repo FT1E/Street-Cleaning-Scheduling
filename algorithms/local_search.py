@@ -995,7 +995,7 @@ def improved_phase_2(current_best_solution, best_score):
             current_best_solution = working
             best_score = working.evaluate()
 
-            current_affected_edges = tuple(edge_1, edge_2)
+            current_affected_edges = (edge_1, edge_2)
 
         # double re-assigning but it's just references
         # else keep the best found from op1
