@@ -1,0 +1,2166 @@
+Using greedy dynamic clusters algorithm with cluster limit == infinity!
+Graph Data file used: SP-CARP_K13_g_graph.dat
+Vehicle Data file used: SP-CARP_1-2.veh
+
+Program starting at: 2026-08-09 03:37:49.355305
+Greedy algorithm time: 0.330976 seconds
+Cost of initial solution: 18273399.0
+Total number of edges: 296
+Number of unsatisfied edges: 12
+0 edges were not serviced at all!
+Running Local Search with top 50 operations according to estimation
+
+
+Phase 1 mid-report:
+Iteration count: 1
+Last iteration time: 0.03124403953552246
+Average iteration time: 0.03124403953552246
+Current score: 11260939.0
+
+Phase 1 ended! Current time: 2026-08-09 03:37:50.089680
+Phase 1 Report:
+Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.01562201976776123
+Current score: 11260939.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 1.1249990463256836
+Average iteration time: 1.1249990463256836
+Current score: 10261897.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 03:37:57.355301
+Phase 2 (only move_services) Report:
+Iteration count: 7
+Last iteration time: 0.20311927795410156
+Average iteration time: 0.9285706451960974
+Current score: 5291748.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.6406283378601074
+Average iteration time: 0.6406283378601074
+Current score: 5289041.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 03:38:44.620931
+Phase 3 (using only swap_services) Report:
+Iteration count: 29
+Last iteration time: 0.06250429153442383
+Average iteration time: 0.51724151085163
+Current score: 5279287.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 2.640618324279785
+Average iteration time: 2.640618324279785
+Current score: 5279286.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.01563286781311035
+Average iteration time: 1.3281255960464478
+Current score: 5279286.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.015624523162841797
+Average iteration time: 1.8683031627110072
+Current score: 5274533.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.015621662139892578
+Average iteration time: 3.583332962459988
+Current score: 5273309.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 3.2249996662139893
+Current score: 5273309.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.0
+Average iteration time: 2.931817878376354
+Current score: 5273309.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 2.687499721844991
+Current score: 5273309.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 2.480768974010761
+Current score: 5273309.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 14
+Last iteration time: 0.0
+Average iteration time: 2.3035711901528493
+Current score: 5273309.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 1.7934025658501516
+Current score: 5261158.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 1.6990129571211963
+Current score: 5261158.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 03:39:44.933429
+Phase 4 (routing operators) Report:
+Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 1.6990129571211963
+Current score: 5261158.0
+
+
+Local search report:
+Iteration count: 1 iterations
+Last iteration time: 114.8749930858612 seconds
+Iteration average time: 114.8749930858612 seconds
+Current score: 5261158.0
+
+Solution after going through each phase once:
+
+
+Day 0, number of edges 77, number of routes 5
+
+	Edges:
+
+	Edge: 10 <--> 11 	 Freq: 14.0 	 Demand: 162
+	Edge: 70 <--> 10 	 Freq: 14.0 	 Demand: 204
+	Edge: 70 <--> 63 	 Freq: 14.0 	 Demand: 94
+	Edge: 20 <--> 70 	 Freq: 14.0 	 Demand: 604
+	Edge: 233 <--> 234 	 Freq: 14.0 	 Demand: 1012
+	Edge: 243 <--> 233 	 Freq: 14.0 	 Demand: 323
+	Edge: 294 <--> 243 	 Freq: 14.0 	 Demand: 969
+	Edge: 293 <--> 294 	 Freq: 14.0 	 Demand: 927
+	Edge: 294 <--> 245 	 Freq: 14.0 	 Demand: 2559
+	Edge: 245 <--> 193 	 Freq: 14.0 	 Demand: 162
+	Edge: 193 <--> 244 	 Freq: 14.0 	 Demand: 646
+	Edge: 293 <--> 289 	 Freq: 14.0 	 Demand: 3978
+	Edge: 5 <--> 289 	 Freq: 14.0 	 Demand: 204
+	Edge: 4 <--> 5 	 Freq: 14.0 	 Demand: 162
+	Edge: 232 <--> 4 	 Freq: 14.0 	 Demand: 162
+	Edge: 3 <--> 4 	 Freq: 14.0 	 Demand: 1054
+	Edge: 289 <--> 191 	 Freq: 14.0 	 Demand: 162
+	Edge: 191 <--> 188 	 Freq: 14.0 	 Demand: 485
+	Edge: 188 <--> 190 	 Freq: 14.0 	 Demand: 417
+	Edge: 188 <--> 189 	 Freq: 14.0 	 Demand: 689
+	Edge: 236 <--> 238 	 Freq: 14.0 	 Demand: 162
+	Edge: 238 <--> 297 	 Freq: 14.0 	 Demand: 162
+	Edge: 236 <--> 237 	 Freq: 14.0 	 Demand: 1003
+	Edge: 290 <--> 236 	 Freq: 14.0 	 Demand: 281
+	Edge: 290 <--> 295 	 Freq: 14.0 	 Demand: 162
+	Edge: 290 <--> 283 	 Freq: 14.0 	 Demand: 1624
+	Edge: 283 <--> 284 	 Freq: 14.0 	 Demand: 323
+	Edge: 283 <--> 308 	 Freq: 14.0 	 Demand: 969
+	Edge: 308 <--> 302 	 Freq: 14.0 	 Demand: 731
+	Edge: 284 <--> 291 	 Freq: 14.0 	 Demand: 204
+	Edge: 284 <--> 301 	 Freq: 14.0 	 Demand: 1819
+	Edge: 302 <--> 176 	 Freq: 14.0 	 Demand: 1335
+	Edge: 176 <--> 177 	 Freq: 14.0 	 Demand: 323
+	Edge: 259 <--> 264 	 Freq: 14.0 	 Demand: 162
+	Edge: 313 <--> 264 	 Freq: 14.0 	 Demand: 204
+	Edge: 313 <--> 314 	 Freq: 14.0 	 Demand: 162
+	Edge: 71 <--> 313 	 Freq: 14.0 	 Demand: 162
+	Edge: 122 <--> 120 	 Freq: 14.0 	 Demand: 162
+	Edge: 120 <--> 192 	 Freq: 14.0 	 Demand: 162
+	Edge: 125 <--> 192 	 Freq: 14.0 	 Demand: 646
+	Edge: 328 <--> 354 	 Freq: 14.0 	 Demand: 323
+	Edge: 327 <--> 328 	 Freq: 14.0 	 Demand: 646
+	Edge: 327 <--> 82 	 Freq: 14.0 	 Demand: 323
+	Edge: 327 <--> 212 	 Freq: 14.0 	 Demand: 850
+	Edge: 212 <--> 374 	 Freq: 14.0 	 Demand: 323
+	Edge: 82 <--> 21 	 Freq: 14.0 	 Demand: 162
+	Edge: 21 <--> 23 	 Freq: 14.0 	 Demand: 162
+	Edge: 82 <--> 23 	 Freq: 14.0 	 Demand: 485
+	Edge: 87 <--> 195 	 Freq: 14.0 	 Demand: 485
+	Edge: 195 <--> 42 	 Freq: 14.0 	 Demand: 162
+	Edge: 86 <--> 87 	 Freq: 14.0 	 Demand: 323
+	Edge: 323 <--> 86 	 Freq: 14.0 	 Demand: 162
+	Edge: 42 <--> 344 	 Freq: 14.0 	 Demand: 2406
+	Edge: 323 <--> 324 	 Freq: 14.0 	 Demand: 408
+	Edge: 195 <--> 196 	 Freq: 14.0 	 Demand: 442
+	Edge: 42 <--> 43 	 Freq: 14.0 	 Demand: 1131
+	Edge: 158 <--> 323 	 Freq: 14.0 	 Demand: 1105
+	Edge: 325 <--> 158 	 Freq: 14.0 	 Demand: 740
+	Edge: 85 <--> 325 	 Freq: 14.0 	 Demand: 162
+	Edge: 84 <--> 85 	 Freq: 14.0 	 Demand: 162
+	Edge: 292 <--> 197 	 Freq: 14.0 	 Demand: 162
+	Edge: 194 <--> 271 	 Freq: 14.0 	 Demand: 731
+	Edge: 64 <--> 133 	 Freq: 14.0 	 Demand: 162
+	Edge: 290 <--> 295 	 Freq: 7.0 	 Demand: 655
+	Edge: 290 <--> 236 	 Freq: 7.0 	 Demand: 680
+	Edge: 284 <--> 301 	 Freq: 7.0 	 Demand: 162
+	Edge: 302 <--> 259 	 Freq: 7.0 	 Demand: 561
+	Edge: 120 <--> 121 	 Freq: 7.0 	 Demand: 1122
+	Edge: 43 <--> 39 	 Freq: 7.0 	 Demand: 162
+	Edge: 24 <--> 84 	 Freq: 14.0 	 Demand: 162
+	Edge: 291 <--> 300 	 Freq: 14.0 	 Demand: 2142
+	Edge: 124 <--> 125 	 Freq: 14.0 	 Demand: 663
+	Edge: 219 <--> 381 	 Freq: 14.0 	 Demand: 366
+	Edge: 119 <--> 293 	 Freq: 14.0 	 Demand: 646
+	Edge: 344 <--> 336 	 Freq: 14.0 	 Demand: 162
+	Edge: 43 <--> 44 	 Freq: 14.0 	 Demand: 851
+	Edge: 38 <--> 39 	 Freq: 14.0 	 Demand: 1105
+
+	Routes:
+
+	Route: 1
+	Route length (9998.0) and demand (11700)
+	Edge: 120 <--> 121 	 Freq: 7.0 	 Demand: 1122
+	Edge: 122 <--> 120 	 Freq: 14.0 	 Demand: 162
+	Edge: 294 <--> 245 	 Freq: 14.0 	 Demand: 2559
+	Edge: 193 <--> 244 	 Freq: 14.0 	 Demand: 646
+	Edge: 194 <--> 271 	 Freq: 14.0 	 Demand: 731
+	Edge: 245 <--> 193 	 Freq: 14.0 	 Demand: 162
+	Edge: 243 <--> 233 	 Freq: 14.0 	 Demand: 323
+	Edge: 233 <--> 234 	 Freq: 14.0 	 Demand: 1012
+	Edge: 294 <--> 243 	 Freq: 14.0 	 Demand: 969
+	Edge: 293 <--> 294 	 Freq: 14.0 	 Demand: 927
+	Edge: 119 <--> 293 	 Freq: 14.0 	 Demand: 646
+	Edge: 290 <--> 295 	 Freq: 7.0 	 Demand: 655
+	Edge: 290 <--> 283 	 Freq: 14.0 	 Demand: 1624
+	Edge: 292 <--> 197 	 Freq: 14.0 	 Demand: 162
+	Route: 2
+	Route length (10374.0) and demand (11234)
+	Edge: 290 <--> 236 	 Freq: 14.0 	 Demand: 281
+	Edge: 236 <--> 238 	 Freq: 14.0 	 Demand: 162
+	Edge: 238 <--> 297 	 Freq: 14.0 	 Demand: 162
+	Edge: 236 <--> 237 	 Freq: 14.0 	 Demand: 1003
+	Edge: 290 <--> 236 	 Freq: 7.0 	 Demand: 680
+	Edge: 290 <--> 295 	 Freq: 14.0 	 Demand: 162
+	Edge: 124 <--> 125 	 Freq: 14.0 	 Demand: 663
+	Edge: 125 <--> 192 	 Freq: 14.0 	 Demand: 646
+	Edge: 120 <--> 192 	 Freq: 14.0 	 Demand: 162
+	Edge: 293 <--> 289 	 Freq: 14.0 	 Demand: 3978
+	Edge: 289 <--> 191 	 Freq: 14.0 	 Demand: 162
+	Edge: 191 <--> 188 	 Freq: 14.0 	 Demand: 485
+	Edge: 188 <--> 189 	 Freq: 14.0 	 Demand: 689
+	Edge: 188 <--> 190 	 Freq: 14.0 	 Demand: 417
+	Edge: 5 <--> 289 	 Freq: 14.0 	 Demand: 204
+	Edge: 4 <--> 5 	 Freq: 14.0 	 Demand: 162
+	Edge: 232 <--> 4 	 Freq: 14.0 	 Demand: 162
+	Edge: 3 <--> 4 	 Freq: 14.0 	 Demand: 1054
+	Route: 3
+	Route length (5953.0) and demand (4500)
+	Edge: 20 <--> 70 	 Freq: 14.0 	 Demand: 604
+	Edge: 10 <--> 11 	 Freq: 14.0 	 Demand: 162
+	Edge: 70 <--> 10 	 Freq: 14.0 	 Demand: 204
+	Edge: 70 <--> 63 	 Freq: 14.0 	 Demand: 94
+	Edge: 64 <--> 133 	 Freq: 14.0 	 Demand: 162
+	Edge: 328 <--> 354 	 Freq: 14.0 	 Demand: 323
+	Edge: 327 <--> 328 	 Freq: 14.0 	 Demand: 646
+	Edge: 327 <--> 212 	 Freq: 14.0 	 Demand: 850
+	Edge: 212 <--> 374 	 Freq: 14.0 	 Demand: 323
+	Edge: 327 <--> 82 	 Freq: 14.0 	 Demand: 323
+	Edge: 82 <--> 23 	 Freq: 14.0 	 Demand: 485
+	Edge: 82 <--> 21 	 Freq: 14.0 	 Demand: 162
+	Edge: 21 <--> 23 	 Freq: 14.0 	 Demand: 162
+	Route: 4
+	Route length (9434.0) and demand (9259)
+	Edge: 291 <--> 300 	 Freq: 14.0 	 Demand: 2142
+	Edge: 284 <--> 291 	 Freq: 14.0 	 Demand: 204
+	Edge: 284 <--> 301 	 Freq: 14.0 	 Demand: 1819
+	Edge: 284 <--> 301 	 Freq: 7.0 	 Demand: 162
+	Edge: 283 <--> 284 	 Freq: 14.0 	 Demand: 323
+	Edge: 283 <--> 308 	 Freq: 14.0 	 Demand: 969
+	Edge: 308 <--> 302 	 Freq: 14.0 	 Demand: 731
+	Edge: 176 <--> 177 	 Freq: 14.0 	 Demand: 323
+	Edge: 302 <--> 176 	 Freq: 14.0 	 Demand: 1335
+	Edge: 302 <--> 259 	 Freq: 7.0 	 Demand: 561
+	Edge: 259 <--> 264 	 Freq: 14.0 	 Demand: 162
+	Edge: 313 <--> 264 	 Freq: 14.0 	 Demand: 204
+	Edge: 313 <--> 314 	 Freq: 14.0 	 Demand: 162
+	Edge: 71 <--> 313 	 Freq: 14.0 	 Demand: 162
+	Route: 5
+	Route length (6968.0) and demand (10496)
+	Edge: 24 <--> 84 	 Freq: 14.0 	 Demand: 162
+	Edge: 84 <--> 85 	 Freq: 14.0 	 Demand: 162
+	Edge: 85 <--> 325 	 Freq: 14.0 	 Demand: 162
+	Edge: 325 <--> 158 	 Freq: 14.0 	 Demand: 740
+	Edge: 158 <--> 323 	 Freq: 14.0 	 Demand: 1105
+	Edge: 323 <--> 324 	 Freq: 14.0 	 Demand: 408
+	Edge: 323 <--> 86 	 Freq: 14.0 	 Demand: 162
+	Edge: 86 <--> 87 	 Freq: 14.0 	 Demand: 323
+	Edge: 87 <--> 195 	 Freq: 14.0 	 Demand: 485
+	Edge: 195 <--> 196 	 Freq: 14.0 	 Demand: 442
+	Edge: 195 <--> 42 	 Freq: 14.0 	 Demand: 162
+	Edge: 42 <--> 344 	 Freq: 14.0 	 Demand: 2406
+	Edge: 344 <--> 336 	 Freq: 14.0 	 Demand: 162
+	Edge: 42 <--> 43 	 Freq: 14.0 	 Demand: 1131
+	Edge: 43 <--> 44 	 Freq: 14.0 	 Demand: 851
+	Edge: 43 <--> 39 	 Freq: 7.0 	 Demand: 162
+	Edge: 219 <--> 381 	 Freq: 14.0 	 Demand: 366
+	Edge: 38 <--> 39 	 Freq: 14.0 	 Demand: 1105
+
+Day 1, number of edges 77, number of routes 5
+
+	Edges:
+
+	Edge: 255 <--> 239 	 Freq: 14.0 	 Demand: 162
+	Edge: 239 <--> 240 	 Freq: 14.0 	 Demand: 485
+	Edge: 260 <--> 255 	 Freq: 14.0 	 Demand: 850
+	Edge: 296 <--> 260 	 Freq: 14.0 	 Demand: 1819
+	Edge: 239 <--> 256 	 Freq: 14.0 	 Demand: 1734
+	Edge: 118 <--> 255 	 Freq: 14.0 	 Demand: 1938
+	Edge: 279 <--> 253 	 Freq: 14.0 	 Demand: 646
+	Edge: 253 <--> 254 	 Freq: 14.0 	 Demand: 323
+	Edge: 279 <--> 280 	 Freq: 14.0 	 Demand: 808
+	Edge: 263 <--> 280 	 Freq: 14.0 	 Demand: 1615
+	Edge: 263 <--> 273 	 Freq: 14.0 	 Demand: 825
+	Edge: 273 <--> 126 	 Freq: 14.0 	 Demand: 1751
+	Edge: 126 <--> 127 	 Freq: 14.0 	 Demand: 808
+	Edge: 51 <--> 58 	 Freq: 14.0 	 Demand: 323
+	Edge: 51 <--> 52 	 Freq: 14.0 	 Demand: 485
+	Edge: 52 <--> 59 	 Freq: 14.0 	 Demand: 366
+	Edge: 52 <--> 53 	 Freq: 14.0 	 Demand: 323
+	Edge: 152 <--> 53 	 Freq: 14.0 	 Demand: 162
+	Edge: 53 <--> 54 	 Freq: 14.0 	 Demand: 94
+	Edge: 54 <--> 340 	 Freq: 14.0 	 Demand: 485
+	Edge: 340 <--> 341 	 Freq: 14.0 	 Demand: 646
+	Edge: 152 <--> 153 	 Freq: 14.0 	 Demand: 162
+	Edge: 72 <--> 54 	 Freq: 14.0 	 Demand: 1131
+	Edge: 72 <--> 339 	 Freq: 14.0 	 Demand: 1615
+	Edge: 102 <--> 180 	 Freq: 14.0 	 Demand: 204
+	Edge: 113 <--> 110 	 Freq: 14.0 	 Demand: 366
+	Edge: 112 <--> 113 	 Freq: 14.0 	 Demand: 621
+	Edge: 112 <--> 272 	 Freq: 14.0 	 Demand: 867
+	Edge: 110 <--> 111 	 Freq: 14.0 	 Demand: 1437
+	Edge: 211 <--> 210 	 Freq: 14.0 	 Demand: 162
+	Edge: 210 <--> 208 	 Freq: 14.0 	 Demand: 680
+	Edge: 208 <--> 209 	 Freq: 14.0 	 Demand: 340
+	Edge: 170 <--> 211 	 Freq: 14.0 	 Demand: 162
+	Edge: 170 <--> 171 	 Freq: 14.0 	 Demand: 204
+	Edge: 50 <--> 57 	 Freq: 14.0 	 Demand: 527
+	Edge: 49 <--> 50 	 Freq: 14.0 	 Demand: 1335
+	Edge: 28 <--> 1 	 Freq: 14.0 	 Demand: 323
+	Edge: 80 <--> 355 	 Freq: 14.0 	 Demand: 485
+	Edge: 19 <--> 15 	 Freq: 14.0 	 Demand: 408
+	Edge: 18 <--> 19 	 Freq: 14.0 	 Demand: 162
+	Edge: 15 <--> 16 	 Freq: 14.0 	 Demand: 366
+	Edge: 17 <--> 16 	 Freq: 14.0 	 Demand: 646
+	Edge: 17 <--> 225 	 Freq: 14.0 	 Demand: 502
+	Edge: 19 <--> 226 	 Freq: 14.0 	 Demand: 162
+	Edge: 14 <--> 15 	 Freq: 14.0 	 Demand: 527
+	Edge: 278 <--> 14 	 Freq: 14.0 	 Demand: 646
+	Edge: 230 <--> 18 	 Freq: 14.0 	 Demand: 663
+	Edge: 230 <--> 231 	 Freq: 14.0 	 Demand: 204
+	Edge: 107 <--> 230 	 Freq: 14.0 	 Demand: 162
+	Edge: 107 <--> 227 	 Freq: 14.0 	 Demand: 162
+	Edge: 217 <--> 316 	 Freq: 14.0 	 Demand: 162
+	Edge: 316 <--> 317 	 Freq: 14.0 	 Demand: 162
+	Edge: 216 <--> 217 	 Freq: 14.0 	 Demand: 969
+	Edge: 217 <--> 2 	 Freq: 14.0 	 Demand: 969
+	Edge: 215 <--> 216 	 Freq: 14.0 	 Demand: 1463
+	Edge: 316 <--> 286 	 Freq: 14.0 	 Demand: 578
+	Edge: 285 <--> 286 	 Freq: 14.0 	 Demand: 578
+	Edge: 114 <--> 304 	 Freq: 14.0 	 Demand: 162
+	Edge: 114 <--> 115 	 Freq: 14.0 	 Demand: 867
+	Edge: 178 <--> 179 	 Freq: 14.0 	 Demand: 94
+	Edge: 103 <--> 105 	 Freq: 14.0 	 Demand: 162
+	Edge: 45 <--> 81 	 Freq: 14.0 	 Demand: 162
+	Edge: 219 <--> 220 	 Freq: 14.0 	 Demand: 366
+	Edge: 95 <--> 136 	 Freq: 14.0 	 Demand: 162
+	Edge: 105 <--> 106 	 Freq: 14.0 	 Demand: 1242
+	Edge: 296 <--> 260 	 Freq: 7.0 	 Demand: 204
+	Edge: 263 <--> 273 	 Freq: 7.0 	 Demand: 561
+	Edge: 273 <--> 126 	 Freq: 7.0 	 Demand: 655
+	Edge: 316 <--> 286 	 Freq: 7.0 	 Demand: 655
+	Edge: 292 <--> 299 	 Freq: 14.0 	 Demand: 2304
+	Edge: 123 <--> 298 	 Freq: 14.0 	 Demand: 808
+	Edge: 295 <--> 305 	 Freq: 14.0 	 Demand: 323
+	Edge: 43 <--> 39 	 Freq: 14.0 	 Demand: 817
+	Edge: 335 <--> 98 	 Freq: 14.0 	 Demand: 527
+	Edge: 98 <--> 99 	 Freq: 14.0 	 Demand: 417
+	Edge: 84 <--> 85 	 Freq: 7.0 	 Demand: 162
+	Edge: 335 <--> 336 	 Freq: 14.0 	 Demand: 2440
+
+	Routes:
+
+	Route: 1
+	Route length (11466.0) and demand (11929)
+	Edge: 295 <--> 305 	 Freq: 14.0 	 Demand: 323
+	Edge: 239 <--> 256 	 Freq: 14.0 	 Demand: 1734
+	Edge: 239 <--> 240 	 Freq: 14.0 	 Demand: 485
+	Edge: 255 <--> 239 	 Freq: 14.0 	 Demand: 162
+	Edge: 296 <--> 260 	 Freq: 14.0 	 Demand: 1819
+	Edge: 296 <--> 260 	 Freq: 7.0 	 Demand: 204
+	Edge: 260 <--> 255 	 Freq: 14.0 	 Demand: 850
+	Edge: 118 <--> 255 	 Freq: 14.0 	 Demand: 1938
+	Edge: 178 <--> 179 	 Freq: 14.0 	 Demand: 94
+	Edge: 114 <--> 115 	 Freq: 14.0 	 Demand: 867
+	Edge: 112 <--> 272 	 Freq: 14.0 	 Demand: 867
+	Edge: 112 <--> 113 	 Freq: 14.0 	 Demand: 621
+	Edge: 110 <--> 111 	 Freq: 14.0 	 Demand: 1437
+	Edge: 113 <--> 110 	 Freq: 14.0 	 Demand: 366
+	Edge: 114 <--> 304 	 Freq: 14.0 	 Demand: 162
+	Route: 2
+	Route length (9942.0) and demand (6846)
+	Edge: 52 <--> 53 	 Freq: 14.0 	 Demand: 323
+	Edge: 52 <--> 59 	 Freq: 14.0 	 Demand: 366
+	Edge: 51 <--> 52 	 Freq: 14.0 	 Demand: 485
+	Edge: 51 <--> 58 	 Freq: 14.0 	 Demand: 323
+	Edge: 50 <--> 57 	 Freq: 14.0 	 Demand: 527
+	Edge: 49 <--> 50 	 Freq: 14.0 	 Demand: 1335
+	Edge: 72 <--> 339 	 Freq: 14.0 	 Demand: 1615
+	Edge: 45 <--> 81 	 Freq: 14.0 	 Demand: 162
+	Edge: 95 <--> 136 	 Freq: 14.0 	 Demand: 162
+	Edge: 170 <--> 171 	 Freq: 14.0 	 Demand: 204
+	Edge: 170 <--> 211 	 Freq: 14.0 	 Demand: 162
+	Edge: 208 <--> 209 	 Freq: 14.0 	 Demand: 340
+	Edge: 210 <--> 208 	 Freq: 14.0 	 Demand: 680
+	Edge: 211 <--> 210 	 Freq: 14.0 	 Demand: 162
+	Route: 3
+	Route length (9648.0) and demand (11104)
+	Edge: 292 <--> 299 	 Freq: 14.0 	 Demand: 2304
+	Edge: 263 <--> 280 	 Freq: 14.0 	 Demand: 1615
+	Edge: 263 <--> 273 	 Freq: 7.0 	 Demand: 561
+	Edge: 273 <--> 126 	 Freq: 14.0 	 Demand: 1751
+	Edge: 126 <--> 127 	 Freq: 14.0 	 Demand: 808
+	Edge: 273 <--> 126 	 Freq: 7.0 	 Demand: 655
+	Edge: 279 <--> 280 	 Freq: 14.0 	 Demand: 808
+	Edge: 253 <--> 254 	 Freq: 14.0 	 Demand: 323
+	Edge: 279 <--> 253 	 Freq: 14.0 	 Demand: 646
+	Edge: 263 <--> 273 	 Freq: 14.0 	 Demand: 825
+	Edge: 123 <--> 298 	 Freq: 14.0 	 Demand: 808
+	Route: 4
+	Route length (10738.0) and demand (8539)
+	Edge: 152 <--> 53 	 Freq: 14.0 	 Demand: 162
+	Edge: 316 <--> 286 	 Freq: 14.0 	 Demand: 578
+	Edge: 28 <--> 1 	 Freq: 14.0 	 Demand: 323
+	Edge: 217 <--> 2 	 Freq: 14.0 	 Demand: 969
+	Edge: 215 <--> 216 	 Freq: 14.0 	 Demand: 1463
+	Edge: 216 <--> 217 	 Freq: 14.0 	 Demand: 969
+	Edge: 217 <--> 316 	 Freq: 14.0 	 Demand: 162
+	Edge: 316 <--> 317 	 Freq: 14.0 	 Demand: 162
+	Edge: 316 <--> 286 	 Freq: 7.0 	 Demand: 655
+	Edge: 285 <--> 286 	 Freq: 14.0 	 Demand: 578
+	Edge: 152 <--> 153 	 Freq: 14.0 	 Demand: 162
+	Edge: 53 <--> 54 	 Freq: 14.0 	 Demand: 94
+	Edge: 72 <--> 54 	 Freq: 14.0 	 Demand: 1131
+	Edge: 54 <--> 340 	 Freq: 14.0 	 Demand: 485
+	Edge: 340 <--> 341 	 Freq: 14.0 	 Demand: 646
+	Route: 5
+	Route length (20763.0) and demand (11432)
+	Edge: 98 <--> 99 	 Freq: 14.0 	 Demand: 417
+	Edge: 335 <--> 98 	 Freq: 14.0 	 Demand: 527
+	Edge: 84 <--> 85 	 Freq: 7.0 	 Demand: 162
+	Edge: 335 <--> 336 	 Freq: 14.0 	 Demand: 2440
+	Edge: 43 <--> 39 	 Freq: 14.0 	 Demand: 817
+	Edge: 219 <--> 220 	 Freq: 14.0 	 Demand: 366
+	Edge: 80 <--> 355 	 Freq: 14.0 	 Demand: 485
+	Edge: 102 <--> 180 	 Freq: 14.0 	 Demand: 204
+	Edge: 103 <--> 105 	 Freq: 14.0 	 Demand: 162
+	Edge: 105 <--> 106 	 Freq: 14.0 	 Demand: 1242
+	Edge: 107 <--> 227 	 Freq: 14.0 	 Demand: 162
+	Edge: 107 <--> 230 	 Freq: 14.0 	 Demand: 162
+	Edge: 230 <--> 231 	 Freq: 14.0 	 Demand: 204
+	Edge: 230 <--> 18 	 Freq: 14.0 	 Demand: 663
+	Edge: 18 <--> 19 	 Freq: 14.0 	 Demand: 162
+	Edge: 19 <--> 226 	 Freq: 14.0 	 Demand: 162
+	Edge: 15 <--> 16 	 Freq: 14.0 	 Demand: 366
+	Edge: 17 <--> 16 	 Freq: 14.0 	 Demand: 646
+	Edge: 17 <--> 225 	 Freq: 14.0 	 Demand: 502
+	Edge: 278 <--> 14 	 Freq: 14.0 	 Demand: 646
+	Edge: 14 <--> 15 	 Freq: 14.0 	 Demand: 527
+	Edge: 19 <--> 15 	 Freq: 14.0 	 Demand: 408
+
+Day 2, number of edges 140, number of routes 5
+
+	Edges:
+
+	Edge: 302 <--> 259 	 Freq: 14.0 	 Demand: 740
+	Edge: 204 <--> 330 	 Freq: 14.0 	 Demand: 323
+	Edge: 145 <--> 146 	 Freq: 14.0 	 Demand: 94
+	Edge: 329 <--> 205 	 Freq: 14.0 	 Demand: 162
+	Edge: 90 <--> 103 	 Freq: 14.0 	 Demand: 94
+	Edge: 60 <--> 147 	 Freq: 14.0 	 Demand: 162
+	Edge: 257 <--> 258 	 Freq: 14.0 	 Demand: 774
+	Edge: 77 <--> 78 	 Freq: 14.0 	 Demand: 646
+	Edge: 35 <--> 353 	 Freq: 14.0 	 Demand: 162
+	Edge: 34 <--> 35 	 Freq: 14.0 	 Demand: 162
+	Edge: 141 <--> 142 	 Freq: 14.0 	 Demand: 204
+	Edge: 143 <--> 144 	 Freq: 14.0 	 Demand: 340
+	Edge: 108 <--> 228 	 Freq: 14.0 	 Demand: 162
+	Edge: 100 <--> 182 	 Freq: 14.0 	 Demand: 119
+	Edge: 66 <--> 172 	 Freq: 14.0 	 Demand: 162
+	Edge: 94 <--> 66 	 Freq: 14.0 	 Demand: 162
+	Edge: 94 <--> 169 	 Freq: 14.0 	 Demand: 162
+	Edge: 131 <--> 132 	 Freq: 14.0 	 Demand: 119
+	Edge: 131 <--> 214 	 Freq: 14.0 	 Demand: 162
+	Edge: 214 <--> 186 	 Freq: 14.0 	 Demand: 162
+	Edge: 186 <--> 187 	 Freq: 14.0 	 Demand: 204
+	Edge: 390 <--> 214 	 Freq: 14.0 	 Demand: 655
+	Edge: 91 <--> 224 	 Freq: 14.0 	 Demand: 162
+	Edge: 90 <--> 91 	 Freq: 14.0 	 Demand: 204
+	Edge: 345 <--> 90 	 Freq: 14.0 	 Demand: 723
+	Edge: 343 <--> 200 	 Freq: 14.0 	 Demand: 646
+	Edge: 342 <--> 343 	 Freq: 14.0 	 Demand: 799
+	Edge: 200 <--> 373 	 Freq: 14.0 	 Demand: 323
+	Edge: 200 <--> 174 	 Freq: 14.0 	 Demand: 1760
+	Edge: 174 <--> 175 	 Freq: 14.0 	 Demand: 162
+	Edge: 174 <--> 201 	 Freq: 14.0 	 Demand: 510
+	Edge: 201 <--> 202 	 Freq: 14.0 	 Demand: 162
+	Edge: 351 <--> 47 	 Freq: 14.0 	 Demand: 119
+	Edge: 351 <--> 386 	 Freq: 14.0 	 Demand: 94
+	Edge: 47 <--> 48 	 Freq: 14.0 	 Demand: 323
+	Edge: 350 <--> 351 	 Freq: 14.0 	 Demand: 604
+	Edge: 47 <--> 326 	 Freq: 14.0 	 Demand: 281
+	Edge: 350 <--> 352 	 Freq: 14.0 	 Demand: 94
+	Edge: 128 <--> 129 	 Freq: 14.0 	 Demand: 119
+	Edge: 128 <--> 32 	 Freq: 14.0 	 Demand: 366
+	Edge: 160 <--> 32 	 Freq: 14.0 	 Demand: 323
+	Edge: 160 <--> 161 	 Freq: 14.0 	 Demand: 162
+	Edge: 307 <--> 310 	 Freq: 14.0 	 Demand: 94
+	Edge: 184 <--> 185 	 Freq: 14.0 	 Demand: 162
+	Edge: 134 <--> 135 	 Freq: 14.0 	 Demand: 408
+	Edge: 303 <--> 250 	 Freq: 14.0 	 Demand: 765
+	Edge: 250 <--> 241 	 Freq: 14.0 	 Demand: 757
+	Edge: 282 <--> 303 	 Freq: 14.0 	 Demand: 162
+	Edge: 281 <--> 282 	 Freq: 14.0 	 Demand: 485
+	Edge: 241 <--> 242 	 Freq: 14.0 	 Demand: 417
+	Edge: 101 <--> 181 	 Freq: 14.0 	 Demand: 204
+	Edge: 167 <--> 269 	 Freq: 14.0 	 Demand: 680
+	Edge: 269 <--> 270 	 Freq: 14.0 	 Demand: 162
+	Edge: 109 <--> 229 	 Freq: 14.0 	 Demand: 340
+	Edge: 139 <--> 140 	 Freq: 14.0 	 Demand: 162
+	Edge: 163 <--> 139 	 Freq: 14.0 	 Demand: 162
+	Edge: 163 <--> 183 	 Freq: 14.0 	 Demand: 162
+	Edge: 76 <--> 163 	 Freq: 14.0 	 Demand: 366
+	Edge: 92 <--> 173 	 Freq: 14.0 	 Demand: 162
+	Edge: 97 <--> 137 	 Freq: 14.0 	 Demand: 94
+	Edge: 97 <--> 138 	 Freq: 14.0 	 Demand: 323
+	Edge: 322 <--> 391 	 Freq: 14.0 	 Demand: 204
+	Edge: 322 <--> 392 	 Freq: 14.0 	 Demand: 561
+	Edge: 322 <--> 0 	 Freq: 14.0 	 Demand: 162
+	Edge: 0 <--> 331 	 Freq: 14.0 	 Demand: 204
+	Edge: 331 <--> 358 	 Freq: 14.0 	 Demand: 340
+	Edge: 0 <--> 29 	 Freq: 14.0 	 Demand: 1871
+	Edge: 29 <--> 40 	 Freq: 14.0 	 Demand: 255
+	Edge: 40 <--> 38 	 Freq: 14.0 	 Demand: 340
+	Edge: 168 <--> 36 	 Freq: 14.0 	 Demand: 1939
+	Edge: 207 <--> 248 	 Freq: 14.0 	 Demand: 162
+	Edge: 247 <--> 312 	 Freq: 14.0 	 Demand: 255
+	Edge: 164 <--> 246 	 Freq: 14.0 	 Demand: 255
+	Edge: 164 <--> 249 	 Freq: 14.0 	 Demand: 162
+	Edge: 67 <--> 65 	 Freq: 14.0 	 Demand: 204
+	Edge: 347 <--> 348 	 Freq: 14.0 	 Demand: 162
+	Edge: 347 <--> 377 	 Freq: 14.0 	 Demand: 162
+	Edge: 265 <--> 266 	 Freq: 14.0 	 Demand: 162
+	Edge: 369 <--> 370 	 Freq: 14.0 	 Demand: 162
+	Edge: 154 <--> 155 	 Freq: 14.0 	 Demand: 204
+	Edge: 203 <--> 357 	 Freq: 14.0 	 Demand: 94
+	Edge: 360 <--> 361 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 338 	 Freq: 14.0 	 Demand: 323
+	Edge: 222 <--> 362 	 Freq: 14.0 	 Demand: 162
+	Edge: 371 <--> 372 	 Freq: 14.0 	 Demand: 119
+	Edge: 261 <--> 262 	 Freq: 14.0 	 Demand: 94
+	Edge: 262 <--> 318 	 Freq: 14.0 	 Demand: 655
+	Edge: 320 <--> 356 	 Freq: 14.0 	 Demand: 323
+	Edge: 367 <--> 368 	 Freq: 14.0 	 Demand: 162
+	Edge: 156 <--> 157 	 Freq: 14.0 	 Demand: 162
+	Edge: 213 <--> 389 	 Freq: 14.0 	 Demand: 94
+	Edge: 62 <--> 130 	 Freq: 14.0 	 Demand: 162
+	Edge: 148 <--> 149 	 Freq: 14.0 	 Demand: 162
+	Edge: 148 <--> 221 	 Freq: 14.0 	 Demand: 323
+	Edge: 379 <--> 380 	 Freq: 14.0 	 Demand: 323
+	Edge: 288 <--> 315 	 Freq: 14.0 	 Demand: 94
+	Edge: 6 <--> 7 	 Freq: 14.0 	 Demand: 204
+	Edge: 7 <--> 235 	 Freq: 14.0 	 Demand: 162
+	Edge: 376 <--> 378 	 Freq: 14.0 	 Demand: 162
+	Edge: 349 <--> 382 	 Freq: 14.0 	 Demand: 323
+	Edge: 382 <--> 383 	 Freq: 14.0 	 Demand: 162
+	Edge: 387 <--> 388 	 Freq: 14.0 	 Demand: 162
+	Edge: 387 <--> 56 	 Freq: 14.0 	 Demand: 323
+	Edge: 55 <--> 56 	 Freq: 14.0 	 Demand: 162
+	Edge: 55 <--> 321 	 Freq: 14.0 	 Demand: 485
+	Edge: 93 <--> 268 	 Freq: 14.0 	 Demand: 162
+	Edge: 363 <--> 364 	 Freq: 14.0 	 Demand: 162
+	Edge: 31 <--> 363 	 Freq: 14.0 	 Demand: 340
+	Edge: 30 <--> 31 	 Freq: 14.0 	 Demand: 162
+	Edge: 363 <--> 337 	 Freq: 14.0 	 Demand: 204
+	Edge: 337 <--> 223 	 Freq: 14.0 	 Demand: 323
+	Edge: 337 <--> 74 	 Freq: 14.0 	 Demand: 162
+	Edge: 159 <--> 365 	 Freq: 14.0 	 Demand: 408
+	Edge: 365 <--> 366 	 Freq: 14.0 	 Demand: 323
+	Edge: 198 <--> 199 	 Freq: 14.0 	 Demand: 255
+	Edge: 25 <--> 27 	 Freq: 14.0 	 Demand: 162
+	Edge: 27 <--> 41 	 Freq: 14.0 	 Demand: 204
+	Edge: 26 <--> 27 	 Freq: 14.0 	 Demand: 162
+	Edge: 69 <--> 26 	 Freq: 14.0 	 Demand: 162
+	Edge: 384 <--> 385 	 Freq: 14.0 	 Demand: 162
+	Edge: 346 <--> 384 	 Freq: 14.0 	 Demand: 323
+	Edge: 8 <--> 9 	 Freq: 14.0 	 Demand: 94
+	Edge: 275 <--> 276 	 Freq: 14.0 	 Demand: 323
+	Edge: 275 <--> 277 	 Freq: 14.0 	 Demand: 94
+	Edge: 274 <--> 275 	 Freq: 14.0 	 Demand: 527
+	Edge: 274 <--> 68 	 Freq: 14.0 	 Demand: 323
+	Edge: 150 <--> 151 	 Freq: 14.0 	 Demand: 162
+	Edge: 309 <--> 311 	 Freq: 14.0 	 Demand: 162
+	Edge: 162 <--> 375 	 Freq: 14.0 	 Demand: 655
+	Edge: 162 <--> 75 	 Freq: 14.0 	 Demand: 204
+	Edge: 251 <--> 252 	 Freq: 14.0 	 Demand: 255
+	Edge: 332 <--> 359 	 Freq: 14.0 	 Demand: 162
+	Edge: 165 <--> 166 	 Freq: 14.0 	 Demand: 340
+	Edge: 86 <--> 88 	 Freq: 14.0 	 Demand: 323
+	Edge: 40 <--> 36 	 Freq: 14.0 	 Demand: 323
+	Edge: 257 <--> 258 	 Freq: 7.0 	 Demand: 204
+	Edge: 342 <--> 343 	 Freq: 7.0 	 Demand: 561
+	Edge: 206 <--> 306 	 Freq: 7.0 	 Demand: 655
+	Edge: 335 <--> 336 	 Freq: 7.0 	 Demand: 204
+	Edge: 37 <--> 335 	 Freq: 14.0 	 Demand: 366
+
+	Routes:
+
+	Route: 1
+	Route length (8641.0) and demand (2868)
+	Edge: 322 <--> 391 	 Freq: 14.0 	 Demand: 204
+	Edge: 322 <--> 392 	 Freq: 14.0 	 Demand: 561
+	Edge: 62 <--> 130 	 Freq: 14.0 	 Demand: 162
+	Edge: 139 <--> 140 	 Freq: 14.0 	 Demand: 162
+	Edge: 164 <--> 249 	 Freq: 14.0 	 Demand: 162
+	Edge: 309 <--> 311 	 Freq: 14.0 	 Demand: 162
+	Edge: 198 <--> 199 	 Freq: 14.0 	 Demand: 255
+	Edge: 164 <--> 246 	 Freq: 14.0 	 Demand: 255
+	Edge: 247 <--> 312 	 Freq: 14.0 	 Demand: 255
+	Edge: 163 <--> 139 	 Freq: 14.0 	 Demand: 162
+	Edge: 163 <--> 183 	 Freq: 14.0 	 Demand: 162
+	Edge: 76 <--> 163 	 Freq: 14.0 	 Demand: 366
+	Route: 2
+	Route length (19580.0) and demand (11526)
+	Edge: 0 <--> 331 	 Freq: 14.0 	 Demand: 204
+	Edge: 331 <--> 358 	 Freq: 14.0 	 Demand: 340
+	Edge: 97 <--> 137 	 Freq: 14.0 	 Demand: 94
+	Edge: 97 <--> 138 	 Freq: 14.0 	 Demand: 323
+	Edge: 213 <--> 389 	 Freq: 14.0 	 Demand: 94
+	Edge: 134 <--> 135 	 Freq: 14.0 	 Demand: 408
+	Edge: 387 <--> 388 	 Freq: 14.0 	 Demand: 162
+	Edge: 387 <--> 56 	 Freq: 14.0 	 Demand: 323
+	Edge: 55 <--> 56 	 Freq: 14.0 	 Demand: 162
+	Edge: 371 <--> 372 	 Freq: 14.0 	 Demand: 119
+	Edge: 150 <--> 151 	 Freq: 14.0 	 Demand: 162
+	Edge: 154 <--> 155 	 Freq: 14.0 	 Demand: 204
+	Edge: 329 <--> 205 	 Freq: 14.0 	 Demand: 162
+	Edge: 60 <--> 147 	 Freq: 14.0 	 Demand: 162
+	Edge: 204 <--> 330 	 Freq: 14.0 	 Demand: 323
+	Edge: 145 <--> 146 	 Freq: 14.0 	 Demand: 94
+	Edge: 203 <--> 357 	 Freq: 14.0 	 Demand: 94
+	Edge: 174 <--> 201 	 Freq: 14.0 	 Demand: 510
+	Edge: 174 <--> 175 	 Freq: 14.0 	 Demand: 162
+	Edge: 200 <--> 174 	 Freq: 14.0 	 Demand: 1760
+	Edge: 200 <--> 373 	 Freq: 14.0 	 Demand: 323
+	Edge: 342 <--> 343 	 Freq: 14.0 	 Demand: 799
+	Edge: 342 <--> 343 	 Freq: 7.0 	 Demand: 561
+	Edge: 343 <--> 200 	 Freq: 14.0 	 Demand: 646
+	Edge: 201 <--> 202 	 Freq: 14.0 	 Demand: 162
+	Edge: 131 <--> 132 	 Freq: 14.0 	 Demand: 119
+	Edge: 131 <--> 214 	 Freq: 14.0 	 Demand: 162
+	Edge: 390 <--> 214 	 Freq: 14.0 	 Demand: 655
+	Edge: 214 <--> 186 	 Freq: 14.0 	 Demand: 162
+	Edge: 186 <--> 187 	 Freq: 14.0 	 Demand: 204
+	Edge: 0 <--> 29 	 Freq: 14.0 	 Demand: 1871
+	Route: 3
+	Route length (28761.0) and demand (11839)
+	Edge: 27 <--> 41 	 Freq: 14.0 	 Demand: 204
+	Edge: 25 <--> 27 	 Freq: 14.0 	 Demand: 162
+	Edge: 26 <--> 27 	 Freq: 14.0 	 Demand: 162
+	Edge: 69 <--> 26 	 Freq: 14.0 	 Demand: 162
+	Edge: 332 <--> 359 	 Freq: 14.0 	 Demand: 162
+	Edge: 360 <--> 361 	 Freq: 14.0 	 Demand: 204
+	Edge: 66 <--> 172 	 Freq: 14.0 	 Demand: 162
+	Edge: 94 <--> 169 	 Freq: 14.0 	 Demand: 162
+	Edge: 93 <--> 268 	 Freq: 14.0 	 Demand: 162
+	Edge: 94 <--> 66 	 Freq: 14.0 	 Demand: 162
+	Edge: 92 <--> 173 	 Freq: 14.0 	 Demand: 162
+	Edge: 67 <--> 65 	 Freq: 14.0 	 Demand: 204
+	Edge: 274 <--> 68 	 Freq: 14.0 	 Demand: 323
+	Edge: 274 <--> 275 	 Freq: 14.0 	 Demand: 527
+	Edge: 275 <--> 277 	 Freq: 14.0 	 Demand: 94
+	Edge: 275 <--> 276 	 Freq: 14.0 	 Demand: 323
+	Edge: 108 <--> 228 	 Freq: 14.0 	 Demand: 162
+	Edge: 109 <--> 229 	 Freq: 14.0 	 Demand: 340
+	Edge: 101 <--> 181 	 Freq: 14.0 	 Demand: 204
+	Edge: 100 <--> 182 	 Freq: 14.0 	 Demand: 119
+	Edge: 156 <--> 157 	 Freq: 14.0 	 Demand: 162
+	Edge: 86 <--> 88 	 Freq: 14.0 	 Demand: 323
+	Edge: 345 <--> 90 	 Freq: 14.0 	 Demand: 723
+	Edge: 91 <--> 224 	 Freq: 14.0 	 Demand: 162
+	Edge: 90 <--> 91 	 Freq: 14.0 	 Demand: 204
+	Edge: 90 <--> 103 	 Freq: 14.0 	 Demand: 94
+	Edge: 128 <--> 129 	 Freq: 14.0 	 Demand: 119
+	Edge: 160 <--> 32 	 Freq: 14.0 	 Demand: 323
+	Edge: 160 <--> 161 	 Freq: 14.0 	 Demand: 162
+	Edge: 367 <--> 368 	 Freq: 14.0 	 Demand: 162
+	Edge: 369 <--> 370 	 Freq: 14.0 	 Demand: 162
+	Edge: 128 <--> 32 	 Freq: 14.0 	 Demand: 366
+	Edge: 34 <--> 35 	 Freq: 14.0 	 Demand: 162
+	Edge: 35 <--> 353 	 Freq: 14.0 	 Demand: 162
+	Edge: 365 <--> 366 	 Freq: 14.0 	 Demand: 323
+	Edge: 159 <--> 365 	 Freq: 14.0 	 Demand: 408
+	Edge: 337 <--> 223 	 Freq: 14.0 	 Demand: 323
+	Edge: 363 <--> 337 	 Freq: 14.0 	 Demand: 204
+	Edge: 363 <--> 364 	 Freq: 14.0 	 Demand: 162
+	Edge: 31 <--> 363 	 Freq: 14.0 	 Demand: 340
+	Edge: 184 <--> 185 	 Freq: 14.0 	 Demand: 162
+	Edge: 222 <--> 362 	 Freq: 14.0 	 Demand: 162
+	Edge: 30 <--> 31 	 Freq: 14.0 	 Demand: 162
+	Edge: 379 <--> 380 	 Freq: 14.0 	 Demand: 323
+	Edge: 148 <--> 221 	 Freq: 14.0 	 Demand: 323
+	Edge: 148 <--> 149 	 Freq: 14.0 	 Demand: 162
+	Edge: 349 <--> 382 	 Freq: 14.0 	 Demand: 323
+	Edge: 347 <--> 377 	 Freq: 14.0 	 Demand: 162
+	Edge: 382 <--> 383 	 Freq: 14.0 	 Demand: 162
+	Edge: 376 <--> 378 	 Freq: 14.0 	 Demand: 162
+	Edge: 347 <--> 348 	 Freq: 14.0 	 Demand: 162
+	Edge: 141 <--> 142 	 Freq: 14.0 	 Demand: 204
+	Edge: 322 <--> 0 	 Freq: 14.0 	 Demand: 162
+	Route: 4
+	Route length (24037.0) and demand (11911)
+	Edge: 55 <--> 321 	 Freq: 14.0 	 Demand: 485
+	Edge: 320 <--> 356 	 Freq: 14.0 	 Demand: 323
+	Edge: 350 <--> 352 	 Freq: 14.0 	 Demand: 94
+	Edge: 350 <--> 351 	 Freq: 14.0 	 Demand: 604
+	Edge: 351 <--> 386 	 Freq: 14.0 	 Demand: 94
+	Edge: 351 <--> 47 	 Freq: 14.0 	 Demand: 119
+	Edge: 47 <--> 326 	 Freq: 14.0 	 Demand: 281
+	Edge: 47 <--> 48 	 Freq: 14.0 	 Demand: 323
+	Edge: 8 <--> 9 	 Freq: 14.0 	 Demand: 94
+	Edge: 302 <--> 259 	 Freq: 14.0 	 Demand: 740
+	Edge: 281 <--> 282 	 Freq: 14.0 	 Demand: 485
+	Edge: 282 <--> 303 	 Freq: 14.0 	 Demand: 162
+	Edge: 303 <--> 250 	 Freq: 14.0 	 Demand: 765
+	Edge: 241 <--> 242 	 Freq: 14.0 	 Demand: 417
+	Edge: 251 <--> 252 	 Freq: 14.0 	 Demand: 255
+	Edge: 250 <--> 241 	 Freq: 14.0 	 Demand: 757
+	Edge: 257 <--> 258 	 Freq: 7.0 	 Demand: 204
+	Edge: 207 <--> 248 	 Freq: 14.0 	 Demand: 162
+	Edge: 206 <--> 306 	 Freq: 7.0 	 Demand: 655
+	Edge: 257 <--> 258 	 Freq: 14.0 	 Demand: 774
+	Edge: 6 <--> 7 	 Freq: 14.0 	 Demand: 204
+	Edge: 7 <--> 235 	 Freq: 14.0 	 Demand: 162
+	Edge: 143 <--> 144 	 Freq: 14.0 	 Demand: 340
+	Edge: 288 <--> 315 	 Freq: 14.0 	 Demand: 94
+	Edge: 307 <--> 310 	 Freq: 14.0 	 Demand: 94
+	Edge: 262 <--> 318 	 Freq: 14.0 	 Demand: 655
+	Edge: 261 <--> 262 	 Freq: 14.0 	 Demand: 94
+	Edge: 384 <--> 385 	 Freq: 14.0 	 Demand: 162
+	Edge: 346 <--> 384 	 Freq: 14.0 	 Demand: 323
+	Edge: 77 <--> 78 	 Freq: 14.0 	 Demand: 646
+	Edge: 79 <--> 338 	 Freq: 14.0 	 Demand: 323
+	Edge: 337 <--> 74 	 Freq: 14.0 	 Demand: 162
+	Edge: 162 <--> 375 	 Freq: 14.0 	 Demand: 655
+	Edge: 162 <--> 75 	 Freq: 14.0 	 Demand: 204
+	Route: 5
+	Route length (10116.0) and demand (4771)
+	Edge: 29 <--> 40 	 Freq: 14.0 	 Demand: 255
+	Edge: 40 <--> 38 	 Freq: 14.0 	 Demand: 340
+	Edge: 40 <--> 36 	 Freq: 14.0 	 Demand: 323
+	Edge: 168 <--> 36 	 Freq: 14.0 	 Demand: 1939
+	Edge: 269 <--> 270 	 Freq: 14.0 	 Demand: 162
+	Edge: 265 <--> 266 	 Freq: 14.0 	 Demand: 162
+	Edge: 165 <--> 166 	 Freq: 14.0 	 Demand: 340
+	Edge: 167 <--> 269 	 Freq: 14.0 	 Demand: 680
+	Edge: 37 <--> 335 	 Freq: 14.0 	 Demand: 366
+	Edge: 335 <--> 336 	 Freq: 7.0 	 Demand: 204
+
+Day 3, number of edges 2, number of routes 1
+
+	Edges:
+
+	Edge: 0 <--> 29 	 Freq: 7.0 	 Demand: 4089
+	Edge: 333 <--> 334 	 Freq: 7.0 	 Demand: 1964
+
+	Routes:
+
+	Route: 1
+	Route length (5988.0) and demand (6053)
+	Edge: 333 <--> 334 	 Freq: 7.0 	 Demand: 1964
+	Edge: 0 <--> 29 	 Freq: 7.0 	 Demand: 4089
+
+Day 4, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 5, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 6, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 7, number of edges 5, number of routes 1
+
+	Edges:
+
+	Edge: 296 <--> 260 	 Freq: 7.0 	 Demand: 204
+	Edge: 263 <--> 273 	 Freq: 7.0 	 Demand: 561
+	Edge: 273 <--> 126 	 Freq: 7.0 	 Demand: 655
+	Edge: 316 <--> 286 	 Freq: 7.0 	 Demand: 655
+	Edge: 84 <--> 85 	 Freq: 7.0 	 Demand: 162
+
+	Routes:
+
+	Route: 1
+	Route length (19301.0) and demand (2237)
+	Edge: 316 <--> 286 	 Freq: 7.0 	 Demand: 655
+	Edge: 296 <--> 260 	 Freq: 7.0 	 Demand: 204
+	Edge: 273 <--> 126 	 Freq: 7.0 	 Demand: 655
+	Edge: 263 <--> 273 	 Freq: 7.0 	 Demand: 561
+	Edge: 84 <--> 85 	 Freq: 7.0 	 Demand: 162
+
+Day 8, number of edges 6, number of routes 1
+
+	Edges:
+
+	Edge: 290 <--> 295 	 Freq: 7.0 	 Demand: 655
+	Edge: 290 <--> 236 	 Freq: 7.0 	 Demand: 680
+	Edge: 284 <--> 301 	 Freq: 7.0 	 Demand: 162
+	Edge: 302 <--> 259 	 Freq: 7.0 	 Demand: 561
+	Edge: 120 <--> 121 	 Freq: 7.0 	 Demand: 1122
+	Edge: 43 <--> 39 	 Freq: 7.0 	 Demand: 162
+
+	Routes:
+
+	Route: 1
+	Route length (12461.0) and demand (3342)
+	Edge: 43 <--> 39 	 Freq: 7.0 	 Demand: 162
+	Edge: 284 <--> 301 	 Freq: 7.0 	 Demand: 162
+	Edge: 290 <--> 236 	 Freq: 7.0 	 Demand: 680
+	Edge: 120 <--> 121 	 Freq: 7.0 	 Demand: 1122
+	Edge: 290 <--> 295 	 Freq: 7.0 	 Demand: 655
+	Edge: 302 <--> 259 	 Freq: 7.0 	 Demand: 561
+
+Day 9, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 0 <--> 29 	 Freq: 7.0 	 Demand: 4089
+
+	Routes:
+
+	Route: 1
+	Route length (958.0) and demand (4089)
+	Edge: 0 <--> 29 	 Freq: 7.0 	 Demand: 4089
+
+Day 10, number of edges 4, number of routes 1
+
+	Edges:
+
+	Edge: 257 <--> 258 	 Freq: 7.0 	 Demand: 204
+	Edge: 342 <--> 343 	 Freq: 7.0 	 Demand: 561
+	Edge: 206 <--> 306 	 Freq: 7.0 	 Demand: 655
+	Edge: 335 <--> 336 	 Freq: 7.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (20794.0) and demand (1624)
+	Edge: 206 <--> 306 	 Freq: 7.0 	 Demand: 655
+	Edge: 257 <--> 258 	 Freq: 7.0 	 Demand: 204
+	Edge: 342 <--> 343 	 Freq: 7.0 	 Demand: 561
+	Edge: 335 <--> 336 	 Freq: 7.0 	 Demand: 204
+
+Day 11, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 333 <--> 334 	 Freq: 7.0 	 Demand: 1964
+
+	Routes:
+
+	Route: 1
+	Route length (5237.0) and demand (1964)
+	Edge: 333 <--> 334 	 Freq: 7.0 	 Demand: 1964
+
+Day 12, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 13, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+
+
+
+Phase 1 ended! Current time: 2026-08-09 03:39:44.933429
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 5261158.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.2968730926513672
+Average iteration time: 0.2968730926513672
+Current score: 5261158.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 03:39:46.167806
+Phase 2 (only move_services) Report:
+Iteration count: 1
+Last iteration time: 0.2968730926513672
+Average iteration time: 0.2968730926513672
+Current score: 5261158.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.07812738418579102
+Average iteration time: 0.07812738418579102
+Current score: 5259516.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 03:40:25.355307
+Phase 3 (using only swap_services) Report:
+Iteration count: 12
+Last iteration time: 0.0781245231628418
+Average iteration time: 0.5117187897364298
+Current score: 5256089.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.015619039535522461
+Average iteration time: 0.015619039535522461
+Current score: 5256089.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.015619039535522461
+Average iteration time: 0.015619039535522461
+Current score: 5256089.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.0078095197677612305
+Current score: 5256089.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 9.018228809038797
+Current score: 5252104.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.0
+Average iteration time: 7.729910407747541
+Current score: 5252104.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 6.7636716067790985
+Current score: 5252104.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.015631437301635742
+Average iteration time: 6.013889365726047
+Current score: 5252104.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 5.412500429153441
+Current score: 5252104.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.0
+Average iteration time: 4.920454935594037
+Current score: 5252104.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 4.510417024294534
+Current score: 5252104.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 4.16346186857957
+Current score: 5252104.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 03:41:49.074062
+Phase 4 (routing operators) Report:
+Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 4.16346186857957
+Current score: 5252104.0
+
+
+Local search report:
+Iteration count: 2 iterations
+Last iteration time: 124.14063262939453 seconds
+Iteration average time: 119.50781285762787 seconds
+Current score: 5252104.0
+
+Phase 1 ended! Current time: 2026-08-09 03:41:49.074062
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 5252104.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.2812502384185791
+Average iteration time: 0.2812502384185791
+Current score: 5252104.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 03:41:50.230301
+Phase 2 (only move_services) Report:
+Iteration count: 1
+Last iteration time: 0.2812502384185791
+Average iteration time: 0.2812502384185791
+Current score: 5252104.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.5781245231628418
+Average iteration time: 0.5781245231628418
+Current score: 5251769.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 03:42:24.761561
+Phase 3 (using only swap_services) Report:
+Iteration count: 2
+Last iteration time: 0.07813096046447754
+Average iteration time: 0.32812774181365967
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.01562643051147461
+Average iteration time: 0.01562643051147461
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.01562643051147461
+Average iteration time: 0.01562643051147461
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.007813215255737305
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.01563119888305664
+Average iteration time: 0.010419209798177082
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.0
+Average iteration time: 0.007814407348632812
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.0
+Average iteration time: 0.00625152587890625
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.005209604899088542
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.0
+Average iteration time: 0.004465375627790179
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.003907203674316406
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.0
+Average iteration time: 0.0034730699327256945
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 0.003125762939453125
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 03:42:54.699057
+Phase 4 (routing operators) Report:
+Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 0.003125762939453125
+Current score: 5251769.0
+
+
+Local search report:
+Iteration count: 3 iterations
+Last iteration time: 65.62499570846558 seconds
+Iteration average time: 101.5468738079071 seconds
+Current score: 5251769.0
+
+Phase 1 ended! Current time: 2026-08-09 03:42:54.699057
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 5251769.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.2812521457672119
+Average iteration time: 0.2812521457672119
+Current score: 5251769.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 03:42:55.902181
+Phase 2 (only move_services) Report:
+Iteration count: 1
+Last iteration time: 0.2812521457672119
+Average iteration time: 0.2812521457672119
+Current score: 5251769.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.06250405311584473
+Average iteration time: 0.06250405311584473
+Current score: 5251769.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 03:43:29.605313
+Phase 3 (using only swap_services) Report:
+Iteration count: 1
+Last iteration time: 0.06250405311584473
+Average iteration time: 0.06250405311584473
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.0156252384185791
+Average iteration time: 0.0156252384185791
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.0156252384185791
+Average iteration time: 0.0156252384185791
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.015625953674316406
+Average iteration time: 0.015625596046447754
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.015626907348632812
+Average iteration time: 0.01562603314717611
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.0
+Average iteration time: 0.011719524860382082
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.0
+Average iteration time: 0.009375619888305665
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.007813016573588055
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.0
+Average iteration time: 0.006696871348789761
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.005859762430191041
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.0
+Average iteration time: 0.00520867771572537
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 0.0046878099441528326
+Current score: 5251769.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 03:43:58.886556
+Phase 4 (routing operators) Report:
+Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 0.0046878099441528326
+Current score: 5251769.0
+
+
+Local search report:
+Iteration count: 4 iterations
+Last iteration time: 64.1874988079071 seconds
+Iteration average time: 92.2070300579071 seconds
+Current score: 5251769.0
+
+Local search ended after 4 iterations.
+Last iteration time: 64.1874988079071 seconds
+Iteration average time: 92.2070300579071 seconds
+Original score: 18273399.0
+Current score: 5251769.0
+
+----- MARKER - SOLUTION PRINTED BELOW -------
+
+Day 0, number of edges 77, number of routes 5
+
+	Edges:
+
+	Edge: 10 <--> 11 	 Freq: 14.0 	 Demand: 162
+	Edge: 70 <--> 10 	 Freq: 14.0 	 Demand: 204
+	Edge: 70 <--> 63 	 Freq: 14.0 	 Demand: 94
+	Edge: 20 <--> 70 	 Freq: 14.0 	 Demand: 604
+	Edge: 233 <--> 234 	 Freq: 14.0 	 Demand: 1012
+	Edge: 243 <--> 233 	 Freq: 14.0 	 Demand: 323
+	Edge: 294 <--> 243 	 Freq: 14.0 	 Demand: 969
+	Edge: 293 <--> 294 	 Freq: 14.0 	 Demand: 927
+	Edge: 119 <--> 293 	 Freq: 14.0 	 Demand: 646
+	Edge: 294 <--> 245 	 Freq: 14.0 	 Demand: 2559
+	Edge: 245 <--> 193 	 Freq: 14.0 	 Demand: 162
+	Edge: 193 <--> 244 	 Freq: 14.0 	 Demand: 646
+	Edge: 293 <--> 289 	 Freq: 14.0 	 Demand: 3978
+	Edge: 5 <--> 289 	 Freq: 14.0 	 Demand: 204
+	Edge: 4 <--> 5 	 Freq: 14.0 	 Demand: 162
+	Edge: 232 <--> 4 	 Freq: 14.0 	 Demand: 162
+	Edge: 3 <--> 4 	 Freq: 14.0 	 Demand: 1054
+	Edge: 289 <--> 191 	 Freq: 14.0 	 Demand: 162
+	Edge: 191 <--> 188 	 Freq: 14.0 	 Demand: 485
+	Edge: 188 <--> 190 	 Freq: 14.0 	 Demand: 417
+	Edge: 188 <--> 189 	 Freq: 14.0 	 Demand: 689
+	Edge: 236 <--> 238 	 Freq: 14.0 	 Demand: 162
+	Edge: 238 <--> 297 	 Freq: 14.0 	 Demand: 162
+	Edge: 236 <--> 237 	 Freq: 14.0 	 Demand: 1003
+	Edge: 290 <--> 236 	 Freq: 14.0 	 Demand: 281
+	Edge: 290 <--> 283 	 Freq: 14.0 	 Demand: 1624
+	Edge: 283 <--> 284 	 Freq: 14.0 	 Demand: 323
+	Edge: 283 <--> 308 	 Freq: 14.0 	 Demand: 969
+	Edge: 308 <--> 302 	 Freq: 14.0 	 Demand: 731
+	Edge: 284 <--> 291 	 Freq: 14.0 	 Demand: 204
+	Edge: 284 <--> 301 	 Freq: 14.0 	 Demand: 1819
+	Edge: 302 <--> 176 	 Freq: 14.0 	 Demand: 1335
+	Edge: 176 <--> 177 	 Freq: 14.0 	 Demand: 323
+	Edge: 313 <--> 264 	 Freq: 14.0 	 Demand: 204
+	Edge: 313 <--> 314 	 Freq: 14.0 	 Demand: 162
+	Edge: 122 <--> 120 	 Freq: 14.0 	 Demand: 162
+	Edge: 120 <--> 192 	 Freq: 14.0 	 Demand: 162
+	Edge: 125 <--> 192 	 Freq: 14.0 	 Demand: 646
+	Edge: 328 <--> 354 	 Freq: 14.0 	 Demand: 323
+	Edge: 327 <--> 328 	 Freq: 14.0 	 Demand: 646
+	Edge: 327 <--> 82 	 Freq: 14.0 	 Demand: 323
+	Edge: 327 <--> 212 	 Freq: 14.0 	 Demand: 850
+	Edge: 212 <--> 374 	 Freq: 14.0 	 Demand: 323
+	Edge: 82 <--> 21 	 Freq: 14.0 	 Demand: 162
+	Edge: 21 <--> 23 	 Freq: 14.0 	 Demand: 162
+	Edge: 82 <--> 23 	 Freq: 14.0 	 Demand: 485
+	Edge: 87 <--> 195 	 Freq: 14.0 	 Demand: 485
+	Edge: 195 <--> 42 	 Freq: 14.0 	 Demand: 162
+	Edge: 86 <--> 87 	 Freq: 14.0 	 Demand: 323
+	Edge: 323 <--> 86 	 Freq: 14.0 	 Demand: 162
+	Edge: 42 <--> 344 	 Freq: 14.0 	 Demand: 2406
+	Edge: 344 <--> 336 	 Freq: 14.0 	 Demand: 162
+	Edge: 323 <--> 324 	 Freq: 14.0 	 Demand: 408
+	Edge: 195 <--> 196 	 Freq: 14.0 	 Demand: 442
+	Edge: 43 <--> 44 	 Freq: 14.0 	 Demand: 851
+	Edge: 158 <--> 323 	 Freq: 14.0 	 Demand: 1105
+	Edge: 38 <--> 39 	 Freq: 14.0 	 Demand: 1105
+	Edge: 325 <--> 158 	 Freq: 14.0 	 Demand: 740
+	Edge: 85 <--> 325 	 Freq: 14.0 	 Demand: 162
+	Edge: 84 <--> 85 	 Freq: 14.0 	 Demand: 162
+	Edge: 24 <--> 84 	 Freq: 14.0 	 Demand: 162
+	Edge: 292 <--> 197 	 Freq: 14.0 	 Demand: 162
+	Edge: 194 <--> 271 	 Freq: 14.0 	 Demand: 731
+	Edge: 335 <--> 336 	 Freq: 14.0 	 Demand: 2440
+	Edge: 219 <--> 381 	 Freq: 14.0 	 Demand: 366
+	Edge: 64 <--> 133 	 Freq: 14.0 	 Demand: 162
+	Edge: 290 <--> 236 	 Freq: 7.0 	 Demand: 680
+	Edge: 284 <--> 301 	 Freq: 7.0 	 Demand: 162
+	Edge: 302 <--> 259 	 Freq: 7.0 	 Demand: 561
+	Edge: 120 <--> 121 	 Freq: 7.0 	 Demand: 1122
+	Edge: 290 <--> 295 	 Freq: 14.0 	 Demand: 162
+	Edge: 71 <--> 313 	 Freq: 14.0 	 Demand: 162
+	Edge: 124 <--> 125 	 Freq: 14.0 	 Demand: 663
+	Edge: 291 <--> 300 	 Freq: 14.0 	 Demand: 2142
+	Edge: 259 <--> 264 	 Freq: 14.0 	 Demand: 162
+	Edge: 43 <--> 39 	 Freq: 7.0 	 Demand: 162
+	Edge: 290 <--> 295 	 Freq: 7.0 	 Demand: 655
+
+	Routes:
+
+	Route: 1
+	Route length (10374.0) and demand (11234)
+	Edge: 290 <--> 236 	 Freq: 14.0 	 Demand: 281
+	Edge: 236 <--> 238 	 Freq: 14.0 	 Demand: 162
+	Edge: 238 <--> 297 	 Freq: 14.0 	 Demand: 162
+	Edge: 236 <--> 237 	 Freq: 14.0 	 Demand: 1003
+	Edge: 290 <--> 236 	 Freq: 7.0 	 Demand: 680
+	Edge: 290 <--> 295 	 Freq: 14.0 	 Demand: 162
+	Edge: 124 <--> 125 	 Freq: 14.0 	 Demand: 663
+	Edge: 125 <--> 192 	 Freq: 14.0 	 Demand: 646
+	Edge: 120 <--> 192 	 Freq: 14.0 	 Demand: 162
+	Edge: 293 <--> 289 	 Freq: 14.0 	 Demand: 3978
+	Edge: 289 <--> 191 	 Freq: 14.0 	 Demand: 162
+	Edge: 191 <--> 188 	 Freq: 14.0 	 Demand: 485
+	Edge: 188 <--> 189 	 Freq: 14.0 	 Demand: 689
+	Edge: 188 <--> 190 	 Freq: 14.0 	 Demand: 417
+	Edge: 5 <--> 289 	 Freq: 14.0 	 Demand: 204
+	Edge: 4 <--> 5 	 Freq: 14.0 	 Demand: 162
+	Edge: 232 <--> 4 	 Freq: 14.0 	 Demand: 162
+	Edge: 3 <--> 4 	 Freq: 14.0 	 Demand: 1054
+	Route: 2
+	Route length (5953.0) and demand (4500)
+	Edge: 20 <--> 70 	 Freq: 14.0 	 Demand: 604
+	Edge: 10 <--> 11 	 Freq: 14.0 	 Demand: 162
+	Edge: 70 <--> 10 	 Freq: 14.0 	 Demand: 204
+	Edge: 70 <--> 63 	 Freq: 14.0 	 Demand: 94
+	Edge: 64 <--> 133 	 Freq: 14.0 	 Demand: 162
+	Edge: 328 <--> 354 	 Freq: 14.0 	 Demand: 323
+	Edge: 327 <--> 328 	 Freq: 14.0 	 Demand: 646
+	Edge: 327 <--> 212 	 Freq: 14.0 	 Demand: 850
+	Edge: 212 <--> 374 	 Freq: 14.0 	 Demand: 323
+	Edge: 327 <--> 82 	 Freq: 14.0 	 Demand: 323
+	Edge: 82 <--> 23 	 Freq: 14.0 	 Demand: 485
+	Edge: 82 <--> 21 	 Freq: 14.0 	 Demand: 162
+	Edge: 21 <--> 23 	 Freq: 14.0 	 Demand: 162
+	Route: 3
+	Route length (9434.0) and demand (9259)
+	Edge: 291 <--> 300 	 Freq: 14.0 	 Demand: 2142
+	Edge: 284 <--> 291 	 Freq: 14.0 	 Demand: 204
+	Edge: 284 <--> 301 	 Freq: 14.0 	 Demand: 1819
+	Edge: 284 <--> 301 	 Freq: 7.0 	 Demand: 162
+	Edge: 283 <--> 284 	 Freq: 14.0 	 Demand: 323
+	Edge: 283 <--> 308 	 Freq: 14.0 	 Demand: 969
+	Edge: 308 <--> 302 	 Freq: 14.0 	 Demand: 731
+	Edge: 176 <--> 177 	 Freq: 14.0 	 Demand: 323
+	Edge: 302 <--> 176 	 Freq: 14.0 	 Demand: 1335
+	Edge: 302 <--> 259 	 Freq: 7.0 	 Demand: 561
+	Edge: 259 <--> 264 	 Freq: 14.0 	 Demand: 162
+	Edge: 313 <--> 264 	 Freq: 14.0 	 Demand: 204
+	Edge: 313 <--> 314 	 Freq: 14.0 	 Demand: 162
+	Edge: 71 <--> 313 	 Freq: 14.0 	 Demand: 162
+	Route: 4
+	Route length (7242.0) and demand (11805)
+	Edge: 24 <--> 84 	 Freq: 14.0 	 Demand: 162
+	Edge: 84 <--> 85 	 Freq: 14.0 	 Demand: 162
+	Edge: 85 <--> 325 	 Freq: 14.0 	 Demand: 162
+	Edge: 325 <--> 158 	 Freq: 14.0 	 Demand: 740
+	Edge: 158 <--> 323 	 Freq: 14.0 	 Demand: 1105
+	Edge: 323 <--> 324 	 Freq: 14.0 	 Demand: 408
+	Edge: 323 <--> 86 	 Freq: 14.0 	 Demand: 162
+	Edge: 86 <--> 87 	 Freq: 14.0 	 Demand: 323
+	Edge: 87 <--> 195 	 Freq: 14.0 	 Demand: 485
+	Edge: 195 <--> 196 	 Freq: 14.0 	 Demand: 442
+	Edge: 195 <--> 42 	 Freq: 14.0 	 Demand: 162
+	Edge: 42 <--> 344 	 Freq: 14.0 	 Demand: 2406
+	Edge: 344 <--> 336 	 Freq: 14.0 	 Demand: 162
+	Edge: 335 <--> 336 	 Freq: 14.0 	 Demand: 2440
+	Edge: 43 <--> 44 	 Freq: 14.0 	 Demand: 851
+	Edge: 43 <--> 39 	 Freq: 7.0 	 Demand: 162
+	Edge: 219 <--> 381 	 Freq: 14.0 	 Demand: 366
+	Edge: 38 <--> 39 	 Freq: 14.0 	 Demand: 1105
+	Route: 5
+	Route length (9998.0) and demand (11700)
+	Edge: 120 <--> 121 	 Freq: 7.0 	 Demand: 1122
+	Edge: 122 <--> 120 	 Freq: 14.0 	 Demand: 162
+	Edge: 294 <--> 245 	 Freq: 14.0 	 Demand: 2559
+	Edge: 193 <--> 244 	 Freq: 14.0 	 Demand: 646
+	Edge: 194 <--> 271 	 Freq: 14.0 	 Demand: 731
+	Edge: 245 <--> 193 	 Freq: 14.0 	 Demand: 162
+	Edge: 243 <--> 233 	 Freq: 14.0 	 Demand: 323
+	Edge: 233 <--> 234 	 Freq: 14.0 	 Demand: 1012
+	Edge: 294 <--> 243 	 Freq: 14.0 	 Demand: 969
+	Edge: 293 <--> 294 	 Freq: 14.0 	 Demand: 927
+	Edge: 119 <--> 293 	 Freq: 14.0 	 Demand: 646
+	Edge: 290 <--> 295 	 Freq: 7.0 	 Demand: 655
+	Edge: 290 <--> 283 	 Freq: 14.0 	 Demand: 1624
+	Edge: 292 <--> 197 	 Freq: 14.0 	 Demand: 162
+
+Day 1, number of edges 77, number of routes 5
+
+	Edges:
+
+	Edge: 295 <--> 305 	 Freq: 14.0 	 Demand: 323
+	Edge: 42 <--> 43 	 Freq: 14.0 	 Demand: 1131
+	Edge: 43 <--> 39 	 Freq: 14.0 	 Demand: 817
+	Edge: 255 <--> 239 	 Freq: 14.0 	 Demand: 162
+	Edge: 239 <--> 240 	 Freq: 14.0 	 Demand: 485
+	Edge: 260 <--> 255 	 Freq: 14.0 	 Demand: 850
+	Edge: 296 <--> 260 	 Freq: 14.0 	 Demand: 1819
+	Edge: 239 <--> 256 	 Freq: 14.0 	 Demand: 1734
+	Edge: 118 <--> 255 	 Freq: 14.0 	 Demand: 1938
+	Edge: 279 <--> 253 	 Freq: 14.0 	 Demand: 646
+	Edge: 253 <--> 254 	 Freq: 14.0 	 Demand: 323
+	Edge: 279 <--> 280 	 Freq: 14.0 	 Demand: 808
+	Edge: 263 <--> 280 	 Freq: 14.0 	 Demand: 1615
+	Edge: 263 <--> 273 	 Freq: 14.0 	 Demand: 825
+	Edge: 273 <--> 126 	 Freq: 14.0 	 Demand: 1751
+	Edge: 126 <--> 127 	 Freq: 14.0 	 Demand: 808
+	Edge: 51 <--> 58 	 Freq: 14.0 	 Demand: 323
+	Edge: 51 <--> 52 	 Freq: 14.0 	 Demand: 485
+	Edge: 52 <--> 59 	 Freq: 14.0 	 Demand: 366
+	Edge: 52 <--> 53 	 Freq: 14.0 	 Demand: 323
+	Edge: 152 <--> 53 	 Freq: 14.0 	 Demand: 162
+	Edge: 53 <--> 54 	 Freq: 14.0 	 Demand: 94
+	Edge: 54 <--> 340 	 Freq: 14.0 	 Demand: 485
+	Edge: 340 <--> 341 	 Freq: 14.0 	 Demand: 646
+	Edge: 152 <--> 153 	 Freq: 14.0 	 Demand: 162
+	Edge: 72 <--> 54 	 Freq: 14.0 	 Demand: 1131
+	Edge: 72 <--> 339 	 Freq: 14.0 	 Demand: 1615
+	Edge: 102 <--> 180 	 Freq: 14.0 	 Demand: 204
+	Edge: 113 <--> 110 	 Freq: 14.0 	 Demand: 366
+	Edge: 112 <--> 113 	 Freq: 14.0 	 Demand: 621
+	Edge: 112 <--> 272 	 Freq: 14.0 	 Demand: 867
+	Edge: 110 <--> 111 	 Freq: 14.0 	 Demand: 1437
+	Edge: 98 <--> 99 	 Freq: 14.0 	 Demand: 417
+	Edge: 335 <--> 98 	 Freq: 14.0 	 Demand: 527
+	Edge: 211 <--> 210 	 Freq: 14.0 	 Demand: 162
+	Edge: 210 <--> 208 	 Freq: 14.0 	 Demand: 680
+	Edge: 208 <--> 209 	 Freq: 14.0 	 Demand: 340
+	Edge: 170 <--> 211 	 Freq: 14.0 	 Demand: 162
+	Edge: 170 <--> 171 	 Freq: 14.0 	 Demand: 204
+	Edge: 50 <--> 57 	 Freq: 14.0 	 Demand: 527
+	Edge: 49 <--> 50 	 Freq: 14.0 	 Demand: 1335
+	Edge: 28 <--> 1 	 Freq: 14.0 	 Demand: 323
+	Edge: 19 <--> 15 	 Freq: 14.0 	 Demand: 408
+	Edge: 18 <--> 19 	 Freq: 14.0 	 Demand: 162
+	Edge: 15 <--> 16 	 Freq: 14.0 	 Demand: 366
+	Edge: 17 <--> 16 	 Freq: 14.0 	 Demand: 646
+	Edge: 17 <--> 225 	 Freq: 14.0 	 Demand: 502
+	Edge: 19 <--> 226 	 Freq: 14.0 	 Demand: 162
+	Edge: 14 <--> 15 	 Freq: 14.0 	 Demand: 527
+	Edge: 278 <--> 14 	 Freq: 14.0 	 Demand: 646
+	Edge: 230 <--> 18 	 Freq: 14.0 	 Demand: 663
+	Edge: 230 <--> 231 	 Freq: 14.0 	 Demand: 204
+	Edge: 107 <--> 230 	 Freq: 14.0 	 Demand: 162
+	Edge: 217 <--> 316 	 Freq: 14.0 	 Demand: 162
+	Edge: 316 <--> 317 	 Freq: 14.0 	 Demand: 162
+	Edge: 216 <--> 217 	 Freq: 14.0 	 Demand: 969
+	Edge: 217 <--> 2 	 Freq: 14.0 	 Demand: 969
+	Edge: 215 <--> 216 	 Freq: 14.0 	 Demand: 1463
+	Edge: 316 <--> 286 	 Freq: 14.0 	 Demand: 578
+	Edge: 285 <--> 286 	 Freq: 14.0 	 Demand: 578
+	Edge: 114 <--> 304 	 Freq: 14.0 	 Demand: 162
+	Edge: 114 <--> 115 	 Freq: 14.0 	 Demand: 867
+	Edge: 178 <--> 179 	 Freq: 14.0 	 Demand: 94
+	Edge: 103 <--> 105 	 Freq: 14.0 	 Demand: 162
+	Edge: 219 <--> 220 	 Freq: 14.0 	 Demand: 366
+	Edge: 159 <--> 365 	 Freq: 14.0 	 Demand: 408
+	Edge: 150 <--> 151 	 Freq: 14.0 	 Demand: 162
+	Edge: 95 <--> 136 	 Freq: 14.0 	 Demand: 162
+	Edge: 296 <--> 260 	 Freq: 7.0 	 Demand: 204
+	Edge: 273 <--> 126 	 Freq: 7.0 	 Demand: 655
+	Edge: 316 <--> 286 	 Freq: 7.0 	 Demand: 655
+	Edge: 123 <--> 298 	 Freq: 14.0 	 Demand: 808
+	Edge: 292 <--> 299 	 Freq: 14.0 	 Demand: 2304
+	Edge: 107 <--> 227 	 Freq: 14.0 	 Demand: 162
+	Edge: 84 <--> 85 	 Freq: 7.0 	 Demand: 162
+	Edge: 263 <--> 273 	 Freq: 7.0 	 Demand: 561
+	Edge: 105 <--> 106 	 Freq: 14.0 	 Demand: 1242
+
+	Routes:
+
+	Route: 1
+	Route length (9364.0) and demand (6846)
+	Edge: 52 <--> 53 	 Freq: 14.0 	 Demand: 323
+	Edge: 52 <--> 59 	 Freq: 14.0 	 Demand: 366
+	Edge: 51 <--> 52 	 Freq: 14.0 	 Demand: 485
+	Edge: 51 <--> 58 	 Freq: 14.0 	 Demand: 323
+	Edge: 50 <--> 57 	 Freq: 14.0 	 Demand: 527
+	Edge: 49 <--> 50 	 Freq: 14.0 	 Demand: 1335
+	Edge: 72 <--> 339 	 Freq: 14.0 	 Demand: 1615
+	Edge: 150 <--> 151 	 Freq: 14.0 	 Demand: 162
+	Edge: 95 <--> 136 	 Freq: 14.0 	 Demand: 162
+	Edge: 170 <--> 171 	 Freq: 14.0 	 Demand: 204
+	Edge: 170 <--> 211 	 Freq: 14.0 	 Demand: 162
+	Edge: 208 <--> 209 	 Freq: 14.0 	 Demand: 340
+	Edge: 210 <--> 208 	 Freq: 14.0 	 Demand: 680
+	Edge: 211 <--> 210 	 Freq: 14.0 	 Demand: 162
+	Route: 2
+	Route length (9648.0) and demand (11104)
+	Edge: 292 <--> 299 	 Freq: 14.0 	 Demand: 2304
+	Edge: 263 <--> 280 	 Freq: 14.0 	 Demand: 1615
+	Edge: 263 <--> 273 	 Freq: 7.0 	 Demand: 561
+	Edge: 273 <--> 126 	 Freq: 14.0 	 Demand: 1751
+	Edge: 126 <--> 127 	 Freq: 14.0 	 Demand: 808
+	Edge: 273 <--> 126 	 Freq: 7.0 	 Demand: 655
+	Edge: 279 <--> 280 	 Freq: 14.0 	 Demand: 808
+	Edge: 253 <--> 254 	 Freq: 14.0 	 Demand: 323
+	Edge: 279 <--> 253 	 Freq: 14.0 	 Demand: 646
+	Edge: 263 <--> 273 	 Freq: 14.0 	 Demand: 825
+	Edge: 123 <--> 298 	 Freq: 14.0 	 Demand: 808
+	Route: 3
+	Route length (10738.0) and demand (8539)
+	Edge: 152 <--> 53 	 Freq: 14.0 	 Demand: 162
+	Edge: 316 <--> 286 	 Freq: 14.0 	 Demand: 578
+	Edge: 28 <--> 1 	 Freq: 14.0 	 Demand: 323
+	Edge: 217 <--> 2 	 Freq: 14.0 	 Demand: 969
+	Edge: 215 <--> 216 	 Freq: 14.0 	 Demand: 1463
+	Edge: 216 <--> 217 	 Freq: 14.0 	 Demand: 969
+	Edge: 217 <--> 316 	 Freq: 14.0 	 Demand: 162
+	Edge: 316 <--> 317 	 Freq: 14.0 	 Demand: 162
+	Edge: 316 <--> 286 	 Freq: 7.0 	 Demand: 655
+	Edge: 285 <--> 286 	 Freq: 14.0 	 Demand: 578
+	Edge: 152 <--> 153 	 Freq: 14.0 	 Demand: 162
+	Edge: 53 <--> 54 	 Freq: 14.0 	 Demand: 94
+	Edge: 72 <--> 54 	 Freq: 14.0 	 Demand: 1131
+	Edge: 54 <--> 340 	 Freq: 14.0 	 Demand: 485
+	Edge: 340 <--> 341 	 Freq: 14.0 	 Demand: 646
+	Route: 4
+	Route length (18247.0) and demand (10046)
+	Edge: 98 <--> 99 	 Freq: 14.0 	 Demand: 417
+	Edge: 335 <--> 98 	 Freq: 14.0 	 Demand: 527
+	Edge: 84 <--> 85 	 Freq: 7.0 	 Demand: 162
+	Edge: 42 <--> 43 	 Freq: 14.0 	 Demand: 1131
+	Edge: 43 <--> 39 	 Freq: 14.0 	 Demand: 817
+	Edge: 219 <--> 220 	 Freq: 14.0 	 Demand: 366
+	Edge: 159 <--> 365 	 Freq: 14.0 	 Demand: 408
+	Edge: 102 <--> 180 	 Freq: 14.0 	 Demand: 204
+	Edge: 103 <--> 105 	 Freq: 14.0 	 Demand: 162
+	Edge: 105 <--> 106 	 Freq: 14.0 	 Demand: 1242
+	Edge: 107 <--> 227 	 Freq: 14.0 	 Demand: 162
+	Edge: 107 <--> 230 	 Freq: 14.0 	 Demand: 162
+	Edge: 230 <--> 231 	 Freq: 14.0 	 Demand: 204
+	Edge: 230 <--> 18 	 Freq: 14.0 	 Demand: 663
+	Edge: 18 <--> 19 	 Freq: 14.0 	 Demand: 162
+	Edge: 19 <--> 226 	 Freq: 14.0 	 Demand: 162
+	Edge: 15 <--> 16 	 Freq: 14.0 	 Demand: 366
+	Edge: 17 <--> 16 	 Freq: 14.0 	 Demand: 646
+	Edge: 17 <--> 225 	 Freq: 14.0 	 Demand: 502
+	Edge: 278 <--> 14 	 Freq: 14.0 	 Demand: 646
+	Edge: 14 <--> 15 	 Freq: 14.0 	 Demand: 527
+	Edge: 19 <--> 15 	 Freq: 14.0 	 Demand: 408
+	Route: 5
+	Route length (11466.0) and demand (11929)
+	Edge: 295 <--> 305 	 Freq: 14.0 	 Demand: 323
+	Edge: 239 <--> 256 	 Freq: 14.0 	 Demand: 1734
+	Edge: 239 <--> 240 	 Freq: 14.0 	 Demand: 485
+	Edge: 255 <--> 239 	 Freq: 14.0 	 Demand: 162
+	Edge: 296 <--> 260 	 Freq: 14.0 	 Demand: 1819
+	Edge: 296 <--> 260 	 Freq: 7.0 	 Demand: 204
+	Edge: 260 <--> 255 	 Freq: 14.0 	 Demand: 850
+	Edge: 118 <--> 255 	 Freq: 14.0 	 Demand: 1938
+	Edge: 178 <--> 179 	 Freq: 14.0 	 Demand: 94
+	Edge: 114 <--> 115 	 Freq: 14.0 	 Demand: 867
+	Edge: 112 <--> 272 	 Freq: 14.0 	 Demand: 867
+	Edge: 112 <--> 113 	 Freq: 14.0 	 Demand: 621
+	Edge: 110 <--> 111 	 Freq: 14.0 	 Demand: 1437
+	Edge: 113 <--> 110 	 Freq: 14.0 	 Demand: 366
+	Edge: 114 <--> 304 	 Freq: 14.0 	 Demand: 162
+
+Day 2, number of edges 140, number of routes 4
+
+	Edges:
+
+	Edge: 302 <--> 259 	 Freq: 14.0 	 Demand: 740
+	Edge: 204 <--> 330 	 Freq: 14.0 	 Demand: 323
+	Edge: 145 <--> 146 	 Freq: 14.0 	 Demand: 94
+	Edge: 37 <--> 335 	 Freq: 14.0 	 Demand: 366
+	Edge: 329 <--> 205 	 Freq: 14.0 	 Demand: 162
+	Edge: 80 <--> 355 	 Freq: 14.0 	 Demand: 485
+	Edge: 90 <--> 103 	 Freq: 14.0 	 Demand: 94
+	Edge: 60 <--> 147 	 Freq: 14.0 	 Demand: 162
+	Edge: 257 <--> 258 	 Freq: 14.0 	 Demand: 774
+	Edge: 77 <--> 78 	 Freq: 14.0 	 Demand: 646
+	Edge: 35 <--> 353 	 Freq: 14.0 	 Demand: 162
+	Edge: 34 <--> 35 	 Freq: 14.0 	 Demand: 162
+	Edge: 141 <--> 142 	 Freq: 14.0 	 Demand: 204
+	Edge: 143 <--> 144 	 Freq: 14.0 	 Demand: 340
+	Edge: 100 <--> 182 	 Freq: 14.0 	 Demand: 119
+	Edge: 66 <--> 172 	 Freq: 14.0 	 Demand: 162
+	Edge: 94 <--> 66 	 Freq: 14.0 	 Demand: 162
+	Edge: 94 <--> 169 	 Freq: 14.0 	 Demand: 162
+	Edge: 131 <--> 132 	 Freq: 14.0 	 Demand: 119
+	Edge: 131 <--> 214 	 Freq: 14.0 	 Demand: 162
+	Edge: 214 <--> 186 	 Freq: 14.0 	 Demand: 162
+	Edge: 186 <--> 187 	 Freq: 14.0 	 Demand: 204
+	Edge: 390 <--> 214 	 Freq: 14.0 	 Demand: 655
+	Edge: 91 <--> 224 	 Freq: 14.0 	 Demand: 162
+	Edge: 90 <--> 91 	 Freq: 14.0 	 Demand: 204
+	Edge: 345 <--> 90 	 Freq: 14.0 	 Demand: 723
+	Edge: 343 <--> 200 	 Freq: 14.0 	 Demand: 646
+	Edge: 342 <--> 343 	 Freq: 14.0 	 Demand: 799
+	Edge: 200 <--> 373 	 Freq: 14.0 	 Demand: 323
+	Edge: 200 <--> 174 	 Freq: 14.0 	 Demand: 1760
+	Edge: 174 <--> 175 	 Freq: 14.0 	 Demand: 162
+	Edge: 174 <--> 201 	 Freq: 14.0 	 Demand: 510
+	Edge: 201 <--> 202 	 Freq: 14.0 	 Demand: 162
+	Edge: 351 <--> 47 	 Freq: 14.0 	 Demand: 119
+	Edge: 351 <--> 386 	 Freq: 14.0 	 Demand: 94
+	Edge: 350 <--> 351 	 Freq: 14.0 	 Demand: 604
+	Edge: 47 <--> 326 	 Freq: 14.0 	 Demand: 281
+	Edge: 350 <--> 352 	 Freq: 14.0 	 Demand: 94
+	Edge: 128 <--> 129 	 Freq: 14.0 	 Demand: 119
+	Edge: 128 <--> 32 	 Freq: 14.0 	 Demand: 366
+	Edge: 160 <--> 32 	 Freq: 14.0 	 Demand: 323
+	Edge: 160 <--> 161 	 Freq: 14.0 	 Demand: 162
+	Edge: 307 <--> 310 	 Freq: 14.0 	 Demand: 94
+	Edge: 184 <--> 185 	 Freq: 14.0 	 Demand: 162
+	Edge: 134 <--> 135 	 Freq: 14.0 	 Demand: 408
+	Edge: 303 <--> 250 	 Freq: 14.0 	 Demand: 765
+	Edge: 250 <--> 241 	 Freq: 14.0 	 Demand: 757
+	Edge: 282 <--> 303 	 Freq: 14.0 	 Demand: 162
+	Edge: 281 <--> 282 	 Freq: 14.0 	 Demand: 485
+	Edge: 241 <--> 242 	 Freq: 14.0 	 Demand: 417
+	Edge: 101 <--> 181 	 Freq: 14.0 	 Demand: 204
+	Edge: 167 <--> 269 	 Freq: 14.0 	 Demand: 680
+	Edge: 269 <--> 270 	 Freq: 14.0 	 Demand: 162
+	Edge: 109 <--> 229 	 Freq: 14.0 	 Demand: 340
+	Edge: 139 <--> 140 	 Freq: 14.0 	 Demand: 162
+	Edge: 163 <--> 139 	 Freq: 14.0 	 Demand: 162
+	Edge: 163 <--> 183 	 Freq: 14.0 	 Demand: 162
+	Edge: 76 <--> 163 	 Freq: 14.0 	 Demand: 366
+	Edge: 92 <--> 173 	 Freq: 14.0 	 Demand: 162
+	Edge: 97 <--> 137 	 Freq: 14.0 	 Demand: 94
+	Edge: 97 <--> 138 	 Freq: 14.0 	 Demand: 323
+	Edge: 322 <--> 391 	 Freq: 14.0 	 Demand: 204
+	Edge: 322 <--> 392 	 Freq: 14.0 	 Demand: 561
+	Edge: 322 <--> 0 	 Freq: 14.0 	 Demand: 162
+	Edge: 0 <--> 331 	 Freq: 14.0 	 Demand: 204
+	Edge: 331 <--> 358 	 Freq: 14.0 	 Demand: 340
+	Edge: 0 <--> 29 	 Freq: 14.0 	 Demand: 1871
+	Edge: 29 <--> 40 	 Freq: 14.0 	 Demand: 255
+	Edge: 40 <--> 36 	 Freq: 14.0 	 Demand: 323
+	Edge: 40 <--> 38 	 Freq: 14.0 	 Demand: 340
+	Edge: 168 <--> 36 	 Freq: 14.0 	 Demand: 1939
+	Edge: 207 <--> 248 	 Freq: 14.0 	 Demand: 162
+	Edge: 247 <--> 312 	 Freq: 14.0 	 Demand: 255
+	Edge: 164 <--> 246 	 Freq: 14.0 	 Demand: 255
+	Edge: 164 <--> 249 	 Freq: 14.0 	 Demand: 162
+	Edge: 67 <--> 65 	 Freq: 14.0 	 Demand: 204
+	Edge: 347 <--> 348 	 Freq: 14.0 	 Demand: 162
+	Edge: 347 <--> 377 	 Freq: 14.0 	 Demand: 162
+	Edge: 265 <--> 266 	 Freq: 14.0 	 Demand: 162
+	Edge: 369 <--> 370 	 Freq: 14.0 	 Demand: 162
+	Edge: 154 <--> 155 	 Freq: 14.0 	 Demand: 204
+	Edge: 203 <--> 357 	 Freq: 14.0 	 Demand: 94
+	Edge: 360 <--> 361 	 Freq: 14.0 	 Demand: 204
+	Edge: 45 <--> 81 	 Freq: 14.0 	 Demand: 162
+	Edge: 79 <--> 338 	 Freq: 14.0 	 Demand: 323
+	Edge: 222 <--> 362 	 Freq: 14.0 	 Demand: 162
+	Edge: 371 <--> 372 	 Freq: 14.0 	 Demand: 119
+	Edge: 261 <--> 262 	 Freq: 14.0 	 Demand: 94
+	Edge: 262 <--> 318 	 Freq: 14.0 	 Demand: 655
+	Edge: 320 <--> 356 	 Freq: 14.0 	 Demand: 323
+	Edge: 367 <--> 368 	 Freq: 14.0 	 Demand: 162
+	Edge: 156 <--> 157 	 Freq: 14.0 	 Demand: 162
+	Edge: 213 <--> 389 	 Freq: 14.0 	 Demand: 94
+	Edge: 62 <--> 130 	 Freq: 14.0 	 Demand: 162
+	Edge: 148 <--> 149 	 Freq: 14.0 	 Demand: 162
+	Edge: 148 <--> 221 	 Freq: 14.0 	 Demand: 323
+	Edge: 379 <--> 380 	 Freq: 14.0 	 Demand: 323
+	Edge: 288 <--> 315 	 Freq: 14.0 	 Demand: 94
+	Edge: 6 <--> 7 	 Freq: 14.0 	 Demand: 204
+	Edge: 7 <--> 235 	 Freq: 14.0 	 Demand: 162
+	Edge: 376 <--> 378 	 Freq: 14.0 	 Demand: 162
+	Edge: 349 <--> 382 	 Freq: 14.0 	 Demand: 323
+	Edge: 382 <--> 383 	 Freq: 14.0 	 Demand: 162
+	Edge: 387 <--> 388 	 Freq: 14.0 	 Demand: 162
+	Edge: 387 <--> 56 	 Freq: 14.0 	 Demand: 323
+	Edge: 55 <--> 56 	 Freq: 14.0 	 Demand: 162
+	Edge: 55 <--> 321 	 Freq: 14.0 	 Demand: 485
+	Edge: 93 <--> 268 	 Freq: 14.0 	 Demand: 162
+	Edge: 363 <--> 364 	 Freq: 14.0 	 Demand: 162
+	Edge: 31 <--> 363 	 Freq: 14.0 	 Demand: 340
+	Edge: 30 <--> 31 	 Freq: 14.0 	 Demand: 162
+	Edge: 363 <--> 337 	 Freq: 14.0 	 Demand: 204
+	Edge: 337 <--> 223 	 Freq: 14.0 	 Demand: 323
+	Edge: 337 <--> 74 	 Freq: 14.0 	 Demand: 162
+	Edge: 365 <--> 366 	 Freq: 14.0 	 Demand: 323
+	Edge: 198 <--> 199 	 Freq: 14.0 	 Demand: 255
+	Edge: 25 <--> 27 	 Freq: 14.0 	 Demand: 162
+	Edge: 27 <--> 41 	 Freq: 14.0 	 Demand: 204
+	Edge: 26 <--> 27 	 Freq: 14.0 	 Demand: 162
+	Edge: 69 <--> 26 	 Freq: 14.0 	 Demand: 162
+	Edge: 384 <--> 385 	 Freq: 14.0 	 Demand: 162
+	Edge: 346 <--> 384 	 Freq: 14.0 	 Demand: 323
+	Edge: 275 <--> 276 	 Freq: 14.0 	 Demand: 323
+	Edge: 275 <--> 277 	 Freq: 14.0 	 Demand: 94
+	Edge: 274 <--> 275 	 Freq: 14.0 	 Demand: 527
+	Edge: 274 <--> 68 	 Freq: 14.0 	 Demand: 323
+	Edge: 309 <--> 311 	 Freq: 14.0 	 Demand: 162
+	Edge: 162 <--> 375 	 Freq: 14.0 	 Demand: 655
+	Edge: 162 <--> 75 	 Freq: 14.0 	 Demand: 204
+	Edge: 251 <--> 252 	 Freq: 14.0 	 Demand: 255
+	Edge: 332 <--> 359 	 Freq: 14.0 	 Demand: 162
+	Edge: 86 <--> 88 	 Freq: 14.0 	 Demand: 323
+	Edge: 257 <--> 258 	 Freq: 7.0 	 Demand: 204
+	Edge: 342 <--> 343 	 Freq: 7.0 	 Demand: 561
+	Edge: 206 <--> 306 	 Freq: 7.0 	 Demand: 655
+	Edge: 333 <--> 334 	 Freq: 7.0 	 Demand: 1964
+	Edge: 47 <--> 48 	 Freq: 14.0 	 Demand: 323
+	Edge: 8 <--> 9 	 Freq: 14.0 	 Demand: 94
+	Edge: 108 <--> 228 	 Freq: 14.0 	 Demand: 162
+	Edge: 165 <--> 166 	 Freq: 14.0 	 Demand: 340
+
+	Routes:
+
+	Route: 1
+	Route length (23651.0) and demand (11722)
+	Edge: 333 <--> 334 	 Freq: 7.0 	 Demand: 1964
+	Edge: 201 <--> 202 	 Freq: 14.0 	 Demand: 162
+	Edge: 343 <--> 200 	 Freq: 14.0 	 Demand: 646
+	Edge: 342 <--> 343 	 Freq: 7.0 	 Demand: 561
+	Edge: 342 <--> 343 	 Freq: 14.0 	 Demand: 799
+	Edge: 200 <--> 373 	 Freq: 14.0 	 Demand: 323
+	Edge: 200 <--> 174 	 Freq: 14.0 	 Demand: 1760
+	Edge: 174 <--> 175 	 Freq: 14.0 	 Demand: 162
+	Edge: 174 <--> 201 	 Freq: 14.0 	 Demand: 510
+	Edge: 203 <--> 357 	 Freq: 14.0 	 Demand: 94
+	Edge: 145 <--> 146 	 Freq: 14.0 	 Demand: 94
+	Edge: 204 <--> 330 	 Freq: 14.0 	 Demand: 323
+	Edge: 45 <--> 81 	 Freq: 14.0 	 Demand: 162
+	Edge: 329 <--> 205 	 Freq: 14.0 	 Demand: 162
+	Edge: 60 <--> 147 	 Freq: 14.0 	 Demand: 162
+	Edge: 154 <--> 155 	 Freq: 14.0 	 Demand: 204
+	Edge: 371 <--> 372 	 Freq: 14.0 	 Demand: 119
+	Edge: 55 <--> 56 	 Freq: 14.0 	 Demand: 162
+	Edge: 387 <--> 56 	 Freq: 14.0 	 Demand: 323
+	Edge: 387 <--> 388 	 Freq: 14.0 	 Demand: 162
+	Edge: 76 <--> 163 	 Freq: 14.0 	 Demand: 366
+	Edge: 163 <--> 183 	 Freq: 14.0 	 Demand: 162
+	Edge: 163 <--> 139 	 Freq: 14.0 	 Demand: 162
+	Edge: 247 <--> 312 	 Freq: 14.0 	 Demand: 255
+	Edge: 164 <--> 246 	 Freq: 14.0 	 Demand: 255
+	Edge: 198 <--> 199 	 Freq: 14.0 	 Demand: 255
+	Edge: 309 <--> 311 	 Freq: 14.0 	 Demand: 162
+	Edge: 164 <--> 249 	 Freq: 14.0 	 Demand: 162
+	Edge: 139 <--> 140 	 Freq: 14.0 	 Demand: 162
+	Edge: 62 <--> 130 	 Freq: 14.0 	 Demand: 162
+	Edge: 322 <--> 392 	 Freq: 14.0 	 Demand: 561
+	Edge: 322 <--> 391 	 Freq: 14.0 	 Demand: 204
+	Route: 2
+	Route length (13860.0) and demand (9203)
+	Edge: 40 <--> 36 	 Freq: 14.0 	 Demand: 323
+	Edge: 167 <--> 269 	 Freq: 14.0 	 Demand: 680
+	Edge: 165 <--> 166 	 Freq: 14.0 	 Demand: 340
+	Edge: 265 <--> 266 	 Freq: 14.0 	 Demand: 162
+	Edge: 269 <--> 270 	 Freq: 14.0 	 Demand: 162
+	Edge: 168 <--> 36 	 Freq: 14.0 	 Demand: 1939
+	Edge: 37 <--> 335 	 Freq: 14.0 	 Demand: 366
+	Edge: 40 <--> 38 	 Freq: 14.0 	 Demand: 340
+	Edge: 29 <--> 40 	 Freq: 14.0 	 Demand: 255
+	Edge: 0 <--> 29 	 Freq: 14.0 	 Demand: 1871
+	Edge: 186 <--> 187 	 Freq: 14.0 	 Demand: 204
+	Edge: 214 <--> 186 	 Freq: 14.0 	 Demand: 162
+	Edge: 390 <--> 214 	 Freq: 14.0 	 Demand: 655
+	Edge: 131 <--> 214 	 Freq: 14.0 	 Demand: 162
+	Edge: 131 <--> 132 	 Freq: 14.0 	 Demand: 119
+	Edge: 134 <--> 135 	 Freq: 14.0 	 Demand: 408
+	Edge: 213 <--> 389 	 Freq: 14.0 	 Demand: 94
+	Edge: 97 <--> 138 	 Freq: 14.0 	 Demand: 323
+	Edge: 97 <--> 137 	 Freq: 14.0 	 Demand: 94
+	Edge: 331 <--> 358 	 Freq: 14.0 	 Demand: 340
+	Edge: 0 <--> 331 	 Freq: 14.0 	 Demand: 204
+	Route: 3
+	Route length (28441.0) and demand (11916)
+	Edge: 27 <--> 41 	 Freq: 14.0 	 Demand: 204
+	Edge: 25 <--> 27 	 Freq: 14.0 	 Demand: 162
+	Edge: 26 <--> 27 	 Freq: 14.0 	 Demand: 162
+	Edge: 69 <--> 26 	 Freq: 14.0 	 Demand: 162
+	Edge: 332 <--> 359 	 Freq: 14.0 	 Demand: 162
+	Edge: 360 <--> 361 	 Freq: 14.0 	 Demand: 204
+	Edge: 66 <--> 172 	 Freq: 14.0 	 Demand: 162
+	Edge: 94 <--> 169 	 Freq: 14.0 	 Demand: 162
+	Edge: 93 <--> 268 	 Freq: 14.0 	 Demand: 162
+	Edge: 94 <--> 66 	 Freq: 14.0 	 Demand: 162
+	Edge: 92 <--> 173 	 Freq: 14.0 	 Demand: 162
+	Edge: 67 <--> 65 	 Freq: 14.0 	 Demand: 204
+	Edge: 274 <--> 68 	 Freq: 14.0 	 Demand: 323
+	Edge: 274 <--> 275 	 Freq: 14.0 	 Demand: 527
+	Edge: 275 <--> 277 	 Freq: 14.0 	 Demand: 94
+	Edge: 275 <--> 276 	 Freq: 14.0 	 Demand: 323
+	Edge: 108 <--> 228 	 Freq: 14.0 	 Demand: 162
+	Edge: 109 <--> 229 	 Freq: 14.0 	 Demand: 340
+	Edge: 101 <--> 181 	 Freq: 14.0 	 Demand: 204
+	Edge: 100 <--> 182 	 Freq: 14.0 	 Demand: 119
+	Edge: 156 <--> 157 	 Freq: 14.0 	 Demand: 162
+	Edge: 86 <--> 88 	 Freq: 14.0 	 Demand: 323
+	Edge: 345 <--> 90 	 Freq: 14.0 	 Demand: 723
+	Edge: 91 <--> 224 	 Freq: 14.0 	 Demand: 162
+	Edge: 90 <--> 91 	 Freq: 14.0 	 Demand: 204
+	Edge: 90 <--> 103 	 Freq: 14.0 	 Demand: 94
+	Edge: 128 <--> 129 	 Freq: 14.0 	 Demand: 119
+	Edge: 160 <--> 32 	 Freq: 14.0 	 Demand: 323
+	Edge: 160 <--> 161 	 Freq: 14.0 	 Demand: 162
+	Edge: 367 <--> 368 	 Freq: 14.0 	 Demand: 162
+	Edge: 369 <--> 370 	 Freq: 14.0 	 Demand: 162
+	Edge: 80 <--> 355 	 Freq: 14.0 	 Demand: 485
+	Edge: 128 <--> 32 	 Freq: 14.0 	 Demand: 366
+	Edge: 35 <--> 353 	 Freq: 14.0 	 Demand: 162
+	Edge: 34 <--> 35 	 Freq: 14.0 	 Demand: 162
+	Edge: 365 <--> 366 	 Freq: 14.0 	 Demand: 323
+	Edge: 337 <--> 223 	 Freq: 14.0 	 Demand: 323
+	Edge: 363 <--> 337 	 Freq: 14.0 	 Demand: 204
+	Edge: 363 <--> 364 	 Freq: 14.0 	 Demand: 162
+	Edge: 31 <--> 363 	 Freq: 14.0 	 Demand: 340
+	Edge: 184 <--> 185 	 Freq: 14.0 	 Demand: 162
+	Edge: 222 <--> 362 	 Freq: 14.0 	 Demand: 162
+	Edge: 30 <--> 31 	 Freq: 14.0 	 Demand: 162
+	Edge: 379 <--> 380 	 Freq: 14.0 	 Demand: 323
+	Edge: 148 <--> 221 	 Freq: 14.0 	 Demand: 323
+	Edge: 148 <--> 149 	 Freq: 14.0 	 Demand: 162
+	Edge: 349 <--> 382 	 Freq: 14.0 	 Demand: 323
+	Edge: 382 <--> 383 	 Freq: 14.0 	 Demand: 162
+	Edge: 376 <--> 378 	 Freq: 14.0 	 Demand: 162
+	Edge: 347 <--> 377 	 Freq: 14.0 	 Demand: 162
+	Edge: 347 <--> 348 	 Freq: 14.0 	 Demand: 162
+	Edge: 141 <--> 142 	 Freq: 14.0 	 Demand: 204
+	Edge: 322 <--> 0 	 Freq: 14.0 	 Demand: 162
+	Route: 4
+	Route length (24037.0) and demand (11911)
+	Edge: 55 <--> 321 	 Freq: 14.0 	 Demand: 485
+	Edge: 320 <--> 356 	 Freq: 14.0 	 Demand: 323
+	Edge: 350 <--> 352 	 Freq: 14.0 	 Demand: 94
+	Edge: 350 <--> 351 	 Freq: 14.0 	 Demand: 604
+	Edge: 351 <--> 386 	 Freq: 14.0 	 Demand: 94
+	Edge: 351 <--> 47 	 Freq: 14.0 	 Demand: 119
+	Edge: 47 <--> 326 	 Freq: 14.0 	 Demand: 281
+	Edge: 47 <--> 48 	 Freq: 14.0 	 Demand: 323
+	Edge: 8 <--> 9 	 Freq: 14.0 	 Demand: 94
+	Edge: 302 <--> 259 	 Freq: 14.0 	 Demand: 740
+	Edge: 281 <--> 282 	 Freq: 14.0 	 Demand: 485
+	Edge: 282 <--> 303 	 Freq: 14.0 	 Demand: 162
+	Edge: 303 <--> 250 	 Freq: 14.0 	 Demand: 765
+	Edge: 241 <--> 242 	 Freq: 14.0 	 Demand: 417
+	Edge: 251 <--> 252 	 Freq: 14.0 	 Demand: 255
+	Edge: 250 <--> 241 	 Freq: 14.0 	 Demand: 757
+	Edge: 257 <--> 258 	 Freq: 7.0 	 Demand: 204
+	Edge: 207 <--> 248 	 Freq: 14.0 	 Demand: 162
+	Edge: 206 <--> 306 	 Freq: 7.0 	 Demand: 655
+	Edge: 257 <--> 258 	 Freq: 14.0 	 Demand: 774
+	Edge: 6 <--> 7 	 Freq: 14.0 	 Demand: 204
+	Edge: 7 <--> 235 	 Freq: 14.0 	 Demand: 162
+	Edge: 143 <--> 144 	 Freq: 14.0 	 Demand: 340
+	Edge: 288 <--> 315 	 Freq: 14.0 	 Demand: 94
+	Edge: 307 <--> 310 	 Freq: 14.0 	 Demand: 94
+	Edge: 262 <--> 318 	 Freq: 14.0 	 Demand: 655
+	Edge: 261 <--> 262 	 Freq: 14.0 	 Demand: 94
+	Edge: 384 <--> 385 	 Freq: 14.0 	 Demand: 162
+	Edge: 346 <--> 384 	 Freq: 14.0 	 Demand: 323
+	Edge: 77 <--> 78 	 Freq: 14.0 	 Demand: 646
+	Edge: 79 <--> 338 	 Freq: 14.0 	 Demand: 323
+	Edge: 337 <--> 74 	 Freq: 14.0 	 Demand: 162
+	Edge: 162 <--> 375 	 Freq: 14.0 	 Demand: 655
+	Edge: 162 <--> 75 	 Freq: 14.0 	 Demand: 204
+
+Day 3, number of edges 2, number of routes 1
+
+	Edges:
+
+	Edge: 0 <--> 29 	 Freq: 7.0 	 Demand: 4089
+	Edge: 335 <--> 336 	 Freq: 7.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (4562.0) and demand (4293)
+	Edge: 335 <--> 336 	 Freq: 7.0 	 Demand: 204
+	Edge: 0 <--> 29 	 Freq: 7.0 	 Demand: 4089
+
+Day 4, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 5, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 6, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 7, number of edges 5, number of routes 1
+
+	Edges:
+
+	Edge: 296 <--> 260 	 Freq: 7.0 	 Demand: 204
+	Edge: 273 <--> 126 	 Freq: 7.0 	 Demand: 655
+	Edge: 316 <--> 286 	 Freq: 7.0 	 Demand: 655
+	Edge: 84 <--> 85 	 Freq: 7.0 	 Demand: 162
+	Edge: 263 <--> 273 	 Freq: 7.0 	 Demand: 561
+
+	Routes:
+
+	Route: 1
+	Route length (19301.0) and demand (2237)
+	Edge: 316 <--> 286 	 Freq: 7.0 	 Demand: 655
+	Edge: 296 <--> 260 	 Freq: 7.0 	 Demand: 204
+	Edge: 273 <--> 126 	 Freq: 7.0 	 Demand: 655
+	Edge: 263 <--> 273 	 Freq: 7.0 	 Demand: 561
+	Edge: 84 <--> 85 	 Freq: 7.0 	 Demand: 162
+
+Day 8, number of edges 6, number of routes 1
+
+	Edges:
+
+	Edge: 290 <--> 236 	 Freq: 7.0 	 Demand: 680
+	Edge: 284 <--> 301 	 Freq: 7.0 	 Demand: 162
+	Edge: 302 <--> 259 	 Freq: 7.0 	 Demand: 561
+	Edge: 120 <--> 121 	 Freq: 7.0 	 Demand: 1122
+	Edge: 43 <--> 39 	 Freq: 7.0 	 Demand: 162
+	Edge: 290 <--> 295 	 Freq: 7.0 	 Demand: 655
+
+	Routes:
+
+	Route: 1
+	Route length (12461.0) and demand (3342)
+	Edge: 43 <--> 39 	 Freq: 7.0 	 Demand: 162
+	Edge: 284 <--> 301 	 Freq: 7.0 	 Demand: 162
+	Edge: 290 <--> 236 	 Freq: 7.0 	 Demand: 680
+	Edge: 120 <--> 121 	 Freq: 7.0 	 Demand: 1122
+	Edge: 290 <--> 295 	 Freq: 7.0 	 Demand: 655
+	Edge: 302 <--> 259 	 Freq: 7.0 	 Demand: 561
+
+Day 9, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 0 <--> 29 	 Freq: 7.0 	 Demand: 4089
+
+	Routes:
+
+	Route: 1
+	Route length (958.0) and demand (4089)
+	Edge: 0 <--> 29 	 Freq: 7.0 	 Demand: 4089
+
+Day 10, number of edges 4, number of routes 1
+
+	Edges:
+
+	Edge: 257 <--> 258 	 Freq: 7.0 	 Demand: 204
+	Edge: 342 <--> 343 	 Freq: 7.0 	 Demand: 561
+	Edge: 206 <--> 306 	 Freq: 7.0 	 Demand: 655
+	Edge: 333 <--> 334 	 Freq: 7.0 	 Demand: 1964
+
+	Routes:
+
+	Route: 1
+	Route length (17472.0) and demand (3384)
+	Edge: 206 <--> 306 	 Freq: 7.0 	 Demand: 655
+	Edge: 257 <--> 258 	 Freq: 7.0 	 Demand: 204
+	Edge: 342 <--> 343 	 Freq: 7.0 	 Demand: 561
+	Edge: 333 <--> 334 	 Freq: 7.0 	 Demand: 1964
+
+Day 11, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 335 <--> 336 	 Freq: 7.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (4562.0) and demand (204)
+	Edge: 335 <--> 336 	 Freq: 7.0 	 Demand: 204
+
+Day 12, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 13, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+----- MARKER - SOLUTION PRINTED ABOVE -------
+
+Printing greedy algorithm time to avoid scrolling or ctrl+f
+Greedy algorithm time: 0:00:00.330976 seconds
+LS time: 0:06:08.843745
+Greedy algorithm score: 18273399.0
+LS return score: 5251769.0
+Final solution score: 5251769.0
+Maximum routes among all days: 5
+Minimum routes among all days: 0
+
+Penalties count:
+Overloaded route count: 0
+Irregular services count: 0
+Irregular spacing count: 0

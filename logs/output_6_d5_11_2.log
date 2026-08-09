@@ -1,0 +1,6748 @@
+Using greedy dynamic clusters algorithm with cluster limit == 5!
+Graph Data file used: SP-CARP_F6_p_graph.dat
+Vehicle Data file used: SP-CARP_1-8.veh
+
+Program starting at: 2026-08-09 01:27:04.216816
+Greedy algorithm time: 0.474185 seconds
+Cost of initial solution: 61910847.0
+Total number of edges: 289
+Number of unsatisfied edges: 23
+0 edges were not serviced at all!
+Running Local Search with top 50 operations according to estimation
+
+
+Phase 1 mid-report:
+Iteration count: 1
+Last iteration time: 0.15622687339782715
+Average iteration time: 0.15622687339782715
+Current score: 37979154.0
+
+Phase 1 ended! Current time: 2026-08-09 01:27:05.107438
+Phase 1 Report:
+Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.05728395779927572
+Current score: 36902127.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.296872615814209
+Average iteration time: 0.296872615814209
+Current score: 35902127.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:27:07.841816
+Phase 2 (only move_services) Report:
+Iteration count: 3
+Last iteration time: 0.21874642372131348
+Average iteration time: 0.38541531562805176
+Current score: 34907220.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.14061927795410156
+Average iteration time: 0.14061927795410156
+Current score: 34902645.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:27:47.824647
+Phase 3 (using only swap_services) Report:
+Iteration count: 89
+Last iteration time: 0.0781254768371582
+Average iteration time: 0.2721207784802727
+Current score: 34853174.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 34853174.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 34853174.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.1874993642171224
+Current score: 34850620.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.0
+Average iteration time: 0.1406245231628418
+Current score: 34850620.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.0
+Average iteration time: 0.11249961853027343
+Current score: 34850620.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.0937496821085612
+Current score: 34850620.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.11718735098838805
+Current score: 34849524.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 0.10312485694885254
+Current score: 34847521.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 15
+Last iteration time: 0.0
+Average iteration time: 0.16249966621398926
+Current score: 34844020.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.1736105415556166
+Current score: 34843108.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 0.16447314463163676
+Current score: 34843108.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.15198835459622467
+Current score: 34838010.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.0
+Average iteration time: 0.15364561478296915
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.015627384185791016
+Average iteration time: 0.14812488555908201
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.0
+Average iteration time: 0.1424277745760404
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.13715267181396482
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.0
+Average iteration time: 0.13225436210632321
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.1276938668612776
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.12343740463256835
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.11945555287022742
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.11572256684303282
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.11221582239324394
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.10891535702873678
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.1058034896850586
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.0
+Average iteration time: 0.10286450386047363
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.10008438213451488
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.09745058260465923
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0
+Average iteration time: 0.09495184971736027
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.09257805347442627
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 41
+Last iteration time: 0.0
+Average iteration time: 0.09032005217017197
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 42
+Last iteration time: 0.0
+Average iteration time: 0.08816957473754883
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 43
+Last iteration time: 0.0
+Average iteration time: 0.0861191195110942
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 44
+Last iteration time: 0.0
+Average iteration time: 0.08416186679493297
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 45
+Last iteration time: 0.0
+Average iteration time: 0.0822916030883789
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 46
+Last iteration time: 0.0
+Average iteration time: 0.08050265519515327
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 47
+Last iteration time: 0.01562047004699707
+Average iteration time: 0.07912218317072442
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 48
+Last iteration time: 0.0
+Average iteration time: 0.07747380435466766
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 49
+Last iteration time: 0.0
+Average iteration time: 0.07589270630661323
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 50
+Last iteration time: 0.0
+Average iteration time: 0.07437485218048095
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 51
+Last iteration time: 0.0
+Average iteration time: 0.07291652174556956
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 52
+Last iteration time: 0.0
+Average iteration time: 0.07151428094277015
+Current score: 34835396.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:27:54.168396
+Phase 4 (routing operators) Report:
+Iteration count: 52
+Last iteration time: 0.0
+Average iteration time: 0.07151428094277015
+Current score: 34835396.0
+
+
+Local search report:
+Iteration count: 1 iterations
+Last iteration time: 49.2328097820282 seconds
+Iteration average time: 49.2328097820282 seconds
+Current score: 34835396.0
+
+Solution after going through each phase once:
+
+
+Day 0, number of edges 32, number of routes 2
+
+	Edges:
+
+	Edge: 63 <--> 64 	 Freq: 56.0 	 Demand: 2448
+	Edge: 366 <--> 367 	 Freq: 56.0 	 Demand: 408
+	Edge: 413 <--> 366 	 Freq: 56.0 	 Demand: 204
+	Edge: 145 <--> 413 	 Freq: 56.0 	 Demand: 612
+	Edge: 145 <--> 146 	 Freq: 56.0 	 Demand: 1224
+	Edge: 143 <--> 145 	 Freq: 56.0 	 Demand: 1632
+	Edge: 12 <--> 156 	 Freq: 56.0 	 Demand: 204
+	Edge: 156 <--> 422 	 Freq: 56.0 	 Demand: 320
+	Edge: 11 <--> 12 	 Freq: 56.0 	 Demand: 3924
+	Edge: 10 <--> 11 	 Freq: 56.0 	 Demand: 1836
+	Edge: 157 <--> 10 	 Freq: 56.0 	 Demand: 204
+	Edge: 138 <--> 139 	 Freq: 56.0 	 Demand: 204
+	Edge: 139 <--> 398 	 Freq: 56.0 	 Demand: 204
+	Edge: 369 <--> 398 	 Freq: 56.0 	 Demand: 204
+	Edge: 121 <--> 292 	 Freq: 56.0 	 Demand: 408
+	Edge: 140 <--> 397 	 Freq: 56.0 	 Demand: 204
+	Edge: 364 <--> 397 	 Freq: 56.0 	 Demand: 612
+	Edge: 363 <--> 364 	 Freq: 56.0 	 Demand: 320
+	Edge: 140 <--> 291 	 Freq: 56.0 	 Demand: 816
+	Edge: 183 <--> 184 	 Freq: 56.0 	 Demand: 204
+	Edge: 183 <--> 186 	 Freq: 56.0 	 Demand: 204
+	Edge: 456 <--> 206 	 Freq: 56.0 	 Demand: 612
+	Edge: 206 <--> 452 	 Freq: 56.0 	 Demand: 320
+	Edge: 453 <--> 456 	 Freq: 56.0 	 Demand: 3060
+	Edge: 293 <--> 294 	 Freq: 56.0 	 Demand: 204
+	Edge: 384 <--> 294 	 Freq: 56.0 	 Demand: 204
+	Edge: 110 <--> 111 	 Freq: 56.0 	 Demand: 204
+	Edge: 380 <--> 130 	 Freq: 56.0 	 Demand: 408
+	Edge: 130 <--> 131 	 Freq: 56.0 	 Demand: 204
+	Edge: 367 <--> 364 	 Freq: 56.0 	 Demand: 1428
+	Edge: 407 <--> 400 	 Freq: 56.0 	 Demand: 408
+	Edge: 394 <--> 63 	 Freq: 56.0 	 Demand: 408
+
+	Routes:
+
+	Route: 1
+	Route length (10573.0) and demand (11908)
+	Edge: 138 <--> 139 	 Freq: 56.0 	 Demand: 204
+	Edge: 140 <--> 397 	 Freq: 56.0 	 Demand: 204
+	Edge: 364 <--> 397 	 Freq: 56.0 	 Demand: 612
+	Edge: 183 <--> 184 	 Freq: 56.0 	 Demand: 204
+	Edge: 183 <--> 186 	 Freq: 56.0 	 Demand: 204
+	Edge: 456 <--> 206 	 Freq: 56.0 	 Demand: 612
+	Edge: 206 <--> 452 	 Freq: 56.0 	 Demand: 320
+	Edge: 453 <--> 456 	 Freq: 56.0 	 Demand: 3060
+	Edge: 157 <--> 10 	 Freq: 56.0 	 Demand: 204
+	Edge: 10 <--> 11 	 Freq: 56.0 	 Demand: 1836
+	Edge: 11 <--> 12 	 Freq: 56.0 	 Demand: 3924
+	Edge: 12 <--> 156 	 Freq: 56.0 	 Demand: 204
+	Edge: 156 <--> 422 	 Freq: 56.0 	 Demand: 320
+	Route: 2
+	Route length (6579.0) and demand (11948)
+	Edge: 130 <--> 131 	 Freq: 56.0 	 Demand: 204
+	Edge: 380 <--> 130 	 Freq: 56.0 	 Demand: 408
+	Edge: 384 <--> 294 	 Freq: 56.0 	 Demand: 204
+	Edge: 293 <--> 294 	 Freq: 56.0 	 Demand: 204
+	Edge: 63 <--> 64 	 Freq: 56.0 	 Demand: 2448
+	Edge: 394 <--> 63 	 Freq: 56.0 	 Demand: 408
+	Edge: 407 <--> 400 	 Freq: 56.0 	 Demand: 408
+	Edge: 139 <--> 398 	 Freq: 56.0 	 Demand: 204
+	Edge: 369 <--> 398 	 Freq: 56.0 	 Demand: 204
+	Edge: 363 <--> 364 	 Freq: 56.0 	 Demand: 320
+	Edge: 367 <--> 364 	 Freq: 56.0 	 Demand: 1428
+	Edge: 366 <--> 367 	 Freq: 56.0 	 Demand: 408
+	Edge: 413 <--> 366 	 Freq: 56.0 	 Demand: 204
+	Edge: 145 <--> 146 	 Freq: 56.0 	 Demand: 1224
+	Edge: 143 <--> 145 	 Freq: 56.0 	 Demand: 1632
+	Edge: 145 <--> 413 	 Freq: 56.0 	 Demand: 612
+	Edge: 140 <--> 291 	 Freq: 56.0 	 Demand: 816
+	Edge: 121 <--> 292 	 Freq: 56.0 	 Demand: 408
+	Edge: 110 <--> 111 	 Freq: 56.0 	 Demand: 204
+
+Day 1, number of edges 36, number of routes 2
+
+	Edges:
+
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 443 <--> 444 	 Freq: 56.0 	 Demand: 204
+	Edge: 436 <--> 444 	 Freq: 56.0 	 Demand: 3876
+	Edge: 451 <--> 436 	 Freq: 56.0 	 Demand: 204
+	Edge: 451 <--> 343 	 Freq: 56.0 	 Demand: 204
+	Edge: 435 <--> 436 	 Freq: 56.0 	 Demand: 2856
+	Edge: 406 <--> 405 	 Freq: 56.0 	 Demand: 204
+	Edge: 405 <--> 404 	 Freq: 56.0 	 Demand: 612
+	Edge: 404 <--> 69 	 Freq: 56.0 	 Demand: 408
+	Edge: 69 <--> 402 	 Freq: 56.0 	 Demand: 612
+	Edge: 429 <--> 434 	 Freq: 56.0 	 Demand: 408
+	Edge: 428 <--> 429 	 Freq: 56.0 	 Demand: 204
+	Edge: 448 <--> 449 	 Freq: 56.0 	 Demand: 612
+	Edge: 449 <--> 450 	 Freq: 56.0 	 Demand: 408
+	Edge: 238 <--> 239 	 Freq: 56.0 	 Demand: 1020
+	Edge: 234 <--> 88 	 Freq: 56.0 	 Demand: 204
+	Edge: 480 <--> 481 	 Freq: 56.0 	 Demand: 848
+	Edge: 257 <--> 480 	 Freq: 56.0 	 Demand: 204
+	Edge: 14 <--> 257 	 Freq: 56.0 	 Demand: 408
+	Edge: 277 <--> 331 	 Freq: 56.0 	 Demand: 204
+	Edge: 473 <--> 471 	 Freq: 56.0 	 Demand: 204
+	Edge: 472 <--> 473 	 Freq: 56.0 	 Demand: 408
+	Edge: 360 <--> 472 	 Freq: 56.0 	 Demand: 204
+	Edge: 242 <--> 471 	 Freq: 56.0 	 Demand: 1632
+	Edge: 438 <--> 439 	 Freq: 56.0 	 Demand: 612
+	Edge: 435 <--> 438 	 Freq: 56.0 	 Demand: 1020
+	Edge: 430 <--> 435 	 Freq: 56.0 	 Demand: 320
+	Edge: 269 <--> 173 	 Freq: 56.0 	 Demand: 612
+	Edge: 28 <--> 29 	 Freq: 56.0 	 Demand: 612
+	Edge: 327 <--> 333 	 Freq: 56.0 	 Demand: 204
+	Edge: 328 <--> 312 	 Freq: 56.0 	 Demand: 204
+	Edge: 328 <--> 329 	 Freq: 56.0 	 Demand: 816
+	Edge: 331 <--> 198 	 Freq: 56.0 	 Demand: 204
+	Edge: 375 <--> 376 	 Freq: 56.0 	 Demand: 408
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (10141.0) and demand (9824)
+	Edge: 360 <--> 472 	 Freq: 56.0 	 Demand: 204
+	Edge: 472 <--> 473 	 Freq: 56.0 	 Demand: 408
+	Edge: 473 <--> 471 	 Freq: 56.0 	 Demand: 204
+	Edge: 242 <--> 471 	 Freq: 56.0 	 Demand: 1632
+	Edge: 234 <--> 88 	 Freq: 56.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 238 <--> 239 	 Freq: 56.0 	 Demand: 1020
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 14 <--> 257 	 Freq: 56.0 	 Demand: 408
+	Edge: 257 <--> 480 	 Freq: 56.0 	 Demand: 204
+	Edge: 480 <--> 481 	 Freq: 56.0 	 Demand: 848
+	Edge: 269 <--> 173 	 Freq: 56.0 	 Demand: 612
+	Edge: 28 <--> 29 	 Freq: 56.0 	 Demand: 612
+	Edge: 327 <--> 333 	 Freq: 56.0 	 Demand: 204
+	Edge: 331 <--> 198 	 Freq: 56.0 	 Demand: 204
+	Edge: 328 <--> 312 	 Freq: 56.0 	 Demand: 204
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+	Edge: 406 <--> 405 	 Freq: 56.0 	 Demand: 204
+	Edge: 405 <--> 404 	 Freq: 56.0 	 Demand: 612
+	Edge: 404 <--> 69 	 Freq: 56.0 	 Demand: 408
+	Edge: 69 <--> 402 	 Freq: 56.0 	 Demand: 612
+	Edge: 375 <--> 376 	 Freq: 56.0 	 Demand: 408
+	Route: 2
+	Route length (8391.0) and demand (11948)
+	Edge: 328 <--> 329 	 Freq: 56.0 	 Demand: 816
+	Edge: 277 <--> 331 	 Freq: 56.0 	 Demand: 204
+	Edge: 448 <--> 449 	 Freq: 56.0 	 Demand: 612
+	Edge: 449 <--> 450 	 Freq: 56.0 	 Demand: 408
+	Edge: 443 <--> 444 	 Freq: 56.0 	 Demand: 204
+	Edge: 436 <--> 444 	 Freq: 56.0 	 Demand: 3876
+	Edge: 451 <--> 343 	 Freq: 56.0 	 Demand: 204
+	Edge: 451 <--> 436 	 Freq: 56.0 	 Demand: 204
+	Edge: 435 <--> 436 	 Freq: 56.0 	 Demand: 2856
+	Edge: 435 <--> 438 	 Freq: 56.0 	 Demand: 1020
+	Edge: 438 <--> 439 	 Freq: 56.0 	 Demand: 612
+	Edge: 430 <--> 435 	 Freq: 56.0 	 Demand: 320
+	Edge: 429 <--> 434 	 Freq: 56.0 	 Demand: 408
+	Edge: 428 <--> 429 	 Freq: 56.0 	 Demand: 204
+
+Day 2, number of edges 30, number of routes 3
+
+	Edges:
+
+	Edge: 402 <--> 403 	 Freq: 56.0 	 Demand: 816
+	Edge: 289 <--> 403 	 Freq: 56.0 	 Demand: 204
+	Edge: 289 <--> 67 	 Freq: 56.0 	 Demand: 1020
+	Edge: 202 <--> 200 	 Freq: 56.0 	 Demand: 204
+	Edge: 202 <--> 445 	 Freq: 56.0 	 Demand: 408
+	Edge: 450 <--> 445 	 Freq: 56.0 	 Demand: 1020
+	Edge: 200 <--> 201 	 Freq: 56.0 	 Demand: 2768
+	Edge: 204 <--> 202 	 Freq: 56.0 	 Demand: 3264
+	Edge: 432 <--> 433 	 Freq: 56.0 	 Demand: 1020
+	Edge: 432 <--> 430 	 Freq: 56.0 	 Demand: 204
+	Edge: 430 <--> 431 	 Freq: 56.0 	 Demand: 1428
+	Edge: 379 <--> 127 	 Freq: 56.0 	 Demand: 204
+	Edge: 276 <--> 379 	 Freq: 56.0 	 Demand: 1428
+	Edge: 127 <--> 380 	 Freq: 56.0 	 Demand: 204
+	Edge: 126 <--> 380 	 Freq: 56.0 	 Demand: 1020
+	Edge: 276 <--> 126 	 Freq: 56.0 	 Demand: 1428
+	Edge: 114 <--> 115 	 Freq: 56.0 	 Demand: 612
+	Edge: 359 <--> 114 	 Freq: 56.0 	 Demand: 1224
+	Edge: 359 <--> 109 	 Freq: 56.0 	 Demand: 612
+	Edge: 114 <--> 110 	 Freq: 56.0 	 Demand: 1224
+	Edge: 59 <--> 61 	 Freq: 56.0 	 Demand: 408
+	Edge: 424 <--> 157 	 Freq: 56.0 	 Demand: 408
+	Edge: 440 <--> 435 	 Freq: 56.0 	 Demand: 204
+	Edge: 235 <--> 474 	 Freq: 56.0 	 Demand: 204
+	Edge: 332 <--> 339 	 Freq: 56.0 	 Demand: 204
+	Edge: 396 <--> 70 	 Freq: 56.0 	 Demand: 1428
+	Edge: 223 <--> 224 	 Freq: 56.0 	 Demand: 2448
+	Edge: 62 <--> 424 	 Freq: 56.0 	 Demand: 204
+	Edge: 403 <--> 401 	 Freq: 56.0 	 Demand: 204
+	Edge: 123 <--> 229 	 Freq: 56.0 	 Demand: 1224
+
+	Routes:
+
+	Route: 1
+	Route length (2465.0) and demand (4284)
+	Edge: 379 <--> 127 	 Freq: 56.0 	 Demand: 204
+	Edge: 276 <--> 379 	 Freq: 56.0 	 Demand: 1428
+	Edge: 276 <--> 126 	 Freq: 56.0 	 Demand: 1428
+	Edge: 126 <--> 380 	 Freq: 56.0 	 Demand: 1020
+	Edge: 127 <--> 380 	 Freq: 56.0 	 Demand: 204
+	Route: 2
+	Route length (8447.0) and demand (11744)
+	Edge: 204 <--> 202 	 Freq: 56.0 	 Demand: 3264
+	Edge: 450 <--> 445 	 Freq: 56.0 	 Demand: 1020
+	Edge: 202 <--> 200 	 Freq: 56.0 	 Demand: 204
+	Edge: 200 <--> 201 	 Freq: 56.0 	 Demand: 2768
+	Edge: 202 <--> 445 	 Freq: 56.0 	 Demand: 408
+	Edge: 440 <--> 435 	 Freq: 56.0 	 Demand: 204
+	Edge: 430 <--> 431 	 Freq: 56.0 	 Demand: 1428
+	Edge: 432 <--> 430 	 Freq: 56.0 	 Demand: 204
+	Edge: 432 <--> 433 	 Freq: 56.0 	 Demand: 1020
+	Edge: 59 <--> 61 	 Freq: 56.0 	 Demand: 408
+	Edge: 62 <--> 424 	 Freq: 56.0 	 Demand: 204
+	Edge: 424 <--> 157 	 Freq: 56.0 	 Demand: 408
+	Edge: 332 <--> 339 	 Freq: 56.0 	 Demand: 204
+	Route: 3
+	Route length (8031.0) and demand (11220)
+	Edge: 403 <--> 401 	 Freq: 56.0 	 Demand: 204
+	Edge: 402 <--> 403 	 Freq: 56.0 	 Demand: 816
+	Edge: 289 <--> 403 	 Freq: 56.0 	 Demand: 204
+	Edge: 289 <--> 67 	 Freq: 56.0 	 Demand: 1020
+	Edge: 396 <--> 70 	 Freq: 56.0 	 Demand: 1428
+	Edge: 123 <--> 229 	 Freq: 56.0 	 Demand: 1224
+	Edge: 235 <--> 474 	 Freq: 56.0 	 Demand: 204
+	Edge: 223 <--> 224 	 Freq: 56.0 	 Demand: 2448
+	Edge: 359 <--> 109 	 Freq: 56.0 	 Demand: 612
+	Edge: 359 <--> 114 	 Freq: 56.0 	 Demand: 1224
+	Edge: 114 <--> 115 	 Freq: 56.0 	 Demand: 612
+	Edge: 114 <--> 110 	 Freq: 56.0 	 Demand: 1224
+
+Day 3, number of edges 16, number of routes 3
+
+	Edges:
+
+	Edge: 41 <--> 42 	 Freq: 56.0 	 Demand: 408
+	Edge: 41 <--> 43 	 Freq: 56.0 	 Demand: 612
+	Edge: 43 <--> 44 	 Freq: 56.0 	 Demand: 816
+	Edge: 478 <--> 43 	 Freq: 56.0 	 Demand: 1020
+	Edge: 477 <--> 478 	 Freq: 56.0 	 Demand: 1020
+	Edge: 141 <--> 142 	 Freq: 56.0 	 Demand: 3792
+	Edge: 392 <--> 388 	 Freq: 56.0 	 Demand: 1428
+	Edge: 387 <--> 388 	 Freq: 56.0 	 Demand: 1836
+	Edge: 388 <--> 389 	 Freq: 56.0 	 Demand: 4004
+	Edge: 400 <--> 401 	 Freq: 56.0 	 Demand: 2040
+	Edge: 381 <--> 382 	 Freq: 56.0 	 Demand: 816
+	Edge: 382 <--> 377 	 Freq: 56.0 	 Demand: 612
+	Edge: 142 <--> 143 	 Freq: 56.0 	 Demand: 1632
+	Edge: 246 <--> 142 	 Freq: 56.0 	 Demand: 1224
+	Edge: 372 <--> 362 	 Freq: 56.0 	 Demand: 2040
+	Edge: 369 <--> 120 	 Freq: 56.0 	 Demand: 612
+
+	Routes:
+
+	Route: 1
+	Route length (1961.0) and demand (1428)
+	Edge: 381 <--> 382 	 Freq: 56.0 	 Demand: 816
+	Edge: 382 <--> 377 	 Freq: 56.0 	 Demand: 612
+	Route: 2
+	Route length (7055.0) and demand (11136)
+	Edge: 142 <--> 143 	 Freq: 56.0 	 Demand: 1632
+	Edge: 141 <--> 142 	 Freq: 56.0 	 Demand: 3792
+	Edge: 477 <--> 478 	 Freq: 56.0 	 Demand: 1020
+	Edge: 478 <--> 43 	 Freq: 56.0 	 Demand: 1020
+	Edge: 43 <--> 44 	 Freq: 56.0 	 Demand: 816
+	Edge: 41 <--> 43 	 Freq: 56.0 	 Demand: 612
+	Edge: 41 <--> 42 	 Freq: 56.0 	 Demand: 408
+	Edge: 246 <--> 142 	 Freq: 56.0 	 Demand: 1224
+	Edge: 369 <--> 120 	 Freq: 56.0 	 Demand: 612
+	Route: 3
+	Route length (4328.0) and demand (11348)
+	Edge: 372 <--> 362 	 Freq: 56.0 	 Demand: 2040
+	Edge: 400 <--> 401 	 Freq: 56.0 	 Demand: 2040
+	Edge: 387 <--> 388 	 Freq: 56.0 	 Demand: 1836
+	Edge: 392 <--> 388 	 Freq: 56.0 	 Demand: 1428
+	Edge: 388 <--> 389 	 Freq: 56.0 	 Demand: 4004
+
+Day 4, number of edges 20, number of routes 3
+
+	Edges:
+
+	Edge: 130 <--> 382 	 Freq: 56.0 	 Demand: 816
+	Edge: 418 <--> 414 	 Freq: 56.0 	 Demand: 1428
+	Edge: 414 <--> 415 	 Freq: 56.0 	 Demand: 612
+	Edge: 415 <--> 410 	 Freq: 56.0 	 Demand: 816
+	Edge: 410 <--> 147 	 Freq: 56.0 	 Demand: 1224
+	Edge: 252 <--> 134 	 Freq: 56.0 	 Demand: 408
+	Edge: 134 <--> 65 	 Freq: 56.0 	 Demand: 612
+	Edge: 134 <--> 135 	 Freq: 56.0 	 Demand: 3580
+	Edge: 254 <--> 132 	 Freq: 56.0 	 Demand: 204
+	Edge: 132 <--> 133 	 Freq: 56.0 	 Demand: 2040
+	Edge: 132 <--> 384 	 Freq: 56.0 	 Demand: 3656
+	Edge: 339 <--> 197 	 Freq: 56.0 	 Demand: 816
+	Edge: 197 <--> 195 	 Freq: 56.0 	 Demand: 1136
+	Edge: 339 <--> 340 	 Freq: 56.0 	 Demand: 408
+	Edge: 194 <--> 195 	 Freq: 56.0 	 Demand: 1020
+	Edge: 196 <--> 194 	 Freq: 56.0 	 Demand: 1020
+	Edge: 196 <--> 197 	 Freq: 56.0 	 Demand: 612
+	Edge: 419 <--> 418 	 Freq: 56.0 	 Demand: 1428
+	Edge: 412 <--> 410 	 Freq: 56.0 	 Demand: 2652
+	Edge: 67 <--> 68 	 Freq: 56.0 	 Demand: 816
+
+	Routes:
+
+	Route: 1
+	Route length (3107.0) and demand (6716)
+	Edge: 130 <--> 382 	 Freq: 56.0 	 Demand: 816
+	Edge: 254 <--> 132 	 Freq: 56.0 	 Demand: 204
+	Edge: 132 <--> 384 	 Freq: 56.0 	 Demand: 3656
+	Edge: 132 <--> 133 	 Freq: 56.0 	 Demand: 2040
+	Route: 2
+	Route length (6222.0) and demand (10428)
+	Edge: 252 <--> 134 	 Freq: 56.0 	 Demand: 408
+	Edge: 134 <--> 135 	 Freq: 56.0 	 Demand: 3580
+	Edge: 134 <--> 65 	 Freq: 56.0 	 Demand: 612
+	Edge: 196 <--> 194 	 Freq: 56.0 	 Demand: 1020
+	Edge: 194 <--> 195 	 Freq: 56.0 	 Demand: 1020
+	Edge: 197 <--> 195 	 Freq: 56.0 	 Demand: 1136
+	Edge: 339 <--> 197 	 Freq: 56.0 	 Demand: 816
+	Edge: 339 <--> 340 	 Freq: 56.0 	 Demand: 408
+	Edge: 196 <--> 197 	 Freq: 56.0 	 Demand: 612
+	Edge: 67 <--> 68 	 Freq: 56.0 	 Demand: 816
+	Route: 3
+	Route length (4122.0) and demand (8160)
+	Edge: 410 <--> 147 	 Freq: 56.0 	 Demand: 1224
+	Edge: 412 <--> 410 	 Freq: 56.0 	 Demand: 2652
+	Edge: 415 <--> 410 	 Freq: 56.0 	 Demand: 816
+	Edge: 414 <--> 415 	 Freq: 56.0 	 Demand: 612
+	Edge: 418 <--> 414 	 Freq: 56.0 	 Demand: 1428
+	Edge: 419 <--> 418 	 Freq: 56.0 	 Demand: 1428
+
+Day 5, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 6, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 7, number of edges 28, number of routes 2
+
+	Edges:
+
+	Edge: 3 <--> 298 	 Freq: 56.0 	 Demand: 816
+	Edge: 3 <--> 385 	 Freq: 56.0 	 Demand: 1224
+	Edge: 298 <--> 301 	 Freq: 56.0 	 Demand: 1224
+	Edge: 299 <--> 3 	 Freq: 56.0 	 Demand: 408
+	Edge: 385 <--> 386 	 Freq: 56.0 	 Demand: 408
+	Edge: 309 <--> 192 	 Freq: 56.0 	 Demand: 408
+	Edge: 454 <--> 455 	 Freq: 56.0 	 Demand: 1340
+	Edge: 454 <--> 443 	 Freq: 56.0 	 Demand: 1868
+	Edge: 152 <--> 285 	 Freq: 56.0 	 Demand: 816
+	Edge: 154 <--> 152 	 Freq: 56.0 	 Demand: 1224
+	Edge: 154 <--> 155 	 Freq: 56.0 	 Demand: 204
+	Edge: 325 <--> 154 	 Freq: 56.0 	 Demand: 408
+	Edge: 250 <--> 396 	 Freq: 56.0 	 Demand: 204
+	Edge: 396 <--> 290 	 Freq: 56.0 	 Demand: 204
+	Edge: 66 <--> 290 	 Freq: 56.0 	 Demand: 204
+	Edge: 70 <--> 66 	 Freq: 56.0 	 Demand: 204
+	Edge: 70 <--> 397 	 Freq: 56.0 	 Demand: 728
+	Edge: 113 <--> 72 	 Freq: 56.0 	 Demand: 2244
+	Edge: 71 <--> 72 	 Freq: 56.0 	 Demand: 2856
+	Edge: 316 <--> 60 	 Freq: 56.0 	 Demand: 408
+	Edge: 59 <--> 60 	 Freq: 56.0 	 Demand: 204
+	Edge: 58 <--> 59 	 Freq: 56.0 	 Demand: 612
+	Edge: 277 <--> 61 	 Freq: 56.0 	 Demand: 816
+	Edge: 318 <--> 316 	 Freq: 56.0 	 Demand: 204
+	Edge: 192 <--> 193 	 Freq: 56.0 	 Demand: 1224
+	Edge: 113 <--> 359 	 Freq: 56.0 	 Demand: 612
+	Edge: 74 <--> 113 	 Freq: 56.0 	 Demand: 612
+	Edge: 61 <--> 62 	 Freq: 56.0 	 Demand: 408
+
+	Routes:
+
+	Route: 1
+	Route length (6161.0) and demand (10404)
+	Edge: 298 <--> 301 	 Freq: 56.0 	 Demand: 1224
+	Edge: 385 <--> 386 	 Freq: 56.0 	 Demand: 408
+	Edge: 3 <--> 385 	 Freq: 56.0 	 Demand: 1224
+	Edge: 3 <--> 298 	 Freq: 56.0 	 Demand: 816
+	Edge: 299 <--> 3 	 Freq: 56.0 	 Demand: 408
+	Edge: 71 <--> 72 	 Freq: 56.0 	 Demand: 2856
+	Edge: 113 <--> 72 	 Freq: 56.0 	 Demand: 2244
+	Edge: 113 <--> 359 	 Freq: 56.0 	 Demand: 612
+	Edge: 74 <--> 113 	 Freq: 56.0 	 Demand: 612
+	Route: 2
+	Route length (8385.0) and demand (11688)
+	Edge: 192 <--> 193 	 Freq: 56.0 	 Demand: 1224
+	Edge: 309 <--> 192 	 Freq: 56.0 	 Demand: 408
+	Edge: 152 <--> 285 	 Freq: 56.0 	 Demand: 816
+	Edge: 154 <--> 155 	 Freq: 56.0 	 Demand: 204
+	Edge: 154 <--> 152 	 Freq: 56.0 	 Demand: 1224
+	Edge: 325 <--> 154 	 Freq: 56.0 	 Demand: 408
+	Edge: 277 <--> 61 	 Freq: 56.0 	 Demand: 816
+	Edge: 58 <--> 59 	 Freq: 56.0 	 Demand: 612
+	Edge: 59 <--> 60 	 Freq: 56.0 	 Demand: 204
+	Edge: 454 <--> 455 	 Freq: 56.0 	 Demand: 1340
+	Edge: 454 <--> 443 	 Freq: 56.0 	 Demand: 1868
+	Edge: 316 <--> 60 	 Freq: 56.0 	 Demand: 408
+	Edge: 318 <--> 316 	 Freq: 56.0 	 Demand: 204
+	Edge: 61 <--> 62 	 Freq: 56.0 	 Demand: 408
+	Edge: 250 <--> 396 	 Freq: 56.0 	 Demand: 204
+	Edge: 396 <--> 290 	 Freq: 56.0 	 Demand: 204
+	Edge: 66 <--> 290 	 Freq: 56.0 	 Demand: 204
+	Edge: 70 <--> 66 	 Freq: 56.0 	 Demand: 204
+	Edge: 70 <--> 397 	 Freq: 56.0 	 Demand: 728
+
+Day 8, number of edges 14, number of routes 2
+
+	Edges:
+
+	Edge: 81 <--> 269 	 Freq: 56.0 	 Demand: 2448
+	Edge: 232 <--> 81 	 Freq: 56.0 	 Demand: 204
+	Edge: 204 <--> 448 	 Freq: 56.0 	 Demand: 1428
+	Edge: 447 <--> 204 	 Freq: 56.0 	 Demand: 3584
+	Edge: 320 <--> 447 	 Freq: 56.0 	 Demand: 3468
+	Edge: 320 <--> 203 	 Freq: 56.0 	 Demand: 408
+	Edge: 390 <--> 391 	 Freq: 56.0 	 Demand: 1224
+	Edge: 299 <--> 390 	 Freq: 56.0 	 Demand: 3876
+	Edge: 331 <--> 62 	 Freq: 56.0 	 Demand: 1224
+	Edge: 35 <--> 305 	 Freq: 56.0 	 Demand: 204
+	Edge: 143 <--> 144 	 Freq: 56.0 	 Demand: 2156
+	Edge: 9 <--> 121 	 Freq: 56.0 	 Demand: 408
+	Edge: 89 <--> 257 	 Freq: 56.0 	 Demand: 1632
+	Edge: 139 <--> 292 	 Freq: 56.0 	 Demand: 408
+
+	Routes:
+
+	Route: 1
+	Route length (10273.0) and demand (11744)
+	Edge: 35 <--> 305 	 Freq: 56.0 	 Demand: 204
+	Edge: 232 <--> 81 	 Freq: 56.0 	 Demand: 204
+	Edge: 81 <--> 269 	 Freq: 56.0 	 Demand: 2448
+	Edge: 89 <--> 257 	 Freq: 56.0 	 Demand: 1632
+	Edge: 143 <--> 144 	 Freq: 56.0 	 Demand: 2156
+	Edge: 299 <--> 390 	 Freq: 56.0 	 Demand: 3876
+	Edge: 390 <--> 391 	 Freq: 56.0 	 Demand: 1224
+	Route: 2
+	Route length (7062.0) and demand (10928)
+	Edge: 139 <--> 292 	 Freq: 56.0 	 Demand: 408
+	Edge: 331 <--> 62 	 Freq: 56.0 	 Demand: 1224
+	Edge: 204 <--> 448 	 Freq: 56.0 	 Demand: 1428
+	Edge: 447 <--> 204 	 Freq: 56.0 	 Demand: 3584
+	Edge: 320 <--> 447 	 Freq: 56.0 	 Demand: 3468
+	Edge: 320 <--> 203 	 Freq: 56.0 	 Demand: 408
+	Edge: 9 <--> 121 	 Freq: 56.0 	 Demand: 408
+
+Day 9, number of edges 23, number of routes 2
+
+	Edges:
+
+	Edge: 409 <--> 364 	 Freq: 56.0 	 Demand: 1428
+	Edge: 465 <--> 219 	 Freq: 56.0 	 Demand: 816
+	Edge: 219 <--> 470 	 Freq: 56.0 	 Demand: 2244
+	Edge: 128 <--> 377 	 Freq: 56.0 	 Demand: 816
+	Edge: 377 <--> 378 	 Freq: 56.0 	 Demand: 408
+	Edge: 373 <--> 128 	 Freq: 56.0 	 Demand: 728
+	Edge: 131 <--> 378 	 Freq: 56.0 	 Demand: 204
+	Edge: 379 <--> 373 	 Freq: 56.0 	 Demand: 3468
+	Edge: 476 <--> 46 	 Freq: 56.0 	 Demand: 204
+	Edge: 46 <--> 44 	 Freq: 56.0 	 Demand: 3468
+	Edge: 194 <--> 159 	 Freq: 56.0 	 Demand: 2040
+	Edge: 158 <--> 159 	 Freq: 56.0 	 Demand: 816
+	Edge: 159 <--> 338 	 Freq: 56.0 	 Demand: 2448
+	Edge: 338 <--> 427 	 Freq: 56.0 	 Demand: 204
+	Edge: 158 <--> 338 	 Freq: 56.0 	 Demand: 204
+	Edge: 147 <--> 409 	 Freq: 56.0 	 Demand: 1428
+	Edge: 147 <--> 148 	 Freq: 56.0 	 Demand: 1020
+	Edge: 153 <--> 283 	 Freq: 56.0 	 Demand: 204
+	Edge: 283 <--> 284 	 Freq: 56.0 	 Demand: 204
+	Edge: 221 <--> 222 	 Freq: 56.0 	 Demand: 204
+	Edge: 77 <--> 477 	 Freq: 56.0 	 Demand: 408
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 68 <--> 402 	 Freq: 56.0 	 Demand: 408
+
+	Routes:
+
+	Route: 1
+	Route length (6304.0) and demand (11744)
+	Edge: 131 <--> 378 	 Freq: 56.0 	 Demand: 204
+	Edge: 377 <--> 378 	 Freq: 56.0 	 Demand: 408
+	Edge: 128 <--> 377 	 Freq: 56.0 	 Demand: 816
+	Edge: 373 <--> 128 	 Freq: 56.0 	 Demand: 728
+	Edge: 379 <--> 373 	 Freq: 56.0 	 Demand: 3468
+	Edge: 158 <--> 159 	 Freq: 56.0 	 Demand: 816
+	Edge: 194 <--> 159 	 Freq: 56.0 	 Demand: 2040
+	Edge: 159 <--> 338 	 Freq: 56.0 	 Demand: 2448
+	Edge: 338 <--> 427 	 Freq: 56.0 	 Demand: 204
+	Edge: 158 <--> 338 	 Freq: 56.0 	 Demand: 204
+	Edge: 283 <--> 284 	 Freq: 56.0 	 Demand: 204
+	Edge: 153 <--> 283 	 Freq: 56.0 	 Demand: 204
+	Route: 2
+	Route length (8838.0) and demand (11832)
+	Edge: 68 <--> 402 	 Freq: 56.0 	 Demand: 408
+	Edge: 147 <--> 409 	 Freq: 56.0 	 Demand: 1428
+	Edge: 147 <--> 148 	 Freq: 56.0 	 Demand: 1020
+	Edge: 409 <--> 364 	 Freq: 56.0 	 Demand: 1428
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 219 <--> 470 	 Freq: 56.0 	 Demand: 2244
+	Edge: 77 <--> 477 	 Freq: 56.0 	 Demand: 408
+	Edge: 46 <--> 44 	 Freq: 56.0 	 Demand: 3468
+	Edge: 476 <--> 46 	 Freq: 56.0 	 Demand: 204
+	Edge: 221 <--> 222 	 Freq: 56.0 	 Demand: 204
+	Edge: 465 <--> 219 	 Freq: 56.0 	 Demand: 816
+
+Day 10, number of edges 26, number of routes 3
+
+	Edges:
+
+	Edge: 448 <--> 428 	 Freq: 56.0 	 Demand: 1340
+	Edge: 267 <--> 268 	 Freq: 56.0 	 Demand: 408
+	Edge: 310 <--> 309 	 Freq: 56.0 	 Demand: 612
+	Edge: 203 <--> 204 	 Freq: 56.0 	 Demand: 4216
+	Edge: 330 <--> 341 	 Freq: 56.0 	 Demand: 612
+	Edge: 353 <--> 352 	 Freq: 56.0 	 Demand: 612
+	Edge: 110 <--> 353 	 Freq: 56.0 	 Demand: 2856
+	Edge: 82 <--> 259 	 Freq: 56.0 	 Demand: 408
+	Edge: 264 <--> 265 	 Freq: 56.0 	 Demand: 408
+	Edge: 347 <--> 337 	 Freq: 56.0 	 Demand: 204
+	Edge: 337 <--> 336 	 Freq: 56.0 	 Demand: 204
+	Edge: 428 <--> 452 	 Freq: 56.0 	 Demand: 1664
+	Edge: 316 <--> 428 	 Freq: 56.0 	 Demand: 3608
+	Edge: 198 <--> 199 	 Freq: 56.0 	 Demand: 2244
+	Edge: 199 <--> 341 	 Freq: 56.0 	 Demand: 1836
+	Edge: 291 <--> 66 	 Freq: 56.0 	 Demand: 408
+	Edge: 474 <--> 87 	 Freq: 56.0 	 Demand: 204
+	Edge: 493 <--> 483 	 Freq: 56.0 	 Demand: 408
+	Edge: 219 <--> 220 	 Freq: 56.0 	 Demand: 1020
+	Edge: 292 <--> 291 	 Freq: 56.0 	 Demand: 408
+	Edge: 140 <--> 138 	 Freq: 56.0 	 Demand: 1020
+	Edge: 198 <--> 328 	 Freq: 56.0 	 Demand: 816
+	Edge: 86 <--> 493 	 Freq: 56.0 	 Demand: 1428
+	Edge: 199 <--> 62 	 Freq: 56.0 	 Demand: 204
+	Edge: 67 <--> 286 	 Freq: 56.0 	 Demand: 204
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3058.0) and demand (3876)
+	Edge: 110 <--> 353 	 Freq: 56.0 	 Demand: 2856
+	Edge: 353 <--> 352 	 Freq: 56.0 	 Demand: 612
+	Edge: 347 <--> 337 	 Freq: 56.0 	 Demand: 204
+	Edge: 337 <--> 336 	 Freq: 56.0 	 Demand: 204
+	Route: 2
+	Route length (12904.0) and demand (11968)
+	Edge: 292 <--> 291 	 Freq: 56.0 	 Demand: 408
+	Edge: 291 <--> 66 	 Freq: 56.0 	 Demand: 408
+	Edge: 67 <--> 286 	 Freq: 56.0 	 Demand: 204
+	Edge: 198 <--> 328 	 Freq: 56.0 	 Demand: 816
+	Edge: 203 <--> 204 	 Freq: 56.0 	 Demand: 4216
+	Edge: 310 <--> 309 	 Freq: 56.0 	 Demand: 612
+	Edge: 493 <--> 483 	 Freq: 56.0 	 Demand: 408
+	Edge: 267 <--> 268 	 Freq: 56.0 	 Demand: 408
+	Edge: 264 <--> 265 	 Freq: 56.0 	 Demand: 408
+	Edge: 86 <--> 493 	 Freq: 56.0 	 Demand: 1428
+	Edge: 82 <--> 259 	 Freq: 56.0 	 Demand: 408
+	Edge: 474 <--> 87 	 Freq: 56.0 	 Demand: 204
+	Edge: 219 <--> 220 	 Freq: 56.0 	 Demand: 1020
+	Edge: 140 <--> 138 	 Freq: 56.0 	 Demand: 1020
+	Route: 3
+	Route length (7177.0) and demand (11712)
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+	Edge: 330 <--> 341 	 Freq: 56.0 	 Demand: 612
+	Edge: 199 <--> 341 	 Freq: 56.0 	 Demand: 1836
+	Edge: 199 <--> 62 	 Freq: 56.0 	 Demand: 204
+	Edge: 428 <--> 452 	 Freq: 56.0 	 Demand: 1664
+	Edge: 448 <--> 428 	 Freq: 56.0 	 Demand: 1340
+	Edge: 316 <--> 428 	 Freq: 56.0 	 Demand: 3608
+	Edge: 198 <--> 199 	 Freq: 56.0 	 Demand: 2244
+
+Day 11, number of edges 25, number of routes 2
+
+	Edges:
+
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 418 <--> 416 	 Freq: 56.0 	 Demand: 612
+	Edge: 482 <--> 171 	 Freq: 56.0 	 Demand: 204
+	Edge: 496 <--> 485 	 Freq: 56.0 	 Demand: 1020
+	Edge: 411 <--> 412 	 Freq: 56.0 	 Demand: 612
+	Edge: 163 <--> 164 	 Freq: 56.0 	 Demand: 204
+	Edge: 174 <--> 462 	 Freq: 56.0 	 Demand: 408
+	Edge: 462 <--> 458 	 Freq: 56.0 	 Demand: 3584
+	Edge: 179 <--> 442 	 Freq: 56.0 	 Demand: 408
+	Edge: 442 <--> 437 	 Freq: 56.0 	 Demand: 408
+	Edge: 358 <--> 359 	 Freq: 56.0 	 Demand: 1952
+	Edge: 178 <--> 460 	 Freq: 56.0 	 Demand: 612
+	Edge: 460 <--> 459 	 Freq: 56.0 	 Demand: 1632
+	Edge: 417 <--> 416 	 Freq: 56.0 	 Demand: 1836
+	Edge: 416 <--> 415 	 Freq: 56.0 	 Demand: 2244
+	Edge: 93 <--> 270 	 Freq: 56.0 	 Demand: 204
+	Edge: 120 <--> 368 	 Freq: 56.0 	 Demand: 612
+	Edge: 463 <--> 317 	 Freq: 56.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 56.0 	 Demand: 204
+	Edge: 413 <--> 367 	 Freq: 56.0 	 Demand: 1632
+	Edge: 120 <--> 121 	 Freq: 56.0 	 Demand: 1224
+	Edge: 314 <--> 335 	 Freq: 56.0 	 Demand: 204
+	Edge: 108 <--> 109 	 Freq: 56.0 	 Demand: 3264
+
+	Routes:
+
+	Route: 1
+	Route length (12849.0) and demand (11948)
+	Edge: 120 <--> 368 	 Freq: 56.0 	 Demand: 612
+	Edge: 463 <--> 317 	 Freq: 56.0 	 Demand: 204
+	Edge: 462 <--> 458 	 Freq: 56.0 	 Demand: 3584
+	Edge: 174 <--> 462 	 Freq: 56.0 	 Demand: 408
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 178 <--> 460 	 Freq: 56.0 	 Demand: 612
+	Edge: 179 <--> 442 	 Freq: 56.0 	 Demand: 408
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 56.0 	 Demand: 408
+	Edge: 460 <--> 459 	 Freq: 56.0 	 Demand: 1632
+	Edge: 93 <--> 270 	 Freq: 56.0 	 Demand: 204
+	Edge: 163 <--> 164 	 Freq: 56.0 	 Demand: 204
+	Edge: 482 <--> 171 	 Freq: 56.0 	 Demand: 204
+	Edge: 496 <--> 485 	 Freq: 56.0 	 Demand: 1020
+	Edge: 79 <--> 500 	 Freq: 56.0 	 Demand: 204
+	Edge: 413 <--> 367 	 Freq: 56.0 	 Demand: 1632
+	Route: 2
+	Route length (6068.0) and demand (11948)
+	Edge: 314 <--> 335 	 Freq: 56.0 	 Demand: 204
+	Edge: 358 <--> 359 	 Freq: 56.0 	 Demand: 1952
+	Edge: 108 <--> 109 	 Freq: 56.0 	 Demand: 3264
+	Edge: 411 <--> 412 	 Freq: 56.0 	 Demand: 612
+	Edge: 417 <--> 416 	 Freq: 56.0 	 Demand: 1836
+	Edge: 418 <--> 416 	 Freq: 56.0 	 Demand: 612
+	Edge: 416 <--> 415 	 Freq: 56.0 	 Demand: 2244
+	Edge: 120 <--> 121 	 Freq: 56.0 	 Demand: 1224
+
+Day 12, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 13, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 14, number of edges 15, number of routes 2
+
+	Edges:
+
+	Edge: 99 <--> 28 	 Freq: 56.0 	 Demand: 204
+	Edge: 319 <--> 424 	 Freq: 56.0 	 Demand: 1544
+	Edge: 424 <--> 342 	 Freq: 56.0 	 Demand: 2448
+	Edge: 127 <--> 128 	 Freq: 56.0 	 Demand: 3468
+	Edge: 99 <--> 482 	 Freq: 56.0 	 Demand: 1020
+	Edge: 446 <--> 451 	 Freq: 56.0 	 Demand: 2856
+	Edge: 318 <--> 448 	 Freq: 56.0 	 Demand: 3968
+	Edge: 230 <--> 83 	 Freq: 56.0 	 Demand: 1836
+	Edge: 461 <--> 16 	 Freq: 56.0 	 Demand: 204
+	Edge: 231 <--> 80 	 Freq: 56.0 	 Demand: 204
+	Edge: 447 <--> 441 	 Freq: 56.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 56.0 	 Demand: 1224
+	Edge: 365 <--> 369 	 Freq: 56.0 	 Demand: 932
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 76 <--> 13 	 Freq: 56.0 	 Demand: 612
+
+	Routes:
+
+	Route: 1
+	Route length (9197.0) and demand (9500)
+	Edge: 225 <--> 226 	 Freq: 56.0 	 Demand: 1224
+	Edge: 231 <--> 80 	 Freq: 56.0 	 Demand: 204
+	Edge: 230 <--> 83 	 Freq: 56.0 	 Demand: 1836
+	Edge: 76 <--> 13 	 Freq: 56.0 	 Demand: 612
+	Edge: 99 <--> 28 	 Freq: 56.0 	 Demand: 204
+	Edge: 99 <--> 482 	 Freq: 56.0 	 Demand: 1020
+	Edge: 365 <--> 369 	 Freq: 56.0 	 Demand: 932
+	Edge: 127 <--> 128 	 Freq: 56.0 	 Demand: 3468
+	Route: 2
+	Route length (8625.0) and demand (11428)
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 461 <--> 16 	 Freq: 56.0 	 Demand: 204
+	Edge: 446 <--> 451 	 Freq: 56.0 	 Demand: 2856
+	Edge: 447 <--> 441 	 Freq: 56.0 	 Demand: 204
+	Edge: 318 <--> 448 	 Freq: 56.0 	 Demand: 3968
+	Edge: 319 <--> 424 	 Freq: 56.0 	 Demand: 1544
+	Edge: 424 <--> 342 	 Freq: 56.0 	 Demand: 2448
+
+Day 15, number of edges 26, number of routes 2
+
+	Edges:
+
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 112 <--> 113 	 Freq: 56.0 	 Demand: 2652
+	Edge: 96 <--> 354 	 Freq: 56.0 	 Demand: 204
+	Edge: 247 <--> 366 	 Freq: 56.0 	 Demand: 1632
+	Edge: 333 <--> 311 	 Freq: 56.0 	 Demand: 1632
+	Edge: 273 <--> 274 	 Freq: 56.0 	 Demand: 1428
+	Edge: 195 <--> 427 	 Freq: 56.0 	 Demand: 1340
+	Edge: 441 <--> 344 	 Freq: 56.0 	 Demand: 1340
+	Edge: 85 <--> 494 	 Freq: 56.0 	 Demand: 1428
+	Edge: 92 <--> 501 	 Freq: 56.0 	 Demand: 408
+	Edge: 340 <--> 423 	 Freq: 56.0 	 Demand: 3744
+
+	Routes:
+
+	Route: 1
+	Route length (20224.0) and demand (10724)
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 92 <--> 501 	 Freq: 56.0 	 Demand: 408
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 85 <--> 494 	 Freq: 56.0 	 Demand: 1428
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 354 	 Freq: 56.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 273 <--> 274 	 Freq: 56.0 	 Demand: 1428
+	Edge: 441 <--> 344 	 Freq: 56.0 	 Demand: 1340
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 112 <--> 113 	 Freq: 56.0 	 Demand: 2652
+	Route: 2
+	Route length (7433.0) and demand (8756)
+	Edge: 247 <--> 366 	 Freq: 56.0 	 Demand: 1632
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 195 <--> 427 	 Freq: 56.0 	 Demand: 1340
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 340 <--> 423 	 Freq: 56.0 	 Demand: 3744
+	Edge: 333 <--> 311 	 Freq: 56.0 	 Demand: 1632
+
+Day 16, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3058.0) and demand (204)
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+Day 17, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 18, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3740.0) and demand (204)
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+Day 19, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 20, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 21, number of edges 3, number of routes 1
+
+	Edges:
+
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (8495.0) and demand (612)
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+
+Day 22, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3495.0) and demand (204)
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 23, number of edges 11, number of routes 1
+
+	Edges:
+
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (11584.0) and demand (2652)
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+
+Day 24, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 25, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3436.0) and demand (204)
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 26, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 27, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 28, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3740.0) and demand (204)
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+Day 29, number of edges 3, number of routes 1
+
+	Edges:
+
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (8495.0) and demand (612)
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+
+Day 30, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 31, number of edges 5, number of routes 1
+
+	Edges:
+
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (10912.0) and demand (1020)
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+
+Day 32, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3058.0) and demand (204)
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+Day 33, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 34, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 35, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3436.0) and demand (204)
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 36, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 37, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 38, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3495.0) and demand (204)
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 39, number of edges 16, number of routes 1
+
+	Edges:
+
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (15153.0) and demand (3672)
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+
+Day 40, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 41, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 42, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3058.0) and demand (204)
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+Day 43, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 44, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3740.0) and demand (204)
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+Day 45, number of edges 3, number of routes 1
+
+	Edges:
+
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (8495.0) and demand (612)
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+
+Day 46, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3495.0) and demand (204)
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 47, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 48, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 49, number of edges 14, number of routes 1
+
+	Edges:
+
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (15095.0) and demand (3264)
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+
+Day 50, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3436.0) and demand (204)
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 51, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 52, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 53, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 54, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 55, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+
+
+
+Phase 1 ended! Current time: 2026-08-09 01:27:54.168396
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 34835396.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.4687528610229492
+Average iteration time: 0.4687528610229492
+Current score: 33840105.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:28:10.043397
+Phase 2 (only move_services) Report:
+Iteration count: 16
+Last iteration time: 0.2187511920928955
+Average iteration time: 0.8896487206220627
+Current score: 25891452.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.2812485694885254
+Average iteration time: 0.2812485694885254
+Current score: 25890331.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:28:38.949644
+Phase 3 (using only swap_services) Report:
+Iteration count: 38
+Last iteration time: 0.09374856948852539
+Average iteration time: 0.31126634070747766
+Current score: 25885204.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.7968707084655762
+Average iteration time: 0.7968707084655762
+Current score: 25885102.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.3984353542327881
+Current score: 25885102.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.2656235694885254
+Current score: 25885102.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.01563262939453125
+Average iteration time: 0.20312583446502686
+Current score: 25885102.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.015623807907104492
+Average iteration time: 0.16562542915344236
+Current score: 25885102.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.13802119096120197
+Current score: 25885102.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.13281330466270447
+Current score: 25880436.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.015623092651367188
+Average iteration time: 0.11093802452087402
+Current score: 25877641.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 15
+Last iteration time: 0.0
+Average iteration time: 0.1270836353302002
+Current score: 25875832.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 16
+Last iteration time: 0.0
+Average iteration time: 0.11914090812206268
+Current score: 25875832.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 17
+Last iteration time: 0.0
+Average iteration time: 0.11213261940900017
+Current score: 25875832.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.1059030294418335
+Current score: 25875832.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 20
+Last iteration time: 0.0
+Average iteration time: 0.105469012260437
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.0
+Average iteration time: 0.10044667834327334
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.09588092023676092
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.09171218457429306
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.0
+Average iteration time: 0.08789084355036418
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.08437520980834962
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.0
+Average iteration time: 0.08113000943110539
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.07812519426699038
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.015628337860107422
+Average iteration time: 0.07589316368103027
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.07327615803685682
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.07083361943562826
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.06854866396996283
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.06640651822090149
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.06439419948693478
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.0625002524432014
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.06071453094482422
+Current score: 25875751.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.05743266440726615
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.05592127850181178
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.015625
+Average iteration time: 0.05488804059150891
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.053515839576721194
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 41
+Last iteration time: 0.0
+Average iteration time: 0.05221057519680116
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 42
+Last iteration time: 0.0
+Average iteration time: 0.050967466263543995
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 43
+Last iteration time: 0.0
+Average iteration time: 0.049782176350438315
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 44
+Last iteration time: 0.0
+Average iteration time: 0.04865076325156472
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 45
+Last iteration time: 0.0
+Average iteration time: 0.04756963517930773
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 46
+Last iteration time: 0.0
+Average iteration time: 0.04653551267540973
+Current score: 25873265.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 49
+Last iteration time: 0.0
+Average iteration time: 0.044005345325080714
+Current score: 25864906.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 52
+Last iteration time: 0.0
+Average iteration time: 0.04176690028263973
+Current score: 25856322.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 55
+Last iteration time: 0.0
+Average iteration time: 0.03977280096574263
+Current score: 25851654.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:28:43.668396
+Phase 4 (routing operators) Report:
+Iteration count: 55
+Last iteration time: 0.0
+Average iteration time: 0.03977280096574263
+Current score: 25851654.0
+
+
+Local search report:
+Iteration count: 2 iterations
+Last iteration time: 49.49999928474426 seconds
+Iteration average time: 49.36640453338623 seconds
+Current score: 25851654.0
+
+Phase 1 ended! Current time: 2026-08-09 01:28:43.668396
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 25851654.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.6406216621398926
+Average iteration time: 0.6406216621398926
+Current score: 24856939.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:28:49.293420
+Phase 2 (only move_services) Report:
+Iteration count: 4
+Last iteration time: 0.21877098083496094
+Average iteration time: 0.9140680432319641
+Current score: 22867021.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.48515868186950684
+Average iteration time: 0.48515868186950684
+Current score: 22865921.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:29:27.318010
+Phase 3 (using only swap_services) Report:
+Iteration count: 26
+Last iteration time: 0.14421868324279785
+Average iteration time: 0.4788399017774142
+Current score: 22863139.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 22863139.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 22863139.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 22863139.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.015645265579223633
+Average iteration time: 0.17872655391693115
+Current score: 22863125.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.13220282395680746
+Current score: 22861647.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.004487514495849609
+Average iteration time: 0.11395777974809919
+Current score: 22861647.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.0
+Average iteration time: 0.14365630679660374
+Current score: 22857595.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 0.13324244817097983
+Current score: 22851869.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 14
+Last iteration time: 0.0
+Average iteration time: 0.15793180465698242
+Current score: 22850325.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 16
+Last iteration time: 0.0
+Average iteration time: 0.1707220822572708
+Current score: 22849412.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.014126300811767578
+Average iteration time: 0.1684183014763726
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.004515647888183594
+Average iteration time: 0.15979184602436267
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 20
+Last iteration time: 0.0
+Average iteration time: 0.15180225372314454
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.0
+Average iteration time: 0.14457357497442336
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.1380020488392223
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.1320019597592561
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.013153553009033203
+Average iteration time: 0.12704994281133017
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.12196794509887696
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.002943754196166992
+Average iteration time: 0.11739009160261887
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.001210927963256836
+Average iteration time: 0.11308715961597585
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.0026428699493408203
+Average iteration time: 0.1091427206993103
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.10537917860623064
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.10186653931935628
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.0985805219219577
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.09549988061189651
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.09260594483577844
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.0898822405759026
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.08731417655944824
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.015651464462280273
+Average iteration time: 0.08532354566786024
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.08301750389305321
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.08083283273797286
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0
+Average iteration time: 0.07876019600110176
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.07679119110107421
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 41
+Last iteration time: 0.012342453002929688
+Average iteration time: 0.07521927065965606
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 42
+Last iteration time: 0.0009980201721191406
+Average iteration time: 0.07345209802900042
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 43
+Last iteration time: 0.0025827884674072266
+Average iteration time: 0.07180397455082384
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 44
+Last iteration time: 0.0016782283782958984
+Average iteration time: 0.0702102075923573
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 45
+Last iteration time: 0.0009989738464355469
+Average iteration time: 0.06867218017578126
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 46
+Last iteration time: 0.0036172866821289062
+Average iteration time: 0.06725794336070187
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 47
+Last iteration time: 0.0009984970092773438
+Average iteration time: 0.06584816790641625
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 48
+Last iteration time: 0.0
+Average iteration time: 0.06447633107503258
+Current score: 22843535.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:29:34.242106
+Phase 4 (routing operators) Report:
+Iteration count: 48
+Last iteration time: 0.0
+Average iteration time: 0.06447633107503258
+Current score: 22843535.0
+
+
+Local search report:
+Iteration count: 3 iterations
+Last iteration time: 50.573710203170776 seconds
+Iteration average time: 49.76883975664775 seconds
+Current score: 22843535.0
+
+Phase 1 ended! Current time: 2026-08-09 01:29:34.242106
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 22843535.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.7762997150421143
+Average iteration time: 0.7762997150421143
+Current score: 21846915.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:29:57.954221
+Phase 2 (only move_services) Report:
+Iteration count: 14
+Last iteration time: 0.4150681495666504
+Average iteration time: 1.487892542566572
+Current score: 13935470.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.12500858306884766
+Average iteration time: 0.12500858306884766
+Current score: 13932831.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:30:35.872866
+Phase 3 (using only swap_services) Report:
+Iteration count: 24
+Last iteration time: 0.12721753120422363
+Average iteration time: 0.44116992751757317
+Current score: 13924855.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 1.2663605213165283
+Average iteration time: 1.2663605213165283
+Current score: 13924832.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.6331802606582642
+Current score: 13924832.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.4221201737721761
+Current score: 13924832.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.0
+Average iteration time: 0.3165901303291321
+Current score: 13924832.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.23189397652943924
+Current score: 13920839.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.01562952995300293
+Average iteration time: 0.20099905558994835
+Current score: 13920839.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.015625953674316406
+Average iteration time: 0.2145031028323703
+Current score: 13917516.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.0009989738464355469
+Average iteration time: 0.1966222849759188
+Current score: 13911681.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 0.190774184006911
+Current score: 13908873.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 14
+Last iteration time: 0.0
+Average iteration time: 0.17714745657784595
+Current score: 13908873.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 17
+Last iteration time: 0.0
+Average iteration time: 0.186343697940602
+Current score: 13903413.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.1759912702772352
+Current score: 13903413.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 0.16672857184159126
+Current score: 13903413.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.0
+Average iteration time: 0.1508496602376302
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.1439928574995561
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.13773229847783625
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.015635251998901367
+Average iteration time: 0.13264492154121396
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.1273391246795654
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.0
+Average iteration time: 0.12244146603804365
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.11790659692552351
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.0
+Average iteration time: 0.11369564703532624
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.10977510748238396
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.10611593723297116
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.015623807907104492
+Average iteration time: 0.10319683628697546
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.09997193515300748
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.09694248257261331
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.09409123308518351
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.09140291213989256
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.0
+Average iteration time: 0.08886394235822886
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.08646221418638485
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.016083478927612305
+Average iteration time: 0.08461014220589083
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0010013580322265625
+Average iteration time: 0.08246632722707893
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.08040466904640195
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 41
+Last iteration time: 0.0
+Average iteration time: 0.07844357955746532
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 42
+Last iteration time: 0.0
+Average iteration time: 0.07657587528228757
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 43
+Last iteration time: 0.0
+Average iteration time: 0.07479504097339716
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 44
+Last iteration time: 0.0
+Average iteration time: 0.07309515367854723
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 45
+Last iteration time: 0.0
+Average iteration time: 0.07147081693013507
+Current score: 13900036.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 47
+Last iteration time: 0.0
+Average iteration time: 0.06847731103288365
+Current score: 13894890.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 50
+Last iteration time: 0.001615762710571289
+Average iteration time: 0.0645963096618652
+Current score: 13879553.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 53
+Last iteration time: 0.007874488830566406
+Average iteration time: 0.06112032116584055
+Current score: 13863897.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:30:43.321282
+Phase 4 (routing operators) Report:
+Iteration count: 53
+Last iteration time: 0.007874488830566406
+Average iteration time: 0.06112032116584055
+Current score: 13863897.0
+
+
+Local search report:
+Iteration count: 4 iterations
+Last iteration time: 69.08017134666443 seconds
+Iteration average time: 54.59667265415192 seconds
+Current score: 13863897.0
+
+Phase 1 ended! Current time: 2026-08-09 01:30:43.323322
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 13863897.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.8632814884185791
+Average iteration time: 0.8632814884185791
+Current score: 13371955.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:30:47.216561
+Phase 2 (only move_services) Report:
+Iteration count: 2
+Last iteration time: 0.18749499320983887
+Average iteration time: 0.525388240814209
+Current score: 13371955.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.09374666213989258
+Average iteration time: 0.09374666213989258
+Current score: 13369996.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:31:07.763461
+Phase 3 (using only swap_services) Report:
+Iteration count: 12
+Last iteration time: 0.09376740455627441
+Average iteration time: 0.19922027985254925
+Current score: 13368364.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 13368364.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 13368364.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 13368364.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 13368364.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.015625953674316406
+Average iteration time: 0.033481393541608534
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.029296219348907467
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.0
+Average iteration time: 0.026041083865695525
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.015625715255737305
+Average iteration time: 0.024999547004699703
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.0
+Average iteration time: 0.022726860913363366
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 0.020832955837249752
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 0.019230420772845924
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 14
+Last iteration time: 0.0
+Average iteration time: 0.017856819289071214
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 15
+Last iteration time: 0.015624046325683594
+Average iteration time: 0.01770796775817871
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 16
+Last iteration time: 0.0
+Average iteration time: 0.016601219773292538
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 17
+Last iteration time: 0.0
+Average iteration time: 0.015624677433687095
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.014756639798482256
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 0.013979974545930559
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 20
+Last iteration time: 0.0
+Average iteration time: 0.01328097581863403
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.0
+Average iteration time: 0.012648548398699076
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.012073614380576391
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.011548674624899157
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.0
+Average iteration time: 0.011067479848861693
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.010624780654907224
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.0
+Average iteration time: 0.0102161352451031
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.009837759865654837
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.0
+Average iteration time: 0.009486411299024307
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.009159293668023469
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.008853983879089354
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.008568371495892922
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.008300609886646269
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.008049076253717594
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.0078123387168435475
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.007589129039219446
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.0
+Average iteration time: 0.007378319899241128
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.0071789058479102864
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.006989987272965279
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0
+Average iteration time: 0.006810756830068734
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.015628576278686523
+Average iteration time: 0.007031202316284179
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 41
+Last iteration time: 0.0
+Average iteration time: 0.006859709576862613
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 42
+Last iteration time: 0.0
+Average iteration time: 0.006696383158365884
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 43
+Last iteration time: 0.0
+Average iteration time: 0.006540653317473655
+Current score: 13365805.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:31:10.044691
+Phase 4 (routing operators) Report:
+Iteration count: 43
+Last iteration time: 0.0
+Average iteration time: 0.006540653317473655
+Current score: 13365805.0
+
+
+Local search report:
+Iteration count: 5 iterations
+Last iteration time: 26.722370386123657 seconds
+Iteration average time: 49.021812200546265 seconds
+Current score: 13365805.0
+
+Phase 1 ended! Current time: 2026-08-09 01:31:10.044691
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 13365805.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 1.8750109672546387
+Average iteration time: 1.8750109672546387
+Current score: 12365805.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:31:13.810313
+Phase 2 (only move_services) Report:
+Iteration count: 2
+Last iteration time: 0.18748831748962402
+Average iteration time: 1.0312496423721313
+Current score: 12365805.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.2968790531158447
+Average iteration time: 0.2968790531158447
+Current score: 12365456.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:31:31.591567
+Phase 3 (using only swap_services) Report:
+Iteration count: 6
+Last iteration time: 0.10937929153442383
+Average iteration time: 0.28906305631001794
+Current score: 12364744.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.015624284744262695
+Average iteration time: 0.015624284744262695
+Current score: 12364744.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.015624284744262695
+Average iteration time: 0.015624284744262695
+Current score: 12364744.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.007812142372131348
+Current score: 12364744.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.0052080949147542315
+Current score: 12364744.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.015619516372680664
+Average iteration time: 0.00781095027923584
+Current score: 12364744.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.0
+Average iteration time: 0.006248760223388672
+Current score: 12364744.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.0052073001861572266
+Current score: 12364744.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.019528448581695557
+Current score: 12364720.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.0
+Average iteration time: 0.01735862096150716
+Current score: 12364720.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 0.015622758865356445
+Current score: 12364720.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.015624284744262695
+Average iteration time: 0.01562289758162065
+Current score: 12364720.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 0.01432098944981893
+Current score: 12364720.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 0.013219374876755934
+Current score: 12364720.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 15
+Last iteration time: 0.01562666893005371
+Average iteration time: 0.012498569488525391
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 16
+Last iteration time: 0.0
+Average iteration time: 0.011717408895492554
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 17
+Last iteration time: 0.0
+Average iteration time: 0.011028149548698874
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.010415474573771158
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 0.009867291701467414
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 20
+Last iteration time: 0.0
+Average iteration time: 0.009373927116394043
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.0
+Average iteration time: 0.008927549634660994
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.008521751923994585
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.00815124097077743
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.0
+Average iteration time: 0.00781160593032837
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.007499141693115235
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.0
+Average iteration time: 0.007210713166456957
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.00694364971584744
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.015626192092895508
+Average iteration time: 0.007253740515027729
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.0070036115317509105
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.006770157814025879
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.006551765626476658
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.006347022950649262
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.006154688921841709
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.0059736686594345995
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.005802992412022183
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.0
+Average iteration time: 0.0056417981783549
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.005489317146507471
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.005344861432125696
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0
+Average iteration time: 0.005207813703096831
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.00507761836051941
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 41
+Last iteration time: 0.015625953674316406
+Average iteration time: 0.00533489483158763
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 42
+Last iteration time: 0.0
+Average iteration time: 0.005207873526073639
+Current score: 12359893.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:31:33.982191
+Phase 4 (routing operators) Report:
+Iteration count: 42
+Last iteration time: 0.0
+Average iteration time: 0.005207873526073639
+Current score: 12359893.0
+
+
+Local search report:
+Iteration count: 6 iterations
+Last iteration time: 23.9375 seconds
+Iteration average time: 44.84109350045522 seconds
+Current score: 12359893.0
+
+Phase 1 ended! Current time: 2026-08-09 01:31:33.982191
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359893.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.18749713897705078
+Average iteration time: 0.18749713897705078
+Current score: 12359893.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:31:36.185311
+Phase 2 (only move_services) Report:
+Iteration count: 1
+Last iteration time: 0.18749713897705078
+Average iteration time: 0.18749713897705078
+Current score: 12359893.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.125
+Average iteration time: 0.125
+Current score: 12359676.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:31:54.294684
+Phase 3 (using only swap_services) Report:
+Iteration count: 5
+Last iteration time: 0.0625002384185791
+Average iteration time: 0.24687433242797852
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.015623807907104492
+Average iteration time: 0.015623807907104492
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.015623807907104492
+Average iteration time: 0.015623807907104492
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.015627622604370117
+Average iteration time: 0.015625715255737305
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.01041714350382487
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.015594959259033203
+Average iteration time: 0.011711597442626953
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.0
+Average iteration time: 0.009369277954101562
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.007807731628417969
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.0
+Average iteration time: 0.0066923413957868305
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.0058557987213134766
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.015625
+Average iteration time: 0.0069412655300564235
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 0.006247138977050782
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.0
+Average iteration time: 0.0056792172518643465
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 0.005205949147542317
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 0.0048054915208082935
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 14
+Last iteration time: 0.0
+Average iteration time: 0.004462242126464844
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 15
+Last iteration time: 0.0
+Average iteration time: 0.004164759318033854
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 16
+Last iteration time: 0.0
+Average iteration time: 0.0039044618606567383
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 17
+Last iteration time: 0.0
+Average iteration time: 0.0036747876335592833
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.0034706327650282118
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 0.003287967882658306
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 20
+Last iteration time: 0.0
+Average iteration time: 0.003123569488525391
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.0
+Average iteration time: 0.002974828084309896
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.0028396086259321733
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.0027161473813264265
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.0
+Average iteration time: 0.0026029745737711587
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.0024988555908203123
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.0
+Average iteration time: 0.0024027457604041463
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.002313755176685474
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.0
+Average iteration time: 0.0022311210632324214
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.002154185854155441
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.002082379659016926
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.0020152061216292833
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.015625953674316406
+Average iteration time: 0.002440541982650756
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.0023665861649946724
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.0022969806895536526
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.0022313526698521198
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.0
+Average iteration time: 0.0021693706512451163
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.0021107390120222755
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.002055193248548005
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0
+Average iteration time: 0.002002495985764723
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.0019524335861206047
+Current score: 12359567.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:31:56.825936
+Phase 4 (routing operators) Report:
+Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.0019524335861206047
+Current score: 12359567.0
+
+
+Local search report:
+Iteration count: 7 iterations
+Last iteration time: 22.84374499320984 seconds
+Iteration average time: 41.698615142277305 seconds
+Current score: 12359567.0
+
+Phase 1 ended! Current time: 2026-08-09 01:31:56.825936
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359567.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.1718747615814209
+Average iteration time: 0.1718747615814209
+Current score: 12359567.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:31:58.716563
+Phase 2 (only move_services) Report:
+Iteration count: 1
+Last iteration time: 0.1718747615814209
+Average iteration time: 0.1718747615814209
+Current score: 12359567.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.3906261920928955
+Average iteration time: 0.3906261920928955
+Current score: 12359481.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:32:16.810316
+Phase 3 (using only swap_services) Report:
+Iteration count: 4
+Last iteration time: 0.09375429153442383
+Average iteration time: 0.28906363248825073
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 14
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 15
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 16
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 17
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.01561427116394043
+Average iteration time: 0.000821803745470549
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 20
+Last iteration time: 0.0
+Average iteration time: 0.0007807135581970215
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.0
+Average iteration time: 0.0007435367220924014
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.0007097395983609287
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.0006788813549539317
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.0
+Average iteration time: 0.0006505946318308512
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.0006245708465576172
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.0
+Average iteration time: 0.0006005488909207857
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.0005783063394052011
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.0
+Average iteration time: 0.0005576525415693011
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.0005384231435841527
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.000520475705464681
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.0005036861665787235
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.00048794597387313843
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.00047315973224061907
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.0004592432695276597
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.00044612203325544085
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.0
+Average iteration time: 0.0004337297545539008
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.00042200732875514676
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.0004109018727352745
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0
+Average iteration time: 0.0004003659272805238
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.00039035677909851076
+Current score: 12359303.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:32:19.247816
+Phase 4 (routing operators) Report:
+Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.00039035677909851076
+Current score: 12359303.0
+
+
+Local search report:
+Iteration count: 8 iterations
+Last iteration time: 22.421879768371582 seconds
+Iteration average time: 39.28902322053909 seconds
+Current score: 12359303.0
+
+Phase 1 ended! Current time: 2026-08-09 01:32:19.247816
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359303.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.15625405311584473
+Average iteration time: 0.15625405311584473
+Current score: 12359303.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:32:21.154064
+Phase 2 (only move_services) Report:
+Iteration count: 1
+Last iteration time: 0.15625405311584473
+Average iteration time: 0.15625405311584473
+Current score: 12359303.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.3281252384185791
+Average iteration time: 0.3281252384185791
+Current score: 12359236.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:32:39.782848
+Phase 3 (using only swap_services) Report:
+Iteration count: 2
+Last iteration time: 0.0468752384185791
+Average iteration time: 0.1875002384185791
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.015622615814208984
+Average iteration time: 0.002603769302368164
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.0
+Average iteration time: 0.002231802259172712
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.001952826976776123
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.0
+Average iteration time: 0.0017358462015787761
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.015629053115844727
+Average iteration time: 0.0031251668930053714
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.0
+Average iteration time: 0.002841060811823065
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 0.0026043057441711426
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 0.0024039745330810547
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 14
+Last iteration time: 0.0
+Average iteration time: 0.002232262066432408
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 15
+Last iteration time: 0.0
+Average iteration time: 0.002083444595336914
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 16
+Last iteration time: 0.0
+Average iteration time: 0.001953229308128357
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 17
+Last iteration time: 0.0
+Average iteration time: 0.0018383334664737478
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.0017362038294474285
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 0.0016448246805291426
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 20
+Last iteration time: 0.0
+Average iteration time: 0.0015625834465026855
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.0
+Average iteration time: 0.0014881747109549387
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.0014205304059115324
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.0013587682143501613
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.015600919723510742
+Average iteration time: 0.001952191193898519
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.0018741035461425782
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.0
+Average iteration time: 0.0018020226405217098
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.001735281061243128
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.0
+Average iteration time: 0.001673306737627302
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.0016156065052953259
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.001561752955118815
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.0015113738275343372
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.0014641433954238892
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.0014197754137443774
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.001378017313340131
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.0013386453901018415
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.0
+Average iteration time: 0.001301460795932346
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.0012662861798260663
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.0012329628593043278
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0
+Average iteration time: 0.0012013484270144731
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.0011713147163391114
+Current score: 12359236.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:32:42.189105
+Phase 4 (routing operators) Report:
+Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.0011713147163391114
+Current score: 12359236.0
+
+
+Local search report:
+Iteration count: 9 iterations
+Last iteration time: 22.941288948059082 seconds
+Iteration average time: 37.47260830137465 seconds
+Current score: 12359236.0
+
+Phase 1 ended! Current time: 2026-08-09 01:32:42.189105
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359236.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.18750286102294922
+Average iteration time: 0.18750286102294922
+Current score: 12359236.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:32:44.095352
+Phase 2 (only move_services) Report:
+Iteration count: 1
+Last iteration time: 0.18750286102294922
+Average iteration time: 0.18750286102294922
+Current score: 12359236.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.3593778610229492
+Average iteration time: 0.3593778610229492
+Current score: 12359154.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:32:59.735972
+Phase 3 (using only swap_services) Report:
+Iteration count: 2
+Last iteration time: 0.09374618530273438
+Average iteration time: 0.2265620231628418
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.015630245208740234
+Average iteration time: 0.005210081736246745
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.0
+Average iteration time: 0.003907561302185059
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.0
+Average iteration time: 0.003126049041748047
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.0026050408681233725
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.015633344650268555
+Average iteration time: 0.0044662271227155406
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.003907948732376098
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.0
+Average iteration time: 0.003473732206556531
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.01562356948852539
+Average iteration time: 0.0046887159347534174
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.0
+Average iteration time: 0.004262469031594016
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 0.003907263278961182
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 0.003606704565194937
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 14
+Last iteration time: 0.0
+Average iteration time: 0.003349082810538156
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 15
+Last iteration time: 0.0
+Average iteration time: 0.0031258106231689454
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 16
+Last iteration time: 0.0
+Average iteration time: 0.0029304474592208862
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 17
+Last iteration time: 0.0
+Average iteration time: 0.0027580681969137755
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.002604842185974121
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 0.0024677452288175885
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 20
+Last iteration time: 0.0
+Average iteration time: 0.002344357967376709
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.01562786102294922
+Average iteration time: 0.002976905731927781
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.0028415918350219727
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.0027180443639340606
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.0
+Average iteration time: 0.002604792515436808
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.002500600814819336
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.0
+Average iteration time: 0.0024044238604032076
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.0023153711248327185
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.0
+Average iteration time: 0.0022326792989458355
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.0021556903576028757
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.0020838340123494467
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.0020166135603381743
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.001953594386577606
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.015622854232788086
+Average iteration time: 0.002367814381917318
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.0022981727824491613
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.002232510702950614
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.0
+Average iteration time: 0.0021704965167575413
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.002111834448737067
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.0020562598579808287
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0
+Average iteration time: 0.00200353524623773
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.0019534468650817868
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:33:02.126599
+Phase 4 (routing operators) Report:
+Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.0019534468650817868
+Current score: 12359154.0
+
+
+Local search report:
+Iteration count: 10 iterations
+Last iteration time: 19.93749451637268 seconds
+Iteration average time: 35.719096922874456 seconds
+Current score: 12359154.0
+
+Phase 1 ended! Current time: 2026-08-09 01:33:02.126599
+Phase 1 Report:
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359154.0
+
+
+Phase 2 (only move_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.10937619209289551
+Average iteration time: 0.10937619209289551
+Current score: 12359154.0
+
+
+Phase 2 (only move_services) ended! Current time: 2026-08-09 01:33:04.282854
+Phase 2 (only move_services) Report:
+Iteration count: 1
+Last iteration time: 0.10937619209289551
+Average iteration time: 0.10937619209289551
+Current score: 12359154.0
+
+
+Phase 3 (using only swap_services) mid-report:
+Iteration count: 1
+Last iteration time: 0.09375238418579102
+Average iteration time: 0.09375238418579102
+Current score: 12359154.0
+
+
+Phase 3 (using only swap_services) ended! Current time: 2026-08-09 01:33:19.720351
+Phase 3 (using only swap_services) Report:
+Iteration count: 1
+Last iteration time: 0.09375238418579102
+Average iteration time: 0.09375238418579102
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) mid-report:
+Current day: 0
+Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 0 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 1
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 1 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 2
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 2 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 3
+Last iteration time: 0.0
+Average iteration time: 0.0
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 3 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 4
+Last iteration time: 0.0156252384185791
+Average iteration time: 0.003906309604644775
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 4 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 5
+Last iteration time: 0.0
+Average iteration time: 0.0031250476837158202
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 7 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 6
+Last iteration time: 0.0
+Average iteration time: 0.002604206403096517
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 8 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 7
+Last iteration time: 0.0
+Average iteration time: 0.0022321769169398715
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 9 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 8
+Last iteration time: 0.0
+Average iteration time: 0.0019531548023223877
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 10 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 9
+Last iteration time: 0.015624523162841797
+Average iteration time: 0.003472195731268989
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 11 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 10
+Last iteration time: 0.0
+Average iteration time: 0.00312497615814209
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 14 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 11
+Last iteration time: 0.0
+Average iteration time: 0.002840887416492809
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 15 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 12
+Last iteration time: 0.0
+Average iteration time: 0.0026041467984517417
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 16 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 13
+Last iteration time: 0.0
+Average iteration time: 0.0024038278139554537
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 17 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 14
+Last iteration time: 0.0
+Average iteration time: 0.00223212582724435
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 18 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 15
+Last iteration time: 0.0
+Average iteration time: 0.0020833174387613934
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 21 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 16
+Last iteration time: 0.0
+Average iteration time: 0.0019531100988388064
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 22 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 17
+Last iteration time: 0.0
+Average iteration time: 0.0018382212694953472
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 23 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 18
+Last iteration time: 0.0
+Average iteration time: 0.0017360978656344945
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 24 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 19
+Last iteration time: 0.0
+Average iteration time: 0.0016447242937589947
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 25 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 20
+Last iteration time: 0.0
+Average iteration time: 0.001562488079071045
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 28 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 21
+Last iteration time: 0.0
+Average iteration time: 0.0014880838848295667
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 29 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 22
+Last iteration time: 0.0
+Average iteration time: 0.0014204437082464044
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 30 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 23
+Last iteration time: 0.0
+Average iteration time: 0.0013586852861487348
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 31 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 24
+Last iteration time: 0.0
+Average iteration time: 0.0013020733992258708
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 32 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 25
+Last iteration time: 0.0
+Average iteration time: 0.001249990463256836
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 35 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 26
+Last iteration time: 0.01562786102294922
+Average iteration time: 0.001802985484783466
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 36 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 27
+Last iteration time: 0.0
+Average iteration time: 0.0017362082446063006
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 37 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 28
+Last iteration time: 0.0
+Average iteration time: 0.0016742008072989328
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 38 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 29
+Last iteration time: 0.0
+Average iteration time: 0.00161646974497828
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 39 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 30
+Last iteration time: 0.0
+Average iteration time: 0.0015625874201456705
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 42 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 31
+Last iteration time: 0.0
+Average iteration time: 0.00151218137433452
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 43 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 32
+Last iteration time: 0.0
+Average iteration time: 0.0014649257063865662
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 44 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 33
+Last iteration time: 0.0
+Average iteration time: 0.001420534018314246
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 45 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 34
+Last iteration time: 0.0
+Average iteration time: 0.0013787536060108857
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 46 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 35
+Last iteration time: 0.0
+Average iteration time: 0.0013393606458391462
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 49 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 36
+Last iteration time: 0.0
+Average iteration time: 0.0013021561834547254
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 50 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 37
+Last iteration time: 0.0
+Average iteration time: 0.0012669627730910842
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 51 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 38
+Last iteration time: 0.0
+Average iteration time: 0.0012336216474834241
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 52 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 39
+Last iteration time: 0.0
+Average iteration time: 0.0012019903231889773
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) day 53 ended!
+Phase 4 (routing operators) day report:
+Current Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.001171940565109253
+Current score: 12359154.0
+
+
+Phase 4 (routing operators) ended! Current time: 2026-08-09 01:33:22.001603
+Phase 4 (routing operators) Report:
+Iteration count: 40
+Last iteration time: 0.0
+Average iteration time: 0.001171940565109253
+Current score: 12359154.0
+
+
+Local search report:
+Iteration count: 11 iterations
+Last iteration time: 19.875003814697266 seconds
+Iteration average time: 34.278724822131075 seconds
+Current score: 12359154.0
+
+Local search ended after 11 iterations.
+Last iteration time: 19.875003814697266 seconds
+Iteration average time: 34.278724822131075 seconds
+Original score: 61910847.0
+Current score: 12359154.0
+
+----- MARKER - SOLUTION PRINTED BELOW -------
+
+Day 0, number of edges 32, number of routes 2
+
+	Edges:
+
+	Edge: 394 <--> 63 	 Freq: 56.0 	 Demand: 408
+	Edge: 63 <--> 64 	 Freq: 56.0 	 Demand: 2448
+	Edge: 366 <--> 367 	 Freq: 56.0 	 Demand: 408
+	Edge: 413 <--> 366 	 Freq: 56.0 	 Demand: 204
+	Edge: 145 <--> 413 	 Freq: 56.0 	 Demand: 612
+	Edge: 145 <--> 146 	 Freq: 56.0 	 Demand: 1224
+	Edge: 143 <--> 145 	 Freq: 56.0 	 Demand: 1632
+	Edge: 12 <--> 156 	 Freq: 56.0 	 Demand: 204
+	Edge: 156 <--> 422 	 Freq: 56.0 	 Demand: 320
+	Edge: 11 <--> 12 	 Freq: 56.0 	 Demand: 3924
+	Edge: 10 <--> 11 	 Freq: 56.0 	 Demand: 1836
+	Edge: 157 <--> 10 	 Freq: 56.0 	 Demand: 204
+	Edge: 138 <--> 139 	 Freq: 56.0 	 Demand: 204
+	Edge: 369 <--> 398 	 Freq: 56.0 	 Demand: 204
+	Edge: 140 <--> 397 	 Freq: 56.0 	 Demand: 204
+	Edge: 364 <--> 397 	 Freq: 56.0 	 Demand: 612
+	Edge: 363 <--> 364 	 Freq: 56.0 	 Demand: 320
+	Edge: 183 <--> 184 	 Freq: 56.0 	 Demand: 204
+	Edge: 183 <--> 186 	 Freq: 56.0 	 Demand: 204
+	Edge: 453 <--> 456 	 Freq: 56.0 	 Demand: 3060
+	Edge: 293 <--> 294 	 Freq: 56.0 	 Demand: 204
+	Edge: 380 <--> 130 	 Freq: 56.0 	 Demand: 408
+	Edge: 130 <--> 131 	 Freq: 56.0 	 Demand: 204
+	Edge: 367 <--> 364 	 Freq: 56.0 	 Demand: 1428
+	Edge: 134 <--> 65 	 Freq: 56.0 	 Demand: 612
+	Edge: 70 <--> 66 	 Freq: 56.0 	 Demand: 204
+	Edge: 318 <--> 316 	 Freq: 56.0 	 Demand: 204
+	Edge: 316 <--> 60 	 Freq: 56.0 	 Demand: 408
+	Edge: 120 <--> 368 	 Freq: 56.0 	 Demand: 612
+	Edge: 9 <--> 121 	 Freq: 56.0 	 Demand: 408
+	Edge: 139 <--> 398 	 Freq: 56.0 	 Demand: 204
+	Edge: 384 <--> 294 	 Freq: 56.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (10373.0) and demand (11792)
+	Edge: 139 <--> 398 	 Freq: 56.0 	 Demand: 204
+	Edge: 138 <--> 139 	 Freq: 56.0 	 Demand: 204
+	Edge: 140 <--> 397 	 Freq: 56.0 	 Demand: 204
+	Edge: 364 <--> 397 	 Freq: 56.0 	 Demand: 612
+	Edge: 183 <--> 184 	 Freq: 56.0 	 Demand: 204
+	Edge: 183 <--> 186 	 Freq: 56.0 	 Demand: 204
+	Edge: 318 <--> 316 	 Freq: 56.0 	 Demand: 204
+	Edge: 316 <--> 60 	 Freq: 56.0 	 Demand: 408
+	Edge: 453 <--> 456 	 Freq: 56.0 	 Demand: 3060
+	Edge: 157 <--> 10 	 Freq: 56.0 	 Demand: 204
+	Edge: 10 <--> 11 	 Freq: 56.0 	 Demand: 1836
+	Edge: 11 <--> 12 	 Freq: 56.0 	 Demand: 3924
+	Edge: 12 <--> 156 	 Freq: 56.0 	 Demand: 204
+	Edge: 156 <--> 422 	 Freq: 56.0 	 Demand: 320
+	Route: 2
+	Route length (5240.0) and demand (11744)
+	Edge: 130 <--> 131 	 Freq: 56.0 	 Demand: 204
+	Edge: 380 <--> 130 	 Freq: 56.0 	 Demand: 408
+	Edge: 384 <--> 294 	 Freq: 56.0 	 Demand: 204
+	Edge: 293 <--> 294 	 Freq: 56.0 	 Demand: 204
+	Edge: 63 <--> 64 	 Freq: 56.0 	 Demand: 2448
+	Edge: 394 <--> 63 	 Freq: 56.0 	 Demand: 408
+	Edge: 134 <--> 65 	 Freq: 56.0 	 Demand: 612
+	Edge: 70 <--> 66 	 Freq: 56.0 	 Demand: 204
+	Edge: 367 <--> 364 	 Freq: 56.0 	 Demand: 1428
+	Edge: 366 <--> 367 	 Freq: 56.0 	 Demand: 408
+	Edge: 413 <--> 366 	 Freq: 56.0 	 Demand: 204
+	Edge: 145 <--> 146 	 Freq: 56.0 	 Demand: 1224
+	Edge: 143 <--> 145 	 Freq: 56.0 	 Demand: 1632
+	Edge: 145 <--> 413 	 Freq: 56.0 	 Demand: 612
+	Edge: 363 <--> 364 	 Freq: 56.0 	 Demand: 320
+	Edge: 369 <--> 398 	 Freq: 56.0 	 Demand: 204
+	Edge: 120 <--> 368 	 Freq: 56.0 	 Demand: 612
+	Edge: 9 <--> 121 	 Freq: 56.0 	 Demand: 408
+
+Day 1, number of edges 36, number of routes 2
+
+	Edges:
+
+	Edge: 443 <--> 444 	 Freq: 56.0 	 Demand: 204
+	Edge: 436 <--> 444 	 Freq: 56.0 	 Demand: 3876
+	Edge: 451 <--> 436 	 Freq: 56.0 	 Demand: 204
+	Edge: 451 <--> 343 	 Freq: 56.0 	 Demand: 204
+	Edge: 435 <--> 436 	 Freq: 56.0 	 Demand: 2856
+	Edge: 405 <--> 404 	 Freq: 56.0 	 Demand: 612
+	Edge: 404 <--> 69 	 Freq: 56.0 	 Demand: 408
+	Edge: 69 <--> 402 	 Freq: 56.0 	 Demand: 612
+	Edge: 429 <--> 434 	 Freq: 56.0 	 Demand: 408
+	Edge: 428 <--> 429 	 Freq: 56.0 	 Demand: 204
+	Edge: 448 <--> 449 	 Freq: 56.0 	 Demand: 612
+	Edge: 449 <--> 450 	 Freq: 56.0 	 Demand: 408
+	Edge: 238 <--> 239 	 Freq: 56.0 	 Demand: 1020
+	Edge: 234 <--> 88 	 Freq: 56.0 	 Demand: 204
+	Edge: 480 <--> 481 	 Freq: 56.0 	 Demand: 848
+	Edge: 257 <--> 480 	 Freq: 56.0 	 Demand: 204
+	Edge: 14 <--> 257 	 Freq: 56.0 	 Demand: 408
+	Edge: 277 <--> 331 	 Freq: 56.0 	 Demand: 204
+	Edge: 473 <--> 471 	 Freq: 56.0 	 Demand: 204
+	Edge: 472 <--> 473 	 Freq: 56.0 	 Demand: 408
+	Edge: 360 <--> 472 	 Freq: 56.0 	 Demand: 204
+	Edge: 438 <--> 439 	 Freq: 56.0 	 Demand: 612
+	Edge: 435 <--> 438 	 Freq: 56.0 	 Demand: 1020
+	Edge: 430 <--> 435 	 Freq: 56.0 	 Demand: 320
+	Edge: 99 <--> 28 	 Freq: 56.0 	 Demand: 204
+	Edge: 375 <--> 376 	 Freq: 56.0 	 Demand: 408
+	Edge: 331 <--> 62 	 Freq: 56.0 	 Demand: 1224
+	Edge: 28 <--> 29 	 Freq: 56.0 	 Demand: 612
+	Edge: 327 <--> 333 	 Freq: 56.0 	 Demand: 204
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+	Edge: 331 <--> 198 	 Freq: 56.0 	 Demand: 204
+	Edge: 328 <--> 329 	 Freq: 56.0 	 Demand: 816
+	Edge: 407 <--> 400 	 Freq: 56.0 	 Demand: 408
+	Edge: 242 <--> 471 	 Freq: 56.0 	 Demand: 1632
+
+	Routes:
+
+	Route: 1
+	Route length (10061.0) and demand (10640)
+	Edge: 360 <--> 472 	 Freq: 56.0 	 Demand: 204
+	Edge: 472 <--> 473 	 Freq: 56.0 	 Demand: 408
+	Edge: 473 <--> 471 	 Freq: 56.0 	 Demand: 204
+	Edge: 242 <--> 471 	 Freq: 56.0 	 Demand: 1632
+	Edge: 234 <--> 88 	 Freq: 56.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 238 <--> 239 	 Freq: 56.0 	 Demand: 1020
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 14 <--> 257 	 Freq: 56.0 	 Demand: 408
+	Edge: 257 <--> 480 	 Freq: 56.0 	 Demand: 204
+	Edge: 480 <--> 481 	 Freq: 56.0 	 Demand: 848
+	Edge: 99 <--> 28 	 Freq: 56.0 	 Demand: 204
+	Edge: 28 <--> 29 	 Freq: 56.0 	 Demand: 612
+	Edge: 327 <--> 333 	 Freq: 56.0 	 Demand: 204
+	Edge: 331 <--> 62 	 Freq: 56.0 	 Demand: 1224
+	Edge: 331 <--> 198 	 Freq: 56.0 	 Demand: 204
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+	Edge: 407 <--> 400 	 Freq: 56.0 	 Demand: 408
+	Edge: 405 <--> 404 	 Freq: 56.0 	 Demand: 612
+	Edge: 404 <--> 69 	 Freq: 56.0 	 Demand: 408
+	Edge: 69 <--> 402 	 Freq: 56.0 	 Demand: 612
+	Edge: 375 <--> 376 	 Freq: 56.0 	 Demand: 408
+	Route: 2
+	Route length (8391.0) and demand (11948)
+	Edge: 328 <--> 329 	 Freq: 56.0 	 Demand: 816
+	Edge: 277 <--> 331 	 Freq: 56.0 	 Demand: 204
+	Edge: 448 <--> 449 	 Freq: 56.0 	 Demand: 612
+	Edge: 449 <--> 450 	 Freq: 56.0 	 Demand: 408
+	Edge: 443 <--> 444 	 Freq: 56.0 	 Demand: 204
+	Edge: 436 <--> 444 	 Freq: 56.0 	 Demand: 3876
+	Edge: 451 <--> 343 	 Freq: 56.0 	 Demand: 204
+	Edge: 451 <--> 436 	 Freq: 56.0 	 Demand: 204
+	Edge: 435 <--> 436 	 Freq: 56.0 	 Demand: 2856
+	Edge: 435 <--> 438 	 Freq: 56.0 	 Demand: 1020
+	Edge: 438 <--> 439 	 Freq: 56.0 	 Demand: 612
+	Edge: 430 <--> 435 	 Freq: 56.0 	 Demand: 320
+	Edge: 429 <--> 434 	 Freq: 56.0 	 Demand: 408
+	Edge: 428 <--> 429 	 Freq: 56.0 	 Demand: 204
+
+Day 2, number of edges 30, number of routes 3
+
+	Edges:
+
+	Edge: 68 <--> 402 	 Freq: 56.0 	 Demand: 408
+	Edge: 403 <--> 401 	 Freq: 56.0 	 Demand: 204
+	Edge: 402 <--> 403 	 Freq: 56.0 	 Demand: 816
+	Edge: 202 <--> 200 	 Freq: 56.0 	 Demand: 204
+	Edge: 202 <--> 445 	 Freq: 56.0 	 Demand: 408
+	Edge: 450 <--> 445 	 Freq: 56.0 	 Demand: 1020
+	Edge: 200 <--> 201 	 Freq: 56.0 	 Demand: 2768
+	Edge: 432 <--> 433 	 Freq: 56.0 	 Demand: 1020
+	Edge: 432 <--> 430 	 Freq: 56.0 	 Demand: 204
+	Edge: 430 <--> 431 	 Freq: 56.0 	 Demand: 1428
+	Edge: 276 <--> 379 	 Freq: 56.0 	 Demand: 1428
+	Edge: 126 <--> 380 	 Freq: 56.0 	 Demand: 1020
+	Edge: 276 <--> 126 	 Freq: 56.0 	 Demand: 1428
+	Edge: 114 <--> 115 	 Freq: 56.0 	 Demand: 612
+	Edge: 359 <--> 114 	 Freq: 56.0 	 Demand: 1224
+	Edge: 62 <--> 424 	 Freq: 56.0 	 Demand: 204
+	Edge: 424 <--> 157 	 Freq: 56.0 	 Demand: 408
+	Edge: 440 <--> 435 	 Freq: 56.0 	 Demand: 204
+	Edge: 112 <--> 113 	 Freq: 56.0 	 Demand: 2652
+	Edge: 235 <--> 474 	 Freq: 56.0 	 Demand: 204
+	Edge: 465 <--> 219 	 Freq: 56.0 	 Demand: 816
+	Edge: 123 <--> 229 	 Freq: 56.0 	 Demand: 1224
+	Edge: 441 <--> 344 	 Freq: 56.0 	 Demand: 1340
+	Edge: 140 <--> 138 	 Freq: 56.0 	 Demand: 1020
+	Edge: 456 <--> 206 	 Freq: 56.0 	 Demand: 612
+	Edge: 130 <--> 382 	 Freq: 56.0 	 Demand: 816
+	Edge: 379 <--> 127 	 Freq: 56.0 	 Demand: 204
+	Edge: 114 <--> 110 	 Freq: 56.0 	 Demand: 1224
+	Edge: 223 <--> 224 	 Freq: 56.0 	 Demand: 2448
+	Edge: 310 <--> 309 	 Freq: 56.0 	 Demand: 612
+
+	Routes:
+
+	Route: 1
+	Route length (8633.0) and demand (11860)
+	Edge: 403 <--> 401 	 Freq: 56.0 	 Demand: 204
+	Edge: 402 <--> 403 	 Freq: 56.0 	 Demand: 816
+	Edge: 68 <--> 402 	 Freq: 56.0 	 Demand: 408
+	Edge: 310 <--> 309 	 Freq: 56.0 	 Demand: 612
+	Edge: 62 <--> 424 	 Freq: 56.0 	 Demand: 204
+	Edge: 424 <--> 157 	 Freq: 56.0 	 Demand: 408
+	Edge: 456 <--> 206 	 Freq: 56.0 	 Demand: 612
+	Edge: 432 <--> 433 	 Freq: 56.0 	 Demand: 1020
+	Edge: 432 <--> 430 	 Freq: 56.0 	 Demand: 204
+	Edge: 430 <--> 431 	 Freq: 56.0 	 Demand: 1428
+	Edge: 440 <--> 435 	 Freq: 56.0 	 Demand: 204
+	Edge: 450 <--> 445 	 Freq: 56.0 	 Demand: 1020
+	Edge: 202 <--> 445 	 Freq: 56.0 	 Demand: 408
+	Edge: 202 <--> 200 	 Freq: 56.0 	 Demand: 204
+	Edge: 200 <--> 201 	 Freq: 56.0 	 Demand: 2768
+	Edge: 441 <--> 344 	 Freq: 56.0 	 Demand: 1340
+	Route: 2
+	Route length (2446.0) and demand (4896)
+	Edge: 379 <--> 127 	 Freq: 56.0 	 Demand: 204
+	Edge: 276 <--> 379 	 Freq: 56.0 	 Demand: 1428
+	Edge: 276 <--> 126 	 Freq: 56.0 	 Demand: 1428
+	Edge: 126 <--> 380 	 Freq: 56.0 	 Demand: 1020
+	Edge: 130 <--> 382 	 Freq: 56.0 	 Demand: 816
+	Route: 3
+	Route length (7860.0) and demand (11424)
+	Edge: 140 <--> 138 	 Freq: 56.0 	 Demand: 1020
+	Edge: 465 <--> 219 	 Freq: 56.0 	 Demand: 816
+	Edge: 123 <--> 229 	 Freq: 56.0 	 Demand: 1224
+	Edge: 235 <--> 474 	 Freq: 56.0 	 Demand: 204
+	Edge: 223 <--> 224 	 Freq: 56.0 	 Demand: 2448
+	Edge: 112 <--> 113 	 Freq: 56.0 	 Demand: 2652
+	Edge: 359 <--> 114 	 Freq: 56.0 	 Demand: 1224
+	Edge: 114 <--> 115 	 Freq: 56.0 	 Demand: 612
+	Edge: 114 <--> 110 	 Freq: 56.0 	 Demand: 1224
+
+Day 3, number of edges 18, number of routes 3
+
+	Edges:
+
+	Edge: 41 <--> 42 	 Freq: 56.0 	 Demand: 408
+	Edge: 41 <--> 43 	 Freq: 56.0 	 Demand: 612
+	Edge: 43 <--> 44 	 Freq: 56.0 	 Demand: 816
+	Edge: 478 <--> 43 	 Freq: 56.0 	 Demand: 1020
+	Edge: 477 <--> 478 	 Freq: 56.0 	 Demand: 1020
+	Edge: 392 <--> 388 	 Freq: 56.0 	 Demand: 1428
+	Edge: 387 <--> 388 	 Freq: 56.0 	 Demand: 1836
+	Edge: 388 <--> 389 	 Freq: 56.0 	 Demand: 4004
+	Edge: 382 <--> 377 	 Freq: 56.0 	 Demand: 612
+	Edge: 390 <--> 391 	 Freq: 56.0 	 Demand: 1224
+	Edge: 379 <--> 373 	 Freq: 56.0 	 Demand: 3468
+	Edge: 372 <--> 362 	 Freq: 56.0 	 Demand: 2040
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 142 <--> 143 	 Freq: 56.0 	 Demand: 1632
+	Edge: 381 <--> 382 	 Freq: 56.0 	 Demand: 816
+	Edge: 413 <--> 367 	 Freq: 56.0 	 Demand: 1632
+	Edge: 141 <--> 142 	 Freq: 56.0 	 Demand: 3792
+
+	Routes:
+
+	Route: 1
+	Route length (8706.0) and demand (11340)
+	Edge: 413 <--> 367 	 Freq: 56.0 	 Demand: 1632
+	Edge: 142 <--> 143 	 Freq: 56.0 	 Demand: 1632
+	Edge: 141 <--> 142 	 Freq: 56.0 	 Demand: 3792
+	Edge: 477 <--> 478 	 Freq: 56.0 	 Demand: 1020
+	Edge: 478 <--> 43 	 Freq: 56.0 	 Demand: 1020
+	Edge: 43 <--> 44 	 Freq: 56.0 	 Demand: 816
+	Edge: 41 <--> 43 	 Freq: 56.0 	 Demand: 612
+	Edge: 41 <--> 42 	 Freq: 56.0 	 Demand: 408
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Route: 2
+	Route length (2002.0) and demand (5508)
+	Edge: 372 <--> 362 	 Freq: 56.0 	 Demand: 2040
+	Edge: 379 <--> 373 	 Freq: 56.0 	 Demand: 3468
+	Route: 3
+	Route length (4453.0) and demand (9920)
+	Edge: 382 <--> 377 	 Freq: 56.0 	 Demand: 612
+	Edge: 381 <--> 382 	 Freq: 56.0 	 Demand: 816
+	Edge: 387 <--> 388 	 Freq: 56.0 	 Demand: 1836
+	Edge: 390 <--> 391 	 Freq: 56.0 	 Demand: 1224
+	Edge: 392 <--> 388 	 Freq: 56.0 	 Demand: 1428
+	Edge: 388 <--> 389 	 Freq: 56.0 	 Demand: 4004
+
+Day 4, number of edges 20, number of routes 3
+
+	Edges:
+
+	Edge: 418 <--> 414 	 Freq: 56.0 	 Demand: 1428
+	Edge: 414 <--> 415 	 Freq: 56.0 	 Demand: 612
+	Edge: 415 <--> 410 	 Freq: 56.0 	 Demand: 816
+	Edge: 252 <--> 134 	 Freq: 56.0 	 Demand: 408
+	Edge: 134 <--> 135 	 Freq: 56.0 	 Demand: 3580
+	Edge: 132 <--> 133 	 Freq: 56.0 	 Demand: 2040
+	Edge: 132 <--> 384 	 Freq: 56.0 	 Demand: 3656
+	Edge: 339 <--> 197 	 Freq: 56.0 	 Demand: 816
+	Edge: 197 <--> 195 	 Freq: 56.0 	 Demand: 1136
+	Edge: 339 <--> 340 	 Freq: 56.0 	 Demand: 408
+	Edge: 194 <--> 195 	 Freq: 56.0 	 Demand: 1020
+	Edge: 196 <--> 194 	 Freq: 56.0 	 Demand: 1020
+	Edge: 299 <--> 390 	 Freq: 56.0 	 Demand: 3876
+	Edge: 194 <--> 159 	 Freq: 56.0 	 Demand: 2040
+	Edge: 196 <--> 197 	 Freq: 56.0 	 Demand: 612
+	Edge: 419 <--> 418 	 Freq: 56.0 	 Demand: 1428
+	Edge: 412 <--> 410 	 Freq: 56.0 	 Demand: 2652
+	Edge: 254 <--> 132 	 Freq: 56.0 	 Demand: 204
+	Edge: 410 <--> 147 	 Freq: 56.0 	 Demand: 1224
+	Edge: 309 <--> 192 	 Freq: 56.0 	 Demand: 408
+
+	Routes:
+
+	Route: 1
+	Route length (4122.0) and demand (8160)
+	Edge: 410 <--> 147 	 Freq: 56.0 	 Demand: 1224
+	Edge: 412 <--> 410 	 Freq: 56.0 	 Demand: 2652
+	Edge: 415 <--> 410 	 Freq: 56.0 	 Demand: 816
+	Edge: 414 <--> 415 	 Freq: 56.0 	 Demand: 612
+	Edge: 418 <--> 414 	 Freq: 56.0 	 Demand: 1428
+	Edge: 419 <--> 418 	 Freq: 56.0 	 Demand: 1428
+	Route: 2
+	Route length (3744.0) and demand (9776)
+	Edge: 254 <--> 132 	 Freq: 56.0 	 Demand: 204
+	Edge: 299 <--> 390 	 Freq: 56.0 	 Demand: 3876
+	Edge: 132 <--> 384 	 Freq: 56.0 	 Demand: 3656
+	Edge: 132 <--> 133 	 Freq: 56.0 	 Demand: 2040
+	Route: 3
+	Route length (6079.0) and demand (11448)
+	Edge: 252 <--> 134 	 Freq: 56.0 	 Demand: 408
+	Edge: 134 <--> 135 	 Freq: 56.0 	 Demand: 3580
+	Edge: 194 <--> 159 	 Freq: 56.0 	 Demand: 2040
+	Edge: 196 <--> 194 	 Freq: 56.0 	 Demand: 1020
+	Edge: 194 <--> 195 	 Freq: 56.0 	 Demand: 1020
+	Edge: 197 <--> 195 	 Freq: 56.0 	 Demand: 1136
+	Edge: 339 <--> 197 	 Freq: 56.0 	 Demand: 816
+	Edge: 339 <--> 340 	 Freq: 56.0 	 Demand: 408
+	Edge: 196 <--> 197 	 Freq: 56.0 	 Demand: 612
+	Edge: 309 <--> 192 	 Freq: 56.0 	 Demand: 408
+
+Day 5, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 6, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 7, number of edges 31, number of routes 2
+
+	Edges:
+
+	Edge: 113 <--> 359 	 Freq: 56.0 	 Demand: 612
+	Edge: 61 <--> 62 	 Freq: 56.0 	 Demand: 408
+	Edge: 59 <--> 61 	 Freq: 56.0 	 Demand: 408
+	Edge: 3 <--> 298 	 Freq: 56.0 	 Demand: 816
+	Edge: 3 <--> 385 	 Freq: 56.0 	 Demand: 1224
+	Edge: 298 <--> 301 	 Freq: 56.0 	 Demand: 1224
+	Edge: 299 <--> 3 	 Freq: 56.0 	 Demand: 408
+	Edge: 385 <--> 386 	 Freq: 56.0 	 Demand: 408
+	Edge: 454 <--> 455 	 Freq: 56.0 	 Demand: 1340
+	Edge: 454 <--> 443 	 Freq: 56.0 	 Demand: 1868
+	Edge: 152 <--> 285 	 Freq: 56.0 	 Demand: 816
+	Edge: 154 <--> 152 	 Freq: 56.0 	 Demand: 1224
+	Edge: 154 <--> 155 	 Freq: 56.0 	 Demand: 204
+	Edge: 325 <--> 154 	 Freq: 56.0 	 Demand: 408
+	Edge: 250 <--> 396 	 Freq: 56.0 	 Demand: 204
+	Edge: 396 <--> 290 	 Freq: 56.0 	 Demand: 204
+	Edge: 66 <--> 290 	 Freq: 56.0 	 Demand: 204
+	Edge: 70 <--> 397 	 Freq: 56.0 	 Demand: 728
+	Edge: 74 <--> 113 	 Freq: 56.0 	 Demand: 612
+	Edge: 113 <--> 72 	 Freq: 56.0 	 Demand: 2244
+	Edge: 71 <--> 72 	 Freq: 56.0 	 Demand: 2856
+	Edge: 59 <--> 60 	 Freq: 56.0 	 Demand: 204
+	Edge: 58 <--> 59 	 Freq: 56.0 	 Demand: 612
+	Edge: 277 <--> 61 	 Freq: 56.0 	 Demand: 816
+	Edge: 221 <--> 222 	 Freq: 56.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 121 <--> 292 	 Freq: 56.0 	 Demand: 408
+	Edge: 139 <--> 292 	 Freq: 56.0 	 Demand: 408
+	Edge: 206 <--> 452 	 Freq: 56.0 	 Demand: 320
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (13124.0) and demand (11600)
+	Edge: 121 <--> 292 	 Freq: 56.0 	 Demand: 408
+	Edge: 66 <--> 290 	 Freq: 56.0 	 Demand: 204
+	Edge: 152 <--> 285 	 Freq: 56.0 	 Demand: 816
+	Edge: 154 <--> 152 	 Freq: 56.0 	 Demand: 1224
+	Edge: 154 <--> 155 	 Freq: 56.0 	 Demand: 204
+	Edge: 325 <--> 154 	 Freq: 56.0 	 Demand: 408
+	Edge: 277 <--> 61 	 Freq: 56.0 	 Demand: 816
+	Edge: 61 <--> 62 	 Freq: 56.0 	 Demand: 408
+	Edge: 59 <--> 61 	 Freq: 56.0 	 Demand: 408
+	Edge: 454 <--> 455 	 Freq: 56.0 	 Demand: 1340
+	Edge: 454 <--> 443 	 Freq: 56.0 	 Demand: 1868
+	Edge: 206 <--> 452 	 Freq: 56.0 	 Demand: 320
+	Edge: 59 <--> 60 	 Freq: 56.0 	 Demand: 204
+	Edge: 58 <--> 59 	 Freq: 56.0 	 Demand: 612
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 221 <--> 222 	 Freq: 56.0 	 Demand: 204
+	Edge: 250 <--> 396 	 Freq: 56.0 	 Demand: 204
+	Edge: 396 <--> 290 	 Freq: 56.0 	 Demand: 204
+	Edge: 70 <--> 397 	 Freq: 56.0 	 Demand: 728
+	Edge: 139 <--> 292 	 Freq: 56.0 	 Demand: 408
+	Route: 2
+	Route length (6080.0) and demand (10404)
+	Edge: 298 <--> 301 	 Freq: 56.0 	 Demand: 1224
+	Edge: 3 <--> 298 	 Freq: 56.0 	 Demand: 816
+	Edge: 3 <--> 385 	 Freq: 56.0 	 Demand: 1224
+	Edge: 385 <--> 386 	 Freq: 56.0 	 Demand: 408
+	Edge: 299 <--> 3 	 Freq: 56.0 	 Demand: 408
+	Edge: 71 <--> 72 	 Freq: 56.0 	 Demand: 2856
+	Edge: 113 <--> 72 	 Freq: 56.0 	 Demand: 2244
+	Edge: 113 <--> 359 	 Freq: 56.0 	 Demand: 612
+	Edge: 74 <--> 113 	 Freq: 56.0 	 Demand: 612
+
+Day 8, number of edges 17, number of routes 2
+
+	Edges:
+
+	Edge: 289 <--> 403 	 Freq: 56.0 	 Demand: 204
+	Edge: 204 <--> 202 	 Freq: 56.0 	 Demand: 3264
+	Edge: 232 <--> 81 	 Freq: 56.0 	 Demand: 204
+	Edge: 204 <--> 448 	 Freq: 56.0 	 Demand: 1428
+	Edge: 447 <--> 204 	 Freq: 56.0 	 Demand: 3584
+	Edge: 153 <--> 283 	 Freq: 56.0 	 Demand: 204
+	Edge: 76 <--> 13 	 Freq: 56.0 	 Demand: 612
+	Edge: 333 <--> 311 	 Freq: 56.0 	 Demand: 1632
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 140 <--> 291 	 Freq: 56.0 	 Demand: 816
+	Edge: 81 <--> 269 	 Freq: 56.0 	 Demand: 2448
+	Edge: 283 <--> 284 	 Freq: 56.0 	 Demand: 204
+	Edge: 143 <--> 144 	 Freq: 56.0 	 Demand: 2156
+	Edge: 289 <--> 67 	 Freq: 56.0 	 Demand: 1020
+	Edge: 246 <--> 142 	 Freq: 56.0 	 Demand: 1224
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (9146.0) and demand (7868)
+	Edge: 140 <--> 291 	 Freq: 56.0 	 Demand: 816
+	Edge: 143 <--> 144 	 Freq: 56.0 	 Demand: 2156
+	Edge: 246 <--> 142 	 Freq: 56.0 	 Demand: 1224
+	Edge: 76 <--> 13 	 Freq: 56.0 	 Demand: 612
+	Edge: 81 <--> 269 	 Freq: 56.0 	 Demand: 2448
+	Edge: 232 <--> 81 	 Freq: 56.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Route: 2
+	Route length (7346.0) and demand (11744)
+	Edge: 289 <--> 403 	 Freq: 56.0 	 Demand: 204
+	Edge: 289 <--> 67 	 Freq: 56.0 	 Demand: 1020
+	Edge: 283 <--> 284 	 Freq: 56.0 	 Demand: 204
+	Edge: 333 <--> 311 	 Freq: 56.0 	 Demand: 1632
+	Edge: 204 <--> 202 	 Freq: 56.0 	 Demand: 3264
+	Edge: 204 <--> 448 	 Freq: 56.0 	 Demand: 1428
+	Edge: 447 <--> 204 	 Freq: 56.0 	 Demand: 3584
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 153 <--> 283 	 Freq: 56.0 	 Demand: 204
+
+Day 9, number of edges 25, number of routes 2
+
+	Edges:
+
+	Edge: 409 <--> 364 	 Freq: 56.0 	 Demand: 1428
+	Edge: 400 <--> 401 	 Freq: 56.0 	 Demand: 2040
+	Edge: 192 <--> 193 	 Freq: 56.0 	 Demand: 1224
+	Edge: 219 <--> 470 	 Freq: 56.0 	 Demand: 2244
+	Edge: 128 <--> 377 	 Freq: 56.0 	 Demand: 816
+	Edge: 377 <--> 378 	 Freq: 56.0 	 Demand: 408
+	Edge: 373 <--> 128 	 Freq: 56.0 	 Demand: 728
+	Edge: 131 <--> 378 	 Freq: 56.0 	 Demand: 204
+	Edge: 476 <--> 46 	 Freq: 56.0 	 Demand: 204
+	Edge: 46 <--> 44 	 Freq: 56.0 	 Demand: 3468
+	Edge: 158 <--> 159 	 Freq: 56.0 	 Demand: 816
+	Edge: 159 <--> 338 	 Freq: 56.0 	 Demand: 2448
+	Edge: 338 <--> 427 	 Freq: 56.0 	 Demand: 204
+	Edge: 158 <--> 338 	 Freq: 56.0 	 Demand: 204
+	Edge: 147 <--> 409 	 Freq: 56.0 	 Demand: 1428
+	Edge: 147 <--> 148 	 Freq: 56.0 	 Demand: 1020
+	Edge: 67 <--> 286 	 Freq: 56.0 	 Demand: 204
+	Edge: 77 <--> 477 	 Freq: 56.0 	 Demand: 408
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 365 <--> 369 	 Freq: 56.0 	 Demand: 932
+	Edge: 406 <--> 405 	 Freq: 56.0 	 Demand: 204
+	Edge: 67 <--> 68 	 Freq: 56.0 	 Demand: 816
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 35 <--> 305 	 Freq: 56.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (9515.0) and demand (11948)
+	Edge: 365 <--> 369 	 Freq: 56.0 	 Demand: 932
+	Edge: 147 <--> 409 	 Freq: 56.0 	 Demand: 1428
+	Edge: 147 <--> 148 	 Freq: 56.0 	 Demand: 1020
+	Edge: 409 <--> 364 	 Freq: 56.0 	 Demand: 1428
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 219 <--> 470 	 Freq: 56.0 	 Demand: 2244
+	Edge: 77 <--> 477 	 Freq: 56.0 	 Demand: 408
+	Edge: 46 <--> 44 	 Freq: 56.0 	 Demand: 3468
+	Edge: 476 <--> 46 	 Freq: 56.0 	 Demand: 204
+	Edge: 35 <--> 305 	 Freq: 56.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Route: 2
+	Route length (5963.0) and demand (10316)
+	Edge: 67 <--> 68 	 Freq: 56.0 	 Demand: 816
+	Edge: 67 <--> 286 	 Freq: 56.0 	 Demand: 204
+	Edge: 192 <--> 193 	 Freq: 56.0 	 Demand: 1224
+	Edge: 158 <--> 338 	 Freq: 56.0 	 Demand: 204
+	Edge: 338 <--> 427 	 Freq: 56.0 	 Demand: 204
+	Edge: 159 <--> 338 	 Freq: 56.0 	 Demand: 2448
+	Edge: 158 <--> 159 	 Freq: 56.0 	 Demand: 816
+	Edge: 406 <--> 405 	 Freq: 56.0 	 Demand: 204
+	Edge: 400 <--> 401 	 Freq: 56.0 	 Demand: 2040
+	Edge: 373 <--> 128 	 Freq: 56.0 	 Demand: 728
+	Edge: 128 <--> 377 	 Freq: 56.0 	 Demand: 816
+	Edge: 377 <--> 378 	 Freq: 56.0 	 Demand: 408
+	Edge: 131 <--> 378 	 Freq: 56.0 	 Demand: 204
+
+Day 10, number of edges 26, number of routes 3
+
+	Edges:
+
+	Edge: 448 <--> 428 	 Freq: 56.0 	 Demand: 1340
+	Edge: 328 <--> 312 	 Freq: 56.0 	 Demand: 204
+	Edge: 359 <--> 109 	 Freq: 56.0 	 Demand: 612
+	Edge: 199 <--> 62 	 Freq: 56.0 	 Demand: 204
+	Edge: 267 <--> 268 	 Freq: 56.0 	 Demand: 408
+	Edge: 203 <--> 204 	 Freq: 56.0 	 Demand: 4216
+	Edge: 369 <--> 120 	 Freq: 56.0 	 Demand: 612
+	Edge: 219 <--> 220 	 Freq: 56.0 	 Demand: 1020
+	Edge: 330 <--> 341 	 Freq: 56.0 	 Demand: 612
+	Edge: 82 <--> 259 	 Freq: 56.0 	 Demand: 408
+	Edge: 264 <--> 265 	 Freq: 56.0 	 Demand: 408
+	Edge: 428 <--> 452 	 Freq: 56.0 	 Demand: 1664
+	Edge: 316 <--> 428 	 Freq: 56.0 	 Demand: 3608
+	Edge: 198 <--> 199 	 Freq: 56.0 	 Demand: 2244
+	Edge: 199 <--> 341 	 Freq: 56.0 	 Demand: 1836
+	Edge: 474 <--> 87 	 Freq: 56.0 	 Demand: 204
+	Edge: 493 <--> 483 	 Freq: 56.0 	 Demand: 408
+	Edge: 358 <--> 359 	 Freq: 56.0 	 Demand: 1952
+	Edge: 108 <--> 109 	 Freq: 56.0 	 Demand: 3264
+	Edge: 92 <--> 501 	 Freq: 56.0 	 Demand: 408
+	Edge: 273 <--> 274 	 Freq: 56.0 	 Demand: 1428
+	Edge: 292 <--> 291 	 Freq: 56.0 	 Demand: 408
+	Edge: 198 <--> 328 	 Freq: 56.0 	 Demand: 816
+	Edge: 291 <--> 66 	 Freq: 56.0 	 Demand: 408
+	Edge: 110 <--> 111 	 Freq: 56.0 	 Demand: 204
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (6822.0) and demand (11508)
+	Edge: 330 <--> 341 	 Freq: 56.0 	 Demand: 612
+	Edge: 199 <--> 341 	 Freq: 56.0 	 Demand: 1836
+	Edge: 199 <--> 62 	 Freq: 56.0 	 Demand: 204
+	Edge: 428 <--> 452 	 Freq: 56.0 	 Demand: 1664
+	Edge: 448 <--> 428 	 Freq: 56.0 	 Demand: 1340
+	Edge: 316 <--> 428 	 Freq: 56.0 	 Demand: 3608
+	Edge: 198 <--> 199 	 Freq: 56.0 	 Demand: 2244
+	Route: 2
+	Route length (11968.0) and demand (11560)
+	Edge: 292 <--> 291 	 Freq: 56.0 	 Demand: 408
+	Edge: 291 <--> 66 	 Freq: 56.0 	 Demand: 408
+	Edge: 328 <--> 312 	 Freq: 56.0 	 Demand: 204
+	Edge: 198 <--> 328 	 Freq: 56.0 	 Demand: 816
+	Edge: 203 <--> 204 	 Freq: 56.0 	 Demand: 4216
+	Edge: 273 <--> 274 	 Freq: 56.0 	 Demand: 1428
+	Edge: 493 <--> 483 	 Freq: 56.0 	 Demand: 408
+	Edge: 267 <--> 268 	 Freq: 56.0 	 Demand: 408
+	Edge: 264 <--> 265 	 Freq: 56.0 	 Demand: 408
+	Edge: 92 <--> 501 	 Freq: 56.0 	 Demand: 408
+	Edge: 82 <--> 259 	 Freq: 56.0 	 Demand: 408
+	Edge: 474 <--> 87 	 Freq: 56.0 	 Demand: 204
+	Edge: 219 <--> 220 	 Freq: 56.0 	 Demand: 1020
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 369 <--> 120 	 Freq: 56.0 	 Demand: 612
+	Route: 3
+	Route length (3562.0) and demand (6032)
+	Edge: 358 <--> 359 	 Freq: 56.0 	 Demand: 1952
+	Edge: 108 <--> 109 	 Freq: 56.0 	 Demand: 3264
+	Edge: 359 <--> 109 	 Freq: 56.0 	 Demand: 612
+	Edge: 110 <--> 111 	 Freq: 56.0 	 Demand: 204
+
+Day 11, number of edges 25, number of routes 2
+
+	Edges:
+
+	Edge: 418 <--> 416 	 Freq: 56.0 	 Demand: 612
+	Edge: 482 <--> 171 	 Freq: 56.0 	 Demand: 204
+	Edge: 353 <--> 352 	 Freq: 56.0 	 Demand: 612
+	Edge: 110 <--> 353 	 Freq: 56.0 	 Demand: 2856
+	Edge: 347 <--> 337 	 Freq: 56.0 	 Demand: 204
+	Edge: 337 <--> 336 	 Freq: 56.0 	 Demand: 204
+	Edge: 496 <--> 485 	 Freq: 56.0 	 Demand: 1020
+	Edge: 411 <--> 412 	 Freq: 56.0 	 Demand: 612
+	Edge: 163 <--> 164 	 Freq: 56.0 	 Demand: 204
+	Edge: 174 <--> 462 	 Freq: 56.0 	 Demand: 408
+	Edge: 462 <--> 458 	 Freq: 56.0 	 Demand: 3584
+	Edge: 396 <--> 70 	 Freq: 56.0 	 Demand: 1428
+	Edge: 179 <--> 442 	 Freq: 56.0 	 Demand: 408
+	Edge: 442 <--> 437 	 Freq: 56.0 	 Demand: 408
+	Edge: 178 <--> 460 	 Freq: 56.0 	 Demand: 612
+	Edge: 460 <--> 459 	 Freq: 56.0 	 Demand: 1632
+	Edge: 417 <--> 416 	 Freq: 56.0 	 Demand: 1836
+	Edge: 416 <--> 415 	 Freq: 56.0 	 Demand: 2244
+	Edge: 93 <--> 270 	 Freq: 56.0 	 Demand: 204
+	Edge: 461 <--> 16 	 Freq: 56.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 56.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 120 <--> 121 	 Freq: 56.0 	 Demand: 1224
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (5607.0) and demand (10404)
+	Edge: 347 <--> 337 	 Freq: 56.0 	 Demand: 204
+	Edge: 337 <--> 336 	 Freq: 56.0 	 Demand: 204
+	Edge: 110 <--> 353 	 Freq: 56.0 	 Demand: 2856
+	Edge: 353 <--> 352 	 Freq: 56.0 	 Demand: 612
+	Edge: 411 <--> 412 	 Freq: 56.0 	 Demand: 612
+	Edge: 417 <--> 416 	 Freq: 56.0 	 Demand: 1836
+	Edge: 418 <--> 416 	 Freq: 56.0 	 Demand: 612
+	Edge: 416 <--> 415 	 Freq: 56.0 	 Demand: 2244
+	Edge: 120 <--> 121 	 Freq: 56.0 	 Demand: 1224
+	Route: 2
+	Route length (12245.0) and demand (11540)
+	Edge: 396 <--> 70 	 Freq: 56.0 	 Demand: 1428
+	Edge: 461 <--> 16 	 Freq: 56.0 	 Demand: 204
+	Edge: 462 <--> 458 	 Freq: 56.0 	 Demand: 3584
+	Edge: 174 <--> 462 	 Freq: 56.0 	 Demand: 408
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 178 <--> 460 	 Freq: 56.0 	 Demand: 612
+	Edge: 460 <--> 459 	 Freq: 56.0 	 Demand: 1632
+	Edge: 442 <--> 437 	 Freq: 56.0 	 Demand: 408
+	Edge: 179 <--> 442 	 Freq: 56.0 	 Demand: 408
+	Edge: 93 <--> 270 	 Freq: 56.0 	 Demand: 204
+	Edge: 163 <--> 164 	 Freq: 56.0 	 Demand: 204
+	Edge: 482 <--> 171 	 Freq: 56.0 	 Demand: 204
+	Edge: 496 <--> 485 	 Freq: 56.0 	 Demand: 1020
+	Edge: 79 <--> 500 	 Freq: 56.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+
+Day 12, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 13, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 14, number of edges 14, number of routes 2
+
+	Edges:
+
+	Edge: 269 <--> 173 	 Freq: 56.0 	 Demand: 612
+	Edge: 320 <--> 203 	 Freq: 56.0 	 Demand: 408
+	Edge: 319 <--> 424 	 Freq: 56.0 	 Demand: 1544
+	Edge: 424 <--> 342 	 Freq: 56.0 	 Demand: 2448
+	Edge: 127 <--> 128 	 Freq: 56.0 	 Demand: 3468
+	Edge: 446 <--> 451 	 Freq: 56.0 	 Demand: 2856
+	Edge: 318 <--> 448 	 Freq: 56.0 	 Demand: 3968
+	Edge: 230 <--> 83 	 Freq: 56.0 	 Demand: 1836
+	Edge: 231 <--> 80 	 Freq: 56.0 	 Demand: 204
+	Edge: 447 <--> 441 	 Freq: 56.0 	 Demand: 204
+	Edge: 85 <--> 494 	 Freq: 56.0 	 Demand: 1428
+	Edge: 89 <--> 257 	 Freq: 56.0 	 Demand: 1632
+	Edge: 127 <--> 380 	 Freq: 56.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 56.0 	 Demand: 1224
+
+	Routes:
+
+	Route: 1
+	Route length (9014.0) and demand (10608)
+	Edge: 225 <--> 226 	 Freq: 56.0 	 Demand: 1224
+	Edge: 231 <--> 80 	 Freq: 56.0 	 Demand: 204
+	Edge: 230 <--> 83 	 Freq: 56.0 	 Demand: 1836
+	Edge: 85 <--> 494 	 Freq: 56.0 	 Demand: 1428
+	Edge: 269 <--> 173 	 Freq: 56.0 	 Demand: 612
+	Edge: 89 <--> 257 	 Freq: 56.0 	 Demand: 1632
+	Edge: 127 <--> 380 	 Freq: 56.0 	 Demand: 204
+	Edge: 127 <--> 128 	 Freq: 56.0 	 Demand: 3468
+	Route: 2
+	Route length (7793.0) and demand (11428)
+	Edge: 320 <--> 203 	 Freq: 56.0 	 Demand: 408
+	Edge: 447 <--> 441 	 Freq: 56.0 	 Demand: 204
+	Edge: 446 <--> 451 	 Freq: 56.0 	 Demand: 2856
+	Edge: 318 <--> 448 	 Freq: 56.0 	 Demand: 3968
+	Edge: 319 <--> 424 	 Freq: 56.0 	 Demand: 1544
+	Edge: 424 <--> 342 	 Freq: 56.0 	 Demand: 2448
+
+Day 15, number of edges 17, number of routes 2
+
+	Edges:
+
+	Edge: 320 <--> 447 	 Freq: 56.0 	 Demand: 3468
+	Edge: 96 <--> 354 	 Freq: 56.0 	 Demand: 204
+	Edge: 332 <--> 339 	 Freq: 56.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 56.0 	 Demand: 1428
+	Edge: 314 <--> 335 	 Freq: 56.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 56.0 	 Demand: 204
+	Edge: 99 <--> 482 	 Freq: 56.0 	 Demand: 1020
+	Edge: 247 <--> 366 	 Freq: 56.0 	 Demand: 1632
+	Edge: 195 <--> 427 	 Freq: 56.0 	 Demand: 1340
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 340 <--> 423 	 Freq: 56.0 	 Demand: 3744
+
+	Routes:
+
+	Route: 1
+	Route length (6525.0) and demand (5492)
+	Edge: 195 <--> 427 	 Freq: 56.0 	 Demand: 1340
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 340 <--> 423 	 Freq: 56.0 	 Demand: 3744
+	Edge: 332 <--> 339 	 Freq: 56.0 	 Demand: 204
+	Route: 2
+	Route length (13742.0) and demand (9384)
+	Edge: 314 <--> 335 	 Freq: 56.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 56.0 	 Demand: 1428
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 99 <--> 482 	 Freq: 56.0 	 Demand: 1020
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 354 	 Freq: 56.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 56.0 	 Demand: 204
+	Edge: 320 <--> 447 	 Freq: 56.0 	 Demand: 3468
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 247 <--> 366 	 Freq: 56.0 	 Demand: 1632
+
+Day 16, number of edges 3, number of routes 1
+
+	Edges:
+
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (6952.0) and demand (612)
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+
+Day 17, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 18, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 19, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 20, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 21, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 22, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3495.0) and demand (204)
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 23, number of edges 11, number of routes 1
+
+	Edges:
+
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (14572.0) and demand (2652)
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+
+Day 24, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 25, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3058.0) and demand (204)
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+Day 26, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 27, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 28, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3436.0) and demand (204)
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 29, number of edges 3, number of routes 1
+
+	Edges:
+
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (8426.0) and demand (612)
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+
+Day 30, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3740.0) and demand (204)
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+Day 31, number of edges 5, number of routes 1
+
+	Edges:
+
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (11078.0) and demand (1020)
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+
+Day 32, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 33, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 34, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 35, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (5320.0) and demand (204)
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+
+Day 36, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (6001.0) and demand (204)
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+
+Day 37, number of edges 2, number of routes 1
+
+	Edges:
+
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (5337.0) and demand (408)
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+Day 38, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3495.0) and demand (204)
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 39, number of edges 13, number of routes 1
+
+	Edges:
+
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (16332.0) and demand (3060)
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 88 <--> 237 	 Freq: 14.0 	 Demand: 204
+	Edge: 237 <--> 238 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+
+Day 40, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 41, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 42, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3740.0) and demand (204)
+	Edge: 136 <--> 137 	 Freq: 14.0 	 Demand: 204
+
+Day 43, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 44, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3436.0) and demand (204)
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 45, number of edges 3, number of routes 1
+
+	Edges:
+
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (8426.0) and demand (612)
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 463 <--> 317 	 Freq: 14.0 	 Demand: 204
+	Edge: 19 <--> 24 	 Freq: 14.0 	 Demand: 204
+
+Day 46, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 47, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 48, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 49, number of edges 3, number of routes 1
+
+	Edges:
+
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (8216.0) and demand (612)
+	Edge: 154 <--> 152 	 Freq: 14.0 	 Demand: 204
+	Edge: 49 <--> 468 	 Freq: 14.0 	 Demand: 204
+	Edge: 370 <--> 371 	 Freq: 14.0 	 Demand: 204
+
+Day 50, number of edges 1, number of routes 1
+
+	Edges:
+
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (3058.0) and demand (204)
+	Edge: 247 <--> 366 	 Freq: 14.0 	 Demand: 204
+
+Day 51, number of edges 4, number of routes 1
+
+	Edges:
+
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (10150.0) and demand (1020)
+	Edge: 11 <--> 12 	 Freq: 14.0 	 Demand: 204
+	Edge: 177 <--> 178 	 Freq: 14.0 	 Demand: 204
+	Edge: 124 <--> 49 	 Freq: 14.0 	 Demand: 204
+	Edge: 225 <--> 226 	 Freq: 14.0 	 Demand: 408
+
+Day 52, number of edges 5, number of routes 1
+
+	Edges:
+
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+
+	Routes:
+
+	Route: 1
+	Route length (10303.0) and demand (1020)
+	Edge: 227 <--> 228 	 Freq: 14.0 	 Demand: 204
+	Edge: 86 <--> 493 	 Freq: 14.0 	 Demand: 204
+	Edge: 191 <--> 100 	 Freq: 14.0 	 Demand: 204
+	Edge: 179 <--> 442 	 Freq: 14.0 	 Demand: 204
+	Edge: 442 <--> 437 	 Freq: 14.0 	 Demand: 204
+
+Day 53, number of edges 5, number of routes 1
+
+	Edges:
+
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+
+	Routes:
+
+	Route: 1
+	Route length (10021.0) and demand (1224)
+	Edge: 79 <--> 500 	 Freq: 14.0 	 Demand: 408
+	Edge: 494 <--> 484 	 Freq: 14.0 	 Demand: 204
+	Edge: 96 <--> 95 	 Freq: 14.0 	 Demand: 204
+	Edge: 149 <--> 150 	 Freq: 14.0 	 Demand: 204
+	Edge: 351 <--> 150 	 Freq: 14.0 	 Demand: 204
+
+Day 54, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+Day 55, number of edges 0, number of routes 0
+
+	Edges:
+
+
+	Routes:
+
+
+----- MARKER - SOLUTION PRINTED ABOVE -------
+
+Printing greedy algorithm time to avoid scrolling or ctrl+f
+Greedy algorithm time: 0:00:00.474185 seconds
+LS time: 0:06:17.066017
+Greedy algorithm score: 61910847.0
+LS return score: 12359154.0
+Final solution score: 12359154.0
+Maximum routes among all days: 3
+Minimum routes among all days: 0
+
+Penalties count:
+Overloaded route count: 0
+Irregular services count: 0
+Irregular spacing count: 18
